@@ -7,7 +7,7 @@
 @section('body')
 {{-- @includeWhen($pagetype == 'content', 'patial.mainmenu') --}}
 {{-- Header --}}
-<div class="bg-max-primary py-2 text-white text-sm font-bold">
+<div class="bg-max-primary py-2 text-white text-sm font-bold relative z-20">
 	<div class="container mx-auto flex justify-between px-2 sm:px-0">
 		<div class="flex items-center">
 			<div class="pr-4 mr-4 sm:border-r border-grey text-base">CALL NOW: <a class="no-underline text-teal-light" href="tel:+27119181800">+27 (011) 918 1800</a></div>
@@ -18,7 +18,7 @@
 		</div>
 	</div>
 </div>
-<div class="bg-white py-4">
+<div class="bg-white py-4 relative z-20">
 	<div class="container mx-auto flex items-center bg-white px-2 pt-2 sm:px-0">
 		<div class="mr-4">
 			<a href="/" class="no-underline" title="Homepage"><img class="w-48" src="images/max-renew-logo.svg" alt=""></a>
@@ -36,17 +36,92 @@
 	</div>
 </div>
 <div class="bg-white border-t border-b border-grey-light">
-	<div class="container mx-auto flex items-center -mb-px sm:px-0">
-		<a href="#" class="text-base text-white bg-teal flex items-center py-2 px-2 border-b border-teal-dark no-underline">Grey Water Systems</a>
-		<a href="#" class="text-base text-max-primary flex items-center py-2 px-2 hover:bg-grey-light hover:border-b hover:border-grey-dark no-underline">Rain Harvesting</a>
-		<a href="#" class="text-base text-max-primary flex items-center py-2 px-2 hover:bg-grey-light hover:border-b hover:border-grey-dark no-underline">Water Backup Solutions</a>
-		<a href="#" class="text-base text-max-primary flex items-center py-2 px-2 hover:bg-grey-light hover:border-b hover:border-grey-dark no-underline">Solar Water Heating</a>
-		<a href="#" class="text-base text-max-primary flex items-center py-2 px-2 hover:bg-grey-light hover:border-b hover:border-grey-dark no-underline">Solar Street Lighting</a>
-		<a href="#" class="text-base text-max-primary flex items-center py-2 px-2 hover:bg-grey-light hover:border-b hover:border-grey-dark no-underline">Off-Grid Solar Solutions</a>
-		<a href="#" class="text-base text-max-primary flex items-center py-2 px-2 hover:bg-grey-light hover:border-b hover:border-grey-dark no-underline">Low Energy Pumps</a>
-		<a href="#" class="text-base text-max-primary flex items-center py-2 px-2 hover:bg-grey-light hover:border-b hover:border-grey-dark no-underline">Water Storage Tanks</a>
-		<a href="#" class="text-base text-max-primary flex items-center py-2 px-2 hover:bg-grey-light hover:border-b hover:border-grey-dark no-underline">Solar Panels</a>
-		<a href="#" class="text-base text-max-primary flex items-center py-2 px-2 hover:bg-grey-light hover:border-b hover:border-grey-dark no-underline">Inverters</a>
+	<div id="nav" class="container relative z-20 mx-auto flex items-stretch -mt-px sm:px-0">
+		<div class="menu text-base flex">
+			<a href="#" class="text-max-primary hover:border-b hover:border-grey-dark no-underline py-2 px-2">Grey Water Systems</a>
+			<div class="submenu absolute bg-white min-w-full shadow-lg">
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">Mr Grey Mini</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">Mr Grey Basic</a>
+			</div>
+		</div>
+		<div class="menu text-base flex">
+			<a href="#" class="text-max-primary hover:border-b hover:border-grey-dark no-underline py-2 px-2">Rain Harvesting</a>
+			<div class="submenu absolute bg-white min-w-full shadow-lg">
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR 600 Backup</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR 950 Backup</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR 2200 Backup</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR 3000 Backup</a>
+				
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">Mr Advanced</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">Mr Ultra</a>
+			</div>
+		</div>
+		<div class="menu text-base flex">
+			<a href="#" class="text-max-primary hover:border-b hover:border-grey-dark no-underline py-2 px-2">Water Backup Solutions</a>
+			<div class="submenu absolute bg-white min-w-full shadow-lg">
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR 1200 E.SY MINI BACKUP</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR 600 E.SY BACKUP</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR SMART 82M 0.6KW</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR SMART 0.37KW</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR E.SY 1.1KW</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR E.SY MINI 0.75KW</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR E.SY WALL</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR SMART 82M 0.6KW</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR SMART 0.37KW</a>
+			</div>
+		</div>
+		<div class="menu text-base flex">
+			<a href="#" class="text-max-primary hover:border-b hover:border-grey-dark no-underline py-2 px-2">Solar Water Heating</a>
+			<div class="submenu absolute bg-white min-w-full shadow-lg">
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR 100TD</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR 150TD</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR 200TD</a>
+
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR 150FPD</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR 200FPD</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR 300FPD</a>
+
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR 150FPID</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR 200FPID</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR 300FPID</a>
+
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR PV DC</a>
+			</div>
+		</div>
+		<div class="menu text-base flex">
+			<a href="#" class="text-max-primary hover:border-b hover:border-grey-dark no-underline py-2 px-2">Solar Street Lighting</a>
+			<div class="submenu absolute bg-white min-w-full shadow-lg">
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MAX SUCURELITE 32W</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MAX SUCURELITE 42W</a>
+			</div>
+		</div>
+		<div class="menu text-base flex">
+			<a href="#" class="text-max-primary hover:border-b hover:border-grey-dark no-underline py-2 px-2">Off-Grid Solar Solutions</a>
+			<div class="submenu absolute bg-white min-w-full shadow-lg">
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR IPS 3kW</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR IPS 12kW</a>
+			</div>
+		</div>
+		<div class="menu text-base flex">
+			<a href="#" class="text-max-primary hover:border-b hover:border-grey-dark no-underline py-2 px-2">Low Energy Pumps</a>
+			<div class="submenu absolute bg-white min-w-full shadow-lg">
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR SWIM 0.75KW</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR SWIM 0.33KW</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR SWIM 0.50KW</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">MR SWIM 1.10KW</a>
+			</div>
+		</div>
+		<div class="menu text-base flex">
+			<a href="#" class="text-max-primary hover:border-b hover:border-grey-dark no-underline py-2 px-2">Parts and Acccessories</a>
+			<div class="submenu absolute bg-white min-w-full shadow-lg">
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">Menu item 1</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">Menu item 2</a>
+				<a href="#" class="block py-1 text-max-primary hover:text-max-secondary whitespace-no-wrap no-underline">Menu item 3</a>
+			</div>
+		</div>
+	</div>
+	<div class="menuscreen z-10 hidden absolute pin bg-max-primary opacity-75">
+		
 	</div>
 </div>
 <div class="container mx-auto pb-8">

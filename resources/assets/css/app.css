@@ -1,6 +1,23 @@
 @tailwind preflight;
 
-/* Add components here... */
+@import "components/navigation";
+
+#nav .menu .submenu{
+	display: none;
+}
+#nav:hover{
+	@apply .bg-grey-light;
+}
+#nav:hover + div.menuscreen{
+	@apply .block;
+}
+#nav .menu:hover{
+	@apply .bg-white;
+}
+#nav .menu:hover .submenu{
+	@apply .block .px-2 .pb-2 .pin-x;
+	top: 100%;
+}
 
 @tailwind utilities;
 
