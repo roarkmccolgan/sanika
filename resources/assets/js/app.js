@@ -12,6 +12,9 @@ window.Vue = require('vue');
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import faSearch from '@fortawesome/fontawesome-pro-regular/faSearch'
 import faShoppingCart from '@fortawesome/fontawesome-pro-regular/faShoppingCart'
+import faMousePointer from '@fortawesome/fontawesome-pro-regular/faMousePointer'
+
+import {Tabs, Tab} from 'vue-tabs-component';
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -19,16 +22,20 @@ import faShoppingCart from '@fortawesome/fontawesome-pro-regular/faShoppingCart'
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('cart-component', require('./components/CartComponent.vue'));
+Vue.component('tabs', Tabs);
+Vue.component('tab', Tab);
 
-const app = new Vue({
+const home = new Vue({
     el: '#app',
     data: {
-    	icons:{
-    		search: faSearch,
-    		cart: faShoppingCart,
-    	}
+        icons:{
+            search: faSearch,
+            cart: faShoppingCart,
+            mouse: faMousePointer,
+        }
     },
     components: {
-    	FontAwesomeIcon
+        FontAwesomeIcon,
     }
 });

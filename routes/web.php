@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'ShopController@getHome');
+Route::get('/categories/{category}', 'ShopController@getCategories');
+Route::get('/categories/{category}/{product}', 'ShopController@getProduct');
+
+Route::prefix('api')->group(function () {
+    Route::post('cart', 'CartController@addToCart');
 });

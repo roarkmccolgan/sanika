@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('partial.mainav', function($view){
+            $view->with('categories', Config::get('maxrenew.categories'));
+        });
+        view()->composer('partial.cart', function($view){
+            $view->with('cart', session('cart', []));
+        });
     }
 
     /**

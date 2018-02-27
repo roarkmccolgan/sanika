@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}" class="h-full">
 <head>
 @section('head')
     <meta charset="utf-8">
@@ -10,8 +10,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 @show
 </head>
-<body class="bg-grey-lighter font-sans antialiased text-grey-darkest leading-tight">
-<div id="app">
+<body class="bg-grey-lighter font-sans antialiased text-grey-darkest leading-tight h-full">
+<div id="app" class="flex flex-col h-full">
     @yield('body')
 </div>
 @stack('scripts')
