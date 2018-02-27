@@ -21,7 +21,7 @@ return [
 					'name' => 'Mr Grey Mini',
 					'alias' => 'mr_grey_mini',
 					'sku' => '',
-					'price' => 1500000,
+					'price' => 15000,
 					'payoff' => '',
 					'description' => 'I hunt, time the with performed by she all to company, on we the continues big initial the of matters equally of at the that to by man accounts found what little had out know a film the legs in it the it cheerful, issues presented. Ever desk solider, film',
 					'specs' => [
@@ -44,7 +44,7 @@ return [
 					'name' => 'Mr Grey Basic',
 					'alias' => 'mr_grey_basic',
 					'sku' => 'mr_grey_basic',
-					'price' => 1500000,
+					'price' => 15000,
 					'payoff' => '',
 					'description' => 'Cooperator deceleration the mouth. There matters to and illustrated done what\'s felt to the cache to at carpeting city, supplies but pervasively for a his know funny of frequency with furnished into. First promptness at you that joke. Opposite time felt rome',
 					'specs' => [
@@ -85,7 +85,7 @@ return [
 					'name' => 'MR600 Harvest',
 					'alias' => 'mr_600_harvest',
 					'sku' => '',
-					'price' => 28215000,
+					'price' => 282150,
 					'payoff' => '',
 					'description' => 'Sad. Own great reasoning discipline is of provide the hollow the might studies true, small of like all let\'s the respond in bits of rationale unable you which to he for himself sort for only this grant not got my it throughout.',
 					'specs' => [
@@ -108,7 +108,7 @@ return [
 					'name' => 'MR950 Harvest',
 					'alias' => 'mr_950_harvest',
 					'sku' => '',
-					'price' => 36315000,
+					'price' => 363150,
 					'payoff' => '',
 					'description' => 'Sad. Own great reasoning discipline is of provide the hollow the might studies true, small of like all let\'s the respond in bits of rationale unable you which to he for himself sort for only this grant not got my it throughout.',
 					'specs' => [
@@ -131,7 +131,7 @@ return [
 					'name' => 'MR2200 Harvest',
 					'alias' => 'mr_2200_harvest',
 					'sku' => '',
-					'price' => 66555000,
+					'price' => 665550,
 					'payoff' => '',
 					'description' => 'Sad. Own great reasoning discipline is of provide the hollow the might studies true, small of like all let\'s the respond in bits of rationale unable you which to he for himself sort for only this grant not got my it throughout.',
 					'specs' => [
@@ -154,7 +154,7 @@ return [
 					'name' => 'MR3000 Harvest',
 					'alias' => 'mr_3000_harvest',
 					'sku' => '',
-					'price' => 98752500,
+					'price' => 987525,
 					'payoff' => '',
 					'description' => 'Sad. Own great reasoning discipline is of provide the hollow the might studies true, small of like all let\'s the respond in bits of rationale unable you which to he for himself sort for only this grant not got my it throughout.',
 					'specs' => [
@@ -177,7 +177,7 @@ return [
 					'name' => 'Mr Advanced',
 					'alias' => 'mr_advanced',
 					'sku' => '',
-					'price' => 15055200,
+					'price' => 150552,
 					'payoff' => '',
 					'description' => 'Sad. Own great reasoning discipline is of provide the hollow the might studies true, small of like all let\'s the respond in bits of rationale unable you which to he for himself sort for only this grant not got my it throughout.',
 					'specs' => [
@@ -200,7 +200,7 @@ return [
 					'name' => 'Mr Ultra',
 					'alias' => 'mr_ultra',
 					'sku' => '',
-					'price' => 9574200,
+					'price' => 95742,
 					'payoff' => '',
 					'description' => 'Sad. Own great reasoning discipline is of provide the hollow the might studies true, small of like all let\'s the respond in bits of rationale unable you which to he for himself sort for only this grant not got my it throughout.',
 					'specs' => [
@@ -242,7 +242,7 @@ return [
 					'name' => 'Mr Smart 0.37kw',
 					'alias' => 'mr_smart_037',
 					'sku' => '',
-					'price' => 14175000,
+					'price' => 141750,
 					'payoff' => '',
 					'description' => 'Sad. Own great reasoning discipline is of provide the hollow the might studies true, small of like all let\'s the respond in bits of rationale unable you which to he for himself sort for only this grant not got my it throughout.',
 					'specs' => [
@@ -265,7 +265,7 @@ return [
 					'name' => 'Mr Smart 82m 0.6kw',
 					'alias' => 'mr_smart_82_06',
 					'sku' => '',
-					'price' => 22234500,
+					'price' => 222345,
 					'payoff' => '',
 					'description' => 'Sad. Own great reasoning discipline is of provide the hollow the might studies true, small of like all let\'s the respond in bits of rationale unable you which to he for himself sort for only this grant not got my it throughout.',
 					'specs' => [
@@ -288,7 +288,7 @@ return [
 					'name' => 'Mr E.SY Wall',
 					'alias' => 'mr_esy_wall',
 					'sku' => '',
-					'price' => 5670000,
+					'price' => 56700,
 					'payoff' => '',
 					'description' => 'Sad. Own great reasoning discipline is of provide the hollow the might studies true, small of like all let\'s the respond in bits of rationale unable you which to he for himself sort for only this grant not got my it throughout.',
 					'specs' => [
@@ -311,7 +311,7 @@ return [
 					'name' => 'Mr E.SY Mini 0.75kw',
 					'alias' => 'mr_esy_mini_075',
 					'sku' => '',
-					'price' => 56690600,
+					'price' => 566906,
 					'payoff' => '',
 					'description' => 'Sad. Own great reasoning discipline is of provide the hollow the might studies true, small of like all let\'s the respond in bits of rationale unable you which to he for himself sort for only this grant not got my it throughout.',
 					'specs' => [
@@ -334,7 +334,7 @@ return [
 					'name' => 'Mr E.SY Mini 1.1kw',
 					'alias' => 'mr_esy_11',
 					'sku' => '',
-					'price' => 110555600,
+					'price' => 1105556,
 					'payoff' => '',
 					'description' => 'Sad. Own great reasoning discipline is of provide the hollow the might studies true, small of like all let\'s the respond in bits of rationale unable you which to he for himself sort for only this grant not got my it throughout.',
 					'specs' => [
@@ -357,7 +357,7 @@ return [
 					'name' => 'Mr 600 E.SY Backup',
 					'alias' => 'mr_600_esy_backup',
 					'sku' => '',
-					'price' => 84905600,
+					'price' => 849056,
 					'payoff' => '',
 					'description' => 'Sad. Own great reasoning discipline is of provide the hollow the might studies true, small of like all let\'s the respond in bits of rationale unable you which to he for himself sort for only this grant not got my it throughout.',
 					'specs' => [
@@ -380,7 +380,7 @@ return [
 					'name' => 'Mr 1200 E.SY Mini Backup',
 					'alias' => 'mr_1200_esy_mini_backup',
 					'sku' => '',
-					'price' => 99215600,
+					'price' => 992156,
 					'payoff' => '',
 					'description' => 'Sad. Own great reasoning discipline is of provide the hollow the might studies true, small of like all let\'s the respond in bits of rationale unable you which to he for himself sort for only this grant not got my it throughout.',
 					'specs' => [
@@ -422,7 +422,7 @@ return [
 					'name' => 'Mr 100TD',
 					'alias' => 'mr_100td',
 					'sku' => '',
-					'price' => 95920000,
+					'price' => 959200,
 					'payoff' => '',
 					'description' => 'Long a always because dreams, offer, on. At of do is but finger. Good would of aside, on butter many synthesizers one-by-one, its a being and advised roasted it presentations. Particular with a in to other as move the hearing. Ago, almost the gilded skyline someone assignment.',
 					'specs' => [
@@ -445,7 +445,7 @@ return [
 					'name' => 'Mr 150TD',
 					'alias' => 'mr_150td',
 					'sku' => '',
-					'price' => 138984000,
+					'price' => 1389840,
 					'payoff' => '',
 					'description' => 'Long a always because dreams, offer, on. At of do is but finger. Good would of aside, on butter many synthesizers one-by-one, its a being and advised roasted it presentations. Particular with a in to other as move the hearing. Ago, almost the gilded skyline someone assignment.',
 					'specs' => [
@@ -468,7 +468,7 @@ return [
 					'name' => 'Mr 200TD',
 					'alias' => 'mr_200td',
 					'sku' => '',
-					'price' => 155484000,
+					'price' => 1554840,
 					'payoff' => '',
 					'description' => 'Long a always because dreams, offer, on. At of do is but finger. Good would of aside, on butter many synthesizers one-by-one, its a being and advised roasted it presentations. Particular with a in to other as move the hearing. Ago, almost the gilded skyline someone assignment.',
 					'specs' => [
@@ -491,7 +491,7 @@ return [
 					'name' => 'Mr 150FPD',
 					'alias' => 'mr_150fpd',
 					'sku' => '',
-					'price' => 124790000,
+					'price' => 1247900,
 					'payoff' => '',
 					'description' => 'Long a always because dreams, offer, on. At of do is but finger. Good would of aside, on butter many synthesizers one-by-one, its a being and advised roasted it presentations. Particular with a in to other as move the hearing. Ago, almost the gilded skyline someone assignment.',
 					'specs' => [
@@ -514,7 +514,7 @@ return [
 					'name' => 'Mr 200FPD',
 					'alias' => 'mr_200fpd',
 					'sku' => '',
-					'price' => 142480000,
+					'price' => 1424800,
 					'payoff' => '',
 					'description' => 'Long a always because dreams, offer, on. At of do is but finger. Good would of aside, on butter many synthesizers one-by-one, its a being and advised roasted it presentations. Particular with a in to other as move the hearing. Ago, almost the gilded skyline someone assignment.',
 					'specs' => [
@@ -537,7 +537,7 @@ return [
 					'name' => 'Mr 300FPD',
 					'alias' => 'mr_300fpd',
 					'sku' => '',
-					'price' => 227480000,
+					'price' => 2274800,
 					'payoff' => '',
 					'description' => 'Long a always because dreams, offer, on. At of do is but finger. Good would of aside, on butter many synthesizers one-by-one, its a being and advised roasted it presentations. Particular with a in to other as move the hearing. Ago, almost the gilded skyline someone assignment.',
 					'specs' => [
@@ -560,7 +560,7 @@ return [
 					'name' => 'Mr 150FPID',
 					'alias' => 'mr_150fpid',
 					'sku' => '',
-					'price' => 138890000,
+					'price' => 1388900,
 					'payoff' => '',
 					'description' => 'Long a always because dreams, offer, on. At of do is but finger. Good would of aside, on butter many synthesizers one-by-one, its a being and advised roasted it presentations. Particular with a in to other as move the hearing. Ago, almost the gilded skyline someone assignment.',
 					'specs' => [
@@ -583,7 +583,7 @@ return [
 					'name' => 'Mr 200FPID',
 					'alias' => 'mr_200fpid',
 					'sku' => '',
-					'price' => 159690000,
+					'price' => 1596900,
 					'payoff' => '',
 					'description' => 'Long a always because dreams, offer, on. At of do is but finger. Good would of aside, on butter many synthesizers one-by-one, its a being and advised roasted it presentations. Particular with a in to other as move the hearing. Ago, almost the gilded skyline someone assignment.',
 					'specs' => [
@@ -606,7 +606,7 @@ return [
 					'name' => 'Mr 300FPID',
 					'alias' => 'mr_300fpid',
 					'sku' => '',
-					'price' => 237970000,
+					'price' => 2379700,
 					'payoff' => '',
 					'description' => 'Long a always because dreams, offer, on. At of do is but finger. Good would of aside, on butter many synthesizers one-by-one, its a being and advised roasted it presentations. Particular with a in to other as move the hearing. Ago, almost the gilded skyline someone assignment.',
 					'specs' => [
@@ -647,7 +647,7 @@ return [
 					'name' => 'Max Sucurelite 32w',
 					'alias' => 'max_sucurelite_32w',
 					'sku' => '',
-					'price' => 1500000,
+					'price' => 15000,
 					'payoff' => '',
 					'description' => 'Had ill the eyes little business who are a founded, they of dreams, are long the up, college clear with the have small night, would what hundred is of a of better to no we concept were sufficiently explains the to remain it understand got I don\'t another, some propitiously than least may attempt.',
 					'specs' => [
@@ -670,7 +670,7 @@ return [
 					'name' => 'Max Sucurelite 42w',
 					'alias' => 'max_sucurelite_42w',
 					'sku' => '',
-					'price' => 1500000,
+					'price' => 15000,
 					'payoff' => '',
 					'description' => 'Had ill the eyes little business who are a founded, they of dreams, are long the up, college clear with the have small night, would what hundred is of a of better to no we concept were sufficiently explains the to remain it understand got I don\'t another, some propitiously than least may attempt.',
 					'specs' => [
@@ -712,7 +712,7 @@ return [
 					'name' => 'Mr IPS 3kw',
 					'alias' => 'mr_ips_3kw',
 					'sku' => '',
-					'price' => 1500000,
+					'price' => 15000,
 					'payoff' => '',
 					'description' => 'Their how best domed stands much so a treble-range wanted his of her such-like with more, presented was a understood. Cleaning position. Of with not he the of monstrous more writer is no left having down tend before longer certainly in reflection letters, object understanding.',
 					'specs' => [
@@ -735,7 +735,7 @@ return [
 					'name' => 'Mr IPS 12kw',
 					'alias' => 'mr_ips_12kw',
 					'sku' => '',
-					'price' => 1500000,
+					'price' => 15000,
 					'payoff' => '',
 					'description' => 'Their how best domed stands much so a treble-range wanted his of her such-like with more, presented was a understood. Cleaning position. Of with not he the of monstrous more writer is no left having down tend before longer certainly in reflection letters, object understanding.',
 					'specs' => [
@@ -777,7 +777,7 @@ return [
 					'name' => '',
 					'alias' => '',
 					'sku' => '',
-					'price' => 1500000,
+					'price' => 15000,
 					'payoff' => '',
 					'description' => '',
 					'specs' => [
@@ -818,7 +818,7 @@ return [
 					'name' => '',
 					'alias' => '',
 					'sku' => '',
-					'price' => 1500000,
+					'price' => 15000,
 					'payoff' => '',
 					'description' => '',
 					'specs' => [
