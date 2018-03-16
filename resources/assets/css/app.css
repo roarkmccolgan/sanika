@@ -1,5 +1,5 @@
 @import "vendor/navigation";
-@import "vendor/tabs-component";
+@import "vendor/tabs";
 @tailwind preflight;
 
 .ais-highlight em{

@@ -13,4 +13,8 @@ mix.js('resources/assets/js/app.js', 'public/js').version()
       }),
     ]
   })
-  .purgeCss()
+  .purgeCss({
+      globs: [
+            path.join(__dirname, 'node_modules/vue-tabs-component/**/*.vue'),
+        ],
+  })
