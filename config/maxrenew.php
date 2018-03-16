@@ -8,7 +8,9 @@ return [
 				This is a description for a category
 			',
 			'seo' => [
-				'description' => ''
+				'title' => '',
+				'description' => '',
+				'keywords' => [],
 			],
 			'images' => [
 				'tile'=>[
@@ -72,7 +74,9 @@ return [
 				This is a description for a category
 			',
 			'seo' => [
-				'description' => ''
+				'title' => '',
+				'description' => '',
+				'keywords' => [],
 			],
 			'images' => [
 				'tile'=>[
@@ -229,7 +233,9 @@ return [
 				This is a description for a category
 			',
 			'seo' => [
-				'description' => ''
+				'title' => '',
+				'description' => '',
+				'keywords' => [],
 			],
 			'images' => [
 				'tile'=>[
@@ -409,7 +415,9 @@ return [
 				This is a description for a category
 			',
 			'seo' => [
-				'description' => ''
+				'title' => '',
+				'description' => '',
+				'keywords' => [],
 			],
 			'images' => [
 				'tile'=>[
@@ -627,14 +635,16 @@ return [
 				],
 			]
 		],
-		'solar_street' => [
-			'alias' => 'solar_street',
-			'title' => 'Solar Street Lighting',
+		'solar_security' => [
+			'alias' => 'solar_security',
+			'title' => 'Solar Security Lighting',
 			'description' => '
 				This is a description for a category
 			',
 			'seo' => [
-				'description' => ''
+				'title' => '',
+				'description' => '',
+				'keywords' => [],
 			],
 			'images' => [
 				'tile'=>[
@@ -699,7 +709,9 @@ return [
 				This is a description for a category
 			',
 			'seo' => [
-				'description' => ''
+				'title' => '',
+				'description' => '',
+				'keywords' => [],
 			],
 			'images' => [
 				'tile'=>[
@@ -764,7 +776,9 @@ return [
 				This is a description for a category
 			',
 			'seo' => [
-				'description' => ''
+				'title' => '',
+				'description' => '',
+				'keywords' => [],
 			],
 			'images' => [
 				'tile'=>[
@@ -805,7 +819,9 @@ return [
 				This is a description for a category
 			',
 			'seo' => [
-				'description' => ''
+				'title' => '',
+				'description' => '',
+				'keywords' => [],
 			],
 			'images' => [
 				'tile'=>[

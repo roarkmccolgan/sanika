@@ -12,6 +12,9 @@
 </head>
 <body class="bg-grey-lighter font-sans antialiased text-grey-darkest leading-tight h-full">
 <div id="app" class="flex flex-col h-full">
+    @include('partial.pagetop')
+    @include('partial.search')
+    @include('partial.mainav')
     @yield('body')
 </div>
 @stack('scripts')

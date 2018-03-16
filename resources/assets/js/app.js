@@ -9,8 +9,12 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import InstantSearch from 'vue-instantsearch'
+import { createFromAlgoliaCredentials } from 'vue-instantsearch';
+
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import faSearch from '@fortawesome/fontawesome-pro-regular/faSearch'
+import faTimes from '@fortawesome/fontawesome-pro-regular/faTimes'
 import faShoppingCart from '@fortawesome/fontawesome-pro-regular/faShoppingCart'
 import faMousePointer from '@fortawesome/fontawesome-pro-regular/faMousePointer'
 
@@ -21,21 +25,29 @@ import {Tabs, Tab} from 'vue-tabs-component';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.use(InstantSearch);
+
+const searchStore = createFromAlgoliaCredentials('9PJ4YRKD8R', '70da05b28f4fcec86d4d4197851214af');
+searchStore.indexName = 'maxrenew';
+
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('cart-component', require('./components/CartComponent.vue'));
+var CartComponent = require('./components/CartComponent.vue');
 Vue.component('tabs', Tabs);
 Vue.component('tab', Tab);
 
 const home = new Vue({
     el: '#app',
     data: {
+        searchStore,
         icons:{
             search: faSearch,
+            times: faTimes,
             cart: faShoppingCart,
             mouse: faMousePointer,
         }
     },
     components: {
         FontAwesomeIcon,
+        CartComponent,
     }
 });

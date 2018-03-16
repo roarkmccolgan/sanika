@@ -8,7 +8,7 @@
 	@apply .block;
 }
 #nav .menu:hover{
-	@apply .bg-white;
+	@apply .bg-white .font-bold;
 }
 #nav .menu:hover .submenu{
 	@apply .block .px-2 .pb-2 .pin-x;

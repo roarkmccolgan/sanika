@@ -20,6 +20,7 @@
 			<div class="w-1/4">
 				<h5 class="text-lg font-normal mb-2">MY ACCOUNT</h5>
 				<div class="flex flex-col">
+					<a href="/login" class="no-underline text-white hover:text-max-primary">Login</a>
 					<a href="#" class="no-underline text-white hover:text-max-primary">Profile</a>
 					<a href="#" class="no-underline text-white hover:text-max-primary">Orders</a>
 				</div>

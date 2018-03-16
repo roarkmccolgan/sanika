@@ -2,6 +2,9 @@
 @import "vendor/tabs-component";
 @tailwind preflight;
 
+.ais-highlight em{
+	@apply text-max-secondary;
+}
 
 @tailwind utilities;
 
