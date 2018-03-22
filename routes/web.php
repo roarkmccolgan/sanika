@@ -31,4 +31,5 @@ Route::post('/productfrompdf', 'DataBaseController@productfrompdf');
 
 Route::prefix('api')->group(function () {
     Route::post('cart', 'CartController@addToCart');
+    Route::get('clearcart', 'CartController@clearCart');
 });

@@ -1,5 +1,5 @@
 <div class="bg-white border-t border-b border-grey-light">
-	<div id="nav" class="container relative z-20 mx-auto flex justify-between -mt-px sm:px-0">
+	<div id="nav" class="container relative z-30 mx-auto flex justify-between -mt-px sm:px-0">
 		@foreach($categories as $category)
 		<div class="menu text-base flex">
 			<a href="/categories/{{ $category->alias }}" class="text-max-primary hover:border-b hover:border-grey-dark no-underline py-2 px-2">{{ $category->name }}</a>
@@ -31,7 +31,7 @@
 		</div>
 		@endforeach
 	</div>
-	<div class="menuscreen z-10 hidden absolute pin bg-max-primary opacity-75">
+	<div class="menuscreen z-20 hidden absolute pin bg-max-primary opacity-75">
 		
 	</div>
 </div>

@@ -1,19 +1,21 @@
 .tabs-component {
-  @apply .m-4;
 }
 
 .tabs-component-tabs {
-  @apply .p-0 .border-grey .mb-2;
+  @apply .flex .items-stretch .justify-start .p-0 .border-grey .-mb-px;
 }
 
 @media (min-width: 700px) {
+  .tabs-component {
+    @apply .mx-2
+  }
   .tabs-component-tabs {
-    @apply .border-none .flex .items-stretch .justify-start .-mb-px;
+    
   }
 }
 
 .tabs-component-tab {
-  @apply .mr-0 .list-reset;
+  @apply .border .bg-white .mr-1 .list-reset .relative .z-0;
 }
 
 .tabs-component-tab:not(:last-child) {
@@ -25,7 +27,8 @@
 }
 
 .tabs-component-tab.is-active {
-  @apply .text-max-secondary;
+  @apply .text-max-secondary .z-10;
+  border-bottom: solid 1px #fff;
 }
 
 .tabs-component-tab.is-disabled * {
@@ -35,15 +38,14 @@
 
 @media (min-width: 700px) {
   .tabs-component-tab {
-    @apply .mr-4 .border .bg-white .relative;
-    z-index: 0;
+    @apply .mr-4 .border .bg-white .relative .z-0;
     transform: translateY(2px);
     transition: transform .3s ease;
   }
 
   .tabs-component-tab.is-active {
+    @apply .z-10;
     border-bottom: solid 1px #fff;
-    z-index: 4;
     transform: translateY(0);
   }
 }
@@ -56,7 +58,7 @@
 }
 
 .tabs-component-panels {
-  @apply .relative .p-6;
+  @apply .relative .p-6 .border-t .border-b .border-grey-light .bg-white .border-grey-light;
   z-index: 2;
 }
 

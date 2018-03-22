@@ -1,7 +1,7 @@
-<div class="bg-max-primary py-2 text-white text-sm font-bold relative z-20">
+<div class="bg-max-primary py-2 text-white text-sm font-bold relative z-30">
 	<div class="container mx-auto flex items-center justify-between px-2 sm:px-0">
 		<div class="flex items-center">
-			<div class="pr-4 mr-4 sm:border-r border-grey text-base">CALL NOW: <a class="no-underline text-teal-light" href="tel:+27119181800">+27 (011) 918 1800</a></div>
+			<div class="pr-4 mr-4 text-xs sm:border-r sm:text-base">CALL NOW: <a class="no-underline text-max-secondary" href="tel:+27119181800">+27 (011) 918 1800</a></div>
 			<div class="hidden sm:block">Frequently Asked Questions</div>
 		</div>
 		<div class="hidden sm:block">

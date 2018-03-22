@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class ShopController extends Controller
 {
+   
     public function getHome(){
         //DB::connection()->enableQueryLog();
         //$cats = Category::with(['products:alias,name','allSubCategories.products:alias,name'])->where('parent_id',null)->get();
@@ -27,7 +28,8 @@ class ShopController extends Controller
         $product = Product::where('alias',$product)->get();
         return view('product',compact(['product']));
     }
-    public function getProductOrCategory($tree = null){
+    public function getProductOrCategory(Request $request, $tree = null){
+        //return session('cart');
         if($tree){
             $path = explode('/', $tree);
             $last = last($path);
@@ -36,8 +38,12 @@ class ShopController extends Controller
                 return view('category',compact('category'));
             }
             $category = Category::with(['products'])->where('alias',$path[count($path)-2])->firstOrFail();
-            $product = Product::where('alias',$last)->firstOrFail();
-            
+            $product = Product::with('products')->where('alias',$last)->firstOrFail();
+            //return $product;
+            \JavaScript::put([
+                'product' => $product,
+                'cart' => session('cart'),
+            ]);
             return view('product',compact(['product','category']));
         }
         abort(404);

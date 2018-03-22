@@ -1,1 +1,1 @@
-<cart-component></cart-component>
+<cart-component :cart="cart" v-on:clear="clearCart"></cart-component>

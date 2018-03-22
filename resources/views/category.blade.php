@@ -12,26 +12,26 @@
 		<p>{{ $category['description'] }}</p>
 	</div>
 	<div class="flex flex-wrap -mx-2 mt-6 text-base">
-		@foreach($category['products'] as $prod => $product)
+		@foreach($category['products'] as $product)
 		<div class="w-1/2 p-2">
 			<div class="flex flex-wrap bg-white border shadow p-4">
 				<div class="w-1/3">
-					<a href="{{'/categories/'.$category['alias'].'/'.$prod}}" class="no-underline">
+					<a href="{{'/categories/'.$category['alias'].'/'.$product->alias}}" class="no-underline">
 						<img class="" src="/images/products/{{$product['images']['main']['name']}}" alt="">
 					</a>
 				</div>
 				<div class="w-2/3">
 					<div class="mx-4">
-						<a href="{{'/categories/'.$category['alias'].'/'.$prod}}" class="text-max-primary no-underline hover:text-max-secondary">
+						<a href="{{'/categories/'.$category['alias'].'/'.$product->alias}}" class="text-max-primary no-underline hover:text-max-secondary">
 							<h3 class="mb-2">{{$product['name']}}</h3>
 						</a>
 						<p class="mb-2">{{ str_limit($product['description'],80)}}</p>
 						<ul class="mb-4">
-							@foreach($product['specs'] as $spec)
-								<li>{{ $spec }}</li>
+							@foreach($product['features'] as $feature)
+								<li>{{ $feature->name }}</li>
 							@endforeach
 						</ul>
-						<a href="{{'/categories/'.$category['alias'].'/'.$prod}}" class="block text-right text-max-primary hover:text-max-secondary">
+						<a href="{{'/categories/'.$category['alias'].'/'.$product->alias}}" class="block text-right text-max-primary hover:text-max-secondary">
 							more&hellip;
 						</a>
 					</div>
