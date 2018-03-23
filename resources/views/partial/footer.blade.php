@@ -2,9 +2,9 @@
 	<div class="container mx-auto mb-6">
 		<div class="md:flex md:flex-wrap leading-normal">
 			<div class="p-2 md:w-1/4">
-				<h5 class="text-lg font-normal mb-2">CUSTOMER SERVICES</h5>
+				<h5 class="text-lg font-normal mb-2">OUR COMPANY</h5>
 				<div class="flex flex-col">
-					<a href="#" class="no-underline text-white hover:text-max-primary">Contact Us</a>
+					<a href="/contact" class="no-underline text-white hover:text-max-primary">Contact Us</a>
 					<a href="#" class="no-underline text-white hover:text-max-primary">FAQs</a>
 					<a href="#" class="no-underline text-white hover:text-max-primary">Warranties</a>
 				</div>

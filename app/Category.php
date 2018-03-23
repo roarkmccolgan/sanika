@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
 
-class Category extends Model
+class Category extends Model implements HasMedia
 {
+	use HasMediaTrait;
 	public $timestamps = false;
 
     protected $fillable = ['name','alias','description','parent_id'];

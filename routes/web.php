@@ -22,6 +22,9 @@ Route::get('/logout', 'Auth0Controller@logout');
 Route::get('/auth0/callback', '\Auth0\Login\Auth0Controller@callback');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/contact', function () {
+    return view('contact');
+});
 
 Route::get('/', 'ShopController@getHome');
 Route::get('/categories/{tree?}', 'ShopController@getProductOrCategory')->where('tree', '(.*)');
