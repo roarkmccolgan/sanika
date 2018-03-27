@@ -6,6 +6,7 @@ use App\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Horizon\Horizon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,11 @@ class AppServiceProvider extends ServiceProvider
             $user = $isLoggedIn ? Auth::user()->getUserInfo() : false;
             $view->with(compact(['isLoggedIn','user']));
         });
+
+        Horizon::auth(function ($request) {
+            return true;
+        });
+
     }
 
     /**
