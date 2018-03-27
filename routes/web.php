@@ -1,7 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Log;
+use App\Category;
+use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,11 +45,25 @@ Route::get('/media/category/{category}/{file}', function($category, $file){
 	
 	return 'success';
 });
-Route::get('/media/product{product}/{file}', function($product, $file){
+Route::get('/media/product/{product}/{file}', function($product, $file){
 	$prod = \App\Product::find($product);
 	$prod->addMedia(storage_path('source_images/'.$file))->preservingOriginal()->toMediaCollection('title');
 	
 	return 'success';
+});
+
+Route::get('/listcategories', function(){
+	$categories = Category::with(['products','allSubCategories.products'])->orderBy('order')->where('parent_id',null)->get();
+	return $categories;
+});
+
+Route::get('/testmail', function(){
+	$order = Order::with('items')->find(9);
+	
+	Mail::to('roarkmccolgan@gmail.com')
+	->send(new App\Mail\SendOrder($order));
+
+    return (new App\Mail\SendOrder($order))->render();
 });
 
 Route::get('/user/{user}', 'UserController@search');

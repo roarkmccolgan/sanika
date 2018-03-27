@@ -16,5 +16,7 @@ class Order extends Model
     	return $this->hasMany('App\OrderItem');
     }
 
-
+    public function contact(){
+    	return $this->hasOne('App\Contact', 'user_id', 'user_id');
+    }
 }

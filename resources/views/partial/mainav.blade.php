@@ -3,30 +3,54 @@
 		@foreach($categories as $category)
 		<div class="menu text-base flex border-l">
 			<a href="/categories/{{ $category->alias }}" class="font-medium text-max-primary no-underline py-4 px-2">{{ $category->name }}</a>
-			<div class="submenu absolute bg-white min-w-full p-2 border border-grey-dark border-t-0">
-				@if(!$category['all_sub_categories'])
-					@foreach($category['products'] as $product)
-					<a href="/categories/{{ $category->alias }}/{{ $product->alias }}" class="block py-1 px-2 font-bold text-max-primary hover:text-max-secondary hover:bg-grey-lighter whitespace-no-wrap no-underline">{{ $product->name }}</a>
-					@endforeach
-				@else
-					@foreach($category['all_sub_categories'] as $subCategory)
-						<div title="{{ $subCategory->name }}">
-						@if(!$subCategory['all_sub_categories'])
-							@foreach($subCategory['products'] as $product)
-							<a href="/categories/{{ $category->alias }}/{{ $subCategory->alias }}/{{ $product->alias }}" class="block py-1 px-2 font-bold text-max-primary hover:text-max-secondary hover:bg-grey-lighter whitespace-no-wrap no-underline">{{ $product->name }}</a>
+			<div class="submenu absolute bg-white min-w-full p-2 pt-4 border border-grey-dark border-t-0">
+				<div class="flex flex-wrap -mx-4">
+					@if(!count($category->allSubCategories))
+						<div class="px-4">
+							<div class="text-sm uppercase text-grey pb-4 border-b mb-2">{{$category->name}}</div>
+							@foreach($category['products'] as $product)
+								<a href="/categories/{{ $category->alias }}/{{ $product->alias }}" class="flex items-center py-1 px-2 font-bold text-max-primary hover:text-max-secondary hover:bg-grey-lighter whitespace-no-wrap no-underline">
+									@if($product->hasMedia('title'))
+									<img src="{{ $product->getFirstMediaURL('title','thumb') }}" alt="{{ $product->name }}" class="block mr-1 w-10 h-10">
+									@endif
+									{{ $product->name }}
+								</a>
 							@endforeach
-						@else
-							@foreach($subCategory['all_sub_categories'] as $subSubCategory)
-							<div title="{{ $subSubCategory->name }}">
-								@foreach($subSubCategory['products'] as $product)
-								<a href="/categories/{{ $category->alias }}/{{ $subCategory->alias }}/{{ $subSubCategory->alias }}/{{ $product->alias }}" class="block py-1 px-2 font-bold text-max-primary hover:text-max-secondary hover:bg-grey-lighter whitespace-no-wrap no-underline">{{ $product->name }}</a>
-								@endforeach
-							</div>
-							@endforeach
-						@endif
 						</div>
-					@endforeach
-				@endif
+					@else
+						@foreach($category->allSubCategories as $subCategory)
+							<div class="px-4">
+								<div class="text-sm uppercase text-grey pb-4 border-b mb-2">{{$subCategory->name}}</div>
+								@if(!count($subCategory->allSubCategories))
+									@foreach($subCategory['products'] as $product)
+										<a href="/categories/{{ $category->alias }}/{{ $product->alias }}" class="flex items-center py-1 px-2 font-bold text-max-primary hover:text-max-secondary hover:bg-grey-lighter whitespace-no-wrap no-underline">
+											@if($product->hasMedia('title'))
+											<img src="{{ $product->getFirstMediaURL('title','thumb') }}" alt="{{ $product->name }}" class="block mr-1 w-10 h-10">
+											@endif
+											{{ $product->name }}
+										</a>
+									@endforeach
+								@else
+									@foreach($subCategory->allSubCategories as $subSubCategory)
+									<div class="flex flex-wrap -mx-4" title="{{ $subSubCategory->name }}">
+										<div class="px-4">
+											@foreach($subSubCategory['products'] as $product)
+												<a href="/categories/{{ $category->alias }}/{{ $product->alias }}" class="flex items-center py-1 px-2 font-bold text-max-primary hover:text-max-secondary hover:bg-grey-lighter whitespace-no-wrap no-underline">
+													@if($product->hasMedia('title'))
+													<img src="{{ $product->getFirstMediaURL('title','thumb') }}" alt="{{ $product->name }}" class="block mr-1 w-10 h-10">
+													@endif
+													{{ $product->name }}
+												</a>
+											@endforeach
+										</div>
+									</div>
+									@endforeach
+								@endif
+							</div>
+						@endforeach
+						
+					@endif
+				</div>
 			</div>
 		</div>
 		@endforeach

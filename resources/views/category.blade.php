@@ -9,7 +9,9 @@
 <div class="container flex-1 mx-auto pb-8">
 	<div class="mt-4 p-4 category md:flex md:-mx-2">
 		<div class="md:w-1/3 px-2">
+			@if($category->hasMedia('title'))
 			<img src="{{ $category->getFirstMediaUrl('title', 'category') }}" alt="Image of {{ $category['name'] }}">
+			@endif
 		</div>
 		<div class="md:w-2/3 px-2">
 			<h1 class="mb-2">{{ $category['name'] }}</h1>
@@ -25,7 +27,9 @@
 			<div class="flex flex-wrap bg-white border shadow p-4">
 				<div class="w-1/3">
 					<a href="{{'/categories/'.$category['alias'].'/'.$product->alias}}" class="no-underline">
-						<img class="" src="/images/products/{{$product['images']['main']['name']}}" alt="">
+						@if($product->hasMedia('title'))
+						<img src="{{ $product->getFirstMediaUrl('title', 'thumb') }}" alt="Photo of {{ $product->alias }}">
+						@endif
 					</a>
 				</div>
 				<div class="w-2/3">

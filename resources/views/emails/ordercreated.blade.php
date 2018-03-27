@@ -400,14 +400,14 @@ p.center {
 								<!-- Body content -->
 								<tr>
 									<td class="content-cell">
-										<h1>Hi,</h1>
+										<h1>Hi, Team</h1>
 										<p>There a new order has been placed on MaxRenew</p>
 										<table class="attribute-list" width="100%" cellpadding="0" cellspacing="0">
 											<tr>
 												<td class="attribute-list-container">
 													<table width="100%" cellpadding="0" cellspacing="0">
 														<tr>
-															<td class="attribute-list-item"><strong>Amount:</strong> {{ $order->total }}</td>
+															<td class="attribute-list-item"><strong>Amount:</strong> @money($order->value,'ZAR')</td>
 														</tr>
 													</table>
 												</td>
@@ -436,9 +436,9 @@ p.center {
                     <table class="purchase" width="100%" cellpadding="0" cellspacing="0">
                     	<tr>
                     		<td>
-                    			<h3>{{ $order->id }}</h3></td>
+                    			<h3>ORDER ID - {{ $order->id }}</h3></td>
                     			<td>
-                    				<h3 class="align-right">{{ $order->created_at }}</h3></td>
+                    				<h3 class="align-right">ORDERED - {{ $order->created_at }}</h3></td>
                     			</tr>
                     			<tr>
                     				<td colspan="2">
@@ -475,8 +475,8 @@ p.center {
                     			<table class="body-sub">
                     				<tr>
                     					<td>
-                    						<p class="sub">Created with love</p>
-                    						<p class="sub"><a href="https://maxrenew.co.za" target="_blank"></a></p>
+                    						<p class="sub">Generated at </p>
+                    						<p class="sub"><a href="https://maxrenew.co.za" target="_blank">maxrenew.co.za</a></p>
                     					</td>
                     				</tr>
                     			</table>
@@ -490,7 +490,7 @@ p.center {
             		<table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0">
             			<tr>
             				<td class="content-cell" align="center">
-            					<p class="sub align-center">&copy; {{ date('YY') }} MaxRenew. All rights reserved.</p>
+            					<p class="sub align-center">&copy; {{ date('Y') }} MaxRenew. All rights reserved.</p>
             					<p class="sub align-center">
             						MaxRenew
             						<br>222 14th Avenue,<br/>

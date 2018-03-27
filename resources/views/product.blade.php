@@ -10,8 +10,8 @@
 	<div class="mt-6 p-4 bg-white border-t border-b sm:border sm:shadow">
 		<div class="sm:flex -mx-2">
 			<div class="sm:w-1/3 p-2">
-				@if(isset($product->images))
-				<img class="" src="/images/products/{{$product->images['main']['name']}}" alt="">
+				@if($product->hasMedia('title'))
+				<img src="{{ $product->getFirstMediaUrl('title', 'product') }}" alt="Image of {{ $product['name'] }}">
 				@endif
 			</div>
 			<div class="sm:w-1/3 p-2">
@@ -161,9 +161,11 @@
 		<div class="w-1/3 p-2">
 			<div class="flex flex-wrap bg-white border shadow p-4">
 				<div class="w-1/3">
+					@if($product->hasMedia('title'))
 					<a href="/categories/{{ $catproduct->path }}/{{ $catproduct->alias }}" class="no-underline">
-						img goes
+						<img src="{{ $product->getFirstMediaUrl('title', 'product') }}" alt="Image of {{ $product['name'] }}">
 					</a>
+					@endif
 				</div>
 				<div class="w-2/3">
 					<div class="mx-4 flex flex-col h-full">
