@@ -36,12 +36,16 @@ Route::get('/productlist', 'ShopController@jsonList');
 Route::post('/productfrompdf', 'DataBaseController@productfrompdf');
 Route::post('/categoryfrompdf', 'DataBaseController@categoryfrompdf');
 
-Route::get('/testmedia', function(){
-	$cat = \App\Category::find(4);
-	$cat->addMedia(storage_path('source_images/greywater-100.jpg'))->preservingOriginal()->toMediaCollection('title');
-	return $cat->getMedia('title');
-	//$cat->clearMediaCollection('title');
-	//$cat->getFirstMedia('title')->delete();
+Route::get('/media/category/{category}/{file}', function($category, $file){
+	$cat = \App\Category::find($category);
+	$cat->addMedia(storage_path('source_images/'.$file))->preservingOriginal()->toMediaCollection('title');
+	
+	return 'success';
+});
+Route::get('/media/product{product}/{file}', function($product, $file){
+	$prod = \App\Product::find($product);
+	$prod->addMedia(storage_path('source_images/'.$file))->preservingOriginal()->toMediaCollection('title');
+	
 	return 'success';
 });
 
