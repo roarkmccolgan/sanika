@@ -3,6 +3,13 @@
 @import "vendor/transitions";
 @tailwind preflight;
 
+.category p, .category ul{
+	@apply .mb-4;
+}
+.category li{
+	@apply .mb-2;
+}
+
 .ais-highlight em{
 	@apply text-max-secondary;
 }

@@ -6,23 +6,36 @@
   background-color: #dae1e7;
 }
 
+#nav:hover .menu {
+  border-color: #8795a1;
+}
+
+#nav .menu:last-child > a {
+  border-right-width: 1px;
+}
+
+#nav .menu:hover:last-child > a {
+  border-color: #8795a1;
+}
+
+#nav .menu:last-child > a {
+  border-right-width: 1px;
+}
+
 #nav:hover + div.menuscreen {
   display: block;
 }
 
 #nav .menu:hover {
   background-color: #fff;
-  font-weight: 700;
+}
+
+#nav .menu:hover > a {
+  color: #00bcd4;
 }
 
 #nav .menu:hover .submenu {
   display: block;
-  padding-left: 8px;
-  padding-left: .5rem;
-  padding-right: 8px;
-  padding-right: .5rem;
-  padding-bottom: 8px;
-  padding-bottom: .5rem;
   right: 0;
   left: 0;
   top: 100%;
@@ -172,13 +185,29 @@
   opacity: 0;
 }
 
+.accordian-enter-active,
+.accordian-leave-active {
+  -webkit-transition: max-height .6s ease-out;
+  transition: max-height .6s ease-out;
+}
+
+.accordian-enter,
+.accordian-leave-to {
+  max-height: 0;
+}
+
+.accordian-enter-to,
+.accordian-leave {
+  max-height: 1200px;
+}
+
 .bounce-enter-active {
-  -webkit-animation: bounce-in .5s;
-          animation: bounce-in .5s;
+  -webkit-animation: bounce-in .5s ease-out;
+          animation: bounce-in .5s ease-out;
 }
 
 .bounce-leave-active {
-  animation: bounce-in .5s reverse;
+  animation: bounce-in .5s ease-in reverse;
 }
 
 @-webkit-keyframes bounce-in {
@@ -196,6 +225,32 @@
     -webkit-transform: scale(1);
             transform: scale(1);
   }
+}
+
+@keyframes bounce-in {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+
+  50% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.component-bounce-enter-active {
+  -webkit-animation: bounce-in .3s;
+          animation: bounce-in .3s;
+}
+
+.component-bounce-leave-active {
+  animation: bounce-in .3s reverse;
 }
 
 @keyframes bounce-in {
@@ -819,6 +874,17 @@ textarea::placeholder {
 button,
 [role=button] {
   cursor: pointer;
+}
+
+.category p,
+.category ul {
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+
+.category li {
+  margin-bottom: 8px;
+  margin-bottom: .5rem;
 }
 
 .ais-highlight em {

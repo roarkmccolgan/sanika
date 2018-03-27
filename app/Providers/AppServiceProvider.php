@@ -16,8 +16,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('partial.mainav', function($view){
-            $view->with('categories', Category::with(['products','allSubCategories.products'])->where('parent_id',null)->get());
+        view()->composer(['partial.mainav','home'], function($view){
+            $view->with('categories', Category::with(['products','allSubCategories.products'])->orderBy('order')->where('parent_id',null)->get());
         });
         view()->composer('partial.cart', function($view){
             $view->with('cart', session('cart', []));

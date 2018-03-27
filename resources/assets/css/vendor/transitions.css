@@ -7,11 +7,22 @@
   opacity: 0;
 }
 
+.accordian-enter-active, .accordian-leave-active {
+  transition: max-height 0.6s ease-out;
+}
+
+.accordian-enter, .accordian-leave-to {
+  max-height: 0;
+}
+.accordian-enter-to, .accordian-leave {
+  max-height: 1200px;
+}
+
 .bounce-enter-active {
-  animation: bounce-in .5s;
+  animation: bounce-in .5s ease-out;
 }
 .bounce-leave-active {
-  animation: bounce-in .5s reverse;
+  animation: bounce-in .5s ease-in reverse;
 }
 @keyframes bounce-in {
   0% {
@@ -24,3 +35,22 @@
     transform: scale(1);
   }
 }
+
+.component-bounce-enter-active {
+  animation: bounce-in .3s;
+}
+.component-bounce-leave-active {
+  animation: bounce-in .3s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+

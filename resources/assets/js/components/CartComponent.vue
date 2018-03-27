@@ -24,7 +24,10 @@
                             <div class="text-right">{{ cart.display_total }}</div>
                         </div>
                         <div class="flex justify-end font-bold mt-2">
-                            <a href="/checkout" class="inline-block font-normal py-2 px-4 mr-2 text-grey" @click.prevent="clearCart()">Clear Cart</a>
+                            <a v-if="!loading" href="/checkout" class="inline-block font-normal py-2 px-4 mr-2 text-grey" @click.prevent="clearCart()">Clear Cart</a>
+                            <div class="inline-block font-normal py-2 px-4 mr-2 text-grey " v-else>
+                                <font-awesome-icon :icon="icons.loading" class="fa-spin"></font-awesome-icon>
+                            </div>
                             <a href="/checkout" class="no-underline inline-block py-2 px-4 bg-max-secondary text-white font-bold rounded">Checkout</a>
                         </div>
                     </div>
@@ -39,14 +42,17 @@
 <script>
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import faShoppingCart from '@fortawesome/fontawesome-pro-regular/faShoppingCart'
+import faSync from '@fortawesome/fontawesome-pro-regular/faSync'
 export default {
     props: ['cart'],
     data: function() {
         return {
             icons:{
                 cart: faShoppingCart,
+                loading: faSync,
             },
             showCart: false,
+            loading: false,
         };
     },
     components:{
@@ -60,8 +66,11 @@ export default {
             },
             clearCart: function(){
                 var that = this;
+                that.loading = true;
                 axios.get('/api/clearcart')
                 .then(function (response) {
+                    that.loading = false;
+                    that.showCart = false;
                     that.$emit('clear');
                     that.$swal('Success','Cart Cleared','success');
                 })

@@ -59,7 +59,11 @@
 							</div>
 							<div class="w-1/2">
 								<button class="bg-max-secondary text-white whitespace-no-wrap font-bold py-4 px-4 border-b-4 hover:border-b-2 hover:border-t-2 border-teal-darker hover:border-max-secondary rounded">
-									<font-awesome-icon :icon="icons.mouse"></font-awesome-icon>
+									<div class="inline-block w-6 mr-1">
+										<transition name="component-bounce" mode="out-in">
+											<font-awesome-icon :icon="busyAdding ? icons.loading : icons.mouse" class="fa-lg" :class="busyAdding ? 'fa-spin' : ''" v-bind:key="busyAdding"></font-awesome-icon>
+										</transition>
+										</div>
 									<span class="inline-block">Add to cart</span>
 								</button>
 							</div>
@@ -131,13 +135,17 @@
 			<tab name="Specifications">
 				<table class="w-full text-sm text-left" cellpadding="0" cellspacing="0">
 					<thead class="font-medium text-xs text-grey-dark uppercase border-grey">
-						<th class="w-1/2 sm:w-1/5 text-right p-2 border-b bg-grey-lighter">Property <hr class="inline-block h-px border-t w-2 h-0 m-0 ml-2 mb-1"></th>
-						<th class="text-left p-2 pl-0 border-b bg-grey-lighter">Value</th>
+						<tr>
+							<th class="w-1/2 sm:w-1/5 text-right p-2 border-b bg-grey-lighter">Property <hr class="inline-block h-px border-t w-2 h-0 m-0 ml-2 mb-1"></th>
+							<th class="text-left p-2 pl-0 border-b bg-grey-lighter">Value</th>
+						</tr>
 					</thead>
 					<tbody class="">
 						@foreach($product->specs as $spec)
-						<td class="text-right p-4 border-b border-grey-light">{{ $spec->spec }} <hr class="inline-block h-px border-t w-2 h-0 m-0 ml-2 mb-1"></td>
-						<td class="font-semibold p-4 pl-0 border-b border-grey-light">{{ $spec->value }}</td>
+						<tr>
+							<td class="text-right p-4 border-b border-grey-light">{{ $spec->spec }} <hr class="inline-block h-px border-t w-2 h-0 m-0 ml-2 mb-1"></td>
+							<td class="font-semibold p-4 pl-0 border-b border-grey-light">{{ $spec->value }}</td>
+						</tr>
 						@endforeach
 					</tbody>
 				</table>
@@ -170,7 +178,6 @@
 								more&hellip;
 							</a>
 						</div>
-
 					</div>
 				</div>
 			</div>

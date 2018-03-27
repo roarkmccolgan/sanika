@@ -16,8 +16,12 @@ class ShopController extends Controller
         //$cats = Category::with(['products:alias,name','allSubCategories.products:alias,name'])->where('parent_id',null)->get();
         //return DB::getQueryLog();
         //return $cats;
-    	$shop = collect(Config::get('maxrenew.categories'));
-    	return view('home',compact('shop'));
+    	//$shop = collect(Config::get('maxrenew.categories'));
+        \JavaScript::put([
+            'cart' => session('cart'),
+        ]);
+        
+    	return view('home',compact(['cart']));
     }
 
     public function getCategories($cat){

@@ -7,11 +7,19 @@
 @section('body')
 {{-- @includeWhen($pagetype == 'content', 'patial.mainmenu') --}}
 <div class="container flex-1 mx-auto pb-8">
-	<div class="mt-6 p-4">
-		<h1 class="mb-2">{{ $category['title'] }}</h1>
-		<p>{{ $category['description'] }}</p>
+	<div class="mt-4 p-4 category md:flex md:-mx-2">
+		<div class="md:w-1/3 px-2">
+			<img src="{{ $category->getFirstMediaUrl('title', 'category') }}" alt="Image of {{ $category['name'] }}">
+		</div>
+		<div class="md:w-2/3 px-2">
+			<h1 class="mb-2">{{ $category['name'] }}</h1>
+			{!! $category['description'] !!}
+		</div>
 	</div>
 	<div class="flex flex-wrap -mx-2 mt-6 text-base">
+		@if(count($category['products']))
+		<h3 class="w-full mb-2 px-2">{{ str_singular($category['name']) }} Products</h3>
+		@endif
 		@foreach($category['products'] as $product)
 		<div class="w-1/2 p-2">
 			<div class="flex flex-wrap bg-white border shadow p-4">
@@ -31,9 +39,6 @@
 								<li>{{ $feature->name }}</li>
 							@endforeach
 						</ul>
-						<a href="{{'/categories/'.$category['alias'].'/'.$product->alias}}" class="block text-right text-max-primary hover:text-max-secondary">
-							more&hellip;
-						</a>
 					</div>
 				</div>
 				<div class="w-full">
@@ -43,10 +48,9 @@
 							@money($product['price'],'ZAR')
 						</div>
 						<div class="">
-							<button class="bg-teal text-white whitespace-no-wrap font-bold py-2 px-4 border-b-4 hover:border-b-2 hover:border-t-2 border-teal-dark hover:border-teal rounded">
-								<font-awesome-icon :icon="icons.mouse"></font-awesome-icon>
-								<span class="hidden sm:inline-block text-sm">Add to cart</span>
-							</button>	
+							<a href="{{'/categories/'.$category['alias'].'/'.$product->alias}}" class="no-underline bg-teal text-white whitespace-no-wrap font-bold py-2 px-4 border-b-4 hover:border-b-2 hover:border-t-2 border-teal-dark hover:border-teal rounded">
+								<span class="inline-block text-sm">View</span>
+							</a>	
 						</div>
 					</div>
 				</div>

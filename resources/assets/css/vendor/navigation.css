@@ -4,13 +4,28 @@
 #nav:hover{
 	@apply .bg-grey-light;
 }
+#nav:hover .menu{
+	@apply .border-grey-dark;
+}
+#nav .menu:last-child > a { 
+    @apply border-r;
+}
+#nav .menu:hover:last-child > a { 
+    @apply border-grey-dark;
+}
+#nav .menu:last-child > a { 
+    @apply border-r;
+}
 #nav:hover + div.menuscreen{
 	@apply .block;
 }
 #nav .menu:hover{
-	@apply .bg-white .font-bold;
+	@apply .bg-white;
+}
+#nav .menu:hover > a {
+	@apply .text-max-secondary;
 }
 #nav .menu:hover .submenu{
-	@apply .block .px-2 .pb-2 .pin-x;
+	@apply .block .pin-x;
 	top: 100%;
 }

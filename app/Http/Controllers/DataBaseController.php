@@ -6,18 +6,19 @@ use App\Category;
 use App\Features;
 use App\Product;
 use App\Specs;
+use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class DataBaseController extends Controller
 {
-    public function productfrompdf(Request $request){
-    	Log::info('Submitted Data : '.print_r($request->all(), true));
-    	$error = false;
-    	$message = '';
-    	if (!$request->has(['product.sku', 'product.name', 'product.price'])) {
-    		$error = true;
-    		$message = 'ERROR!: SKU, Name and Price are required';
+	public function productfrompdf(Request $request){
+		Log::info('Submitted Data : '.print_r($request->all(), true));
+		$error = false;
+		$message = '';
+		if (!$request->has(['product.sku', 'product.name', 'product.price'])) {
+			$error = true;
+			$message = 'ERROR!: SKU, Name and Price are required';
 		}
 		$attachProducts = [];
 
@@ -37,7 +38,7 @@ class DataBaseController extends Controller
 		Log::info('Attach : '.print_r($attachProducts, true));
 
 		if(!$error){
-		
+
 			$categories =[];
 			foreach ($request->input('categories') as $cat) {
 				if(isset($cat['category'])){
@@ -65,7 +66,7 @@ class DataBaseController extends Controller
 
 			$newProduct = $request->input('product');
 
-	    	$product = Product::updateOrCreate(
+			$product = Product::updateOrCreate(
 				['sku' => $newProduct['sku']],
 				[
 					'name' => $newProduct['name'],
@@ -101,9 +102,40 @@ class DataBaseController extends Controller
 			$message = 'Success!\n'.$product->name.'-'.$product->sku.' Successfully Saved';
 		}
 		$response = "%FDF-1.2\r\n" .
-         "1 0 obj<< /FDF << /Status ($message) >>      >>endobj\r\n" .
-         "trailer\r\n" .
-         "<< /Root 1 0 R >>%%EOF";
+		"1 0 obj<< /FDF << /Status ($message) >>      >>endobj\r\n" .
+		"trailer\r\n" .
+		"<< /Root 1 0 R >>%%EOF";
 		return response($response)->header('Content-Type', 'application/vnd.fdf');
-    }
+	}
+
+	public function categoryfrompdf(Request $request){
+		Log::info('Submitted Data : '.print_r($request->all(), true));
+		$error = false;
+		$message = '';
+		if (!$request->has(['category', 'description'])) {
+			$error = true;
+			$message = 'ERROR!: Category and Description are required';
+		}
+
+		$category = Category::where('alias', str_slug($request->input('category')))->first();
+		if (!$category) {
+			$error = true;
+			$message = 'ERROR!: Category does not exist yet\n\n Please add a product to the category before you can edit the category';
+		}
+
+		if(!$error){
+			$category->description = Markdown::convertToHtml($request->input('description'));
+			$category->seo_title = $request->input('seo.title');
+			$category->seo_description = $request->input('seo.description');
+			$category->seo_keywords = $request->input('seo.keywords');
+			$category->save();
+
+			$message = 'Success!\n'.$category->name.' Successfully Saved';
+		}
+		$response = "%FDF-1.2\r\n" .
+		"1 0 obj<< /FDF << /Status ($message) >>      >>endobj\r\n" .
+		"trailer\r\n" .
+		"<< /Root 1 0 R >>%%EOF";
+		return response($response)->header('Content-Type', 'application/vnd.fdf');
+	}
 }

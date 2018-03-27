@@ -1,9 +1,9 @@
 <div class="bg-white border-t border-b border-grey-light">
-	<div id="nav" class="container relative z-30 mx-auto flex justify-between -mt-px sm:px-0">
+	<div id="nav" class="container relative z-30 mx-auto flex -mt-px sm:px-0">
 		@foreach($categories as $category)
-		<div class="menu text-base flex">
-			<a href="/categories/{{ $category->alias }}" class="text-max-primary hover:border-b hover:border-grey-dark no-underline py-2 px-2">{{ $category->name }}</a>
-			<div class="submenu absolute bg-white min-w-full shadow-lg">
+		<div class="menu text-base flex border-l">
+			<a href="/categories/{{ $category->alias }}" class="font-medium text-max-primary no-underline py-4 px-2">{{ $category->name }}</a>
+			<div class="submenu absolute bg-white min-w-full p-2 border border-grey-dark border-t-0">
 				@if(!$category['all_sub_categories'])
 					@foreach($category['products'] as $product)
 					<a href="/categories/{{ $category->alias }}/{{ $product->alias }}" class="block py-1 px-2 font-bold text-max-primary hover:text-max-secondary hover:bg-grey-lighter whitespace-no-wrap no-underline">{{ $product->name }}</a>
@@ -31,7 +31,7 @@
 		</div>
 		@endforeach
 	</div>
-	<div class="menuscreen z-20 hidden absolute pin bg-max-primary opacity-75">
+	<div class="menuscreen z-20 hidden absolute pin bg-max-primary opacity-50">
 		
 	</div>
 </div>

@@ -29,7 +29,9 @@
 				</div>
 			</div>
 		</ais-index>
-		@include('partial.cart')
+		@if (!Request::is('checkout'))
+			@include('partial.cart')
+		@endif
 	</div>
 </div>
 <div v-show="searchStore.query.length > 0" class="z-0 absolute pin bg-max-primary opacity-75"></div>

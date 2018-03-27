@@ -3,12 +3,33 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\Models\Media;
 
 class Category extends Model implements HasMedia
 {
 	use HasMediaTrait;
+
+	public function registerMediaCollections()
+	{
+	    $this
+	        ->addMediaCollection('title')     
+	        ->useDisk('media')
+	        ->singleFile()
+	        ->registerMediaConversions(function (Media $media) {
+            $this
+                ->addMediaConversion('thumb')
+                ->width(300)
+                ->height(300);
+            $this
+                ->addMediaConversion('category')
+                ->width(400)
+                ->height(400);
+
+        });
+	}
+
 	public $timestamps = false;
 
     protected $fillable = ['name','alias','description','parent_id'];

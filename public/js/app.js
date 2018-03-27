@@ -65,6 +65,27 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/@fortawesome/fontawesome-pro-regular/faAngleRight.js":
+/***/ (function(module, exports) {
+
+module.exports = { prefix: 'far', iconName: 'angle-right', icon: [192, 512, [], "f105", "M187.8 264.5L41 412.5c-4.7 4.7-12.3 4.7-17 0L4.2 392.7c-4.7-4.7-4.7-12.3 0-17L122.7 256 4.2 136.3c-4.7-4.7-4.7-12.3 0-17L24 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17z"] };
+
+/***/ }),
+
+/***/ "./node_modules/@fortawesome/fontawesome-pro-regular/faCheck.js":
+/***/ (function(module, exports) {
+
+module.exports = { prefix: 'far', iconName: 'check', icon: [512, 512, [], "f00c", "M435.848 83.466L172.804 346.51l-96.652-96.652c-4.686-4.686-12.284-4.686-16.971 0l-28.284 28.284c-4.686 4.686-4.686 12.284 0 16.971l133.421 133.421c4.686 4.686 12.284 4.686 16.971 0l299.813-299.813c4.686-4.686 4.686-12.284 0-16.971l-28.284-28.284c-4.686-4.686-12.284-4.686-16.97 0z"] };
+
+/***/ }),
+
+/***/ "./node_modules/@fortawesome/fontawesome-pro-regular/faCheckSquare.js":
+/***/ (function(module, exports) {
+
+module.exports = { prefix: 'far', iconName: 'check-square', icon: [448, 512, [], "f14a", "M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm0 400H48V80h352v352zm-35.864-241.724L191.547 361.48c-4.705 4.667-12.303 4.637-16.97-.068l-90.781-91.516c-4.667-4.705-4.637-12.303.069-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l59.792 60.277 141.352-140.216c4.705-4.667 12.303-4.637 16.97.068l22.536 22.718c4.667 4.706 4.637 12.304-.068 16.971z"] };
+
+/***/ }),
+
 /***/ "./node_modules/@fortawesome/fontawesome-pro-regular/faMousePointer.js":
 /***/ (function(module, exports) {
 
@@ -83,6 +104,20 @@ module.exports = { prefix: 'far', iconName: 'search', icon: [512, 512, [], "f002
 /***/ (function(module, exports) {
 
 module.exports = { prefix: 'far', iconName: 'shopping-cart', icon: [576, 512, [], "f07a", "M551.991 64H144.28l-8.726-44.608C133.35 8.128 123.478 0 112 0H12C5.373 0 0 5.373 0 12v24c0 6.627 5.373 12 12 12h80.24l69.594 355.701C150.796 415.201 144 430.802 144 448c0 35.346 28.654 64 64 64s64-28.654 64-64a63.681 63.681 0 0 0-8.583-32h145.167a63.681 63.681 0 0 0-8.583 32c0 35.346 28.654 64 64 64 35.346 0 64-28.654 64-64 0-18.136-7.556-34.496-19.676-46.142l1.035-4.757c3.254-14.96-8.142-29.101-23.452-29.101H203.76l-9.39-48h312.405c11.29 0 21.054-7.869 23.452-18.902l45.216-208C578.695 78.139 567.299 64 551.991 64zM208 472c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm256 0c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm23.438-200H184.98l-31.31-160h368.548l-34.78 160z"] };
+
+/***/ }),
+
+/***/ "./node_modules/@fortawesome/fontawesome-pro-regular/faSquare.js":
+/***/ (function(module, exports) {
+
+module.exports = { prefix: 'far', iconName: 'square', icon: [448, 512, [], "f0c8", "M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V86c0-3.3 2.7-6 6-6h340c3.3 0 6 2.7 6 6v340c0 3.3-2.7 6-6 6z"] };
+
+/***/ }),
+
+/***/ "./node_modules/@fortawesome/fontawesome-pro-regular/faSync.js":
+/***/ (function(module, exports) {
+
+module.exports = { prefix: 'far', iconName: 'sync', icon: [512, 512, [], "f021", "M500 8h-27.711c-6.739 0-12.157 5.548-11.997 12.286l2.347 98.575C418.212 52.043 342.256 8 256 8 134.813 8 33.933 94.924 12.296 209.824 10.908 217.193 16.604 224 24.103 224h28.576c5.674 0 10.542-3.982 11.737-9.529C83.441 126.128 161.917 60 256 60c79.545 0 147.942 47.282 178.676 115.302l-126.39-3.009c-6.737-.16-12.286 5.257-12.286 11.997V212c0 6.627 5.373 12 12 12h192c6.627 0 12-5.373 12-12V20c0-6.627-5.373-12-12-12zm-12.103 280h-28.576c-5.674 0-10.542 3.982-11.737 9.529C428.559 385.872 350.083 452 256 452c-79.546 0-147.942-47.282-178.676-115.302l126.39 3.009c6.737.16 12.286-5.257 12.286-11.997V300c0-6.627-5.373-12-12-12H12c-6.627 0-12 5.373-12 12v192c0 6.627 5.373 12 12 12h27.711c6.739 0 12.157-5.548 11.997-12.286l-2.347-98.575C93.788 459.957 169.744 504 256 504c121.187 0 222.067-86.924 243.704-201.824 1.388-7.369-4.308-14.176-11.807-14.176z"] };
 
 /***/ }),
 
@@ -11744,6 +11779,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fortawesome_vue_fontawesome___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__fortawesome_vue_fontawesome__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fortawesome_fontawesome_pro_regular_faShoppingCart__ = __webpack_require__("./node_modules/@fortawesome/fontawesome-pro-regular/faShoppingCart.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fortawesome_fontawesome_pro_regular_faShoppingCart___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__fortawesome_fontawesome_pro_regular_faShoppingCart__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__fortawesome_fontawesome_pro_regular_faSync__ = __webpack_require__("./node_modules/@fortawesome/fontawesome-pro-regular/faSync.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__fortawesome_fontawesome_pro_regular_faSync___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__fortawesome_fontawesome_pro_regular_faSync__);
 //
 //
 //
@@ -11782,6 +11819,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+
 
 
 
@@ -11790,9 +11831,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             icons: {
-                cart: __WEBPACK_IMPORTED_MODULE_1__fortawesome_fontawesome_pro_regular_faShoppingCart___default.a
+                cart: __WEBPACK_IMPORTED_MODULE_1__fortawesome_fontawesome_pro_regular_faShoppingCart___default.a,
+                loading: __WEBPACK_IMPORTED_MODULE_2__fortawesome_fontawesome_pro_regular_faSync___default.a
             },
-            showCart: false
+            showCart: false,
+            loading: false
         };
     },
     components: {
@@ -11806,7 +11849,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         clearCart: function clearCart() {
             var that = this;
+            that.loading = true;
             axios.get('/api/clearcart').then(function (response) {
+                that.loading = false;
+                that.showCart = false;
                 that.$emit('clear');
                 that.$swal('Success', 'Cart Cleared', 'success');
             }).catch(function (error) {
@@ -45957,21 +46003,36 @@ var render = function() {
                       "div",
                       { staticClass: "flex justify-end font-bold mt-2" },
                       [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "inline-block font-normal py-2 px-4 mr-2 text-grey",
-                            attrs: { href: "/checkout" },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                _vm.clearCart()
-                              }
-                            }
-                          },
-                          [_vm._v("Clear Cart")]
-                        ),
+                        !_vm.loading
+                          ? _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "inline-block font-normal py-2 px-4 mr-2 text-grey",
+                                attrs: { href: "/checkout" },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    _vm.clearCart()
+                                  }
+                                }
+                              },
+                              [_vm._v("Clear Cart")]
+                            )
+                          : _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "inline-block font-normal py-2 px-4 mr-2 text-grey "
+                              },
+                              [
+                                _c("font-awesome-icon", {
+                                  staticClass: "fa-spin",
+                                  attrs: { icon: _vm.icons.loading }
+                                })
+                              ],
+                              1
+                            ),
                         _vm._v(" "),
                         _c(
                           "a",
@@ -59862,12 +59923,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_pro_regular_faSearch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_pro_regular_faSearch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__fortawesome_fontawesome_pro_regular_faTimes__ = __webpack_require__("./node_modules/@fortawesome/fontawesome-pro-regular/faTimes.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__fortawesome_fontawesome_pro_regular_faTimes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__fortawesome_fontawesome_pro_regular_faTimes__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__fortawesome_fontawesome_pro_regular_faShoppingCart__ = __webpack_require__("./node_modules/@fortawesome/fontawesome-pro-regular/faShoppingCart.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__fortawesome_fontawesome_pro_regular_faShoppingCart___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__fortawesome_fontawesome_pro_regular_faShoppingCart__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__fortawesome_fontawesome_pro_regular_faMousePointer__ = __webpack_require__("./node_modules/@fortawesome/fontawesome-pro-regular/faMousePointer.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__fortawesome_fontawesome_pro_regular_faMousePointer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__fortawesome_fontawesome_pro_regular_faMousePointer__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_vue_tabs_component__ = __webpack_require__("./node_modules/vue-tabs-component/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_vue_tabs_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_vue_tabs_component__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__fortawesome_fontawesome_pro_regular_faSync__ = __webpack_require__("./node_modules/@fortawesome/fontawesome-pro-regular/faSync.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__fortawesome_fontawesome_pro_regular_faSync___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__fortawesome_fontawesome_pro_regular_faSync__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__fortawesome_fontawesome_pro_regular_faShoppingCart__ = __webpack_require__("./node_modules/@fortawesome/fontawesome-pro-regular/faShoppingCart.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__fortawesome_fontawesome_pro_regular_faShoppingCart___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__fortawesome_fontawesome_pro_regular_faShoppingCart__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__fortawesome_fontawesome_pro_regular_faMousePointer__ = __webpack_require__("./node_modules/@fortawesome/fontawesome-pro-regular/faMousePointer.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__fortawesome_fontawesome_pro_regular_faMousePointer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__fortawesome_fontawesome_pro_regular_faMousePointer__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__fortawesome_fontawesome_pro_regular_faSquare__ = __webpack_require__("./node_modules/@fortawesome/fontawesome-pro-regular/faSquare.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__fortawesome_fontawesome_pro_regular_faSquare___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__fortawesome_fontawesome_pro_regular_faSquare__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__fortawesome_fontawesome_pro_regular_faCheckSquare__ = __webpack_require__("./node_modules/@fortawesome/fontawesome-pro-regular/faCheckSquare.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__fortawesome_fontawesome_pro_regular_faCheckSquare___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__fortawesome_fontawesome_pro_regular_faCheckSquare__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__fortawesome_fontawesome_pro_regular_faAngleRight__ = __webpack_require__("./node_modules/@fortawesome/fontawesome-pro-regular/faAngleRight.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__fortawesome_fontawesome_pro_regular_faAngleRight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__fortawesome_fontawesome_pro_regular_faAngleRight__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__fortawesome_fontawesome_pro_regular_faCheck__ = __webpack_require__("./node_modules/@fortawesome/fontawesome-pro-regular/faCheck.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__fortawesome_fontawesome_pro_regular_faCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__fortawesome_fontawesome_pro_regular_faCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_vue_tabs_component__ = __webpack_require__("./node_modules/vue-tabs-component/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_vue_tabs_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_vue_tabs_component__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -59878,6 +59949,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 __webpack_require__("./resources/assets/js/bootstrap.js");
 
 window.Vue = __webpack_require__("./node_modules/vue/dist/vue.common.js");
+
+
+
+
+
 
 
 
@@ -59904,8 +59980,8 @@ searchStore.indexName = 'maxrenew';
 
 Vue.component('example-component', __webpack_require__("./resources/assets/js/components/ExampleComponent.vue"));
 var CartComponent = __webpack_require__("./resources/assets/js/components/CartComponent.vue");
-Vue.component('tabs', __WEBPACK_IMPORTED_MODULE_7_vue_tabs_component__["Tabs"]);
-Vue.component('tab', __WEBPACK_IMPORTED_MODULE_7_vue_tabs_component__["Tab"]);
+Vue.component('tabs', __WEBPACK_IMPORTED_MODULE_12_vue_tabs_component__["Tabs"]);
+Vue.component('tab', __WEBPACK_IMPORTED_MODULE_12_vue_tabs_component__["Tab"]);
 
 var home = new Vue({
     el: '#app',
@@ -59914,12 +59990,18 @@ var home = new Vue({
         icons: {
             search: __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_pro_regular_faSearch___default.a,
             times: __WEBPACK_IMPORTED_MODULE_4__fortawesome_fontawesome_pro_regular_faTimes___default.a,
-            cart: __WEBPACK_IMPORTED_MODULE_5__fortawesome_fontawesome_pro_regular_faShoppingCart___default.a,
-            mouse: __WEBPACK_IMPORTED_MODULE_6__fortawesome_fontawesome_pro_regular_faMousePointer___default.a
+            cart: __WEBPACK_IMPORTED_MODULE_6__fortawesome_fontawesome_pro_regular_faShoppingCart___default.a,
+            mouse: __WEBPACK_IMPORTED_MODULE_7__fortawesome_fontawesome_pro_regular_faMousePointer___default.a,
+            loading: __WEBPACK_IMPORTED_MODULE_5__fortawesome_fontawesome_pro_regular_faSync___default.a,
+            faSquare: __WEBPACK_IMPORTED_MODULE_8__fortawesome_fontawesome_pro_regular_faSquare___default.a,
+            faCheckSquare: __WEBPACK_IMPORTED_MODULE_9__fortawesome_fontawesome_pro_regular_faCheckSquare___default.a,
+            faAngleRight: __WEBPACK_IMPORTED_MODULE_10__fortawesome_fontawesome_pro_regular_faAngleRight___default.a,
+            faCheck: __WEBPACK_IMPORTED_MODULE_11__fortawesome_fontawesome_pro_regular_faCheck___default.a
         },
         showAskQuestion: false,
         product: {
             sku: window.product ? window.product.sku : false,
+            id: window.product ? window.product.id : false,
             name: window.product ? window.product.name : false,
             price: window.product ? window.product.price : false,
             display_price: false,
@@ -59930,7 +60012,121 @@ var home = new Vue({
             qty: 1,
             install: false
         },
-        cart: window.cart ? window.cart : { items: {}, total: 0, display_total: 'R0,00' }
+        cart: window.cart ? window.cart : { items: {}, total: 0, display_total: 'R0,00' },
+        busyAdding: false,
+        busySaving: false,
+        wizard: {
+            same: false,
+            basic: {
+                'fname': window.checkout ? window.checkout.basic.fname : '',
+                'lname': window.checkout ? window.checkout.basic.lname : '',
+                'email': window.checkout ? window.checkout.basic.email : '',
+                'telephone': window.checkout ? window.checkout.basic.telephone : '',
+                'mobile': window.checkout ? window.checkout.basic.mobile : '',
+                'company': window.checkout ? window.checkout.basic.company : '',
+                'vat': window.checkout ? window.checkout.basic.vat : ''
+            },
+            billing: {
+                'building': window.checkout ? window.checkout.billing.billing_building : '',
+                'address1': window.checkout ? window.checkout.billing.billing_address1 : '',
+                'address2': window.checkout ? window.checkout.billing.billing_address2 : '',
+                'address3': window.checkout ? window.checkout.billing.billing_address3 : '',
+                'city': window.checkout ? window.checkout.billing.billing_city : '',
+                'province': window.checkout ? window.checkout.billing.billing_province : '',
+                'postal': window.checkout ? window.checkout.billing.billing_postal : ''
+            },
+            delivery: {
+                'building': window.checkout ? window.checkout.delivery.delivery_building : '',
+                'address1': window.checkout ? window.checkout.delivery.delivery_address1 : '',
+                'address2': window.checkout ? window.checkout.delivery.delivery_address2 : '',
+                'address3': window.checkout ? window.checkout.delivery.delivery_address3 : '',
+                'city': window.checkout ? window.checkout.delivery.delivery_city : '',
+                'province': window.checkout ? window.checkout.delivery.delivery_province : '',
+                'postal': window.checkout ? window.checkout.delivery.delivery_postal : ''
+            },
+            currentStep: 1,
+            steps: {
+                1: {
+                    required: {
+                        'fname': {
+                            min: 1
+                        },
+                        'lname': {
+                            min: 1
+                        },
+                        'email': {
+                            type: 'email'
+                        },
+                        'telephone': {
+                            type: 'tel'
+                        }
+                    },
+                    complete: false,
+                    errors: {
+                        'fname': false,
+                        'lname': false,
+                        'email': false,
+                        'telephone': false
+                    }
+                },
+                2: {
+                    required: {
+                        'billing_address1': {
+                            min: 9
+                        },
+                        'billing_address2': {
+                            min: 3
+                        },
+                        'billing_city': {
+                            min: 5
+                        },
+                        'billing_province': {
+                            min: 5
+                        },
+                        'billing_postal': {
+                            min: 3
+                        }
+                    },
+                    complete: false,
+                    errors: {
+                        'billing_address1': false,
+                        'billing_address2': false,
+                        'billing_city': false,
+                        'billing_province': false,
+                        'billing_postal': false
+                    }
+                },
+                3: {
+                    required: {
+                        'delivery_address1': {
+                            min: 9
+                        },
+                        'delivery_address2': {
+                            min: 3
+                        },
+                        'delivery_city': {
+                            min: 5
+                        },
+                        'delivery_province': {
+                            min: 5
+                        },
+                        'delivery_postal': {
+                            min: 3
+                        }
+                    },
+                    complete: false,
+                    errors: {
+                        'delivery_address1': false,
+                        'delivery_address2': false,
+                        'delivery_city': false,
+                        'delivery_province': false,
+                        'delivery_postal': false
+                    }
+                }
+            },
+            buttonText: 'Next',
+            complete: false
+        }
     },
     components: {
         FontAwesomeIcon: __WEBPACK_IMPORTED_MODULE_2__fortawesome_vue_fontawesome___default.a,
@@ -59942,8 +60138,73 @@ var home = new Vue({
         },
         addToCart: function addToCart() {
             var that = this;
+            that.busyAdding = true;
             axios.post('/api/cart', that.product).then(function (response) {
-                that.cart = response.data.cart;
+                setTimeout(function () {
+                    that.cart = response.data.cart;
+                    that.busyAdding = false;
+                }, 2000);
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        validate: function validate(step, id) {
+            var el = document.getElementById(id);
+            var curStep = this.wizard.steps[step];
+            var validation = curStep.required[id];
+
+            var needsValidation = curStep.required[id];
+            if (needsValidation && el) {
+                this.wizard.steps[step].errors[id] = false;
+
+                if (el.value.trim() == '') {
+                    this.wizard.steps[step].errors[id] = true;
+                }
+                var min = validation.min ? validation.min : 1;
+                var max = validation.max ? validation.max : false;
+                if (el.value.trim().length < min) {
+                    this.wizard.steps[step].errors[id] = true;
+                }
+                if (max !== false && el.value.trim().length > max) {
+                    this.wizard.steps[step].errors[id] = true;
+                }
+            }
+        },
+        checkStep: function checkStep(step) {
+            for (var required in this.wizard.steps[step].required) {
+                this.validate(step, required);
+            }
+            var noErrors = true;
+            for (var error in this.wizard.steps[step].errors) {
+                noErrors = !this.wizard.steps[step].errors[error];
+            }
+            if (noErrors) {
+                this.saveCheckout(step);
+            }
+        },
+        setSame: function setSame(event) {
+            if (event.target.checked) {
+                var that = this;
+                this.wizard.delivery = this.wizard.billing;
+                setTimeout(function () {
+                    that.saveCheckout(3);
+                }, 500);
+            } else {
+                this.wizard.delivery = { 'building': '', 'address1': '', 'address2': '', 'city': '', 'province': '', 'postal': '' };
+            }
+        },
+        saveCheckout: function saveCheckout(step) {
+            var that = this;
+            that.busySaving = true;
+            axios.post('/api/checkout', that.wizard).then(function (response) {
+                setTimeout(function () {
+                    that.wizard.currentStep = Number(step + 1);
+                    that.busySaving = false;
+                    if (step === 3) {
+                        that.wizard.complete = true;
+                        return;
+                    }
+                }, 500);
             }).catch(function (error) {
                 console.log(error);
             });

@@ -17,7 +17,7 @@ class CreateOrderItemsTable extends Migration
             $table->increments('id');
             $table->integer('order_id')->unsigned();
             $table->integer('product_id')->unsigned();
-            $table->integer('promotion_id')->unsigned();
+            $table->integer('promotion_id')->unsigned()->nullable();
             $table->integer('qty');
             $table->boolean('installation')->default(0);
             $table->boolean('delivered')->default(0);
