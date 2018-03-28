@@ -28,7 +28,12 @@ class SendOrderNotification
      */
     public function handle(OrderCreated $event)
     {
-        Mail::to([['email'=>'roarkmccolgan@gmail.com','name'=>'Roark McColgan']])
+        $addressess = [
+            ['email'=>'roarkmccolgan@gmail.com','name'=>'Roark McColgan'],
+            ['email'=>'solar@maximtrading.co.za','name'=>'Michael McMaster'],
+            ['email'=>'Heath@maximtrading.co.za','name'=>'Heath McMaster'],
+        ];
+        Mail::to()
             ->queue(new SendOrder($event->order));
         }
 }

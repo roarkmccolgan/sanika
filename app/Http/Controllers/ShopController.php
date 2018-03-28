@@ -11,12 +11,13 @@ use Illuminate\Support\Facades\DB;
 class ShopController extends Controller
 {
    
-    public function getHome(){
+    public function getHome(Request $request){
         //DB::connection()->enableQueryLog();
         //$cats = Category::with(['products:alias,name','allSubCategories.products:alias,name'])->where('parent_id',null)->get();
         //return DB::getQueryLog();
         //return $cats;
     	//$shop = collect(Config::get('maxrenew.categories'));
+      
         \JavaScript::put([
             'cart' => session('cart'),
         ]);

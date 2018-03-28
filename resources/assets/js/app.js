@@ -84,24 +84,26 @@ import {Tabs, Tab} from 'vue-tabs-component';
                 'mobile': window.checkout && window.checkout.basic && window.checkout.basic.mobile ? window.checkout.basic.mobile: '',
                 'company': window.checkout && window.checkout.basic && window.checkout.basic.company ? window.checkout.basic.company: '',
                 'vat': window.checkout && window.checkout.basic && window.checkout.basic.vat ? window.checkout.basic.vat: '',
+                'password': '',
+                'repeatpass': '',
             },
             billing: {
-                'building': window.checkout && window.checkout.billing && window.checkout.billing.billing_building ? window.checkout.billing.billing_building: '',
-                'address1': window.checkout && window.checkout.billing && window.checkout.billing.billing_address1 ? window.checkout.billing.billing_address1: '',
-                'address2': window.checkout && window.checkout.billing && window.checkout.billing.billing_address2 ? window.checkout.billing.billing_address2: '',
-                'address3': window.checkout && window.checkout.billing && window.checkout.billing.billing_address3 ? window.checkout.billing.billing_address3: '',
-                'city': window.checkout && window.checkout.billing && window.checkout.billing.billing_city ? window.checkout.billing.billing_city: '',
-                'province': window.checkout && window.checkout.billing && window.checkout.billing.billing_province ? window.checkout.billing.billing_province: '',
-                'postal': window.checkout && window.checkout.billing && window.checkout.billing.billing_postal ? window.checkout.billing.billing_postal: '',
+                'building': window.checkout && window.checkout.billing && window.checkout.billing.building ? window.checkout.billing.building: '',
+                'address1': window.checkout && window.checkout.billing && window.checkout.billing.address1 ? window.checkout.billing.address1: '',
+                'address2': window.checkout && window.checkout.billing && window.checkout.billing.address2 ? window.checkout.billing.address2: '',
+                'address3': window.checkout && window.checkout.billing && window.checkout.billing.address3 ? window.checkout.billing.address3: '',
+                'city': window.checkout && window.checkout.billing && window.checkout.billing.city ? window.checkout.billing.city: '',
+                'province': window.checkout && window.checkout.billing && window.checkout.billing.province ? window.checkout.billing.province: '',
+                'postal': window.checkout && window.checkout.billing && window.checkout.billing.postal ? window.checkout.billing.postal: '',
             },
             delivery: {
-                'building': window.checkout && window.checkout.delivery && window.checkout.delivery.delivery_building ? window.checkout.delivery.delivery_building: '',
-                'address1': window.checkout && window.checkout.delivery && window.checkout.delivery.delivery_address1 ? window.checkout.delivery.delivery_address1: '',
-                'address2': window.checkout && window.checkout.delivery && window.checkout.delivery.delivery_address2 ? window.checkout.delivery.delivery_address2: '',
-                'address3': window.checkout && window.checkout.delivery && window.checkout.delivery.delivery_address3 ? window.checkout.delivery.delivery_address3: '',
-                'city': window.checkout && window.checkout.delivery && window.checkout.delivery.delivery_city ? window.checkout.delivery.delivery_city: '',
-                'province': window.checkout && window.checkout.delivery && window.checkout.delivery.delivery_province ? window.checkout.delivery.delivery_province: '',
-                'postal': window.checkout && window.checkout.delivery && window.checkout.delivery.delivery_postal ? window.checkout.delivery.delivery_postal: '',
+                'building': window.checkout && window.checkout.delivery && window.checkout.delivery.building ? window.checkout.delivery.building: '',
+                'address1': window.checkout && window.checkout.delivery && window.checkout.delivery.address1 ? window.checkout.delivery.address1: '',
+                'address2': window.checkout && window.checkout.delivery && window.checkout.delivery.address2 ? window.checkout.delivery.address2: '',
+                'address3': window.checkout && window.checkout.delivery && window.checkout.delivery.address3 ? window.checkout.delivery.address3: '',
+                'city': window.checkout && window.checkout.delivery && window.checkout.delivery.city ? window.checkout.delivery.city: '',
+                'province': window.checkout && window.checkout.delivery && window.checkout.delivery.province ? window.checkout.delivery.province: '',
+                'postal': window.checkout && window.checkout.delivery && window.checkout.delivery.postal ? window.checkout.delivery.postal: '',
             },
             currentStep:1,
             steps: {
@@ -119,6 +121,13 @@ import {Tabs, Tab} from 'vue-tabs-component';
                         'telephone': {
                             type: 'tel'
                         },
+                        'password': {
+                            type: 'tel',
+                            min: 6
+                        },
+                        'repeatpass': {
+                            equals: 'password'
+                        },
                     },
                     complete: false,
                     errors: {
@@ -126,6 +135,8 @@ import {Tabs, Tab} from 'vue-tabs-component';
                         'lname':false,
                         'email':false,
                         'telephone':false,
+                        'password':false,
+                        'repeatpass':false,
                     },
                 },
                 2: {
@@ -230,7 +241,7 @@ import {Tabs, Tab} from 'vue-tabs-component';
                     this.wizard.steps[step].errors[id] = true;
                 }
                 var equals = validation.equals ? validation.equals : false;
-                if(equals && el.value.trim() !== equals){
+                if(equals && el.value.trim() !== document.getElementById(equals).value.trim()){
                     this.wizard.steps[step].errors[id] = true;
                 }
             }
@@ -251,9 +262,6 @@ import {Tabs, Tab} from 'vue-tabs-component';
             if(event.target.checked){
                 var that = this;
                 this.wizard.delivery = this.wizard.billing;
-                setTimeout(function(){
-                    that.saveCheckout(3);
-                },500);
             }else{
                 this.wizard.delivery = {'building': '', 'address1': '', 'address2': '', 'city': '', 'province': '', 'postal': '' };
             }

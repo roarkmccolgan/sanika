@@ -59,10 +59,6 @@ return [
         'address' => env('MAIL_FROM_ADDRESS', 'notifications@maxrenew.co.za'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
-    'to' => [
-        'address' => 'roarkmccolgan@gmail.com',
-        'name' => 'Roark McColgan',
-    ],
 
     /*
     |--------------------------------------------------------------------------

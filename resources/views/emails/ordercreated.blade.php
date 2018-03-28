@@ -356,7 +356,8 @@ h2 {
 }
 
 h3 {
-	margin-top: 0;
+	margin-top: 5px;
+	margin-bottom: 5px;
 	color: #2F3133;
 	font-size: 14px;
 	font-weight: bold;
@@ -435,39 +436,89 @@ p.center {
                     </table> -->
                     <table class="purchase" width="100%" cellpadding="0" cellspacing="0">
                     	<tr>
-                    		<td>
-                    			<h3>ORDER ID - {{ $order->id }}</h3></td>
-                    			<td>
-                    				<h3 class="align-right">ORDERED - {{ $order->created_at }}</h3></td>
-                    			</tr>
-                    			<tr>
-                    				<td colspan="2">
-                    					<table class="purchase_content" width="100%" cellpadding="0" cellspacing="0">
-                    						<tr>
-                    							<th class="purchase_heading">
-                    								<p>Description</p>
-                    							</th>
-                    							<th class="purchase_heading">
-                    								<p class="align-right">Amount</p>
-                    							</th>
-                    						</tr>
-                    						@foreach($order->items as $item)
-                    						<tr>
-                    							<td width="80%" class="purchase_item">{{ $item->product->strapline }}</td>
-                    							<td class="align-right" width="20%" class="purchase_item">@money($item->product->price,'ZAR')</td>
-                    						</tr>
-                    						@endforeach
-                    						<tr>
-                    							<td width="80%" class="purchase_footer" valign="middle">
-                    								<p class="purchase_total purchase_total--label">Total</p>
-                    							</td>
-                    							<td width="20%" class="purchase_footer" valign="middle">
-                    								<p class="purchase_total">@money($order->value,'ZAR')</p>
-                    							</td>
-                    						</tr>
-                    					</table>
-                    				</td>
-                    			</tr>
+                    		<td valign="top">
+                    			<h3>ORDER ID - {{ $order->id }}</h3>
+                    			<p>
+                    				{{ $order->contact->fname." ".$order->contact->lname }}<br/>
+	                    			{{ $order->contact->email }}<br/>
+	                    			{{ $order->contact->telephone }}<br/>
+	                    			@if($order->contact->mobile)
+	                    			{{ $order->contact->mobile }}
+                    			    @endif
+                    			</p>
+                    		</td>
+                    		<td valign="top">
+                    			<h3 class="align-right">DATE - {{ $order->created_at }}</h3>
+                    		</td>
+            			</tr>
+            			<tr>
+                    		<td valign="top">
+                    			<h3>Billing Address</h3>
+                    			<p>
+	                    			@if($order->contact->company)
+	                    			{{ $order->contact->company }}<br/>
+	                    			@endif
+	                    			@if($order->contact->vat)
+	                    			{{ $order->contact->vat }}<br/>
+	                    			@endif
+	                    			@if($order->contact->billing_building)
+	                    			{{ $order->contact->billing_building }}<br/>
+	                    			@endif
+	                    			{{ $order->contact->billing_address1 }}<br/>
+	                    			{{ $order->contact->billing_address2 }}<br/>
+	                    			@if($order->contact->billing_address3 && $order->contact->billing_address3!==$order->contact->billing_city)
+	                    			{{ $order->contact->billing_address3 }}<br/>
+	                    			@endif
+	                    			{{ $order->contact->billing_city }}<br/>
+	                    			{{ $order->contact->billing_province }}<br/>
+	                    			{{ $order->contact->billing_postal }}
+	                    		</p>
+                    		</td>
+                    		<td valign="top" align="right">
+                    			<h3 class="align-right">Delivery Address</h3>
+                    			<p class="align-right">
+	                    			@if($order->contact->delivery_building)
+	                    			{{ $order->contact->delivery_building }}<br/>
+	                    			@endif
+	                    			{{ $order->contact->delivery_address1 }}<br/>
+	                    			{{ $order->contact->delivery_address2 }}<br/>
+	                    			@if($order->contact->delivery_address3 && $order->contact->delivery_address3!==$order->contact->delivery_city)
+	                    			{{ $order->contact->delivery_address3 }}<br/>
+	                    			@endif
+	                    			{{ $order->contact->delivery_city }}<br/>
+	                    			{{ $order->contact->delivery_province }}<br/>
+	                    			{{ $order->contact->delivery_postal }}
+	                    		</p>
+                    		</td>
+            			</tr>
+            			<tr>
+            				<td colspan="2">
+            					<table class="purchase_content" width="100%" cellpadding="0" cellspacing="0">
+            						<tr>
+            							<th class="purchase_heading">
+            								<p>Description</p>
+            							</th>
+            							<th class="purchase_heading">
+            								<p class="align-right">Amount</p>
+            							</th>
+            						</tr>
+            						@foreach($order->items as $item)
+            						<tr>
+            							<td width="80%" class="purchase_item">{{ $item->product->strapline }}</td>
+            							<td class="align-right" width="20%" class="purchase_item">@money($item->product->price,'ZAR')</td>
+            						</tr>
+            						@endforeach
+            						<tr>
+            							<td width="80%" class="purchase_footer" valign="middle">
+            								<p class="purchase_total purchase_total--label">Total</p>
+            							</td>
+            							<td width="20%" class="purchase_footer" valign="middle">
+            								<p class="purchase_total">@money($order->value,'ZAR')</p>
+            							</td>
+            						</tr>
+            					</table>
+            				</td>
+            			</tr>
                     		</table>
                     		<p>Cheers,
                     			<br>The MaxRenew Team</p>

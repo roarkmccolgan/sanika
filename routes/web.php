@@ -58,10 +58,10 @@ Route::get('/listcategories', function(){
 });
 
 Route::get('/testmail', function(){
-	$order = Order::with('items')->find(9);
+	$order = Order::with(['items','contact'])->find(11);
 	
-	Mail::to('roarkmccolgan@gmail.com')
-	->send(new App\Mail\SendOrder($order));
+	/*Mail::to('roarkmccolgan@gmail.com')
+	->send(new App\Mail\SendOrder($order));*/
 
     return (new App\Mail\SendOrder($order))->render();
 });
