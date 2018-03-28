@@ -161,9 +161,9 @@
 		<div class="w-1/3 p-2">
 			<div class="flex flex-wrap bg-white border shadow p-4">
 				<div class="w-1/3">
-					@if($product->hasMedia('title'))
+					@if($catproduct->hasMedia('title'))
 					<a href="/categories/{{ $catproduct->path }}/{{ $catproduct->alias }}" class="no-underline">
-						<img src="{{ $product->getFirstMediaUrl('title', 'product') }}" alt="Image of {{ $product['name'] }}">
+						<img src="{{ $catproduct->getFirstMediaUrl('title', 'product') }}" alt="Image of {{ $catproduct['name'] }}">
 					</a>
 					@endif
 				</div>
