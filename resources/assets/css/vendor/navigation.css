@@ -23,7 +23,7 @@
 	@apply .bg-white;
 }
 #nav .menu:hover > a {
-	@apply .text-max-secondary;
+	@apply .text-sanika-primary;
 }
 #nav .menu:hover .submenu{
 	@apply .block .pin-x;

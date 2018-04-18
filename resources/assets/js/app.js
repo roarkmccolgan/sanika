@@ -12,6 +12,8 @@
 import InstantSearch from 'vue-instantsearch'
 import { createFromAlgoliaCredentials } from 'vue-instantsearch';
 import VueSweetalert2 from 'vue-sweetalert2';
+import VueTyperPlugin from 'vue-typer';
+Vue.use(VueTyperPlugin);
 
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import faSearch from '@fortawesome/fontawesome-pro-regular/faSearch'
@@ -34,8 +36,8 @@ import {Tabs, Tab} from 'vue-tabs-component';
  Vue.use(InstantSearch);
  Vue.use(VueSweetalert2);
 
- const searchStore = createFromAlgoliaCredentials('9PJ4YRKD8R', '70da05b28f4fcec86d4d4197851214af');
- searchStore.indexName = 'maxrenew';
+ const searchStore = createFromAlgoliaCredentials('UZJY23K2LZ', '6b7f22a5ed16d1fedef134f04d118dff');
+ searchStore.indexName = 'dev_sanikawebsite';
 
  Vue.component('example-component', require('./components/ExampleComponent.vue'));
  var CartComponent = require('./components/CartComponent.vue');
@@ -56,6 +58,12 @@ import {Tabs, Tab} from 'vue-tabs-component';
             faCheckSquare: faCheckSquare,
             faAngleRight: faAngleRight,
             faCheck: faCheck,
+        },
+        typer:{
+            text: ["Leaking Roof","Rising Damp","Concrete Cracking","Leaking Reservior","Leaking Tie-holes"],
+            repeat: 'Infinity',
+            suffle: true,
+            show: true,
         },
         showAskQuestion: false,
         product: {

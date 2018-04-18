@@ -23,11 +23,11 @@
 }
 
 .tabs-component-tab:hover {
-  @apply .text-max-secondary;
+  @apply .text-sanika-primary;
 }
 
 .tabs-component-tab.is-active {
-  @apply .text-max-secondary .z-10;
+  @apply .text-sanika-primary .z-10;
   border-bottom: solid 1px #fff;
 }
 
@@ -51,10 +51,10 @@
 }
 
 .tabs-component-tab-a {
-  @apply .items-center .flex .px-4 .py-2 .no-underline .text-max-primary .font-bold .text-lg;
+  @apply .items-center .flex .px-4 .py-2 .no-underline .text-sanika-secondary .font-bold .text-lg;
 }
 .tabs-component-tab.is-active .tabs-component-tab-a {
-  @apply .text-max-secondary;
+  @apply .text-sanika-primary;
 }
 
 .tabs-component-panels {

@@ -1,11 +1,7 @@
-<div class="bg-max-primary py-2 text-white text-sm font-bold relative z-30">
+<div class="bg-black py-2 text-white text-sm font-bold relative z-30">
 	<div class="container mx-auto flex items-center justify-between px-2 sm:px-0">
 		<div class="flex items-center">
-			<div class="pr-4 mr-4 text-xs sm:border-r sm:text-base">CALL NOW: <a class="no-underline text-max-secondary" href="tel:+27119181800">+27 (011) 918 1800</a></div>
-			<div class="hidden sm:block">Frequently Asked Questions</div>
-		</div>
-		<div class="hidden sm:block">
-			<em>Free Delivery on orders over R2000</em>
+			<div class="pr-4 mr-4 text-xs sm:text-base">CALL NOW: <a class="no-underline text-sanika-primary" href="tel:+274243061">+27 (011) 425 3061</a></div>
 		</div>
 		<div class="font-normal text-sm">
 			@if($isLoggedIn)

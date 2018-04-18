@@ -2,44 +2,33 @@
 	<div class="container mx-auto mb-6">
 		<div class="md:flex md:flex-wrap leading-normal">
 			<div class="p-2 md:w-1/4">
-				<h5 class="text-lg font-normal mb-2">OUR COMPANY</h5>
+				<h5 class="text-2xl font-condensed font-bold mb-2 uppercase">Contact Us Today</h5>
 				<div class="flex flex-col">
-					<a href="/contact" class="no-underline text-white hover:text-max-primary">Contact Us</a>
-					<a href="#" class="no-underline text-white hover:text-max-primary">FAQs</a>
-					<a href="#" class="no-underline text-white hover:text-max-primary">Warranties</a>
+					<a class="block mb-2 no-underline text-2xl text-sanika-primary" href="tel:+274243061">+27 (011) 425 3061</a>
+					24 Davidson Street, Rynfield<br/>
+					Benoni, 1501<br/>
+					South Africa<br/><br/>
+					Company Reg: 1992/009387/23
 				</div>
 			</div>
 			<div class="p-2 md:w-1/4">
-				<h5 class="text-lg font-normal mb-2">SHOPPING WITH US</h5>
+				<h5 class="text-2xl font-condensed mb-2 uppercase">Quick Links</h5>
 				<div class="flex flex-col">
-					<a href="#" class="no-underline text-white hover:text-max-primary">Delivery Options</a>
-					<a href="#" class="no-underline text-white hover:text-max-primary">Returns / Refunds Policy</a>
-					<a href="#" class="no-underline text-white hover:text-max-primary">Terms and Conditions</a>
+					<a href="#" class="no-underline text-white hover:text-sanika-primary">Company Structure</a>
+					<a href="#" class="no-underline text-white hover:text-sanika-primary">Contact Us</a>
+					<a href="#" class="no-underline text-white hover:text-sanika-primary">Terms and Conditions</a>
 				</div>
 			</div>
 			<div class="p-2 md:w-1/4">
-				<h5 class="text-lg font-normal mb-2">MY ACCOUNT</h5>
+				<h5 class="text-2xl font-condensed mb-2 uppercase">Downloads</h5>
 				<div class="flex flex-col">
-					<a href="/login" class="no-underline text-white hover:text-max-primary">Login</a>
-					<a href="#" class="no-underline text-white hover:text-max-primary">Profile</a>
-					<a href="#" class="no-underline text-white hover:text-max-primary">Orders</a>
+					<a href="/login" class="no-underline text-white hover:text-sanika-primary">Letter of Good Standing</a>
+					<a href="#" class="no-underline text-white hover:text-sanika-primary">BEE Certificate</a>
 				</div>
 			</div>
 			<div class="p-2 md:w-1/4">
-				<h5 class="text-lg font-normal mb-2">WHERE TO FIND US</h5>
-				<address>
-					+27 (011) 918 1800
-					+27 (011) 918 1809
-					info@maximtrading.co.za
-					222, 14th Avenue, 
-					Anderbolt, 
-					Boksburg, 
-					Gauteng
-				</address>
+				<a href="/" class="no-underline" title="Homepage"><img class="block mx-4" src="/images/sanika_logo_white.svg" alt=""></a>
 			</div>
-		</div>
-		<div class="flex justify-end mt-6">
-			<a href="/" class="no-underline" title="Homepage"><img class="w-32" src="/images/max-renew-logo.svg" alt=""></a>
 		</div>
 	</div>
 </div>
