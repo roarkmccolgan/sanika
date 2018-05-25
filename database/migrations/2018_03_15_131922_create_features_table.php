@@ -16,7 +16,7 @@ class CreateFeaturesTable extends Migration
         Schema::create('features', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id')->unsigned();
-            $table->string('name');
+            $table->text('name');
             
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });

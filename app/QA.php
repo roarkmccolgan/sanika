@@ -12,6 +12,10 @@ class QA extends Model
     	return $this->belongsTo('\App\Product');
     }
 
+    public function service(){
+    	return $this->belongsTo('\App\Service');
+    }
+
     public function answers() {
 	    return $this->hasMany('App\QA', 'parent_id');
 	}

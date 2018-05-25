@@ -45,7 +45,15 @@ class Category extends Model implements HasMedia
 	    return $this->subCategories()->with('allSubCategories');
 	}
 
-	public function products(){
+	public function services(){
+    	return $this->belongsToMany('App\Service');
+    }
+
+    public function products(){
     	return $this->belongsToMany('App\Product');
     }
+
+    public function casestudies() {
+	    return $this->hasMany('App\CaseStudy');
+	}
 }

@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\CaseStudy;
 use App\Category;
+use App\News;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
@@ -19,8 +22,14 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer(['partial.mainav','home'], function($view){
             $categories = Category::with(['products','allSubCategories.products'])->orderBy('order')->where('parent_id',null)->get();
-            
-            $view->with('categories', $categories);
+            $casestudies = CaseStudy::with(['category','siteproducts'])->get();
+            $news = News::with(['category','siteproducts'])->whereDate('publish', '>', Carbon::now()->subDay())->get();
+            $data = [
+                'categories'=>$categories,
+                'casestudies'=>$casestudies,
+                'news'=>$news,
+            ];
+            $view->with($data);
         });
         view()->composer('partial.cart', function($view){
             $view->with('cart', session('cart', []));

@@ -29,21 +29,27 @@ class ShopController extends Controller
     	$category = collect(Config::get('maxrenew.categories.'.$cat));
     	return view('category',compact('category'));
     }
-    public function getProduct($cat, $product){
+    /*public function getProduct($cat, $product){
         $product = Product::where('alias',$product)->get();
         return view('product',compact(['product']));
-    }
-    public function getProductOrCategory(Request $request, $tree = null){
+    }*/
+    public function getCategory(Request $request, $tree = null){
         //return session('cart');
         if($tree){
             $path = explode('/', $tree);
             $last = last($path);
-            if(count($path)===1){
-                $category = Category::with('products')->where('alias',$last)->firstOrFail();
-                return view('category',compact('category'));
-            }
-            $category = Category::with(['products'])->where('alias',$path[count($path)-2])->firstOrFail();
-            $product = Product::with('products')->where('alias',$last)->firstOrFail();
+            $category = Category::with('products')->where('alias',$last)->firstOrFail();
+            return view('category',compact('category'));
+        }
+        abort(404);
+    }
+    public function getProduct(Request $request, $tree = null, $product){
+        //return session('cart');
+        if($tree){
+            $path = explode('/', $tree);
+            $last = last($path);
+            $product = Product::with('products')->where('alias',$product)->firstOrFail();
+            $category = Category::with('products')->where('alias',$last)->firstOrFail();
             //return $product;
             \JavaScript::put([
                 'product' => $product,

@@ -50,6 +50,7 @@ let colors = {
   'sanika-secondary': '#4C4C4C',
 
   'black': '#000000',
+  'black-trans': 'rgba(0,0,0,0.9)',
   'grey-darkest': '#3d4852',
   'grey-darker': '#606f7b',
   'grey-dark': '#8795a1',
@@ -200,10 +201,10 @@ module.exports = {
       'Open Sans Condensed',
     ],
     'sans': [
-      'Open Sans',
       'system-ui',
       'BlinkMacSystemFont',
       '-apple-system',
+      'Open Sans',
       'Segoe UI',
       'Roboto',
       'Oxygen',

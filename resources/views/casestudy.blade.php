@@ -1,0 +1,101 @@
+@extends('layouts.app')
+
+@section('head')
+@parent
+
+@endsection
+@section('body')
+{{-- @includeWhen($pagetype == 'content', 'patial.mainmenu') --}}
+<div class="container flex-1 mx-auto pb-8">
+	<div class="category mt-4 md:flex">
+		@if($casestudy->hasMedia('title'))
+		<div class="md:w-1/3">
+			<img src="{{ $casestudy->getFirstMediaUrl('title', 'category') }}" alt="Image of {{ $casestudy['title'] }}">
+		</div>
+		@endif
+		<div class="flex-1">
+			<span class="font-bold text-lg text-grey-darker uppercase">Case Study</span>
+			<h1 class="font-extrabold uppercase mb-2">{{ $casestudy->site }}</h1>
+			<div class="flex bg-grey-lighter p-4">
+				<div class="mr-4">
+					<span class="block text-grey-darker uppercase">Client</span>
+					<span class="block font-bold text-lg mb-2">{{ $casestudy->client }}</span>
+
+					<span class="block text-grey-darker uppercase">Site</span>
+					<span class="block font-bold text-lg mb-2">{{ $casestudy->site }}</span>
+
+					<span class="block text-grey-darker uppercase">Scope</span>
+					<span class="block font-bold text-lg mb-2">{{ $casestudy->scope }}</span>
+				</div>
+				<div class="">
+					<span class="block text-grey-darker uppercase mb-1">Products Used</span>
+					<div class="flex">
+					    <ul class="mb-4 text-grey-darkest">
+					    	@foreach ($casestudy->siteproducts as $product)
+						        <li class="mb-2">
+						        	<a href="{{'/categories/'.$product->path.'/products/'.$product->alias}}" class="no-underline text-sanika-primary">
+										{{ $product->name }}
+									</a>
+								</li>
+							@endforeach
+							@foreach ($casestudy->products as $product)
+						        <li class="mb-2">
+						        	{{ $product }}
+								</li>
+							@endforeach
+						</ul>
+					</div>
+				</div>
+			</div>
+			<h2 class="font-extrabold uppercase mb-4 mt-4">Background</h2>
+			<p class="mb-2">{!! $casestudy->background !!}</p>
+			<h2 class="font-extrabold uppercase mb-4 mt-4">Solution</h2>
+			<p class="mb-2">{!! $casestudy->solution !!}</p>
+		</div>
+	</div>
+	<div class="flex flex-wrap -mx-2 mt-6 text-base">
+		@if(count($casestudy->siteproducts))
+		<h3 class="font-extrabold uppercase w-full mb-2 px-2">Related Products</h3>
+		@foreach(collect($casestudy->siteproducts)->chunk(3) as $chunk)
+		<div class="w-full flex flex-wrap items-stretch">
+			@foreach($chunk as $product)
+			<div class="w-full sm:w-1/3 p-2">
+				<div class="flex flex-wrap h-full bg-white border shadow p-4">
+					@if($product->hasMedia('title'))
+					<div class="w-1/3">
+						<a href="{{'/categories/'.$product->path.'/products/'.$product->alias}}" class="no-underline">
+							<img src="{{ $product->getFirstMediaUrl('title', 'thumb') }}" alt="Photo of {{ $product->alias }}">
+						</a>
+					</div>
+					@endif
+					<div class="flex-1">
+						<div class="mx-4">
+							<a href="{{'/categories/'.$product->path.'/products/'.$product->alias}}" class="text-sanika-primary no-underline hover:text-max-secondary">
+								<h3 class="font-extrabold uppercase mb-2">{{$product['name']}}</h3>
+							</a>
+							<p class="mb-2 text-sm">{{ $product['strapline'] }}</p>
+						</div>
+					</div>
+					<div class="w-full">
+						<hr class="border-t border-grey-light my-4">
+						<div class="flex justify-between">
+							<div class="text-lg text-sanika-primary font-bold">
+								
+							</div>
+							<div class="">
+								<a href="{{'/categories/'.$product->path.'/products/'.$product->alias}}" class="no-underline font-bold text-white bg-grey-darkest py-2 px-4 rounded hover:bg-black whitespace-no-wrap">
+									<span class="inline-block text-sm">View</span>
+								</a>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			@endforeach
+		</div>
+		@endforeach
+		@endif
+	</div>
+</div>
+@include('partial.footer')
+@endsection

@@ -1,4 +1,4 @@
-<div class="bg-black mt-8 text-sm text-white py-6">
+<div class="bg-black text-sm text-white py-6">
 	<div class="container mx-auto mb-6">
 		<div class="md:flex md:flex-wrap leading-normal">
 			<div class="p-2 md:w-1/4">

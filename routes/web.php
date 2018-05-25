@@ -29,7 +29,10 @@ Route::get('/contact', function () {
 });
 
 Route::get('/', 'ShopController@getHome');
-Route::get('/categories/{tree?}', 'ShopController@getProductOrCategory')->where('tree', '(.*)');
+Route::get('/categories/{tree?}/products/{product}', 'ShopController@getProduct')->where('tree', '(.*)');
+Route::get('/categories/{tree?}', 'ShopController@getCategory')->where('tree', '(.*)');
+Route::get('/casestudies/{tree?}', 'CaseStudyController@getCaseStudy')->where('tree', '(.*)');
+Route::get('/news/{tree?}', 'NewsController@getNewsItem')->where('tree', '(.*)');
 
 Route::get('/checkout', 'CheckoutController@showCheckout');
 Route::post('/checkout', 'CheckoutController@Checkout');
@@ -38,6 +41,8 @@ Route::get('/productlist', 'ShopController@jsonList');
 
 Route::post('/productfrompdf', 'DataBaseController@productfrompdf');
 Route::post('/categoryfrompdf', 'DataBaseController@categoryfrompdf');
+Route::post('/casestudyfrompdf', 'DataBaseController@casestudyfrompdf');
+Route::post('/newsfrompdf', 'DataBaseController@newsfrompdf');
 
 Route::get('/media/category/{category}/{file}', function($category, $file){
 	$cat = \App\Category::find($category);

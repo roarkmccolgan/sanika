@@ -141,19 +141,27 @@
 		<div class="w-1/2 p-2">
 			<h1 class="text-sanika-primary mb-4">Welcome to Sanika Waterproofing</h1>
 			<p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero dolor facere tempora eligendi, dolorem aperiam quae error sequi, ut molestias excepturi amet non doloremque consequatur alias, ipsa odio saepe explicabo.</p>
+			<p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero dolor facere tempora eligendi, dolorem aperiam quae error sequi, ut molestias excepturi amet non doloremque consequatur alias, ipsa odio saepe explicabo.</p>
 		</div>
 		
 	</div>
 
-	<div class="flex mt-6 mb-2 -mx-2">
+	<div class="flex flex-wrap mt-6 mb-2 -mx-2">
+		<div class="w-full p-4"><h2 class="uppercase">Latest Projects</h2></div>
 		<div class="flex-1 bg-white border shadow mx-2 p-4">
-			Project 1
+			<img class="block mb-6" src="{{ asset('storage/projects/eastgate.jpg') }}" alt="">
+			<h4 class="font-extrabold uppercase">Eastgate Shopping Centre</h4>
+			<span class="text-grey-dark">Emseal Expansion Joints</span>
 		</div>
 		<div class="flex-1 bg-white border shadow mx-2 p-4">
-			Project 2
+			<img class="block mb-6" src="{{ asset('storage/projects/sishen.jpg') }}" alt="">
+			<h4 class="font-extrabold uppercase">Anglo American Kumba Iron Ore Mine Sishen</h4>
+			<span class="text-grey-dark">Kryton Crack Repair</span>
 		</div>
 		<div class="flex-1 bg-white border shadow mx-2 p-4">
-			Project 3
+			<img class="block mb-6" src="{{ asset('storage/projects/mnet.jpg') }}" alt="">
+			<h4 class="font-extrabold uppercase">Mnet Building Samrand</h4>
+			<span class="text-grey-dark">Insulative Boarded Waterproofing System</span>
 		</div>
 	</div>
 </div>

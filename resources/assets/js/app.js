@@ -41,6 +41,7 @@ import {Tabs, Tab} from 'vue-tabs-component';
 
  Vue.component('example-component', require('./components/ExampleComponent.vue'));
  var CartComponent = require('./components/CartComponent.vue');
+ var ContactComponent = require('./components/ContactComponent.vue');
  Vue.component('tabs', Tabs);
  Vue.component('tab', Tab);
 
@@ -61,7 +62,6 @@ import {Tabs, Tab} from 'vue-tabs-component';
         },
         typer:{
             text: ["Leaking Roof","Rising Damp","Concrete Cracking","Leaking Reservior","Leaking Tie-holes"],
-            repeat: 'Infinity',
             suffle: true,
             show: true,
         },
@@ -209,6 +209,7 @@ import {Tabs, Tab} from 'vue-tabs-component';
     components: {
         FontAwesomeIcon,
         CartComponent,
+        ContactComponent,
     },
     methods: {
         clearCart: function(){

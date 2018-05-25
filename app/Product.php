@@ -30,6 +30,10 @@ class Product extends Model implements HasMedia
         });
     }
 
+    protected $casts = [
+        'uses' => 'array',
+    ];
+
 	public function getPathAttribute($value)
     {
         return collect($this->categories()->get())->implode('alias','/');
@@ -41,6 +45,10 @@ class Product extends Model implements HasMedia
 		'alias',
 		'strapline',
 		'description',
+        'how_it_works',
+        'application',
+        'uses_intro',
+        'uses',
 		'price',
 		'price_install',
 		'seo_title',
@@ -53,7 +61,11 @@ class Product extends Model implements HasMedia
     }
 
     public function categories(){
-    	return $this->belongsToMany('App\Category');
+        return $this->belongsToMany('App\Category');
+    }
+
+    public function services(){
+    	return $this->belongsToMany('App\Service');
     }
 
     public function promotions(){
@@ -69,7 +81,11 @@ class Product extends Model implements HasMedia
     }
 
     public function stocks(){
-    	return $this->hasMany('App\Stock');
+        return $this->hasMany('App\Stock');
+    }
+
+    public function prices(){
+    	return $this->hasMany('App\Price');
     }
 
     public function products(){
