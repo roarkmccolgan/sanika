@@ -6,7 +6,7 @@
 			</div>
 			<div id="nav" class="sm:ml-4 mt-2 flex items-center">
 				@foreach($categories as $category)
-				<div class="menu text-base flex">
+				<div class="menu text-base flex sm:w-1/5">
 					<a href="/categories/{{ $category->alias }}" class="font-bold text-black uppercase hover:text-white no-underline py-4 px-2">{{ $category->name }}</a>
 					@if(count($category->allSubCategories) && !count($category->products))
 					<div class="submenu absolute min-w-full p-2 pt-4 border border-grey-dark border-t-0">

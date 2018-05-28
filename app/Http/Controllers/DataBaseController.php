@@ -285,7 +285,7 @@ class DataBaseController extends Controller
 			);
 
 			if(count($attachProducts)>0){
-				$casestudy->siteproducts()->sync($attachProducts);
+				$news->siteproducts()->sync($attachProducts);
 			}
 
 			$message = 'Success!\n'.$request->input('title').' Successfully Saved';
