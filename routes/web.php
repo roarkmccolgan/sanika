@@ -1,6 +1,8 @@
 <?php
 
+use App\CaseStudy;
 use App\Category;
+use App\News;
 use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -27,6 +29,7 @@ Route::get('/auth0/callback', '\Auth0\Login\Auth0Controller@callback');
 Route::get('/contact', function () {
     return view('contact');
 });
+Route::post('/contact', 'ContactController@SendMessage');
 
 Route::get('/', 'ShopController@getHome');
 Route::get('/categories/{tree?}/products/{product}', 'ShopController@getProduct')->where('tree', '(.*)');
@@ -50,9 +53,26 @@ Route::get('/media/category/{category}/{file}', function($category, $file){
 	
 	return 'success';
 });
-Route::get('/media/product/{product}/{file}', function($product, $file){
-	$prod = \App\Product::find($product);
-	$prod->addMedia(storage_path('source_images/'.$file))->preservingOriginal()->toMediaCollection('title');
+Route::get('/media/product/{product}', function(Request $request, $product){
+	if($request->query('file')){
+		$prod = \App\Product::find($product);
+		$prod->addMediaFromUrl($request->query('file'))->toMediaCollection('title');
+		
+		return 'success';
+	}
+	abort(404);
+});
+
+Route::get('/media/casestudy/{casestudy}/{file}', function($casestudy, $file){
+	$casestudy = \App\CaseStudy::find($casestudy);
+	$casestudy->addMedia(storage_path('source_images/'.$file))->preservingOriginal()->toMediaCollection('title');
+	
+	return 'success';
+});
+
+Route::get('/media/news/{newsitem}/{file}', function($newsitem, $file){
+	$newsitem = \App\News::find($newsitem);
+	$newsitem->addMedia(storage_path('source_images/'.$file))->preservingOriginal()->toMediaCollection('title');
 	
 	return 'success';
 });

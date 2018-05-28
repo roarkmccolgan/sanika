@@ -10,7 +10,7 @@
 					<a href="/categories/{{ $category->alias }}" class="font-bold text-black uppercase hover:text-white no-underline py-4 px-2">{{ $category->name }}</a>
 					@if(count($category->allSubCategories) && !count($category->products))
 					<div class="submenu absolute min-w-full p-2 pt-4 border border-grey-dark border-t-0">
-						<div class="flex flex-wrap -mx-4">
+						<div class="flex -mx-4">
 							<div class="px-4">
 								<a href="/categories/{{ $category->alias }}" class="block w-full text-sm uppercase text-grey-light pb-4 border-b mb-2 hover:text-sanika-primary">{{$category->name}}</a>
 								@foreach($category->allSubCategories as $subCategory)
@@ -24,7 +24,7 @@
 					@else
 						@if(count($category->allSubCategories))
 						<div class="submenu absolute min-w-full p-2 pt-4 border border-grey-dark border-t-0">
-							<div class="flex flex-wrap -mx-4">
+							<div class="flex -mx-4">
 								@foreach($category->allSubCategories as $subCategory)
 								<div class="px-4">
 									<a href="/categories/{{ $category->alias }}/{{ $subCategory->alias }}" class="block w-full text-sm uppercase text-grey-light pb-4 border-b mb-2 hover:text-sanika-primary">{{$subCategory->name}}</a>
@@ -48,7 +48,7 @@
 				<div class="menu text-base flex">
 					<a href="/casestudies" class="font-bold text-black uppercase hover:text-white no-underline py-4 px-2">Case Studies</a>
 					<div class="submenu absolute min-w-full p-2 pt-4 border border-grey-dark border-t-0">
-						<div class="flex flex-wrap -mx-4">
+						<div class="flex -mx-4">
 							@foreach($casestudies as $casestudy)
 							<div class="px-4">
 								<span class="text-grey-dark">{{$casestudy->category->name }}</span> <a href="/casestudies/{{ $casestudy->category->alias }}/{{ $casestudy->alias }}" class="block w-full font-bold text-white pb-4 mb-2 hover:text-sanika-primary">{{$casestudy->site }}</a>

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
@@ -10,11 +11,30 @@ use Spatie\MediaLibrary\Models\Media;
 class Product extends Model implements HasMedia
 {
     use HasMediaTrait;
+    use Searchable;
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        $array = [
+            'objectID' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'url' => '/categories/'.$this->path.'/products/'.$this->alias,
+            'tags' => $this->uses,
+        ];
+
+        return $array;
+    }
 
     public function registerMediaCollections()
     {
         $this
-            ->addMediaCollection('title')     
+            ->addMediaCollection('title') 
             ->useDisk('media')
             ->singleFile()
             ->registerMediaConversions(function (Media $media) {

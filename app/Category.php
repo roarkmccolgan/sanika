@@ -14,7 +14,7 @@ class Category extends Model implements HasMedia
 	public function registerMediaCollections()
 	{
 	    $this
-	        ->addMediaCollection('title')     
+	        ->addMediaCollection('title')
 	        ->useDisk('media')
 	        ->singleFile()
 	        ->registerMediaConversions(function (Media $media) {

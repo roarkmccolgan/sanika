@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'notifications@maxrenew.co.za'),
+        'address' => env('MAIL_FROM_ADDRESS', 'notifications@sanika.co.za'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 

@@ -67,7 +67,7 @@
 									Subject
 								</label>
 								<div class="relative">
-									<select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="subject">
+									<select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" id="subject" name="subject">
 										<option value="General Enquiry">General Enquiry</option>
 										<option value="Technical Enquiry">Technical Enquiry</option>
 										<option value="Complaint">Complaint</option>
@@ -231,6 +231,7 @@ export default {
             .then(function (response) {
                 setTimeout(function(){
                     that.busy = false;
+                    that.submitError = false;
                     that.complete = true;
                 },500);
             })

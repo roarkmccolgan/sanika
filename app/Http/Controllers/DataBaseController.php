@@ -89,7 +89,10 @@ class DataBaseController extends Controller
 			if(count($attachProducts)>0){
 				$product->products()->sync($attachProducts);
 			}
-
+			if($request->has('image')) {
+				$image = str_replace("dl=0","raw=1",$request->input('image'));
+				$product->addMediaFromUrl($image)->toMediaCollection('title');
+			}
 			if($request->has('features')) {
 				$product->features()->delete();
 				foreach ($request->input('features') as $feature) {
@@ -156,6 +159,11 @@ class DataBaseController extends Controller
 			$categoryToEdit->seo_keywords = $request->input('seo.keywords');
 			$categoryToEdit->save();
 
+			if($request->has('image')) {
+				$image = str_replace("dl=0","raw=1",$request->input('image'));
+				$categoryToEdit->addMediaFromUrl($image)->toMediaCollection('title');
+			}
+
 			$message = 'Success!\n'.$category->name.' Successfully Saved';
 		}
 		$response = "%FDF-1.2\r\n" .
@@ -215,6 +223,10 @@ class DataBaseController extends Controller
 
 			if(count($attachProducts)>0){
 				$casestudy->siteproducts()->sync($attachProducts);
+			}
+			if($request->has('image')) {
+				$image = str_replace("dl=0","raw=1",$request->input('image'));
+				$product->addMediaFromUrl($image)->toMediaCollection('title');
 			}
 
 			$message = 'Success!\n'.$request->input('client').' '.$request->input('place').' Successfully Saved';

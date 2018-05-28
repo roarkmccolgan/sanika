@@ -11,6 +11,28 @@ class CaseStudy extends Model implements HasMedia
 {
 	use HasMediaTrait;
 
+	public function registerMediaCollections()
+	{
+	    $this
+	        ->addMediaCollection('title')     
+	        ->useDisk('media')
+	        ->singleFile()
+	        ->registerMediaConversions(function (Media $media) {
+            $this
+                ->addMediaConversion('thumb')
+                ->width(300)
+                ->height(300);
+            $this
+                ->addMediaConversion('category')
+                ->width(400)
+                ->height(400);
+
+        });
+	    $this
+	        ->addMediaCollection('gallery')     
+	        ->useDisk('media');
+	}
+
 	protected $fillable = [
 		'category_id',
 		'title',

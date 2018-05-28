@@ -36,8 +36,8 @@ import {Tabs, Tab} from 'vue-tabs-component';
  Vue.use(InstantSearch);
  Vue.use(VueSweetalert2);
 
- const searchStore = createFromAlgoliaCredentials('UZJY23K2LZ', '6b7f22a5ed16d1fedef134f04d118dff');
- searchStore.indexName = 'dev_sanikawebsite';
+ const searchStore = createFromAlgoliaCredentials('9PJ4YRKD8R', '70da05b28f4fcec86d4d4197851214af');
+ searchStore.indexName = 'sanika';
 
  Vue.component('example-component', require('./components/ExampleComponent.vue'));
  var CartComponent = require('./components/CartComponent.vue');

@@ -10,7 +10,7 @@
 	<div class="mt-4 category md:flex">
 		@if($category->hasMedia('title'))
 		<div class="md:w-1/3">
-			<img src="{{ $category->getFirstMediaUrl('title', 'category') }}" alt="Image of {{ $category['name'] }}">
+			<img class="sm:w-3/4 mx-auto" src="{{ $category->getFirstMediaUrl('title', 'category') }}" alt="Image of {{ $category['name'] }}">
 		</div>
 		@endif
 		<div class="flex-1">
@@ -23,20 +23,20 @@
 		<h3 class="font-extrabold uppercase w-full mb-2 px-2">Products</h3>
 		@endif
 		@foreach(collect($category['products'])->chunk(3) as $chunk)
-		<div class="flex flex-wrap items-stretch">
+		<div class="flex flex-wrap w-full items-stretch">
 			@foreach($chunk as $product)
 			<div class="w-full sm:w-1/3 p-2">
 				<div class="flex flex-wrap h-full bg-white border shadow p-4">
 					@if($product->hasMedia('title'))
 					<div class="w-1/3">
-						<a href="{{'/categories/'.$category['alias'].'/products/'.$product->alias}}" class="no-underline">
+						<a href="{{'/categories/'.$product->path.'/products/'.$product->alias}}" class="no-underline">
 							<img src="{{ $product->getFirstMediaUrl('title', 'thumb') }}" alt="Photo of {{ $product->alias }}">
 						</a>
 					</div>
 					@endif
 					<div class="flex-1">
 						<div class="mx-4">
-							<a href="{{'/categories/'.$category['alias'].'/products/'.$product->alias}}" class="text-sanika-primary no-underline hover:text-max-secondary">
+							<a href="{{'/categories/'.$product->path.'/products/'.$product->alias}}" class="text-sanika-primary no-underline hover:text-max-secondary">
 								<h3 class="font-extrabold uppercase mb-2">{{$product['name']}}</h3>
 							</a>
 							<p class="mb-2 text-sm">{{ $product['strapline'] }}</p>
@@ -49,7 +49,7 @@
 								
 							</div>
 							<div class="">
-								<a href="{{'/categories/'.$category['alias'].'/products/'.$product->alias}}" class="no-underline font-bold text-white bg-grey-darkest py-2 px-4 rounded hover:bg-black whitespace-no-wrap">
+								<a href="{{'/categories/'.$product->path.'/products/'.$product->alias}}" class="no-underline font-bold text-white bg-grey-darkest py-2 px-4 rounded hover:bg-black whitespace-no-wrap">
 									<span class="inline-block text-sm">View</span>
 								</a>	
 							</div>

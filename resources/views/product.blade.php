@@ -129,11 +129,11 @@
 		</div>
 		@if(count($category->products)>1)
 		<div class="font-bold text-lg mt-6 mb-2">Other products</div>
-		<div class="flex flex-wrap -mx-2 text-base">
+		<div class="flex flex-wrap items-stretch -mx-2 text-base">
 			@foreach($category->products as $catproduct)
 			@if($catproduct->alias !== $product->alias)
 			<div class="w-1/3 p-2">
-				<div class="flex flex-wrap bg-white border shadow p-4">
+				<div class="flex flex-wrap h-full bg-white border shadow p-4">
 					<div class="w-1/3">
 						@if($catproduct->hasMedia('title'))
 						<a href="/categories/{{ $catproduct->path }}/products/{{ $catproduct->alias }}" class="no-underline">
@@ -147,7 +147,7 @@
 								<h3 class="mb-2">{{$catproduct->name}}</h3>
 							</a>
 							<div class="flex-1 text-max-primary font-bold mb-2">
-								here
+								
 							</div>
 							<div class="">
 								<a href="/categories/{{ $catproduct->path }}/products/{{ $catproduct->alias }}" class="no-underline">

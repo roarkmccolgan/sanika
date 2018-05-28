@@ -10,7 +10,7 @@
 				<div><a class="no-underline text-white" href="{{ url("/logout") }}">logout</a></div>
 			</div>
 			@else
-			<a class="no-underline text-white" href="{{ url("/login") }}">login</a>
+			<a class="hidden no-underline text-white" href="{{ url("/login") }}">login</a>
 			@endif
 		</div>
 	</div>

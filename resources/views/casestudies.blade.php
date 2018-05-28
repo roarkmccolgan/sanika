@@ -24,14 +24,14 @@
 				<div class="flex flex-wrap h-full bg-white border shadow p-4">
 					@if($casestudy->hasMedia('title'))
 					<div class="w-1/3">
-						<a href="{{'/casestudies/'.$casestudy->alias }}" class="no-underline">
+						<a href="{{'/casestudies/'.$casestudy->category->alias.'/'.$casestudy->alias }}" class="no-underline">
 							<img src="{{ $casestudy->getFirstMediaUrl('title', 'thumb') }}" alt="Photo of {{ $casestudy->title }}">
 						</a>
 					</div>
 					@endif
 					<div class="flex-1">
 						<div class="mx-4">
-							<a href="{{'/casestudies/'.$casestudy->alias }}" class="text-sanika-primary no-underline hover:text-max-secondary">
+							<a href="{{'/casestudies/'.$casestudy->category->alias.'/'.$casestudy->alias }}" class="text-sanika-primary no-underline hover:text-max-secondary">
 								<h3 class="font-extrabold uppercase mb-2">{{ $casestudy->site }}</h3>
 							</a>
 							<p class="mb-2 text-sm">{{ $casestudy->client }}</p>

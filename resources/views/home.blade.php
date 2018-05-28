@@ -25,7 +25,7 @@
 										<li class="text-base">Metal Roof Waterproofing</li>
 										<li class="text-base">Industrial &amp; Mining Anti Corrosive Coatings</li>
 									</ul>
-									<a href="contact.html" class="btn btn-inverse">Contact Us</a>
+									<a href="/categories/products-services/waterproofing" class="btn btn-inverse">Find out more</a>
 								</div>
 							</div>
 						</div>
@@ -48,7 +48,7 @@
 										<li class="text-base">Construction Joints &amp; Details</li>
 										<li class="text-base">Surface Applied Waterproofing</li>
 									</ul>
-									<a href="contact.html" class="btn btn-inverse">Contact Us</a>
+									<a href="categories/products-services/kryton" class="btn btn-inverse">Find out more</a>
 								</div>
 							</div>
 						</div>
@@ -72,7 +72,7 @@
 										<li class="text-base">Rapid installation</li>
 										<li class="text-base">Fire rated</li>
 									</ul>
-									<a href="contact.html" class="btn btn-inverse">Contact Us</a>
+									<a href="/categories/products-services/emseal" class="btn btn-inverse">Find out more</a>
 								</div>
 							</div>
 						</div>
@@ -136,34 +136,32 @@
 				<vue-typer :text="typer.text" :repeat="typer.repeat" class="font-bold text-2xl"></vue-typer>
 			</div>
 			<input type="text" class="font-bold text-2xl px-4 py-2 border rounded flex-grow mx-4" v-else />
-			<a href="#" class="no-underline bg-sanika-primary hover:bg-red-dark text-white font-bold py-2 px-4 rounded" @click.prevent="typer.show=!typer.show"> find solution </a>
+			<a href="/categories/products-services" class="no-underline bg-sanika-primary hover:bg-red-dark text-white font-bold py-2 px-4 rounded" @click="typer.show=!typer.show"> find solution </a>
 		</div>
 		<div class="w-1/2 p-2">
 			<h1 class="text-sanika-primary mb-4">Welcome to Sanika Waterproofing</h1>
-			<p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero dolor facere tempora eligendi, dolorem aperiam quae error sequi, ut molestias excepturi amet non doloremque consequatur alias, ipsa odio saepe explicabo.</p>
-			<p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero dolor facere tempora eligendi, dolorem aperiam quae error sequi, ut molestias excepturi amet non doloremque consequatur alias, ipsa odio saepe explicabo.</p>
+			<p class="mb-2">Sanika Waterproofing Specialists was founded over 25 years ago with an ultimate goal in mind – become a trusted expert in the waterproofing industry to contractors, engineers, architects and building owners alike. Fast forward to present day and the same goal still rings true. We are a family owned and run business and we take the meaning of family to heart. We want to ensure that each and every client feels like family by providing that same excellent service and quality product, all back by our expert guidance accumulated over our many years in the industry.</p>
 		</div>
 		
 	</div>
-
+	@if(count($casestudies))
 	<div class="flex flex-wrap mt-6 mb-2 -mx-2">
 		<div class="w-full p-4"><h2 class="uppercase">Latest Projects</h2></div>
-		<div class="flex-1 bg-white border shadow mx-2 p-4">
-			<img class="block mb-6" src="{{ asset('storage/projects/eastgate.jpg') }}" alt="">
-			<h4 class="font-extrabold uppercase">Eastgate Shopping Centre</h4>
-			<span class="text-grey-dark">Emseal Expansion Joints</span>
+		@foreach($casestudies->chunk(3) as $chunk)
+		@foreach($chunk as $casestudy)
+		<div class="sm:w-{{ count($chunk)==1 ? 'full' : '3' }} flex-1 bg-white border shadow mx-2 p-4">
+			<a class="no-underline text-black" href="{{'/casestudies/'.$casestudy->category->alias.'/'.$casestudy->alias }}">
+			@if($casestudy->hasMedia('title'))
+			<img src="{{ $casestudy->getFirstMediaUrl('title', 'casestudy') }}" alt="Image of {{ $casestudy->title }}">
+			@endif
+			<h4 class="no-underline text-blackblack font-extrabold uppercase mb-2">{{ $casestudy->title }}</h4>
+			<span class="no-underline text-grey-dark">{{ $casestudy->client }}</span>
+			</a>
 		</div>
-		<div class="flex-1 bg-white border shadow mx-2 p-4">
-			<img class="block mb-6" src="{{ asset('storage/projects/sishen.jpg') }}" alt="">
-			<h4 class="font-extrabold uppercase">Anglo American Kumba Iron Ore Mine Sishen</h4>
-			<span class="text-grey-dark">Kryton Crack Repair</span>
-		</div>
-		<div class="flex-1 bg-white border shadow mx-2 p-4">
-			<img class="block mb-6" src="{{ asset('storage/projects/mnet.jpg') }}" alt="">
-			<h4 class="font-extrabold uppercase">Mnet Building Samrand</h4>
-			<span class="text-grey-dark">Insulative Boarded Waterproofing System</span>
-		</div>
+		@endforeach
+		@endforeach
 	</div>
+	@endif
 </div>
 @include('partial.footer')
 @endsection
