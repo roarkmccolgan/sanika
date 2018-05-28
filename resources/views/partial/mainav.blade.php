@@ -23,10 +23,10 @@
 					</div>
 					@else
 						@if(count($category->allSubCategories))
-						<div class="submenu absolute min-w-full sm:w-1/5 p-2 pt-4 border border-grey-dark border-t-0">
+						<div class="submenu absolute min-w-full p-2 pt-4 border border-grey-dark border-t-0">
 							<div class="flex -mx-4">
 								@foreach($category->allSubCategories as $subCategory)
-								<div class="px-4">
+								<div class="px-4 sm:w-1/5">
 									<a href="/categories/{{ $category->alias }}/{{ $subCategory->alias }}" class="block w-full text-sm uppercase text-grey-light pb-4 border-b mb-2 hover:text-sanika-primary">{{$subCategory->name}}</a>
 									@if(count($subCategory->products))
 										@foreach($subCategory->products as $catProd)
