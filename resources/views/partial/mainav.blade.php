@@ -14,7 +14,7 @@
 							<div class="px-4">
 								<a href="/categories/{{ $category->alias }}" class="block w-full text-sm uppercase text-grey-light pb-4 border-b mb-2 hover:text-sanika-primary">{{$category->name}}</a>
 								@foreach($category->allSubCategories as $subCategory)
-									<a href="/categories/{{ $category->alias }}/{{ $subCategory->alias }}" class="flex items-center py-1 px-2 font-bold text-white hover:text-sanika-primary whitespace-no-wrap no-underline">
+									<a href="/categories/{{ $category->alias }}/{{ $subCategory->alias }}" class="flex items-center py-1 px-2 font-bold text-white hover:text-sanika-primary no-underline">
 										{{ $subCategory->name }}
 									</a>
 								@endforeach
@@ -30,7 +30,7 @@
 									<a href="/categories/{{ $category->alias }}/{{ $subCategory->alias }}" class="block w-full text-sm uppercase text-grey-light pb-4 border-b mb-2 hover:text-sanika-primary">{{$subCategory->name}}</a>
 									@if(count($subCategory->products))
 										@foreach($subCategory->products as $catProd)
-											<a href="/categories/{{ $catProd->path }}/products/{{ $catProd->alias }}" class="flex items-center py-1 px-2 font-bold text-white hover:text-sanika-primary whitespace-no-wrap no-underline">
+											<a href="/categories/{{ $catProd->path }}/products/{{ $catProd->alias }}" class="flex items-center py-1 px-2 font-bold text-white hover:text-sanika-primary no-underline">
 												{{ $catProd->name }}
 											</a>
 										@endforeach
