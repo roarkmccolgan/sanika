@@ -49,7 +49,7 @@ let colors = {
   'sanika-primary': '#D3111F',
   'sanika-secondary': '#4C4C4C',
 
-  'black': '#000000',
+  'black': '#22292F',
   'black-trans': 'rgba(0,0,0,0.9)',
   'grey-darkest': '#3d4852',
   'grey-darker': '#606f7b',

@@ -11,7 +11,7 @@
     
 @show
 </head>
-<body class="font-sans antialiased text-black leading-tight h-full">
+<body class="font-sans antialiased text-grey-darkest leading-tight h-full">
 <div id="app" class="flex flex-col h-full">
     @include('partial.pagetop')
     @include('partial.mainav')

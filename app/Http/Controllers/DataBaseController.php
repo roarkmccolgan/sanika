@@ -89,10 +89,84 @@ class DataBaseController extends Controller
 			if(count($attachProducts)>0){
 				$product->products()->sync($attachProducts);
 			}
+			//start media stuff
 			if($request->has('image')) {
 				$image = str_replace("dl=0","raw=1",$request->input('image'));
-				$product->addMediaFromUrl($image)->toMediaCollection('title');
+				$parts = parse_url($image); 
+				$slug_name = str_replace(['%20','?raw=1'],['-',''],basename($parts['path']));
+				Log::info($slug_name);
+				$file_name = str_replace(['%20','-','_','.jpg','.JPG','.JPEG','.png','.png'],[' ',' ',' ','','','','',''],basename($parts['path']));
+				Log::info($file_name);
+				$product->addMediaFromUrl($image)->usingFileName($slug_name)->usingName($file_name)->toMediaCollection('title');
 			}
+			if($request->has('content')) {
+				$product->clearMediaCollection('content');				
+				foreach ($request->input('content') as $content) {
+					$content = str_replace("dl=0","raw=1",$content);
+					$parts = parse_url($content); 
+					$slug_name = str_replace(['%20','?raw=1'],['-',''],basename($parts['path']));
+					Log::info($slug_name);
+					$file_name = str_replace(['%20','-','_','.jpg','.JPG','.JPEG','.png','.png'],[' ',' ',' ','','','','',''],basename($parts['path']));
+					Log::info($file_name);
+					$product->addMediaFromUrl($content)->usingFileName($slug_name)->usingName($file_name)->toMediaCollection('content');
+				}
+				$mediaItems = $product->getMedia('content');
+				$replaceImages = [];
+				$replaceURLS = [];
+				foreach ($mediaItems as $key => $item) {
+					$replaceImages[]='img_'.$key;
+					$replaceURLS[]='!['.$item->name.']('.$item->getUrl().' "'.$item->name.'")';
+
+					$replaceImages[]='img_'.$key;
+					$replaceURLS[]='!['.$item->name.']('.$item->getUrl().' "'.$item->name.'")';
+				}
+				if($request->has('description')){
+					$newDescription = str_replace($replaceImages, $replaceURLS, $request->input('description'));
+					$product->description = Markdown::convertToHtml($newDescription);
+				}
+				if($request->has('how_it_works')){
+					$newHowItWorks = str_replace($replaceImages, $replaceURLS, $request->input('how_it_works'));
+					$product->how_it_works = Markdown::convertToHtml($newHowItWorks);
+				}				
+				$product->save();
+			}
+			if($request->has('gallery')) {
+				$product->clearMediaCollection('gallery');
+				foreach ($request->input('gallery') as $gallery) {
+					$gallery = str_replace("dl=0","raw=1",$gallery);
+					$parts = parse_url($gallery); 
+					$slug_name = str_replace(['%20','?raw=1'],['-',''],basename($parts['path']));
+					Log::info($slug_name);
+					$file_name = str_replace(['%20','-','_','.jpg','.JPG','.JPEG','.png','.png'],[' ',' ',' ','','','','',''],basename($parts['path']));
+					Log::info($file_name);
+					$product->addMediaFromUrl($gallery)->usingFileName($slug_name)->usingName($file_name)->toMediaCollection('gallery');
+				}
+			}
+			if($request->has('applications')) {
+				$product->clearMediaCollection('applications');
+				foreach ($request->input('applications') as $applications) {
+					$applications = str_replace("dl=0","raw=1",$applications);
+					$parts = parse_url($applications); 
+					$slug_name = str_replace(['%20','?raw=1'],['-',''],basename($parts['path']));
+					Log::info($slug_name);
+					$file_name = str_replace(['%20','-','_','.jpg','.JPG','.JPEG','.png','.png'],[' ',' ',' ','','','','',''],basename($parts['path']));
+					Log::info($file_name);
+					$product->addMediaFromUrl($applications)->usingFileName($slug_name)->usingName($file_name)->toMediaCollection('applications');
+				}
+			}
+			if($request->has('technical')) {
+				$product->clearMediaCollection('technical');
+				foreach ($request->input('technical') as $technical) {
+					$technical = str_replace("dl=0","raw=1",$technical);
+					$parts = parse_url($technical); 
+					$slug_name = str_replace(['%20','?raw=1'],['-',''],basename($parts['path']));
+					Log::info($slug_name);
+					$file_name = str_replace(['%20','-','_','.jpg','.JPG','.JPEG','.png','.png'],[' ',' ',' ','','','','',''],basename($parts['path']));
+					Log::info($file_name);
+					$product->addMediaFromUrl($technical)->usingFileName($slug_name)->usingName($file_name)->toMediaCollection('technical');
+				}
+			}
+			//end media stuff
 			if($request->has('features')) {
 				$product->features()->delete();
 				foreach ($request->input('features') as $feature) {

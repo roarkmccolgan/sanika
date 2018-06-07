@@ -1,12 +1,12 @@
 #nav .menu .submenu{
 	display: none;
-	@apply .bg-black-trans .pin-x;
+	@apply .bg-grey-lighter .pin-x;
 	top: 100%;
 }
 #nav:hover{
 }
 #nav:hover .menu{
-	@apply .border-grey-dark;
+	
 }
 #nav .menu::after {
 	content: "";
@@ -20,14 +20,14 @@
     /*@apply .border-r;*/
 }
 #nav .menu:hover:last-child > a { 
-    @apply border-grey-dark;
+
 }
 
 #nav .menu:hover{
-	@apply .bg-black-trans;
+	@apply .bg-grey-lighter;
 }
 #nav .menu:hover > a {
-	@apply .text-white;
+	@apply .text-sanika-primary;
 }
 #nav .menu:hover .submenu{
 	@apply .block;

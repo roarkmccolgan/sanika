@@ -48,6 +48,14 @@ class Product extends Model implements HasMedia
                 ->height(400);
 
         });
+        $this
+            ->addMediaCollection('content');
+        $this
+            ->addMediaCollection('gallery');
+        $this
+            ->addMediaCollection('application');
+        $this
+            ->addMediaCollection('technical');
     }
 
     protected $casts = [

@@ -14,6 +14,8 @@ import { createFromAlgoliaCredentials } from 'vue-instantsearch';
 import VueSweetalert2 from 'vue-sweetalert2';
 import VueTyperPlugin from 'vue-typer';
 Vue.use(VueTyperPlugin);
+import VueCarousel from 'vue-carousel';
+Vue.use(VueCarousel);
 
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import faSearch from '@fortawesome/fontawesome-pro-regular/faSearch'
@@ -37,7 +39,7 @@ import {Tabs, Tab} from 'vue-tabs-component';
  Vue.use(VueSweetalert2);
 
  const searchStore = createFromAlgoliaCredentials('9PJ4YRKD8R', '70da05b28f4fcec86d4d4197851214af');
- searchStore.indexName = 'sanika';
+ searchStore.indexName = 'sanika_products';
 
  Vue.component('example-component', require('./components/ExampleComponent.vue'));
  var CartComponent = require('./components/CartComponent.vue');
