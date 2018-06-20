@@ -137,7 +137,7 @@
 <div class="container flex-1 mx-auto pb-8">
 	<div class="flex flex-wrap -mx-2 mt-6">
 		<div class="w-full p-2 pb-4 mb-4 flex items-center justify-center border-b">
-			<div class="font-bold text-2xl"> I have an problem with </div>
+			<div class="font-bold text-2xl"> I have a problem with </div>
 			<div class="px-4 py-2 border rounded flex-grow mx-4" v-if="typer.show" @click.prevent="typer.show=!typer.show">
 				<vue-typer :text="typer.text" :repeat="typer.repeat" class="font-bold text-2xl"></vue-typer>
 			</div>

@@ -12,11 +12,12 @@
 .category li, .product li{
 	@apply .mb-2;
 }
+.category h1, .product h1{
+	@apply .font-extrabold .uppercase .mb-2;
+}
 .category h3, .product h3{
 	@apply .mb-1 .text-grey-darker;
 }
-
-
 
 .ais-highlight em{
 	@apply text-sanika-primary;

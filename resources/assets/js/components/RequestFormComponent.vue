@@ -111,7 +111,7 @@
 						<span class="block text-sm font-bold text-grey-darker roman">Call</span>
 						<a class="text-max-secondary" href="tel:+27114253061">+27 (0)11 425 3061</a><br/>
                         <span class="block text-sm font-bold text-grey-darker roman mt-2">Fax</span>
-						<a class="text-max-secondary" href="tel:+270114256383">+27 (0)86 575 5851</a><br/>
+						<a class="text-max-secondary" href="tel:+270114256383">+27 (0)11 425 6383</a><br/>
 						<span class="block text-sm font-bold text-grey-darker roman mt-2">Email</span>
 						<a class="text-max-secondary" href="mailto:info@sanika.co.za" title="email MaxRenew">info@sanika.co.za</a><br/><br/>
 						<span class="block text-sm font-bold text-grey-darker roman mb-2">Visit Us</span>
