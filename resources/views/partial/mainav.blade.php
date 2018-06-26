@@ -74,7 +74,7 @@
 				</div>
 				@endif
 				<div class="menu text-base flex">
-					<a href="/contact" class="font-bold text-black uppercase hover:text-grey-dark no-underline p-2">Contact</a>
+					<a href="/contact" class="font-bold text-black uppercase hover:text-grey-dark no-underline p-2">Contact Us</a>
 				</div>
 			</div>
 		</div>

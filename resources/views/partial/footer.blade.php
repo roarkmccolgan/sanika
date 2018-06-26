@@ -5,7 +5,7 @@
 				<h5 class="text-2xl font-condensed font-bold mb-2 uppercase">Contact Us Today</h5>
 				<div class="flex flex-col">
 					<a class="block mb-2 no-underline text-2xl text-sanika-primary" href="tel:+274243061">+27 (011) 425 3061</a>
-					24 Davidson Street, Rynfield<br/>
+					7 Hills Street, Rynfield<br/>
 					Benoni, 1501<br/>
 					South Africa<br/><br/>
 					Company Reg: 1992/009387/23

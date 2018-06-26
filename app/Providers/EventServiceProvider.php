@@ -19,6 +19,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\OrderCreated' => [
             'App\Listeners\SendOrderNotification',
         ],
+        'App\Events\LeadGenerated' => [
+            'App\Listeners\AssignLeadAtInsightly',
+        ],
     ];
 
     /**

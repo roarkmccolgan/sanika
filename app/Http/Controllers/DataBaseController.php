@@ -66,6 +66,20 @@ class DataBaseController extends Controller
 					}
 				}
 			}
+			$insightly = false;
+			if($request->has('insightly')){
+				$insightly = [];
+				//{"CUSTOMFIELDS": [{"FIELD_VALUE": "false", "CUSTOM_FIELD_ID": "LEAD_FIELD_6"}], "OWNER_USER_ID": 913412, "LEAD_SOURCE_ID": 294699}'
+				$insightly['OWNER_USER_ID'] = $request->input('insightly.OWNER_USER_ID');
+				$insightly['LEAD_SOURCE_ID'] = $request->input('insightly.LEAD_SOURCE_ID');
+				if($request->input('insightly.CUSTOMFIELDS')){
+					foreach ($request->input('insightly.CUSTOMFIELDS') as $key=>$value) {
+						$insightly['CUSTOMFIELDS'][$key]['CUSTOM_FIELD_ID'] = 'LEAD_FIELD_'.$value;
+						$insightly['CUSTOMFIELDS'][$key]['FIELD_VALUE'] = true;
+					}
+				}
+			}
+			Log::info($insightly);
 
 			$product = Product::updateOrCreate(
 				['alias' => str_slug($request->input('name'))],
@@ -78,6 +92,7 @@ class DataBaseController extends Controller
 					'application' => $request->has('application') ? Markdown::convertToHtml($request->input('application')) : null,
 					'uses_intro' => $request->has('uses_intro') ? $request->input('uses_intro') : null,
 					'uses' => $request->has('uses') ? $request->input('uses') : null,
+					'insightly' => $insightly ? $insightly : null,
 					'seo_title' => ($request->has('seo') && $request->has('seo.title')) ? $request->input('seo.title') : null,
 					'seo_keywords' => ($request->has('seo') && $request->has('seo.keywords')) ? $request->input('seo.keywords') : null,
 					'seo_description' => ($request->has('seo') && $request->has('seo.description')) ? $request->input('seo.description') : null,

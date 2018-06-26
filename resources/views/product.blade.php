@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('head')
+<title>Sanika - {{ $product->seo_title }}</title>
+<meta name="description" content="{{ $product->seo_description }}">
 @parent
 
 @endsection
@@ -42,6 +44,7 @@
 					@endforeach
 				</carousel>
 				@endif
+				<lead-component :product-id="{{ $product->id }}"></lead-component>
 				{{-- <div class="flex flex-col border px-4 py-6">
 					<form action="/api/cart" method="post" class="" @submit.prevent="addToCart()">
 						<input type="hidden" value="" name="sku" v-model="product.sku">

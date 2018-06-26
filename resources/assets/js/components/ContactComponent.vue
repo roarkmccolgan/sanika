@@ -11,21 +11,21 @@
                 <div class="border p-4">
                     <h3 class="font-light mb-4 text-grey-darker">Sales Enquiries</h3>
                     <strong>Sandor Dowling</strong><br/>
-                    <a class="text-max-secondary" href="tel:+27829225586">+27 (0)82 922-5586</a><br/>
+                    <a class="text-sanika-secondary" href="tel:+27829225586">+27 (0)82 922-5586</a><br/>
                 </div>
             </div>
             <div class="p-2 flex-1">
                 <div class="border p-4">
                     <h3 class="font-light mb-4 text-grey-darker">Technical Enquiries</h3>
                     <strong>Colte Smit</strong><br/>
-                    <a class="text-max-secondary" href="tel:+27829285788">+27 (0)82 928-5788</a><br/>
+                    <a class="text-sanika-secondary" href="tel:+27829285788">+27 (0)82 928-5788</a><br/>
                 </div>
             </div>
             <div class="p-2 flex-1">
                 <div class="border p-4">
                     <h3 class="font-light mb-4 text-grey-darker">Management Enquiries</h3>
                     <strong>Tanika McColgan</strong><br/>
-                    <a class="text-max-secondary" href="tel:+27837934504">+27 (0)83 793-4504</a><br/>
+                    <a class="text-sanika-secondary" href="tel:+27837934504">+27 (0)83 793-4504</a><br/>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
 					Your message has been sent, a representative will respond as soon as possible.
 				</div>
 				<form class="h-full" action="/contact" method="POST" id="contactForm" v-else>
-					<div class="h-full bg-white p-4 border-t border-b sm:border">
+					<div class="h-full bg-white p-4">
 						<div class="-mx-3 md:flex md:flex-wrap mb-6">
 							<div class="md:w-1/2 px-3 mb-6 md:mb-0">
 								<label class="block tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
@@ -92,7 +92,7 @@
 						<div class="-mx-3 md:flex md:justify-end mb-2">
 							<div class="md:w-1/3 px-3 mb-6 md:mb-0 text-right">
 
-								<button class="appearance-none border font-bold text-white bg-grey-darker hover:bg-max-secondary py-2 px-4 rounded" @click.prevent="checkForm">
+								<button class="appearance-none border font-bold text-white bg-grey-darker hover:bg-sanika-secondary py-2 px-4 rounded" @click.prevent="checkForm">
 									<transition name="component-bounce" mode="out-in">
 										<font-awesome-icon :icon="busy ? icons.loading : icons.send" class="fa-lg" :class="busy ? 'fa-spin' : ''" v-bind:key="busy"></font-awesome-icon>
 									</transition>
@@ -106,21 +106,27 @@
 			</div>
 			<div class="w-full sm:px-2 sm:w-1/2">
 				<div class="bg-white p-4 border-t border-b sm:border">
-					<h3 class="pb-2 border-b font-medium mb-2">Company Contact Details</h3>
-					<address class="leading-normal">
-						<span class="block text-sm font-bold text-grey-darker roman">Call</span>
-						<a class="text-max-secondary" href="tel:+27114253061">+27 (0)11 425 3061</a><br/>
-                        <span class="block text-sm font-bold text-grey-darker roman mt-2">Fax</span>
-						<a class="text-max-secondary" href="tel:+270114256383">+27 (0)86 575 5851</a><br/>
-						<span class="block text-sm font-bold text-grey-darker roman mt-2">Email</span>
-						<a class="text-max-secondary" href="mailto:info@sanika.co.za" title="email MaxRenew">info@sanika.co.za</a><br/><br/>
-						<span class="block text-sm font-bold text-grey-darker roman mb-2">Visit Us</span>
-						7 Hills Street<br/>
-                        Rynfield<br/>
-                        Benoni<br/>
-						Gauteng<br/>
-						South Africa
-				</address>
+					<h3 class="pb-2 border-b font-medium mb-2">Head Office Contact Details</h3>
+                    <div class="flex">
+                        <div class="w-1/2 mr-1">
+                            <span class="block text-sm font-bold text-grey-darker roman mb-2">Call</span>
+                            <a class="text-sanika-secondary" href="tel:+27114253061">+27 (0)11 425 3061</a><br/>
+                            <span class="block text-sm font-bold text-grey-darker roman mt-2">Fax</span>
+                            <a class="text-sanika-secondary" href="tel:+270114256383">+27 (0)86 575 5851</a><br/>
+                            <span class="block text-sm font-bold text-grey-darker roman mt-2">Email</span>
+                            <a class="text-sanika-secondary" href="mailto:info@sanika.co.za" title="email sanika">info@sanika.co.za</a>
+                        </div>
+                        <div class="w-1/2 ml-1">
+                            <address class="leading-normal">
+                                <span class="block text-sm font-bold text-grey-darker roman mb-2">Visit Us</span>
+                                <a class="no-underline text-sanika-secondary" href="https://maps.google.com?q=7%20Hills%20Street,Rynfield,Benoni,Gauteng,South%20Africa"></a>7 Hills Street<br/>
+                                Rynfield<br/>
+                                Benoni<br/>
+                                Gauteng<br/>
+                                South Africa
+                            </address>
+                        </div>
+                    </div>        					
 				</div>
 			</div>
 		</div>
@@ -189,11 +195,11 @@ export default {
                     this.errors[id] = true;
                 }
                 var min = needsValidation.min ? needsValidation.min : 1;
-                var max = needsValidation.max ? needsValidation.max : false;
+                var sanika = needsValidation.sanika ? needsValidation.sanika : false;
                 if(el.value.trim().length < min){
                     this.errors[id] = true;
                 }
-                if(max!==false && el.value.trim().length > max){
+                if(sanika!==false && el.value.trim().length > sanika){
                     this.errors[id] = true;
                 }
                 var equals = needsValidation.equals ? needsValidation.equals : false;

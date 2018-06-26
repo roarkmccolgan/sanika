@@ -1,4 +1,4 @@
-<div class="bg-grey-dark py-4 relative z-10 mt-4">
+<div class="bg-grey-dark py-4 relative z-30 mt-4">
 	<div class="container mx-auto flex items-center">
 		<ais-index :search-store="searchStore" class="flex-grow">
 			<div class="container mx-auto px-2 sm:px-0">
@@ -31,4 +31,4 @@
 		@endif
 	</div>
 </div>
-<div v-show="searchStore.query.length > 0" class="z-0 absolute pin bg-black opacity-75"></div>
+<div v-show="searchStore.query.length > 0" class="z-20 absolute pin bg-black opacity-75"></div>

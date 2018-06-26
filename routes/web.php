@@ -31,6 +31,8 @@ Route::get('/contact', function () {
 });
 Route::post('/contact', 'ContactController@SendMessage');
 
+Route::post('/lead', 'LeadController@NewLead');
+
 Route::get('/', 'ShopController@getHome');
 Route::get('/categories/{tree?}/products/{product}', 'ShopController@getProduct')->where('tree', '(.*)');
 Route::get('/categories/{tree?}', 'ShopController@getCategory')->where('tree', '(.*)');

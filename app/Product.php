@@ -23,7 +23,7 @@ class Product extends Model implements HasMedia
         $array = [
             'objectID' => $this->id,
             'name' => $this->name,
-            'description' => $this->description,
+            'description' => strip_tags($this->description),
             'url' => '/categories/'.$this->path.'/products/'.$this->alias,
             'tags' => $this->uses,
         ];
@@ -60,6 +60,7 @@ class Product extends Model implements HasMedia
 
     protected $casts = [
         'uses' => 'array',
+        'insightly' => 'array',
     ];
 
 	public function getPathAttribute($value)
@@ -77,6 +78,7 @@ class Product extends Model implements HasMedia
         'application',
         'uses_intro',
         'uses',
+        'insightly',
 		'price',
 		'price_install',
 		'seo_title',

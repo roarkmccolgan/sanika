@@ -44,6 +44,7 @@ import {Tabs, Tab} from 'vue-tabs-component';
  Vue.component('example-component', require('./components/ExampleComponent.vue'));
  var CartComponent = require('./components/CartComponent.vue');
  var ContactComponent = require('./components/ContactComponent.vue');
+ var LeadComponent = require('./components/LeadComponent.vue');
  Vue.component('tabs', Tabs);
  Vue.component('tab', Tab);
 
@@ -212,6 +213,7 @@ import {Tabs, Tab} from 'vue-tabs-component';
         FontAwesomeIcon,
         CartComponent,
         ContactComponent,
+        LeadComponent,
     },
     methods: {
         clearCart: function(){
