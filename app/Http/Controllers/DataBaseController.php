@@ -164,7 +164,7 @@ class DataBaseController extends Controller
 					$parts = parse_url($applications); 
 					$slug_name = str_replace(['%20','?raw=1'],['-',''],basename($parts['path']));
 					Log::info($slug_name);
-					$file_name = str_replace(['%20','-','_','.jpg','.JPG','.JPEG','.png','.png'],[' ',' ',' ','','','','',''],basename($parts['path']));
+					$file_name = str_replace(['%20','-','_','.jpg','.JPG','.JPEG','.png','.png','.pdf'],[' ',' ',' ','','','','','',''],basename($parts['path']));
 					Log::info($file_name);
 					$product->addMediaFromUrl($applications)->usingFileName($slug_name)->usingName($file_name)->toMediaCollection('applications');
 				}
@@ -176,9 +176,21 @@ class DataBaseController extends Controller
 					$parts = parse_url($technical); 
 					$slug_name = str_replace(['%20','?raw=1'],['-',''],basename($parts['path']));
 					Log::info($slug_name);
-					$file_name = str_replace(['%20','-','_','.jpg','.JPG','.JPEG','.png','.png'],[' ',' ',' ','','','','',''],basename($parts['path']));
+					$file_name = str_replace(['%20','-','_','.jpg','.JPG','.JPEG','.png','.png','.pdf'],[' ',' ',' ','','','','','',''],basename($parts['path']));
 					Log::info($file_name);
 					$product->addMediaFromUrl($technical)->usingFileName($slug_name)->usingName($file_name)->toMediaCollection('technical');
+				}
+			}
+			if($request->has('specifications')) {
+				$product->clearMediaCollection('specifications');
+				foreach ($request->input('specifications') as $specifications) {
+					$specifications = str_replace("dl=0","raw=1",$specifications);
+					$parts = parse_url($specifications); 
+					$slug_name = str_replace(['%20','?raw=1'],['-',''],basename($parts['path']));
+					Log::info($slug_name);
+					$file_name = str_replace(['%20','-','_','.jpg','.JPG','.JPEG','.png','.png','.pdf'],[' ',' ',' ','','','','','',''],basename($parts['path']));
+					Log::info($file_name);
+					$product->addMediaFromUrl($specifications)->usingFileName($slug_name)->usingName($file_name)->toMediaCollection('specifications');
 				}
 			}
 			//end media stuff
@@ -242,6 +254,24 @@ class DataBaseController extends Controller
 		}
 
 		if(!$error){
+			if($request->has('affiliation')){
+				$categoryToEdit->clearMediaCollection('property');
+				foreach ($request->input('affiliation') as $affiliation) {
+					$image = str_replace("dl=0","raw=1",$affiliation['image']);
+					$label = $affiliation['label'];
+					Log::info($label);
+					$link = $affiliation['link'] ? str_replace("dl=0","raw=1",$affiliation['link']) : false;
+					Log::info($link);
+					$parts = parse_url($image); 
+					$slug = str_replace(['%20','?raw=1'],['-',''],basename($parts['path']));
+					Log::info($slug);
+					if($link){
+						$categoryToEdit->addMediaFromUrl($image)->usingFileName($slug)->usingName($label)->withCustomProperties(['link' => $link])->toMediaCollection('property');
+					}else{
+						$categoryToEdit->addMediaFromUrl($image)->usingFileName($slug)->usingName($label)->toMediaCollection('property');
+					}
+				}
+			}
 			$categoryToEdit->description = Markdown::convertToHtml($request->input('description'));
 			$categoryToEdit->seo_title = $request->input('seo.title');
 			$categoryToEdit->seo_description = $request->input('seo.description');
@@ -307,6 +337,7 @@ class DataBaseController extends Controller
 					'seo_title' => ($request->has('seo') && $request->has('seo.title')) ? $request->input('seo.title') : null,
 					'seo_keywords' => ($request->has('seo') && $request->has('seo.keywords')) ? $request->input('seo.keywords') : null,
 					'seo_description' => ($request->has('seo') && $request->has('seo.description')) ? $request->input('seo.description') : null,
+					'videos' => $request->has('video') ? $request->input('video') : null,
 				]
 			);
 
@@ -315,7 +346,19 @@ class DataBaseController extends Controller
 			}
 			if($request->has('image')) {
 				$image = str_replace("dl=0","raw=1",$request->input('image'));
-				$product->addMediaFromUrl($image)->toMediaCollection('title');
+				$casestudy->addMediaFromUrl($image)->toMediaCollection('title');
+			}
+			if($request->has('gallery')) {
+				$casestudy->clearMediaCollection('gallery');
+				foreach ($request->input('gallery') as $gallery) {
+					$gallery = str_replace("dl=0","raw=1",$gallery);
+					$parts = parse_url($gallery); 
+					$slug_name = str_replace(['%20','?raw=1'],['-',''],basename($parts['path']));
+					Log::info($slug_name);
+					$file_name = str_replace(['%20','-','_','.jpg','.JPG','.JPEG','.png','.png'],[' ',' ',' ','','','','',''],basename($parts['path']));
+					Log::info($file_name);
+					$casestudy->addMediaFromUrl($gallery)->usingFileName($slug_name)->usingName($file_name)->toMediaCollection('gallery');
+				}
 			}
 
 			$message = 'Success!\n'.$request->input('client').' '.$request->input('place').' Successfully Saved';

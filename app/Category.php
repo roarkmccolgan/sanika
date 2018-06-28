@@ -28,6 +28,15 @@ class Category extends Model implements HasMedia
                 ->height(400);
 
         });
+	    $this
+	        ->addMediaCollection('property')
+	        ->useDisk('media')
+	        ->registerMediaConversions(function (Media $media) {
+            $this
+                ->addMediaConversion('thumb')
+                ->width(400)
+                ->height(400);
+        });
 	}
 
 	public $timestamps = false;

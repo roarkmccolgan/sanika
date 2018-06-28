@@ -106,7 +106,7 @@
 			</div>
 			<div class="w-full sm:px-2 sm:w-1/2">
 				<div class="bg-white p-4 border-t border-b sm:border">
-					<h3 class="pb-2 border-b font-medium mb-2">Head Office Contact Details</h3>
+                    <h3 class="pb-2 border-b font-medium mb-2">Head Office Johannesburg Contact Details</h3>
                     <div class="flex">
                         <div class="w-1/2 mr-1">
                             <span class="block text-sm font-bold text-grey-darker roman mb-2">Call</span>
@@ -119,12 +119,49 @@
                         <div class="w-1/2 ml-1">
                             <address class="leading-normal">
                                 <span class="block text-sm font-bold text-grey-darker roman mb-2">Visit Us</span>
-                                <a class="no-underline text-sanika-secondary" href="https://maps.google.com?q=7%20Hills%20Street,Rynfield,Benoni,Gauteng,South%20Africa"></a>7 Hills Street<br/>
-                                Rynfield<br/>
-                                Benoni<br/>
-                                Gauteng<br/>
-                                South Africa
+                                <a class="text-sanika-secondary" target="_blank" href="https://goo.gl/maps/dLvyTtBvbe12">
+                                    7 Hills Street<br/>
+                                    Rynfield<br/>
+                                    Benoni<br/>
+                                    Gauteng<br/>
+                                    South Africa
+                                </a>
                             </address>
+                        </div>
+                    </div>                          
+                </div>
+                <div class="mt-4 bg-white p-4 border-t border-b sm:border">
+                    <h3 class="pb-2 border-b font-medium mb-2">Cape Town Contact Details</h3>
+                    <div class="flex">
+                        <div class="w-1/2 mr-1">
+                            <span class="block text-sm font-bold text-grey-darker roman mb-2">Call</span>
+                            <a class="text-sanika-secondary" href="tel:+27114253061">+27 (0)82 928 5788</a><br/>
+                            <span class="block text-sm font-bold text-grey-darker roman mt-2">Email</span>
+                            <a class="text-sanika-secondary" href="mailto:colte@sanika.co.za" title="email sanika">colte@sanika.co.za</a>
+                        </div>
+                        <div class="w-1/2 ml-1">
+                            <address class="leading-normal">
+                                <span class="block text-sm font-bold text-grey-darker roman mb-2">Visit Us</span>
+                                <a class="text-sanika-secondary" target="_blank" href="https://goo.gl/maps/Mcv8besxXMn">
+                                    Unit 29B<br/>
+                                    Prestige Business Park<br/>
+                                    Democracy Way<br/>
+                                    Monague Gardens<br/>
+                                    Cape Town<br/>
+                                    South Africa
+                                </a>
+                            </address>
+                        </div>
+                    </div>                          
+                </div>
+                <div class="mt-4 bg-white p-4 border-t border-b sm:border">
+					<h3 class="pb-2 border-b font-medium mb-2">Durban Contact Details</h3>
+                    <div class="flex">
+                        <div class="w-full">
+                            <span class="block text-sm font-bold text-grey-darker roman mb-2">Call</span>
+                            <a class="text-sanika-secondary" href="tel:+27114253061">+27 (0)82 922 5586</a><br/>
+                            <span class="block text-sm font-bold text-grey-darker roman mt-2">Email</span>
+                            <a class="text-sanika-secondary" href="mailto:sandor@sanika.co.za" title="email sanika">sandor@sanika.co.za</a>
                         </div>
                     </div>        					
 				</div>

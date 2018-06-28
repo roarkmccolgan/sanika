@@ -7,15 +7,65 @@
 @section('body')
 {{-- @includeWhen($pagetype == 'content', 'patial.mainmenu') --}}
 <div class="container flex-1 mx-auto pb-8">
-	<div class="mt-4 category md:flex">
-		@if($category->hasMedia('title'))
-		<div class="md:w-1/3">
-			<img class="sm:w-3/4 mx-auto" src="{{ $category->getFirstMediaUrl('title', 'category') }}" alt="Image of {{ $category['name'] }}">
+	<div class="flex flex-wrap">
+		<div class="hidden sm:block w-1/4 mt-4">
+			@foreach($categories as $menucategory)
+			<div class="font-bold my-2">
+				@if($menucategory->alias != $category->alias)
+				<a class="inline-block no-underline font-normal text-sanika-primary hover:underline" href="/categories/{{ $menucategory->alias }}">
+					{{ $menucategory->name }}
+				</a>
+				@else
+				<div class="border-l-2 border-sanika-primary bg-grey-lighter p-2 mr-4">{{ $menucategory->name }}</div>
+				@endif
+			</div>
+				@foreach($menucategory->allSubCategories as $submenucategory)
+				<div class="font-bold my-2">
+					@if($submenucategory->alias != $category->alias)
+					<a class="inline-block no-underline font-normal text-sanika-primary hover:underline" href="/categories/{{ $menucategory->alias }}/{{ $submenucategory->alias }}">
+						{{ $submenucategory->name }}
+					</a>
+					@else
+					<div class="border-l-2 border-sanika-primary bg-grey-lighter p-2 mr-4 ml-2">{{ $submenucategory->name }}</div>
+					@endif
+				</div>
+				@endforeach
+			@endforeach
 		</div>
-		@endif
-		<div class="flex-1">
-			<h1 class="font-extrabold uppercase mb-2">{{ $category['name'] }}</h1>
-			{!! $category['description'] !!}
+		<div class="w-full sm:w-3/4 mt-4 category md:flex md:flex-wrap">
+			@if($category->hasMedia('title'))
+			<div class="md:w-1/3">
+				<img class="sm:w-3/4 mx-auto" src="{{ $category->getFirstMediaUrl('title', 'category') }}" alt="Image of {{ $category['name'] }}">
+			</div>
+			@endif
+			<div class="flex-1 mb-6 ml-2">
+				<h1 class="font-extrabold uppercase mb-2">{{ $category['name'] }}</h1>
+				{!! $category['description'] !!}
+			</div>
+			@if($category->hasMedia('property'))
+			<div class="w-full flex items-stretch flex-wrap sm:-m-2">
+				@foreach($category->getMedia('property') as $property)
+				<div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 sm:p-2">
+					<div class="p-2 shadow rounded">
+						@if($property->hasCustomProperty('link'))
+							<a href="{{ $property->getCustomProperty('link') }}" target="_blank">
+						@endif
+						<div class="relative w-full" style="padding-top: 100%">
+							<div class="absolute pin">
+								<img class="block mx-auto max-h-full" src="{{ $property->getUrl('thumb') }}" alt="Image of {{ $property->name }}">
+							</div>
+						</div>
+						@if($property->hasCustomProperty('link'))
+							</a>
+						@endif
+						<div class="text-center font-bold mt-4">
+							<span>{{ $property->name }}</span>
+						</div>
+					</div>
+				</div>
+				@endforeach
+			</div>
+			@endif
 		</div>
 	</div>
 	<div class="flex flex-wrap -mx-2 mt-6 text-base">

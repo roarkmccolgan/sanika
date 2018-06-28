@@ -56,6 +56,8 @@ class Product extends Model implements HasMedia
             ->addMediaCollection('application');
         $this
             ->addMediaCollection('technical');
+        $this
+            ->addMediaCollection('specifications');
     }
 
     protected $casts = [
@@ -83,7 +85,8 @@ class Product extends Model implements HasMedia
 		'price_install',
 		'seo_title',
 		'seo_keywords',
-		'seo_description'
+        'seo_description',
+		'insightly'
 	];
 
     public function orders(){

@@ -31,6 +31,9 @@ class CaseStudy extends Model implements HasMedia
 	    $this
 	        ->addMediaCollection('gallery')     
 	        ->useDisk('media');
+	    $this
+	        ->addMediaCollection('video')     
+	        ->useDisk('media');
 	}
 
 	protected $fillable = [
@@ -38,6 +41,7 @@ class CaseStudy extends Model implements HasMedia
 		'title',
 		'alias',
 		'client',
+		'videos',
 		'site',
 		'scope',
 		'background',
@@ -49,6 +53,7 @@ class CaseStudy extends Model implements HasMedia
 	];
 	protected $casts = [
         'products' => 'array',
+        'videos' => 'array',
     ];
 
 	public function category(){

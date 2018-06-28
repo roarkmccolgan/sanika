@@ -16,41 +16,59 @@
 		<div class="flex-1">
 			<span class="font-bold text-lg text-grey-darker uppercase">Case Study</span>
 			<h1 class="font-extrabold uppercase mb-2">{{ $casestudy->site }}</h1>
-			<div class="flex bg-grey-lighter p-4">
-				<div class="mr-4">
-					<span class="block text-grey-darker uppercase">Client</span>
-					<span class="block font-bold text-lg mb-2">{{ $casestudy->client }}</span>
+			<div class="sm:flex -mx-2">
+				<div class="sm:flex-1 p-2">
+					<div class="flex bg-grey-lighter p-4">
+						<div class="mr-4">
+							<span class="block text-grey-darker uppercase">Client</span>
+							<span class="block font-bold text-lg mb-2">{{ $casestudy->client }}</span>
 
-					<span class="block text-grey-darker uppercase">Site</span>
-					<span class="block font-bold text-lg mb-2">{{ $casestudy->site }}</span>
+							<span class="block text-grey-darker uppercase">Site</span>
+							<span class="block font-bold text-lg mb-2">{{ $casestudy->site }}</span>
 
-					<span class="block text-grey-darker uppercase">Scope</span>
-					<span class="block font-bold text-lg mb-2">{{ $casestudy->scope }}</span>
-				</div>
-				<div class="">
-					<span class="block text-grey-darker uppercase mb-1">Products Used</span>
-					<div class="flex">
-					    <ul class="mb-4 text-grey-darkest">
-					    	@foreach ($casestudy->siteproducts as $product)
-						        <li class="mb-2">
-						        	<a href="{{'/categories/'.$product->path.'/products/'.$product->alias}}" class="no-underline text-sanika-primary">
-										{{ $product->name }}
-									</a>
-								</li>
-							@endforeach
-							@foreach ($casestudy->products as $product)
-						        <li class="mb-2">
-						        	{{ $product }}
-								</li>
-							@endforeach
-						</ul>
+							<span class="block text-grey-darker uppercase">Scope</span>
+							<span class="block font-bold text-lg mb-2">{{ $casestudy->scope }}</span>
+						</div>
+						<div class="">
+							<span class="block text-grey-darker uppercase mb-1">Products Used</span>
+							<div class="flex">
+							    <ul class="mb-4 text-grey-darkest">
+							    	@foreach ($casestudy->siteproducts as $product)
+								        <li class="mb-2">
+								        	<a href="{{'/categories/'.$product->path.'/products/'.$product->alias}}" class="no-underline text-sanika-primary">
+												{{ $product->name }}
+											</a>
+										</li>
+									@endforeach
+									@foreach ($casestudy->products as $product)
+								        <li class="mb-2">
+								        	{{ $product }}
+										</li>
+									@endforeach
+								</ul>
+							</div>
+						</div>
 					</div>
+					<h2 class="font-extrabold uppercase mb-4 mt-4">Background</h2>
+					<p class="mb-2">{!! $casestudy->background !!}</p>
+					<h2 class="font-extrabold uppercase mb-4 mt-4">Solution</h2>
+					<p class="mb-2">{!! $casestudy->solution !!}</p>
+				</div>
+				<div class="sm:w-1/3 p-2 pt-0">
+					@if($casestudy->hasMedia('gallery'))
+						@foreach($casestudy->getMedia('gallery') as $galleryImg)
+						<div class="py-2 pb-2">
+							<img src="{{ $galleryImg->getUrl() }}" alt="{{ $galleryImg->name }}">
+						</div>
+						@endforeach
+					@endif
+					@if($casestudy->videos)
+						@foreach($casestudy->videos as $video)
+						<div class='embed-container mt-2'><iframe src='https://www.youtube.com/embed/{{ $video }}' frameborder='0' allowfullscreen></iframe></div>
+						@endforeach
+					@endif
 				</div>
 			</div>
-			<h2 class="font-extrabold uppercase mb-4 mt-4">Background</h2>
-			<p class="mb-2">{!! $casestudy->background !!}</p>
-			<h2 class="font-extrabold uppercase mb-4 mt-4">Solution</h2>
-			<p class="mb-2">{!! $casestudy->solution !!}</p>
 		</div>
 	</div>
 	<div class="flex flex-wrap -mx-2 mt-6 text-base">

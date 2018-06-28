@@ -1,5 +1,5 @@
 <div class="">
-	<div class="container relative z-20 mx-auto flex -mt-px sm:px-0">
+	<div class="container relative z-40 mx-auto flex -mt-px sm:px-0">
 		<div class="flex items-end">
 			<div class="sm:mr-4 mt-4">
 				<a href="/" class="no-underline" title="Homepage"><img width="180" src="/images/sanika_logo.svg" alt=""></a>

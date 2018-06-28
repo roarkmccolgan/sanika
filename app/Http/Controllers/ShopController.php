@@ -34,9 +34,11 @@ class ShopController extends Controller
         //return session('cart');
     	if($tree){
     		$path = explode('/', $tree);
-    		$last = last($path);
-    		$category = Category::with('products')->where('alias',$last)->firstOrFail();
-    		return view('category',compact('category'));
+            $last = last($path);
+    		$first = array_values($path)[0];
+    		$category = Category::with(['products'])->where('alias',$last)->firstOrFail();
+            $categories = Category::where('alias',$first)->with(['allSubCategories'])->orderBy('order')->get();
+    		return view('category',compact(['category','categories']));
     	}
     	abort(404);
     }

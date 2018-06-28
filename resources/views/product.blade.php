@@ -125,8 +125,20 @@
 					</ul>
 				</tab>
 				@endif
+				@if($product->hasMedia('specifications'))
+				<tab name="SPECIFICATIONS">
+					<ul class="my-8">
+						@foreach($product->getMedia('specifications') as $specification)
+						<li>
+							<a class="no-underline font-semibold text-grey-darker" href="{{ $specification->getUrl() }}" target="_blank" alt="{{ $specification->name }}" >{{ $specification->name }}</a>
+						</li>
+						@endforeach
+					</ul>
+				</tab>
+				@endif
+				<!--
 				@if($product->specs('technical'))
-				<tab name="PRODUCT SPECS">
+				<tab name="SPECIFICATIONS">
 					<table class="w-full text-sm text-left" cellpadding="0" cellspacing="0">
 						<thead class="font-medium text-xs text-grey-dark uppercase border-grey">
 							<tr>
@@ -145,6 +157,7 @@
 					</table>
 				</tab>
 				@endif
+				-->
 			</tabs>
 		</div>
 		@if(count($category->products)>1)
