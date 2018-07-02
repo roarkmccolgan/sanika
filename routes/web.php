@@ -31,6 +31,9 @@ Route::get('/contact', function () {
 });
 Route::post('/contact', 'ContactController@SendMessage');
 
+Route::get('/gallery', 'GalleriesController@index');
+Route::get('/gallery/{gallery}', 'GalleriesController@show');
+
 Route::post('/lead', 'LeadController@NewLead');
 
 Route::get('/', 'ShopController@getHome');
@@ -48,6 +51,7 @@ Route::post('/productfrompdf', 'DataBaseController@productfrompdf');
 Route::post('/categoryfrompdf', 'DataBaseController@categoryfrompdf');
 Route::post('/casestudyfrompdf', 'DataBaseController@casestudyfrompdf');
 Route::post('/newsfrompdf', 'DataBaseController@newsfrompdf');
+Route::post('/galleryfrompdf', 'DataBaseController@galleryfrompdf');
 
 Route::get('/media/category/{category}/{file}', function($category, $file){
 	$cat = \App\Category::find($category);

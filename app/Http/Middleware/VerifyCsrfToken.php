@@ -16,5 +16,6 @@ class VerifyCsrfToken extends Middleware
         '/categoryfrompdf',
         '/casestudyfrompdf',
         '/newsfrompdf',
+        '/galleryfrompdf',
     ];
 }

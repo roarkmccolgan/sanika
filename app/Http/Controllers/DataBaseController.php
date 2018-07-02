@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\CaseStudy;
 use App\Category;
 use App\Features;
+use App\Gallery;
 use App\News;
 use App\Product;
 use App\Specs;
@@ -421,6 +422,51 @@ class DataBaseController extends Controller
 			}
 
 			$message = 'Success!\n'.$request->input('title').' Successfully Saved';
+		}
+		$response = "%FDF-1.2\r\n" .
+		"1 0 obj<< /FDF << /Status ($message) >>      >>endobj\r\n" .
+		"trailer\r\n" .
+		"<< /Root 1 0 R >>%%EOF";
+		return response($response)->header('Content-Type', 'application/vnd.fdf');
+	}
+	public function galleryfrompdf(Request $request){
+		Log::info('Submitted Data : '.print_r($request->all(), true));
+		$error = false;
+		$message = '';
+		if (!$request->has(['title', 'gallery'])) {
+			$error = true;
+			$message = 'ERROR!: Title and gallery are required';
+		}
+		if(!$error){
+			$gallery = Gallery::firstOrCreate(
+				['alias' => str_slug($request->input('title'))],
+				[
+					'title' => $request->input('title'),
+					'description' => $request->input('description'),
+				]
+			);
+
+		
+			if($request->has('gallery')){
+				$gallery->clearMediaCollection('gallery');
+				foreach ($request->input('gallery') as $galleryimage) {
+					$image = str_replace("dl=0","raw=1",$galleryimage['image']);
+					$label = $galleryimage['label'];
+					Log::info($label);
+					$link = isset($galleryimage['link']) ? str_replace("dl=0","raw=1",$galleryimage['link']) : false;
+					Log::info($link);
+					$parts = parse_url($image); 
+					$slug = str_replace(['%20','?raw=1'],['-',''],basename($parts['path']));
+					Log::info($slug);
+					if($link){
+						$gallery->addMediaFromUrl($image)->usingFileName($slug)->usingName($label)->withCustomProperties(['link' => $link])->toMediaCollection('gallery');
+					}else{
+						$gallery->addMediaFromUrl($image)->usingFileName($slug)->usingName($label)->toMediaCollection('gallery');
+					}
+				}
+			}
+
+			$message = 'Success!\n'.$gallery->title.' Successfully Saved';
 		}
 		$response = "%FDF-1.2\r\n" .
 		"1 0 obj<< /FDF << /Status ($message) >>      >>endobj\r\n" .

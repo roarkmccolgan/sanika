@@ -73,6 +73,10 @@
 					</div>	
 				</div>
 				@endif
+				{{-- Galleries --}}
+				<div class="menu text-base flex">
+					<a href="/gallery" class="font-bold text-black uppercase hover:text-grey-dark no-underline p-2">Gallery</a>	
+				</div>
 				<div class="menu text-base flex">
 					<a href="/contact" class="font-bold text-black uppercase hover:text-grey-dark no-underline p-2">Contact Us</a>
 				</div>
