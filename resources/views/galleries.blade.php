@@ -18,7 +18,7 @@
 					@if($gallery->hasMedia('gallery'))
 					<div class="">
 						<a href="{{'/gallery/'.$gallery->alias }}" class="no-underline">
-							<img class="w-full" src="{{ $gallery->getFirstMediaUrl('gallery', 'thumb') }}" alt="Photo of {{ $gallery->title }}">
+							{{ $gallery->getFirstMedia('gallery') }}
 						</a>
 					</div>
 					@endif

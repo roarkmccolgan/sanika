@@ -20,7 +20,8 @@ class Gallery extends Model implements HasMedia
             $this
                 ->addMediaConversion('thumb')
                 ->width(400)
-                ->height(400);
+                ->height(400)
+                ->withResponsiveImages();
             });
 	}
 

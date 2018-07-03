@@ -459,9 +459,9 @@ class DataBaseController extends Controller
 					$slug = str_replace(['%20','?raw=1'],['-',''],basename($parts['path']));
 					Log::info($slug);
 					if($link){
-						$gallery->addMediaFromUrl($image)->usingFileName($slug)->usingName($label)->withCustomProperties(['link' => $link])->toMediaCollection('gallery');
+						$gallery->addMediaFromUrl($image)->usingFileName($slug)->usingName($label)->withCustomProperties(['link' => $link])->withResponsiveImages()->toMediaCollection('gallery');
 					}else{
-						$gallery->addMediaFromUrl($image)->usingFileName($slug)->usingName($label)->toMediaCollection('gallery');
+						$gallery->addMediaFromUrl($image)->usingFileName($slug)->usingName($label)->withResponsiveImages()->toMediaCollection('gallery');
 					}
 				}
 			}

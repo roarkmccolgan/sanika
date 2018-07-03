@@ -16,6 +16,8 @@ import VueTyperPlugin from 'vue-typer';
 Vue.use(VueTyperPlugin);
 import VueCarousel from 'vue-carousel';
 Vue.use(VueCarousel);
+import VModal from 'vue-js-modal'
+Vue.use(VModal, { dynamic: true })
 
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import faSearch from '@fortawesome/fontawesome-pro-regular/faSearch'
@@ -232,6 +234,31 @@ import {Tabs, Tab} from 'vue-tabs-component';
             .catch(function (error) {
                 console.log(error);
             });
+        },
+        showGalleryImage: function(url, title){
+            this.$modal.show(
+                {
+                    template: `
+                    <div>
+                        <img :src="img" class="block w-full" />
+                        <span class="block text-center">{{ name }}</span>
+                    </div>
+                    `,
+                    props: ['img','name']
+                },
+                {
+                    img: url,
+                    name: title,
+                },
+                {
+                    'min-width':200,
+                    'min-height':200,
+                    adaptive:true,
+                    reset:true,
+                    width:"60%",
+                    height:"auto"
+                }
+            );
         },
         validate: function(step,id){
             var el = document.getElementById(id);
