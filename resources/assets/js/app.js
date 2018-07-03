@@ -29,6 +29,7 @@ import faSquare from '@fortawesome/fontawesome-pro-regular/faSquare'
 import faCheckSquare from '@fortawesome/fontawesome-pro-regular/faCheckSquare'
 import faAngleRight from '@fortawesome/fontawesome-pro-regular/faAngleRight'
 import faCheck from '@fortawesome/fontawesome-pro-regular/faCheck'
+import faBars from '@fortawesome/fontawesome-pro-regular/faBars'
 
 import {Tabs, Tab} from 'vue-tabs-component';
 /**
@@ -53,6 +54,7 @@ import {Tabs, Tab} from 'vue-tabs-component';
  const home = new Vue({
     el: '#app',
     data: {
+        showMenu: false,
         searchStore,
         icons:{
             search: faSearch,
@@ -64,6 +66,7 @@ import {Tabs, Tab} from 'vue-tabs-component';
             faCheckSquare: faCheckSquare,
             faAngleRight: faAngleRight,
             faCheck: faCheck,
+            faBars: faBars,
         },
         typer:{
             text: ["Leaking Roof","Rising Damp","Concrete Cracking","Leaking Reservior","Leaking Tie-holes"],
@@ -210,6 +213,11 @@ import {Tabs, Tab} from 'vue-tabs-component';
             buttonText: 'Next',
             complete: false
         },
+    },
+    computed: {
+        mobileMenu: function(){
+            return document.documentElement.clientWidth <= 576;
+        }
     },
     components: {
         FontAwesomeIcon,

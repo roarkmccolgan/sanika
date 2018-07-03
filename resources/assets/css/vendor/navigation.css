@@ -3,16 +3,14 @@
 	@apply .bg-grey-lighter .pin-x;
 	top: 100%;
 }
-#nav:hover{
+@screen sm{
+	#nav .menu::after {
+		content: "";
+		
+		@apply .h-4 .border-r .border-sanika-primary .self-center;
+	}
 }
-#nav:hover .menu{
-	
-}
-#nav .menu::after {
-	content: "";
-	
-	@apply .h-4 .border-r .border-sanika-primary .self-center;
-}
+
 #nav .menu:hover::after {
 	visibility: hidden;
 }

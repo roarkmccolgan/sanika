@@ -1,7 +1,7 @@
 @import "vendor/navigation";
 @import "vendor/tabs";
 @import "vendor/transitions";
-@import "vendor/flip";
+/*@import "vendor/flip";*/
 @tailwind preflight;
 .pagebg{
 	background: url('/images/bg.jpg?id=1') repeat-x;
@@ -23,6 +23,92 @@
 	@apply text-sanika-primary;
 }
 .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+
+/*
+***************************
+http://davidwalsh.name/css-flip [IE version]
+***************************
+1. work in Safari 7.0.1
+2. work in Chrome 32.0.1700.107
+3. work partially in Firefox 27
+*/
+
+.flip-container {
+	margin: auto;
+	/* keeps perspective in the entire container */
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	perspective: 1000px;
+	padding-bottom: 148.6646884272997%;
+	height: 0;
+	position: relative;
+}
+
+/* flip the pane when hovered */
+.flip-container:hover .back {
+	transform: rotateY(0deg);
+}
+
+/* flip the pane when hovered */
+.flip-container:hover .front {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.flipper {
+	@apply .absolute .pin;
+}
+
+.front, .back {
+	@apply .rounded;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	/* hide back of pane during swap */
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	/* flip speed goes here (for IE compatibility)
+	Else put it in .flipper */
+	-webkit-transition: 0.6s;
+	-moz-transition: 0.6s;
+	-o-transition: 0.6s;
+	-ms-transition: 0.6s;
+	transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	background-color: #FFF;
+	-webkit-box-shadow: 0px 3px 5px rgba(0,0,0,0.3);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    0px 3px 5px rgba(0,0,0,0.3);  /* Firefox 3.5 - 3.6 */
+	box-shadow:         0px 3px 5px rgba(0,0,0,0.3);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.front {
+	z-index: 2;
+}
+
+/* original position of the image (reverse horizontal symetry) */
+.back {
+	-webkit-transform: rotateY(-180deg);
+	-moz-transform: rotateY(-180deg);
+	-o-transform: rotateY(-180deg);
+	-ms-transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
+}
+/*@screen sm{
+	.flip-container, .front, .back {
+		height: 300px;
+		text-align: center;
+		padding: 10px;
+	}
+}*/
 
 @tailwind utilities;
 

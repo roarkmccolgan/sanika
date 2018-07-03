@@ -10,14 +10,6 @@
 	.flip-container:hover .front {
 	    transform: rotateY(180deg);
 	}
-
-.flip-container, .front, .back {
-	height: 300px;
-	text-align: center;
-	padding: 10px;
-}
-.flip-container {
-}
 .front, .back{
 	background-color: #FFF;
 	-webkit-box-shadow: 0px 3px 5px rgba(0,0,0,0.3);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
@@ -33,26 +25,6 @@
 	position: absolute;
 	bottom: 10px;
 	left: 40px;
-}
-
-
-/* flip speed goes here */
-.flipper {
-	transition: 0.6s;
-	transform-style: preserve-3d;
-
-	position: relative;
-}
-
-/* hide back of pane during swap */
-.front, .back {
-	backface-visibility: hidden;
-	transition: 0.6s;
-	transform-style: preserve-3d;
-
-	position: absolute;
-	top: 0;
-	left: 0;
 }
 
 /*  UPDATED! front pane, placed above back */
