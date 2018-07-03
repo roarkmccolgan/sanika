@@ -7,7 +7,8 @@
 			<div class="sm:mr-4 mt-4">
 				<a href="/" class="no-underline" title="Homepage"><img width="180" src="/images/sanika_logo.svg" alt=""></a>
 			</div>
-			<div id="nav" class="sm:flex sm:ml-4 mt-2 sm:items-center" v-show="mobileMenu && showMenu">
+			<transition name="accordian">
+			<div id="nav" class="sm:flex sm:ml-4 mt-2 sm:items-center" v-if="(mobileMenu && showMenu) || !mobileMenu">
 				@foreach($categories as $category)
 				<div class="menu text-base sm:flex">
 					<a href="/categories/{{ $category->alias }}" class="block sm:inline-block font-bold text-black uppercase hover:text-grey-dark no-underline p-2">{{ $category->name }}</a>
@@ -84,6 +85,7 @@
 					<a href="/contact" class="block sm:inline-block font-bold text-black uppercase hover:text-grey-dark no-underline p-2">Contact Us</a>
 				</div>
 			</div>
+			</transition>
 		</div>
 	</div>
 </div>

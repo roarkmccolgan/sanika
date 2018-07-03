@@ -38,11 +38,11 @@ import {Tabs, Tab} from 'vue-tabs-component';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
- Vue.use(InstantSearch);
- Vue.use(VueSweetalert2);
+Vue.use(InstantSearch);
+Vue.use(VueSweetalert2);
 
- const searchStore = createFromAlgoliaCredentials('9PJ4YRKD8R', '70da05b28f4fcec86d4d4197851214af');
- searchStore.indexName = 'sanika_products';
+const searchStore = createFromAlgoliaCredentials('9PJ4YRKD8R', '70da05b28f4fcec86d4d4197851214af');
+searchStore.indexName = 'sanika_products';
 
  Vue.component('example-component', require('./components/ExampleComponent.vue'));
  var CartComponent = require('./components/CartComponent.vue');

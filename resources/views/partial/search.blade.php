@@ -17,7 +17,7 @@
 								<a :href="result.url" class="block font-bold no-underline text-sanika-secondary p-2 hover:bg-grey-lighter">
 									<ais-highlight :result="result" attribute-name="name"></ais-highlight>
 									<p class="font-normal text-sm">
-										<ais-highlight :result="result" attribute-name="description"></ais-highlight>
+										<ais-snippet :result="result" attribute-name="description"></ais-snippet>
 									</p>
 								</a>
 							</template>
