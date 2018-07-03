@@ -21,14 +21,14 @@
 							<div class="h-full p-2 sm:p-4">
 								<div class="flex flex-col h-full text-sm sm:text-base text-left leading-tight">
 									<h3 class="font-condensed mb-2">Waterproofing Solutions</h3>
-									<ul class="list-reset ml-2 flex-1">
+									<ul class="list-reset ml-1 flex-1">
 										<li class="mb-1">Insulative Boarded Waterproofing</li>
 										<li class="mb-1">Concrete Roofing and Decks</li>
 										<li class="mb-1">Metal Roof Waterproofing</li>
 										<li class="mb-1">Industrial &amp; Mining Anti Corrosive Coatings</li>
 									</ul>
-									<a href="/categories/products-services/waterproofing" class="inline-block no-underline text-black mt-2">
-										<span class="block my-2 px-3 py-2 bg-sanika-primary text-white rounded shadow">Find out more</span>
+									<a href="/categories/products-services/waterproofing" class="inline-block no-underline text-black">
+										<span class="block px-3 py-2 bg-sanika-primary text-white rounded shadow">Find out more</span>
 									</a>
 								</div>
 							</div>
@@ -48,14 +48,14 @@
 							<div class="h-full p-2 sm:p-4">
 								<div class="flex flex-col h-full text-sm sm:text-base text-left leading-tight">
 									<h3 class="font-condensed mb-2">Smart Concrete</h3>
-									<ul class="list-reset ml-2 flex-1">
+									<ul class="list-reset ml-1 flex-1">
 										<li class="mb-1">Admixtures &amp; Additives</li>
 										<li class="mb-1">Concrete Repair</li>
 										<li class="mb-1">Construction Joints &amp; Details</li>
 										<li class="mb-1">Surface Applied Waterproofing</li>
 									</ul>
-									<a href="categories/products-services/kryton" class="inline-block no-underline text-black mt-2">
-										<span class="block my-2 px-3 py-2 bg-sanika-primary text-white rounded shadow">Find out more</span>
+									<a href="categories/products-services/kryton" class="inline-block no-underline text-black">
+										<span class="block px-3 py-2 bg-sanika-primary text-white rounded shadow">Find out more</span>
 									</a>
 								</div>
 							</div>
@@ -75,15 +75,15 @@
 							<div class="h-full p-2 sm:p-4">
 								<div class="flex flex-col h-full text-sm sm:text-base text-left leading-tight">
 									<h3 class="font-condensed mb-2">Expansion Joint Systems</h3>
-									<ul class="list-reset ml-2 flex-1">
+									<ul class="list-reset ml-1 flex-1">
 										<li class="mb-1">Expansion joint covers</li>
 										<li class="mb-1">Pre-compressed sealants</li>
 										<li class="mb-1">Waterproof</li>
 										<li class="mb-1">Rapid installation</li>
 										<li class="mb-1">Fire rated</li>
 									</ul>
-									<a href="/categories/products-services/emseal" class="inline-block no-underline text-black mt-2">
-										<span class="block my-2 px-3 py-2 bg-sanika-primary text-white rounded shadow">Find out more</span>
+									<a href="/categories/products-services/emseal" class="inline-block no-underline text-black">
+										<span class="block px-3 py-2 bg-sanika-primary text-white rounded shadow">Find out more</span>
 									</a>
 								</div>
 							</div>
@@ -103,14 +103,14 @@
 							<div class="h-full p-2 sm:p-4">
 								<div class="flex flex-col h-full text-sm sm:text-base text-left leading-tight">
 									<h3 class="font-condensed mb-2">Formwork Systems</h3>
-									<ul class="list-reset ml-2 flex-1">
+									<ul class="list-reset ml-1 flex-1">
 										<li class="mb-1">Hermetically sealed formwork holes</li>
 										<li class="mb-1">Removable, reusable, formwork tubes</li>
 										<li class="mb-1">Patented Technology</li>
 										<li class="mb-1">Specialist Tools</li>
 									</ul>
-									<a href="/categories/products-services/rivestop" class="inline-block no-underline text-black mt-2">
-										<span class="block my-2 px-3 py-2 bg-sanika-primary text-white rounded shadow">Find out more</span>
+									<a href="/categories/products-services/rivestop" class="inline-block no-underline text-black">
+										<span class="block px-3 py-2 bg-sanika-primary text-white rounded shadow">Find out more</span>
 									</a>
 								</div>
 							</div>
@@ -130,14 +130,14 @@
 							<div class="h-full p-2 sm:p-4">
 								<div class="flex flex-col h-full text-sm sm:text-base text-left leading-tight">
 									<h3 class="font-condensed mb-2">Afrisam Plaster Pro</h3>
-									<ul class="list-reset ml-2 flex-1">
+									<ul class="list-reset ml-1 flex-1">
 										<li class="mb-1">A single-step, pre-blended plaster solution</li>
 										<li class="mb-1">Saves you time and money</li>
 										<li class="mb-1">Spectacular finish</li>
 										<li class="mb-1">Waterproof barrier</li>
 									</ul>
-									<a href="/categories/products-services/afrisam" class="inline-block no-underline text-black mt-2">
-										<span class="block my-2 px-3 py-2 bg-sanika-primary text-white rounded shadow">Find out more</span>
+									<a href="/categories/products-services/afrisam" class="inline-block no-underline text-black">
+										<span class="block px-3 py-2 bg-sanika-primary text-white rounded shadow">Find out more</span>
 									</a>
 								</div>
 							</div>
