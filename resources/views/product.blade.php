@@ -86,7 +86,7 @@
 	<div class="container flex-1 mx-auto pb-8">
 		<div class="mt-6 -mx-2">
 			<tabs class="">
-				<tab name="RECOMMEND USES" class="-mb-px mr-1">
+				<tab name="RECOMMENDED USES" class="-mb-px mr-1">
 					<div class="my-8">
 						<p class="mb-2">{{ $product->uses_intro }}</p>
 						@if($product->uses)
