@@ -15,7 +15,7 @@
 				<h5 class="text-2xl font-condensed mb-2 uppercase">Quick Links</h5>
 				<div class="flex flex-col">
 					<a href="/contact" class="no-underline text-white hover:text-sanika-primary">Contact Us</a>
-					<a href="#" class="no-underline text-white hover:text-sanika-primary">Terms and Conditions</a>
+					<!--a href="#" class="no-underline text-white hover:text-sanika-primary">Terms and Conditions</a-->
 					<a href="/categories/about/affiliations-and-partners" class="no-underline text-white hover:text-sanika-primary">Affiliations and Partners</a>
 				</div>
 			</div>

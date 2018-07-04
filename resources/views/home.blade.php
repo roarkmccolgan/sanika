@@ -27,7 +27,7 @@
 										<li class="mb-1">Metal Roof Waterproofing</li>
 										<li class="mb-1">Industrial &amp; Mining Anti Corrosive Coatings</li>
 									</ul>
-									<a href="/categories/products-services/waterproofing" class="inline-block no-underline text-black">
+									<a href="/categories/products-services/waterproofing-services" class="inline-block no-underline text-black">
 										<span class="block px-3 py-2 bg-sanika-primary text-white rounded shadow">Find out more</span>
 									</a>
 								</div>
