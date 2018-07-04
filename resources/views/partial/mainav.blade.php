@@ -78,9 +78,9 @@
 				</div>
 				@endif
 				{{-- Galleries --}}
-				<div class="menu text-base sm:flex">
+				{{-- <div class="menu text-base sm:flex">
 					<a href="/gallery" class="block sm:inline-block font-bold text-black uppercase hover:text-grey-dark no-underline p-2">Gallery</a>	
-				</div>
+				</div> --}}
 				<div class="menu text-base sm:flex">
 					<a href="/contact" class="block sm:inline-block font-bold text-black uppercase hover:text-grey-dark no-underline p-2">Contact Us</a>
 				</div>

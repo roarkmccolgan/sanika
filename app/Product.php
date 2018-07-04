@@ -42,7 +42,6 @@ class Product extends Model implements HasMedia
                 ->addMediaConversion('thumb')
                 ->width(200)
                 ->height(200);
-            });
             $this
                 ->addMediaConversion('product')
                 ->width(400)
@@ -58,6 +57,7 @@ class Product extends Model implements HasMedia
                 ->addMediaConversion('thumb')
                 ->width(400)
                 ->height(400);
+            });
         $this
             ->addMediaCollection('application');
         $this
