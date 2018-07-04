@@ -39,7 +39,7 @@
 				<carousel :per-page="1" :navigation-enabled="true">
 					@foreach($product->getMedia('gallery') as $galleryImg)
 					<slide>
-						<img src="{{ $galleryImg->getUrl('thumb') }}" alt="{{ $galleryImg->name }}">
+						<img src="{{ $galleryImg->getUrl() }}" alt="{{ $galleryImg->name }}">
 					</slide>
 					@endforeach
 				</carousel>
