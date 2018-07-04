@@ -69,7 +69,7 @@ searchStore.indexName = 'sanika_products';
             faBars: faBars,
         },
         typer:{
-            text: ["Leaking Roof","Rising Damp","Concrete Cracking","Leaking Reservior","Leaking Tie-holes"],
+            text: ["Leaking Roof","Rising Damp","Concrete Cracking","Leaking Reservoir","Leaking Tie-holes"],
             suffle: true,
             show: true,
         },
