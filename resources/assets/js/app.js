@@ -211,8 +211,9 @@ searchStore.indexName = 'sanika_products';
                 },
             },
             buttonText: 'Next',
-            complete: false
+            complete: false,
         },
+        currentTypedString: 'Leaking Roof',
     },
     computed: {
         mobileMenu: function(){
@@ -267,6 +268,32 @@ searchStore.indexName = 'sanika_products';
                     height:"auto"
                 }
             );
+        },
+        typeComplete: function(typedString){
+            this.currentTypedString = typedString;
+        },
+        focusSearchBox: function(){
+            var that = this;
+            this.typer.show =! this.typer.show;
+            this.$nextTick()
+                .then(function () {
+                    document.querySelector('input[name="q"]').focus();
+                    document.querySelector('input[name="q"]').value = that.currentTypedString;
+                });
+        },
+        submitSearch: function(){
+            var that = this;
+            if(!this.typer.show){
+                document.getElementById('typerSearchForm').submit();
+            }else{
+                this.typer.show = false;
+                this.$nextTick()
+                    .then(function () {
+                        console.log(that.currentTypedString);
+                        document.querySelector('input[name="q"]').value = that.currentTypedString;
+                        document.getElementById('typerSearchForm').submit();
+                    });
+            }
         },
         validate: function(step,id){
             var el = document.getElementById(id);

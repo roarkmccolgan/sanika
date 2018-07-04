@@ -12,7 +12,7 @@
 						<button class="flex-no-shrink p-2 px-3 rounded-full bg-sanika-primary text-white border-sanika-primary mx-1 hover:bg-sanika-primary" type="submit">
 							<font-awesome-icon :icon="icons.search" />
 						</button>
-						<ais-results v-show="searchStore.query.length > 0" class="absolute pin-x pin-t bg-white p-2 shadow" style="top: 102%">
+						<ais-results v-show="searchStore.query.length > 0 && '{{ request()->segment(1) }}' != 'search'" class="absolute pin-x pin-t bg-white p-2 shadow" style="top: 102%">
 							<template slot-scope="{ result }">
 								<a :href="result.url" class="block font-bold no-underline text-sanika-secondary p-2 hover:bg-grey-lighter">
 									<ais-highlight :result="result" attribute-name="name"></ais-highlight>
@@ -31,4 +31,4 @@
 		@endif
 	</div>
 </div>
-<div v-show="searchStore.query.length > 0" class="z-20 absolute pin bg-black opacity-75"></div>
+<div v-show="searchStore.query.length > 0 && '{{ request()->segment(1) }}' != 'search'" class="z-20 absolute pin bg-black opacity-75"></div>

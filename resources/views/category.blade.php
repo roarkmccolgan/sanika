@@ -33,15 +33,16 @@
 			@endforeach
 		</div>
 		<div class="w-full sm:w-3/4 mt-4 category md:flex md:flex-wrap">
+			
+			<div class="flex-1 mb-6 ml-2">
+				<h1 class="font-extrabold uppercase mb-2">{{ $category['name'] }}</h1>
+				{!! $category['description'] !!}
+			</div>
 			@if($category->hasMedia('title'))
 			<div class="md:w-1/3">
 				<img class="sm:w-3/4 mx-auto" src="{{ $category->getFirstMediaUrl('title', 'category') }}" alt="Image of {{ $category['name'] }}">
 			</div>
 			@endif
-			<div class="flex-1 mb-6 ml-2">
-				<h1 class="font-extrabold uppercase mb-2">{{ $category['name'] }}</h1>
-				{!! $category['description'] !!}
-			</div>
 			@if($category->hasMedia('property'))
 			<div class="w-full flex items-stretch flex-wrap sm:-m-2">
 				@foreach($category->getMedia('property') as $property)
@@ -70,7 +71,7 @@
 	</div>
 	<div class="flex flex-wrap -mx-2 mt-6 text-base">
 		@if(count($category['products']))
-		<h3 class="font-extrabold uppercase w-full mb-2 px-2">Products</h3>
+		<h3 class="font-extrabold uppercase w-full mb-2 px-2">@if($category->parent_id!=null) {{ $category->name }} Product Range @else Products @endif</h3>
 		@endif
 		@foreach(collect($category['products'])->chunk(3) as $chunk)
 		<div class="flex flex-wrap w-full items-stretch">

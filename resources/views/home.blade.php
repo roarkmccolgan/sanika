@@ -150,14 +150,20 @@
 </div>
 <div class="container flex-1 mx-auto pb-8">
 	<div class="flex flex-wrap -mx-2 mt-6">
-		<div class="w-full p-4 sm:p-2 mb-4 sm:flex sm:items-center justify-center border-b">
+		<form id="typerSearchForm" class="w-full p-4 sm:p-2 mb-4 sm:flex sm:items-center justify-center border-b" action="/search" method="GET">
+			
 			<div class="font-bold text-2xl"> I have a problem with </div>
-			<div class="sm:px-4 py-2 border rounded flex-grow" v-if="typer.show" @click.prevent="typer.show=!typer.show">
-				<vue-typer :text="typer.text" :repeat="typer.repeat" class="font-bold text-2xl"></vue-typer>
+			
+			<div class="sm:px-4 sm:mx-2 py-2 border rounded flex-grow" v-if="typer.show" @click.prevent="focusSearchBox">
+				<vue-typer :text="typer.text" :repeat="typer.repeat" class="font-bold text-2xl" @typed="typeComplete"></vue-typer>
 			</div>
-			<input type="text" class="font-bold text-2xl px-4 py-2 border rounded flex-grow" v-else />
-			<a href="/categories/products-services" class="inline-block my-2 no-underline bg-sanika-primary hover:bg-red-dark text-white font-bold py-2 px-4 rounded" @click="typer.show=!typer.show"> find solution </a>
-		</div>
+			<template v-else>
+				<input type="search" name="q" class="font-bold text-2xl sm:px-4 sm:mx-2 py-2 border rounded flex-grow" />
+			</template>
+			<button type="submit" href="/categories/products-services" class="inline-block my-2 no-underline bg-sanika-primary hover:bg-red-dark text-white font-bold py-2 px-4 rounded" @click.prevent="submitSearch">
+				find solution 
+			</button>
+		</form>
 		<div class="sm:w-1/2 p-4 sm:p-2">
 			<h1 class="text-sanika-primary mb-4">Welcome to Sanika Waterproofing</h1>
 			<p class="mb-2">Sanika Waterproofing Specialists was founded over 25 years ago with an ultimate goal in mind – become a trusted expert in the waterproofing industry to contractors, engineers, architects and building owners alike. Fast forward to present day and the same goal still rings true. We are a family owned and run business and we take the meaning of family to heart. We want to ensure that each and every client feels like family by providing that same excellent service and quality product, all back by our expert guidance accumulated over our many years in the industry.</p>

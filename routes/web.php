@@ -34,6 +34,8 @@ Route::post('/contact', 'ContactController@SendMessage');
 Route::get('/gallery', 'GalleriesController@index');
 Route::get('/gallery/{gallery}', 'GalleriesController@show');
 
+Route::get('/search', 'SearchController@index');
+
 Route::post('/lead', 'LeadController@NewLead');
 
 Route::get('/', 'ShopController@getHome');
