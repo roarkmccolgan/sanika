@@ -51,7 +51,12 @@ class Product extends Model implements HasMedia
         $this
             ->addMediaCollection('content');
         $this
-            ->addMediaCollection('gallery');
+            ->addMediaCollection('gallery')
+            ->registerMediaConversions(function (Media $media) {
+            $this
+                ->addMediaConversion('thumb')
+                ->width(400)
+                ->height(400);
         $this
             ->addMediaCollection('application');
         $this
