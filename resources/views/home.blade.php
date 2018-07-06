@@ -150,7 +150,7 @@
 </div>
 <div class="container flex-1 mx-auto pb-8">
 	<div class="flex flex-wrap -mx-2 mt-6">
-		<form id="typerSearchForm" class="w-full p-4 sm:p-2 mb-4 sm:flex sm:items-center justify-center border-b" action="/search" method="GET">
+		<form id="typerSearchForm" class="w-full p-4 sm:p-2 mb-6 sm:flex sm:items-center justify-center border-b" action="/search" method="GET">
 			
 			<div class="font-bold text-2xl"> I have a problem with </div>
 			
@@ -168,6 +168,41 @@
 			<h1 class="text-sanika-primary mb-4">Welcome to Sanika Waterproofing</h1>
 			<p class="mb-2">Sanika Waterproofing Specialists was founded over 25 years ago with an ultimate goal in mind – become a trusted expert in the waterproofing industry to contractors, engineers, architects and building owners alike. Fast forward to present day and the same goal still rings true. We are a family owned and run business and we take the meaning of family to heart. We want to ensure that each and every client feels like family by providing that same excellent service and quality product, all back by our expert guidance accumulated over our many years in the industry.</p>
 		</div>
+		<div class="sm:w-1/2 p-4 sm:p-2">
+			<carousel class="p-2" :per-page="1" :loop="true" :autoplay-timeout="3000" :pagination-enabled="false" :scroll-per-page="false" :autoplay="true" :autoplay-hover-pause="true" :navigation-enabled="true">
+				<slide>
+					<img class="rounded block" src="/images/gallery/gallery_1.png" alt="Samrand Roof">
+				</slide>
+				<slide>
+					<img class="rounded block" src="/images/gallery/gallery_2.png" alt="">
+				</slide>
+				<slide>
+					<img class="rounded block" src="/images/gallery/gallery_3.png" alt="Turbine Hall">
+				</slide>
+				<slide>
+					<img class="rounded block" src="/images/gallery/gallery_4.png" alt="Impala">
+				</slide>
+				<slide>
+					<img class="rounded block" src="/images/gallery/gallery_5.png" alt="Eastgate">
+				</slide>
+				<slide>
+					<img class="rounded block" src="/images/gallery/gallery_6.png" alt="Samrand">
+				</slide>
+				<slide>
+					<img class="rounded block" src="/images/gallery/gallery_7.png" alt="kakamaas">
+				</slide>
+				<slide>
+					<img class="rounded block" src="/images/gallery/gallery_8.png" alt="Sisani Studios">
+				</slide>
+				<slide>
+					<img class="rounded block" src="/images/gallery/gallery_9.png" alt="Shaft">
+				</slide>
+				<slide>
+					<img class="rounded block" src="/images/gallery/gallery_10.png" alt="Nandos">
+				</slide>
+				
+			</carousel>
+		</div>
 		
 	</div>
 	@if(count($casestudies))
@@ -175,10 +210,12 @@
 		<div class="w-full p-4"><h2 class="uppercase">Latest Projects</h2></div>
 		@foreach($casestudies->chunk(3) as $chunk)
 		@foreach($chunk as $casestudy)
-		<div class="sm:w-{{ count($chunk)==1 ? 'full' : '3' }} flex-1 bg-white border shadow mx-2 p-4">
+		<div class="sm:w-1/{{ count($chunk)==1 ? 'full' : '3' }} bg-white border shadow mx-2 p-4">
 			<a class="no-underline text-black" href="{{'/casestudies/'.$casestudy->category->alias.'/'.$casestudy->alias }}">
 			@if($casestudy->hasMedia('title'))
-			<img src="{{ $casestudy->getFirstMediaUrl('title', 'casestudy') }}" alt="Image of {{ $casestudy->title }}">
+			<img class="block mb-2" src="{{ $casestudy->getFirstMediaUrl('title', 'thumb') }}" alt="Image of {{ $casestudy->title }}">
+			@elseif($casestudy->hasMedia('gallery'))
+			<img class="block mb-2" src="{{ $casestudy->getFirstMediaUrl('gallery', 'thumb') }}" alt="Image of {{ $casestudy->title }}">
 			@endif
 			<h4 class="no-underline text-blackblack font-extrabold uppercase mb-2">{{ $casestudy->title }}</h4>
 			<span class="no-underline text-grey-dark">{{ $casestudy->client }}</span>
@@ -190,7 +227,7 @@
 	@endif
 	<div class="flex flex-wrap mt-6 p-2">
 		<h3 class="mb-2">Clients who trust us</h3>
-		<carousel class="p-2" :per-page-custom="[[768, 3], [1024, 6]]" :loop="true" :autoplay-timeout="3000" :pagination-enabled="false" :scroll-per-page="false" :autoplay="true" :autoplay-hover-pause="true" :navigation-enabled="false">
+		<carousel class="p-2" :per-page-custom="[[768, 3], [1024, 6]]" :loop="true" :autoplay-timeout="3000" :pagination-enabled="false" :scroll-per-page="false" :autoplay="true" :autoplay-hover-pause="true" :navigation-enabled="true">
 			<slide>
 				<img src="/storage/clients/SAB.png" alt="SAB">
 			</slide>

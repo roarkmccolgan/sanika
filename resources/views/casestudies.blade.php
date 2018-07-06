@@ -18,7 +18,6 @@
 	</div>
 	<div class="flex flex-wrap -mx-2 mt-6 text-base">
 		@foreach(collect($casestudies)->chunk(2) as $chunk)
-		<div class="flex flex-wrap items-stretch">
 			@foreach($chunk as $casestudy)
 			<div class="w-full sm:w-1/2 p-2">
 				<div class="flex flex-wrap h-full bg-white border shadow p-4">
@@ -26,6 +25,12 @@
 					<div class="w-1/3">
 						<a href="{{'/casestudies/'.$casestudy->category->alias.'/'.$casestudy->alias }}" class="no-underline">
 							<img src="{{ $casestudy->getFirstMediaUrl('title', 'thumb') }}" alt="Photo of {{ $casestudy->title }}">
+						</a>
+					</div>
+					@elseif($casestudy->hasMedia('gallery'))
+					<div class="w-1/3">
+						<a href="{{'/casestudies/'.$casestudy->category->alias.'/'.$casestudy->alias }}" class="no-underline">
+							<img src="{{ $casestudy->getFirstMediaUrl('gallery', 'thumb') }}" alt="Photo of {{ $casestudy->title }}">
 						</a>
 					</div>
 					@endif
@@ -40,7 +45,6 @@
 				</div>
 			</div>
 			@endforeach
-		</div>
 		@endforeach
 	</div>
 </div>

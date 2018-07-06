@@ -54,7 +54,7 @@
 					<div class="submenu sm:absolute min-w-full p-4 pt-0 sm:pt-4 shadow">
 						<div class="sm:flex -mx-4">
 							@foreach($casestudies as $casestudy)
-							<div class="px-4">
+							<div class="sm:w-1/4 px-4">
 								<span class="text-grey-dark">{{$casestudy->category->name }}</span> <a href="/casestudies/{{ $casestudy->category->alias }}/{{ $casestudy->alias }}" class="block w-full py-1 px-2 text-grey-darkest hover:text-sanika-primary no-underline">{{$casestudy->site }}</a>
 							</div>
 							@endforeach

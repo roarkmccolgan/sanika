@@ -13,7 +13,7 @@ class ShopController extends Controller
 {
 
 	public function getHome(Request $request){
-		$casestudies = CaseStudy::latest()->get();
+		$casestudies = CaseStudy::latest()->take(3)->get();
 
 		\JavaScript::put([
 			'cart' => session('cart'),
