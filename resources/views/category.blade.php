@@ -33,8 +33,11 @@
 			@endforeach
 		</div>
 		<div class="w-full sm:w-3/4 mt-4 category md:flex md:flex-wrap">
-			
 			<div class="flex-1 mb-6 ml-2 pr-4">
+				
+				@if($category['name'] == 'About')
+					<img class="w-full block mx-auto mb-4" src="/images/abouthero.jpg" alt="Image of Sanika Waterproofing Headquarters">
+				@endif
 				<h1 class="font-extrabold uppercase mb-2">{{ $category['name'] }}</h1>
 				{!! $category['description'] !!}
 			</div>

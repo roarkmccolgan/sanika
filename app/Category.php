@@ -34,6 +34,9 @@ class Category extends Model implements HasMedia
                 ->addMediaConversion('thumb')
                 ->fit('contain', 400, 400);
         });
+	    $this
+	        ->addMediaCollection('property') //affiliations or other
+	        ->useDisk('media');
 	}
 
 	public $timestamps = false;
