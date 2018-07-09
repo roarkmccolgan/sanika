@@ -207,19 +207,22 @@
 	</div>
 	@if(count($casestudies))
 	<div class="flex flex-wrap mt-6 mb-2 -mx-2">
-		<div class="w-full p-4"><h2 class="uppercase">Latest Projects</h2></div>
+		<div class="w-full p-2"><h2 class="uppercase p-2">Latest Projects <a class="text-base text-sanika-primary" href="/casestudies">View all</a></h2></div>
 		@foreach($casestudies->chunk(3) as $chunk)
 		@foreach($chunk as $casestudy)
-		<div class="sm:w-1/{{ count($chunk)==1 ? 'full' : '3' }} bg-white border shadow mx-2 p-4">
-			<a class="no-underline text-black" href="{{'/casestudies/'.$casestudy->category->alias.'/'.$casestudy->alias }}">
-			@if($casestudy->hasMedia('title'))
-			<img class="block mb-2" src="{{ $casestudy->getFirstMediaUrl('title', 'thumb') }}" alt="Image of {{ $casestudy->title }}">
-			@elseif($casestudy->hasMedia('gallery'))
-			<img class="block mb-2" src="{{ $casestudy->getFirstMediaUrl('gallery', 'thumb') }}" alt="Image of {{ $casestudy->title }}">
-			@endif
-			<h4 class="no-underline text-blackblack font-extrabold uppercase mb-2">{{ $casestudy->title }}</h4>
-			<span class="no-underline text-grey-dark">{{ $casestudy->client }}</span>
-			</a>
+		<div class="sm:w-1/{{ count($chunk)==1 ? 'full' : '3' }} p-2">
+			<div class="w-full bg-white border shadow mx-2 p-4">
+				<a class="no-underline text-black" href="{{'/casestudies/'.$casestudy->category->alias.'/'.$casestudy->alias }}">
+				@if($casestudy->hasMedia('title'))
+				<img class="block mb-2" src="{{ $casestudy->getFirstMediaUrl('title', 'thumb') }}" alt="Image of {{ $casestudy->title }}">
+				@elseif($casestudy->hasMedia('gallery'))
+				<img class="block mb-2" src="{{ $casestudy->getFirstMediaUrl('gallery', 'thumb') }}" alt="Image of {{ $casestudy->title }}">
+				@endif
+				<h4 class="no-underline text-blackblack font-extrabold uppercase mb-2">{{ $casestudy->title }}</h4>
+				<span class="no-underline text-grey-dark">{{ $casestudy->client }}</span>
+				</a>
+			</div>
+				
 		</div>
 		@endforeach
 		@endforeach
