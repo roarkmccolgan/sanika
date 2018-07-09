@@ -20,12 +20,10 @@ class News extends Model implements HasMedia
 	        ->registerMediaConversions(function (Media $media) {
             $this
                 ->addMediaConversion('thumb')
-                ->width(300)
-                ->height(300);
+                ->fit('contain', 300, 300);
             $this
                 ->addMediaConversion('category')
-                ->width(400)
-                ->height(400);
+                ->fit('contain', 400, 400);
 
         });
 	    $this

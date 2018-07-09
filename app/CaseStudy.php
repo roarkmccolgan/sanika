@@ -20,8 +20,7 @@ class CaseStudy extends Model implements HasMedia
 	        ->registerMediaConversions(function (Media $media) {
             $this
                 ->addMediaConversion('thumb')
-                ->width(400)
-                ->height(400);
+                ->fit('contain', 400, 400);
         });
 	    $this
 	        ->addMediaCollection('gallery')     
@@ -29,8 +28,7 @@ class CaseStudy extends Model implements HasMedia
 	        ->registerMediaConversions(function (Media $media) {
 	            $this
 	                ->addMediaConversion('thumb')
-	                ->width(400)
-	                ->height(400);
+	                ->fit('contain', 400, 400);
 
 	        });
 	    $this

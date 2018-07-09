@@ -34,12 +34,12 @@
 		</div>
 		<div class="w-full sm:w-3/4 mt-4 category md:flex md:flex-wrap">
 			
-			<div class="flex-1 mb-6 ml-2">
+			<div class="flex-1 mb-6 ml-2 pr-4">
 				<h1 class="font-extrabold uppercase mb-2">{{ $category['name'] }}</h1>
 				{!! $category['description'] !!}
 			</div>
 			@if($category->hasMedia('title'))
-			<div class="md:w-1/3">
+			<div class="sm:w-1/3">
 				<img class="sm:w-3/4 mx-auto" src="{{ $category->getFirstMediaUrl('title', 'category') }}" alt="Image of {{ $category['name'] }}">
 			</div>
 			@endif
