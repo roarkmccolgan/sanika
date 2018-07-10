@@ -13,14 +13,14 @@ class NewsController extends Controller
             $path = explode('/', $tree);
             $last = last($path);
             $newsitem = News::with('category')->where('alias',$last)->firstOrFail();
-            $news =  News::with('category')->where('id','!=',$newsitem->id)->whereDate('publish', '<=', Carbon::now())->get();
+            $news =  News::with('category')->where('id','!=',$newsitem->id)->whereDate('publish', '<=', Carbon::now())->latest()->get();
             return view('newsitem',compact(['newsitem','news']));
         }
-        $newsitems = News::with('category')->whereDate('publish', '<=', Carbon::now())->get();
+        $newsitems = News::with('category')->whereDate('publish', '<=', Carbon::now())->latest()->get();
         return view('news',compact(['newsitems']));
     }
     public function getNews(Request $request, $tree = null){
-        $newsitem = News::with('category')->get();
+        $newsitem = News::with('category')->latest()->get();
         return view('news',compact(['newsitem']));
     }
 }
