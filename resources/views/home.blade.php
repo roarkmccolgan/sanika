@@ -165,8 +165,16 @@
 			</button>
 		</form>
 		<div class="sm:w-1/2 p-4 sm:p-2">
-			<h1 class="text-sanika-primary mb-4">Welcome to Sanika Waterproofing</h1>
-			<p class="mb-2">Sanika Waterproofing Specialists was founded over 25 years ago with an ultimate goal in mind – become a trusted expert in the waterproofing industry to contractors, engineers, architects and building owners alike. Fast forward to present day and the same goal still rings true. We are a family owned and run business and we take the meaning of family to heart. We want to ensure that each and every client feels like family by providing that same excellent service and quality product, all back by our expert guidance accumulated over our many years in the industry.</p>
+			<div class="sm:pr-8">
+				<h1 class="text-sanika-primary mb-4">Welcome to Sanika Waterproofing</h1>
+				<p class="mb-2">Sanika Waterproofing Specialists has been firmly entrenched in the specialist waterproofing, industrial coating and roofing industry since 1987. </p>
+				<p class="mb-2">As a family owned and run business, we feel strongly about making every client feel like a part of our family by providing an excellent service and quality product, all backed by expert guidance.</p>
+				<p class="mb-2">
+					We are the proud industry leaders in insulative boarded maintenance free waterproofing systems in Southern Africa as well as the exclusive approved distributors of Kryton Crystalline Concrete Waterproofing Products, Emseal expansion jointing systems and RiveStop tie-hole waterproofing products in Southern Africa.</p>
+				<p class="mb-2">
+					We are actively involved in roofing and waterproofing consultation, water management and corrosion protection systems and concrete crack repair, rejuvenation and concrete waterproofing in the commercial, industrial and mining industries throughout Southern Africa.</p>
+				<p>We pride ourselves in preparing long term, cost effective and high quality concrete rejuvenation and waterproofing solutions, painting and waterproofing coating systems nationwide.</p>				
+			</div>
 		</div>
 		<div class="sm:w-1/2 p-4 sm:p-2">
 			<carousel class="p-2" :per-page="1" :loop="true" :autoplay-timeout="3000" :pagination-enabled="false" :scroll-per-page="false" :autoplay="true" :autoplay-hover-pause="true" :navigation-enabled="true">
@@ -233,9 +241,6 @@
 		<carousel class="p-2" :per-page-custom="[[768, 3], [1024, 6]]" :loop="true" :autoplay-timeout="3000" :pagination-enabled="false" :scroll-per-page="false" :autoplay="true" :autoplay-hover-pause="true" :navigation-enabled="true">
 			<slide>
 				<img src="/storage/clients/SAB.png" alt="SAB">
-			</slide>
-			<slide>
-				<img src="/storage/clients/Redefine.png" alt="Redfine Properties">
 			</slide>
 			<slide>
 				<img src="/storage/clients/Mnet.png" alt="MNET">

@@ -14,11 +14,11 @@ class CaseStudyController extends Controller
             $casestudy = CaseStudy::with('category')->where('alias',$last)->firstOrFail();
             return view('casestudy',compact(['casestudy']));
         }
-        $casestudies = CaseStudy::with('category')->get();
+        $casestudies = CaseStudy::with('category')->latest()->get();
         return view('casestudies',compact(['casestudies']));
     }
     public function getCaseStudies(Request $request, $tree = null){
-        $casestudies = CaseStudy::with('category')->get();
+        $casestudies = CaseStudy::with('category')->latest()->get();
         return view('casestudies',compact(['casestudies']));
     }
 }
