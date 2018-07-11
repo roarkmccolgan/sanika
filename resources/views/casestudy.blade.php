@@ -33,18 +33,22 @@
 							<span class="block text-grey-darker uppercase mb-1">Products Used</span>
 							<div class="flex">
 							    <ul class="mb-4 text-grey-darkest">
-							    	@foreach ($casestudy->siteproducts as $product)
-								        <li class="mb-2">
-								        	<a href="{{'/categories/'.$product->path.'/products/'.$product->alias}}" class="no-underline text-sanika-primary">
-												{{ $product->name }}
-											</a>
-										</li>
-									@endforeach
-									@foreach ($casestudy->products as $product)
-								        <li class="mb-2">
-								        	{{ $product }}
-										</li>
-									@endforeach
+							    	@if(count($casestudy->siteproducts))
+								    	@foreach ($casestudy->siteproducts as $product)
+									        <li class="mb-2">
+									        	<a href="{{'/categories/'.$product->path.'/products/'.$product->alias}}" class="no-underline text-sanika-primary">
+													{{ $product->name }}
+												</a>
+											</li>
+										@endforeach
+									@endif
+									@if(count($casestudy->products))
+										@foreach ($casestudy->products as $product)
+									        <li class="mb-2">
+									        	{{ $product }}
+											</li>
+										@endforeach
+									@endif
 								</ul>
 							</div>
 						</div>
