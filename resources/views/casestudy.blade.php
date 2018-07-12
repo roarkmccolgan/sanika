@@ -42,7 +42,7 @@
 											</li>
 										@endforeach
 									@endif
-									@if(count($casestudy->products))
+									@if($casestudy->products)
 										@foreach ($casestudy->products as $product)
 									        <li class="mb-2">
 									        	{{ $product }}
