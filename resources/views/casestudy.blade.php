@@ -62,7 +62,7 @@
 					@if($casestudy->hasMedia('gallery'))
 						@foreach($casestudy->getMedia('gallery') as $galleryImg)
 						<div class="py-2 pb-2">
-							<img src="{{ $galleryImg->getUrl() }}" alt="{{ $galleryImg->name }}">
+							<img src="{{ $galleryImg->getUrl('thumb') }}" alt="{{ $galleryImg->name }}">
 						</div>
 						@endforeach
 					@endif
