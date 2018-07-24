@@ -15,7 +15,6 @@
 <div id="app" class="flex flex-col h-full">
     @include('partial.pagetop')
     @include('partial.mainav')
-    @include('partial.search')
     @yield('body')
 </div>
 @stack('scripts')

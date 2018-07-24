@@ -3,22 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\CaseStudy;
+use App\Category;
 use Illuminate\Http\Request;
 
 class CaseStudyController extends Controller
 {
-    public function getCaseStudy(Request $request, $tree = null){
-        if($tree){
-            $path = explode('/', $tree);
-            $last = last($path);
-            $casestudy = CaseStudy::with('category')->where('alias',$last)->firstOrFail();
-            return view('casestudy',compact(['casestudy']));
-        }
-        $casestudies = CaseStudy::with('category')->latest()->get();
-        return view('casestudies',compact(['casestudies']));
+    public function getCaseStudy(Request $request, $theCategory, $theCaseStudy){
+        $casestudy = CaseStudy::where('alias',$theCaseStudy)->with('category')->get();
+        return view('casestudy',compact(['casestudy']));
     }
-    public function getCaseStudies(Request $request, $tree = null){
-        $casestudies = CaseStudy::with('category')->latest()->get();
+    
+    public function getCaseStudies(Request $request, $theCategory = null){
+        if($theCategory){
+            $category = Category::with(['casestudies'])->where('alias',$theCategory)->firstOrFail();
+            $casestudies = $category->casestudies;
+        }else{
+            $casestudies = CaseStudy::with('category')->latest()->orderBy('category_id')->get();
+        }
+        
+        
         return view('casestudies',compact(['casestudies']));
     }
 }

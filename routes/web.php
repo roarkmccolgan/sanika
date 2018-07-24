@@ -41,7 +41,8 @@ Route::post('/lead', 'LeadController@NewLead');
 Route::get('/', 'ShopController@getHome');
 Route::get('/categories/{tree?}/products/{product}', 'ShopController@getProduct')->where('tree', '(.*)');
 Route::get('/categories/{tree?}', 'ShopController@getCategory')->where('tree', '(.*)');
-Route::get('/casestudies/{tree?}', 'CaseStudyController@getCaseStudy')->where('tree', '(.*)');
+Route::get('/casestudies/{category?}', 'CaseStudyController@getCaseStudies');
+Route::get('/casestudies/{category}/{casestudy}', 'CaseStudyController@getCaseStudy');
 Route::get('/news/{tree?}', 'NewsController@getNewsItem')->where('tree', '(.*)');
 
 Route::get('/checkout', 'CheckoutController@showCheckout');

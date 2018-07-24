@@ -19,17 +19,23 @@ Vue.use(VueCarousel);
 import VModal from 'vue-js-modal'
 Vue.use(VModal, { dynamic: true })
 
-import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
-import faSearch from '@fortawesome/fontawesome-pro-regular/faSearch'
-import faTimes from '@fortawesome/fontawesome-pro-regular/faTimes'
-import faSync from '@fortawesome/fontawesome-pro-regular/faSync'
-import faShoppingCart from '@fortawesome/fontawesome-pro-regular/faShoppingCart'
-import faMousePointer from '@fortawesome/fontawesome-pro-regular/faMousePointer'
-import faSquare from '@fortawesome/fontawesome-pro-regular/faSquare'
-import faCheckSquare from '@fortawesome/fontawesome-pro-regular/faCheckSquare'
-import faAngleRight from '@fortawesome/fontawesome-pro-regular/faAngleRight'
-import faCheck from '@fortawesome/fontawesome-pro-regular/faCheck'
-import faBars from '@fortawesome/fontawesome-pro-regular/faBars'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faSearch } from '@fortawesome/pro-regular-svg-icons/faSearch'
+import { faTimes } from '@fortawesome/pro-regular-svg-icons/faTimes'
+import { faSync } from '@fortawesome/pro-regular-svg-icons/faSync'
+import { faShoppingCart } from '@fortawesome/pro-regular-svg-icons/faShoppingCart'
+import { faMousePointer } from '@fortawesome/pro-regular-svg-icons/faMousePointer'
+import { faSquare } from '@fortawesome/pro-regular-svg-icons/faSquare'
+import { faCheckSquare } from '@fortawesome/pro-regular-svg-icons/faCheckSquare'
+import { faAngleRight } from '@fortawesome/pro-regular-svg-icons/faAngleRight'
+import { faCheck } from '@fortawesome/pro-regular-svg-icons/faCheck'
+import { faBars } from '@fortawesome/pro-regular-svg-icons/faBars'
+
+import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons/faFacebookSquare'
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin'
+import { faYoutubeSquare } from '@fortawesome/free-brands-svg-icons/faYoutubeSquare'
+
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import {Tabs, Tab} from 'vue-tabs-component';
 /**
@@ -67,6 +73,9 @@ searchStore.indexName = 'sanika_products';
             faAngleRight: faAngleRight,
             faCheck: faCheck,
             faBars: faBars,
+            faFacebookSquare: faFacebookSquare,
+            faLinkedin: faLinkedin,
+            faYoutubeSquare: faYoutubeSquare,
         },
         typer:{
             text: ["Leaking Roof","Rising Damp","Concrete Cracking","Leaking Reservoir","Leaking Tie-holes"],

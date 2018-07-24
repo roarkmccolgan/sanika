@@ -1,6 +1,4 @@
 #nav .menu .submenu{
-	display: none;
-	@apply .bg-grey-lighter .pin-x;
 	top: 100%;
 }
 @screen sm{
@@ -8,6 +6,17 @@
 		content: "";
 		
 		@apply .h-4 .border-r .border-sanika-primary .self-center;
+	}
+	#nav .menu .submenu{
+		@apply .bg-black .rounded-b .rounded-tr;
+		min-width: 200px;
+		max-height: 0;
+	    transition: max-height 0.1s ease-out;
+	    overflow: hidden;
+	}
+	#nav .menu:hover .submenu{
+		max-height: 500px;
+    	transition: max-height 0.4s ease-in;
 	}
 }
 
@@ -22,7 +31,7 @@
 }
 
 #nav .menu:hover{
-	@apply .bg-grey-lighter;
+	@apply .bg-black;
 }
 #nav .menu:hover > a {
 	@apply .text-sanika-primary;

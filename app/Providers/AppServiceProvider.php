@@ -22,10 +22,12 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer(['partial.mainav','home'], function($view){
             $categories = Category::with(['products','allSubCategories.products'])->orderBy('order')->where('parent_id',null)->get();
+            $casestudycategories = Category::has('casestudies')->get();
             $casestudies = CaseStudy::with(['category','siteproducts'])->take(3)->latest()->get();
             $news = News::with(['category','siteproducts'])->whereDate('publish', '<=', Carbon::now())->get();
             $data = [
                 'categories'=>$categories,
+                'casestudycategories'=>$casestudycategories,
                 'casestudies'=>$casestudies,
                 'news'=>$news,
             ];
