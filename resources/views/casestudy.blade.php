@@ -77,7 +77,7 @@
 	</div>
 	<div class="flex flex-wrap -mx-2 mt-6 text-base">
 		@if(count($casestudy->siteproducts))
-		<h3 class="font-extrabold uppercase w-full mb-2 px-2">Related Products</h3>
+		<h3 class="font-extrabold uppercase w-full mb-2 px-2">Products used</h3>
 		@foreach(collect($casestudy->siteproducts)->chunk(3) as $chunk)
 		<div class="w-full flex flex-wrap items-stretch">
 			@foreach($chunk as $product)

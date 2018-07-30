@@ -1,6 +1,9 @@
 @import "vendor/navigation";
 @import "vendor/tabs";
 @import "vendor/transitions";
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
 /*@import "vendor/flip";*/
 @tailwind preflight;
 
@@ -10,8 +13,8 @@
 .pagebg{
 	background: url('/images/bg.jpg?id=1') repeat-x;
 }
-.category p, .category ul, .product p, .product ul{
-	@apply .mb-4;
+.category p, .category ul, .product p, .product ul, .casestudy p, .casestudy ul{
+	@apply .mb-4 .text-sm;
 }
 .category li, .product li{
 	@apply .mb-2;

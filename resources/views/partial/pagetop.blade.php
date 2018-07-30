@@ -15,9 +15,9 @@
 			@endif
 		</div>
 		<div class="flex items-center text-lg">
-			<a href="#" target="_blank" class="no-underline inline-block mx-1"><font-awesome-icon :icon="icons.faFacebookSquare" class="fa-lg text-white"></font-awesome-icon></a>
-			<a href="#" target="_blank" class="no-underline inline-block mx-1"><font-awesome-icon :icon="icons.faLinkedin" class="fa-lg text-white"></font-awesome-icon></a>
-			<a href="#" target="_blank" class="no-underline inline-block mx-1"><font-awesome-icon :icon="icons.faYoutubeSquare" class="fa-lg text-white"></font-awesome-icon></a>
+			<a href="https://www.facebook.com/Sanika-Waterproofing-Specialists-151884002158500/" target="_blank" class="no-underline inline-block mx-1"><font-awesome-icon :icon="icons.faFacebookSquare" class="fa-lg text-white"></font-awesome-icon></a>
+			<a href="https://www.linkedin.com/company/sanikawaterproofingspecialists/" target="_blank" class="no-underline inline-block mx-1"><font-awesome-icon :icon="icons.faLinkedin" class="fa-lg text-white"></font-awesome-icon></a>
+			<a href="https://www.youtube.com/channel/UCTDGMK1Ex3CwEJfRKWe6QVw?view_as=subscriber" target="_blank" class="no-underline inline-block mx-1"><font-awesome-icon :icon="icons.faYoutubeSquare" class="fa-lg text-white"></font-awesome-icon></a>
 		</div>
 	</div>
 </div>

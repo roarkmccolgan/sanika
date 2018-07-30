@@ -27,7 +27,7 @@ class AssignLeadAtInsightly implements ShouldQueue
      */
     public function handle(LeadGenerated $event)
     {
-        $client = new Client(['base_uri' => 'https://api.insight.ly/v2.3/']);
+        $client = new Client(['base_uri' => env('INSIGHTLY_API_ENDPOINT')]);
         //, ['auth' => ['username', 'password']]
         $response = $client->request('POST', 'Leads', [
             'json'=> [

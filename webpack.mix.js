@@ -1,7 +1,14 @@
 let mix = require('laravel-mix')
 require('laravel-mix-purgecss')
 
-mix.js('resources/assets/js/app.js', 'public/js').version()
+mix.webpackConfig({
+    resolve: {
+      alias: {
+        jquery: path.join(__dirname, 'node_modules', 'jquery', 'dist', 'jquery'),
+      }
+    }
+  }).js('resources/assets/js/app.js', 'public/js')
+  .version()
   .postCss('resources/assets/css/app.css', 'public/css')
   .options({
     postCss: [

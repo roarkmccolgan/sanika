@@ -177,7 +177,7 @@
 			</div>
 		</div>
 		<div class="sm:w-1/2 p-4 sm:p-2">
-			<carousel class="p-2" :per-page="1" :loop="true" :autoplay-timeout="3000" :pagination-enabled="false" :scroll-per-page="false" :autoplay="true" :autoplay-hover-pause="true" :navigation-enabled="true">
+			{{-- <carousel class="p-2" :per-page="1" :loop="true" :autoplay-timeout="3000" :pagination-enabled="false" :scroll-per-page="false" :autoplay="true" :autoplay-hover-pause="true" :navigation-enabled="true">
 				<slide>
 					<img class="rounded block" src="/images/gallery/gallery_1.png" alt="Samrand Roof">
 				</slide>
@@ -209,7 +209,7 @@
 					<img class="rounded block" src="/images/gallery/gallery_10.png" alt="Nandos">
 				</slide>
 				
-			</carousel>
+			</carousel> --}}
 		</div>
 		
 	</div>
@@ -236,9 +236,25 @@
 		@endforeach
 	</div>
 	@endif
-	<div class="flex flex-wrap mt-6 p-2">
-		<h3 class="mb-2">Clients who trust us</h3>
-		<carousel class="p-2" :per-page-custom="[[768, 3], [1024, 6]]" :loop="true" :autoplay-timeout="3000" :pagination-enabled="false" :scroll-per-page="false" :autoplay="true" :autoplay-hover-pause="true" :navigation-enabled="true">
+	<div class=" mt-6 p-2">
+		<slick
+			ref="slick"
+			:options="slickOptions"
+		> 
+			<div><img src="/storage/clients/SAB.png" alt="SAB"></div>
+			<div><img src="/storage/clients/Mnet.png" alt="MNET"></div>
+			<div><img src="/storage/clients/Liberty.png" alt="Liberty"></div>
+			<div><img src="/storage/clients/Johnson%20Matthey.png" alt="Johnson Matthey"></div>
+			<div><img src="/storage/clients/Investec.png" alt="Investec"></div>
+			<div><img src="/storage/clients/Impala%20Platinum.png" alt="Impala Platinum"></div>
+			<div><img src="/storage/clients/Growthpoint.png" alt="Growthpoint"></div>
+			<div><img src="/storage/clients/Excellerate.png" alt="Excellerate"></div>
+			<div><img src="/storage/clients/Eastgate.png" alt="Eastgate"></div>
+			<div><img src="/storage/clients/Broll.png" alt="Broll"></div>
+			<div><img src="/storage/clients/Anglo%20American.png" alt="Anglo American"></div>
+</slick>
+
+		{{-- <carousel class="p-2" :per-page-custom="[[768, 3], [1024, 6]]" :loop="true" :autoplay-timeout="3000" :pagination-enabled="false" :scroll-per-page="false" :autoplay="true" :autoplay-hover-pause="true" :navigation-enabled="true">
 			<slide>
 				<img src="/storage/clients/SAB.png" alt="SAB">
 			</slide>
@@ -273,7 +289,7 @@
 				<img src="/storage/clients/Anglo%20American.png" alt="Anglo American">
 			</slide>
 
-		</carousel>
+		</carousel> --}}
 	</div>
 </div>
 @include('partial.footer')
