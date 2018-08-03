@@ -238,8 +238,8 @@
 	@endif
 	<div class=" mt-6 p-2">
 		<slick
-			ref="slick"
-			:options="slickOptions"
+			ref="slickclients"
+			:options="slickOptions.clients"
 		> 
 			<div><img src="/storage/clients/SAB.png" alt="SAB"></div>
 			<div><img src="/storage/clients/Mnet.png" alt="MNET"></div>

@@ -39,6 +39,11 @@
   flex-basis: 100%;
   width: 100%;
 }
+
+.slick-prev:before, .slick-next:before{
+	@apply .text-grey;
+}
+
 /*
 ***************************
 http://davidwalsh.name/css-flip [IE version]

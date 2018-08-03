@@ -21,6 +21,9 @@ class CaseStudy extends Model implements HasMedia
             $this
                 ->addMediaConversion('thumb')
                 ->fit('contain', 400, 400);
+            $this
+                ->addMediaConversion('hero')
+                ->fit('crop', 1600, 500);
         });
 	    $this
 	        ->addMediaCollection('gallery')     

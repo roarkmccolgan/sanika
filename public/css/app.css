@@ -1318,6 +1318,11 @@ table {
   width: 100%;
 }
 
+.slick-prev:before,
+.slick-next:before {
+  color: #b8c2cc;
+}
+
 /*
 ***************************
 http://davidwalsh.name/css-flip [IE version]

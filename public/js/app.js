@@ -8269,7 +8269,7 @@ function load() {
 
   // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
   if (!r && typeof process !== 'undefined' && 'env' in process) {
-    r = Object({"NODE_ENV":"development"}).DEBUG;
+    r = Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"}).DEBUG;
   }
 
   return r;
@@ -8538,7 +8538,7 @@ var store = __webpack_require__("./node_modules/algoliasearch/src/store.js");
 // proxies limit)
 var MAX_API_KEY_LENGTH = 500;
 var RESET_APP_DATA_TIMER =
-  Object({"NODE_ENV":"development"}).RESET_APP_DATA_TIMER && parseInt(Object({"NODE_ENV":"development"}).RESET_APP_DATA_TIMER, 10) ||
+  Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"}).RESET_APP_DATA_TIMER && parseInt(Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"}).RESET_APP_DATA_TIMER, 10) ||
   60 * 2 * 1000; // after 2 minutes reset to first host
 
 /*
@@ -57568,7 +57568,7 @@ var debugs = {};
 var debugEnviron;
 exports.debuglog = function(set) {
   if (isUndefined(debugEnviron))
-    debugEnviron = Object({"NODE_ENV":"development"}).NODE_DEBUG || '';
+    debugEnviron = Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"}).NODE_DEBUG || '';
   set = set.toUpperCase();
   if (!debugs[set]) {
     if (new RegExp('\\b' + set + '\\b', 'i').test(debugEnviron)) {
@@ -76884,377 +76884,394 @@ Vue.component('tabs', __WEBPACK_IMPORTED_MODULE_20_vue_tabs_component__["Tabs"])
 Vue.component('tab', __WEBPACK_IMPORTED_MODULE_20_vue_tabs_component__["Tab"]);
 
 var home = new Vue({
-    el: '#app',
-    data: {
-        slickOptions: {
+  el: '#app',
+  data: {
+    slickOptions: {
+      clients: {
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: false,
+        arrows: true,
+        autoplay: true,
+        responsive: [{
+          breakpoint: 1024,
+          settings: {
             slidesToShow: 6,
             slidesToScroll: 1,
-            infinite: true,
-            dots: false,
-            autoplay: true,
-            responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 6,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
-            }, {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    infinite: true
-                }
-            }]
-        },
-        showMenu: false,
-        searchStore: searchStore,
-        icons: {
-            search: __WEBPACK_IMPORTED_MODULE_6__fortawesome_pro_regular_svg_icons_faSearch__["faSearch"],
-            times: __WEBPACK_IMPORTED_MODULE_7__fortawesome_pro_regular_svg_icons_faTimes__["faTimes"],
-            cart: __WEBPACK_IMPORTED_MODULE_9__fortawesome_pro_regular_svg_icons_faShoppingCart__["faShoppingCart"],
-            mouse: __WEBPACK_IMPORTED_MODULE_10__fortawesome_pro_regular_svg_icons_faMousePointer__["faMousePointer"],
-            loading: __WEBPACK_IMPORTED_MODULE_8__fortawesome_pro_regular_svg_icons_faSync__["faSync"],
-            faSquare: __WEBPACK_IMPORTED_MODULE_11__fortawesome_pro_regular_svg_icons_faSquare__["faSquare"],
-            faCheckSquare: __WEBPACK_IMPORTED_MODULE_12__fortawesome_pro_regular_svg_icons_faCheckSquare__["faCheckSquare"],
-            faAngleRight: __WEBPACK_IMPORTED_MODULE_13__fortawesome_pro_regular_svg_icons_faAngleRight__["faAngleRight"],
-            faCheck: __WEBPACK_IMPORTED_MODULE_14__fortawesome_pro_regular_svg_icons_faCheck__["faCheck"],
-            faBars: __WEBPACK_IMPORTED_MODULE_15__fortawesome_pro_regular_svg_icons_faBars__["faBars"],
-            faFacebookSquare: __WEBPACK_IMPORTED_MODULE_16__fortawesome_free_brands_svg_icons_faFacebookSquare__["faFacebookSquare"],
-            faLinkedin: __WEBPACK_IMPORTED_MODULE_17__fortawesome_free_brands_svg_icons_faLinkedin__["faLinkedin"],
-            faYoutubeSquare: __WEBPACK_IMPORTED_MODULE_18__fortawesome_free_brands_svg_icons_faYoutubeSquare__["faYoutubeSquare"]
-        },
-        typer: {
-            text: ["Leaking Roof", "Rising Damp", "Concrete Cracking", "Leaking Reservoir", "Leaking Tie-holes"],
-            suffle: true,
-            show: true
-        },
-        showAskQuestion: false,
-        product: {
-            sku: window.product ? window.product.sku : false,
-            id: window.product ? window.product.id : false,
-            name: window.product ? window.product.name : false,
-            price: window.product ? window.product.price : false,
-            display_price: false,
-            price_install: window.product ? window.product.price_install : false,
-            display_price_install: false,
-            path: window.product ? window.product.path : false,
-            strapline: window.product ? window.product.strapline : false,
-            qty: 1,
-            install: false
-        },
-        cart: window.cart ? window.cart : { items: {}, total: 0, display_total: 'R0,00' },
-        busyAdding: false,
-        busySaving: false,
-        wizard: {
-            same: false,
-            basic: {
-                'fname': window.checkout && window.checkout.basic && window.checkout.basic.fname ? window.checkout.basic.fname : '',
-                'lname': window.checkout && window.checkout.basic && window.checkout.basic.lname ? window.checkout.basic.lname : '',
-                'email': window.checkout && window.checkout.basic && window.checkout.basic.email ? window.checkout.basic.email : '',
-                'telephone': window.checkout && window.checkout.basic && window.checkout.basic.telephone ? window.checkout.basic.telephone : '',
-                'mobile': window.checkout && window.checkout.basic && window.checkout.basic.mobile ? window.checkout.basic.mobile : '',
-                'company': window.checkout && window.checkout.basic && window.checkout.basic.company ? window.checkout.basic.company : '',
-                'vat': window.checkout && window.checkout.basic && window.checkout.basic.vat ? window.checkout.basic.vat : '',
-                'password': '',
-                'repeatpass': ''
-            },
-            billing: {
-                'building': window.checkout && window.checkout.billing && window.checkout.billing.building ? window.checkout.billing.building : '',
-                'address1': window.checkout && window.checkout.billing && window.checkout.billing.address1 ? window.checkout.billing.address1 : '',
-                'address2': window.checkout && window.checkout.billing && window.checkout.billing.address2 ? window.checkout.billing.address2 : '',
-                'address3': window.checkout && window.checkout.billing && window.checkout.billing.address3 ? window.checkout.billing.address3 : '',
-                'city': window.checkout && window.checkout.billing && window.checkout.billing.city ? window.checkout.billing.city : '',
-                'province': window.checkout && window.checkout.billing && window.checkout.billing.province ? window.checkout.billing.province : '',
-                'postal': window.checkout && window.checkout.billing && window.checkout.billing.postal ? window.checkout.billing.postal : ''
-            },
-            delivery: {
-                'building': window.checkout && window.checkout.delivery && window.checkout.delivery.building ? window.checkout.delivery.building : '',
-                'address1': window.checkout && window.checkout.delivery && window.checkout.delivery.address1 ? window.checkout.delivery.address1 : '',
-                'address2': window.checkout && window.checkout.delivery && window.checkout.delivery.address2 ? window.checkout.delivery.address2 : '',
-                'address3': window.checkout && window.checkout.delivery && window.checkout.delivery.address3 ? window.checkout.delivery.address3 : '',
-                'city': window.checkout && window.checkout.delivery && window.checkout.delivery.city ? window.checkout.delivery.city : '',
-                'province': window.checkout && window.checkout.delivery && window.checkout.delivery.province ? window.checkout.delivery.province : '',
-                'postal': window.checkout && window.checkout.delivery && window.checkout.delivery.postal ? window.checkout.delivery.postal : ''
-            },
-            currentStep: 1,
-            steps: {
-                1: {
-                    required: {
-                        'fname': {
-                            min: 1
-                        },
-                        'lname': {
-                            min: 1
-                        },
-                        'email': {
-                            type: 'email'
-                        },
-                        'telephone': {
-                            type: 'tel'
-                        },
-                        'password': {
-                            type: 'tel',
-                            min: 6
-                        },
-                        'repeatpass': {
-                            equals: 'password'
-                        }
-                    },
-                    complete: false,
-                    errors: {
-                        'fname': false,
-                        'lname': false,
-                        'email': false,
-                        'telephone': false,
-                        'password': false,
-                        'repeatpass': false
-                    }
-                },
-                2: {
-                    required: {
-                        'billing_address1': {
-                            min: 9
-                        },
-                        'billing_address2': {
-                            min: 3
-                        },
-                        'billing_city': {
-                            min: 5
-                        },
-                        'billing_province': {
-                            min: 5
-                        },
-                        'billing_postal': {
-                            min: 3
-                        }
-                    },
-                    complete: false,
-                    errors: {
-                        'billing_address1': false,
-                        'billing_address2': false,
-                        'billing_city': false,
-                        'billing_province': false,
-                        'billing_postal': false
-                    }
-                },
-                3: {
-                    required: {
-                        'delivery_address1': {
-                            min: 9
-                        },
-                        'delivery_address2': {
-                            min: 3
-                        },
-                        'delivery_city': {
-                            min: 5
-                        },
-                        'delivery_province': {
-                            min: 5
-                        },
-                        'delivery_postal': {
-                            min: 3
-                        }
-                    },
-                    complete: false,
-                    errors: {
-                        'delivery_address1': false,
-                        'delivery_address2': false,
-                        'delivery_city': false,
-                        'delivery_province': false,
-                        'delivery_postal': false
-                    }
-                }
-            },
-            buttonText: 'Next',
-            complete: false
-        },
-        currentTypedString: 'Leaking Roof'
+            infinite: true
+          }
+        }, {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            infinite: true
+          }
+        }]
+      },
+      casestudypreview: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.casestudynav'
+      },
+      casestudynav: {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        asNavFor: '.casestudypreview',
+        dots: true,
+        centerMode: true,
+        focusOnSelect: true
+      }
     },
-    computed: {
-        mobileMenu: function mobileMenu() {
-            return document.documentElement.clientWidth <= 576;
+    showMenu: false,
+    searchStore: searchStore,
+    icons: {
+      search: __WEBPACK_IMPORTED_MODULE_6__fortawesome_pro_regular_svg_icons_faSearch__["faSearch"],
+      times: __WEBPACK_IMPORTED_MODULE_7__fortawesome_pro_regular_svg_icons_faTimes__["faTimes"],
+      cart: __WEBPACK_IMPORTED_MODULE_9__fortawesome_pro_regular_svg_icons_faShoppingCart__["faShoppingCart"],
+      mouse: __WEBPACK_IMPORTED_MODULE_10__fortawesome_pro_regular_svg_icons_faMousePointer__["faMousePointer"],
+      loading: __WEBPACK_IMPORTED_MODULE_8__fortawesome_pro_regular_svg_icons_faSync__["faSync"],
+      faSquare: __WEBPACK_IMPORTED_MODULE_11__fortawesome_pro_regular_svg_icons_faSquare__["faSquare"],
+      faCheckSquare: __WEBPACK_IMPORTED_MODULE_12__fortawesome_pro_regular_svg_icons_faCheckSquare__["faCheckSquare"],
+      faAngleRight: __WEBPACK_IMPORTED_MODULE_13__fortawesome_pro_regular_svg_icons_faAngleRight__["faAngleRight"],
+      faCheck: __WEBPACK_IMPORTED_MODULE_14__fortawesome_pro_regular_svg_icons_faCheck__["faCheck"],
+      faBars: __WEBPACK_IMPORTED_MODULE_15__fortawesome_pro_regular_svg_icons_faBars__["faBars"],
+      faFacebookSquare: __WEBPACK_IMPORTED_MODULE_16__fortawesome_free_brands_svg_icons_faFacebookSquare__["faFacebookSquare"],
+      faLinkedin: __WEBPACK_IMPORTED_MODULE_17__fortawesome_free_brands_svg_icons_faLinkedin__["faLinkedin"],
+      faYoutubeSquare: __WEBPACK_IMPORTED_MODULE_18__fortawesome_free_brands_svg_icons_faYoutubeSquare__["faYoutubeSquare"]
+    },
+    typer: {
+      text: ["Leaking Roof", "Rising Damp", "Concrete Cracking", "Leaking Reservoir", "Leaking Tie-holes"],
+      suffle: true,
+      show: true
+    },
+    showAskQuestion: false,
+    product: {
+      sku: window.product ? window.product.sku : false,
+      id: window.product ? window.product.id : false,
+      name: window.product ? window.product.name : false,
+      price: window.product ? window.product.price : false,
+      display_price: false,
+      price_install: window.product ? window.product.price_install : false,
+      display_price_install: false,
+      path: window.product ? window.product.path : false,
+      strapline: window.product ? window.product.strapline : false,
+      qty: 1,
+      install: false
+    },
+    cart: window.cart ? window.cart : { items: {}, total: 0, display_total: 'R0,00' },
+    busyAdding: false,
+    busySaving: false,
+    wizard: {
+      same: false,
+      basic: {
+        'fname': window.checkout && window.checkout.basic && window.checkout.basic.fname ? window.checkout.basic.fname : '',
+        'lname': window.checkout && window.checkout.basic && window.checkout.basic.lname ? window.checkout.basic.lname : '',
+        'email': window.checkout && window.checkout.basic && window.checkout.basic.email ? window.checkout.basic.email : '',
+        'telephone': window.checkout && window.checkout.basic && window.checkout.basic.telephone ? window.checkout.basic.telephone : '',
+        'mobile': window.checkout && window.checkout.basic && window.checkout.basic.mobile ? window.checkout.basic.mobile : '',
+        'company': window.checkout && window.checkout.basic && window.checkout.basic.company ? window.checkout.basic.company : '',
+        'vat': window.checkout && window.checkout.basic && window.checkout.basic.vat ? window.checkout.basic.vat : '',
+        'password': '',
+        'repeatpass': ''
+      },
+      billing: {
+        'building': window.checkout && window.checkout.billing && window.checkout.billing.building ? window.checkout.billing.building : '',
+        'address1': window.checkout && window.checkout.billing && window.checkout.billing.address1 ? window.checkout.billing.address1 : '',
+        'address2': window.checkout && window.checkout.billing && window.checkout.billing.address2 ? window.checkout.billing.address2 : '',
+        'address3': window.checkout && window.checkout.billing && window.checkout.billing.address3 ? window.checkout.billing.address3 : '',
+        'city': window.checkout && window.checkout.billing && window.checkout.billing.city ? window.checkout.billing.city : '',
+        'province': window.checkout && window.checkout.billing && window.checkout.billing.province ? window.checkout.billing.province : '',
+        'postal': window.checkout && window.checkout.billing && window.checkout.billing.postal ? window.checkout.billing.postal : ''
+      },
+      delivery: {
+        'building': window.checkout && window.checkout.delivery && window.checkout.delivery.building ? window.checkout.delivery.building : '',
+        'address1': window.checkout && window.checkout.delivery && window.checkout.delivery.address1 ? window.checkout.delivery.address1 : '',
+        'address2': window.checkout && window.checkout.delivery && window.checkout.delivery.address2 ? window.checkout.delivery.address2 : '',
+        'address3': window.checkout && window.checkout.delivery && window.checkout.delivery.address3 ? window.checkout.delivery.address3 : '',
+        'city': window.checkout && window.checkout.delivery && window.checkout.delivery.city ? window.checkout.delivery.city : '',
+        'province': window.checkout && window.checkout.delivery && window.checkout.delivery.province ? window.checkout.delivery.province : '',
+        'postal': window.checkout && window.checkout.delivery && window.checkout.delivery.postal ? window.checkout.delivery.postal : ''
+      },
+      currentStep: 1,
+      steps: {
+        1: {
+          required: {
+            'fname': {
+              min: 1
+            },
+            'lname': {
+              min: 1
+            },
+            'email': {
+              type: 'email'
+            },
+            'telephone': {
+              type: 'tel'
+            },
+            'password': {
+              type: 'tel',
+              min: 6
+            },
+            'repeatpass': {
+              equals: 'password'
+            }
+          },
+          complete: false,
+          errors: {
+            'fname': false,
+            'lname': false,
+            'email': false,
+            'telephone': false,
+            'password': false,
+            'repeatpass': false
+          }
+        },
+        2: {
+          required: {
+            'billing_address1': {
+              min: 9
+            },
+            'billing_address2': {
+              min: 3
+            },
+            'billing_city': {
+              min: 5
+            },
+            'billing_province': {
+              min: 5
+            },
+            'billing_postal': {
+              min: 3
+            }
+          },
+          complete: false,
+          errors: {
+            'billing_address1': false,
+            'billing_address2': false,
+            'billing_city': false,
+            'billing_province': false,
+            'billing_postal': false
+          }
+        },
+        3: {
+          required: {
+            'delivery_address1': {
+              min: 9
+            },
+            'delivery_address2': {
+              min: 3
+            },
+            'delivery_city': {
+              min: 5
+            },
+            'delivery_province': {
+              min: 5
+            },
+            'delivery_postal': {
+              min: 3
+            }
+          },
+          complete: false,
+          errors: {
+            'delivery_address1': false,
+            'delivery_address2': false,
+            'delivery_city': false,
+            'delivery_province': false,
+            'delivery_postal': false
+          }
         }
+      },
+      buttonText: 'Next',
+      complete: false
     },
-    components: {
-        FontAwesomeIcon: __WEBPACK_IMPORTED_MODULE_19__fortawesome_vue_fontawesome__["FontAwesomeIcon"],
-        CartComponent: CartComponent,
-        ContactComponent: ContactComponent,
-        LeadComponent: LeadComponent,
-        Slick: __WEBPACK_IMPORTED_MODULE_3_vue_slick___default.a
-    },
-    methods: {
-        clearCart: function clearCart() {
-            this.cart = { items: {}, total: 0, display_total: 'R0,00' };
-        },
-        addToCart: function addToCart() {
-            var that = this;
-            that.busyAdding = true;
-            axios.post('/api/cart', that.product).then(function (response) {
-                setTimeout(function () {
-                    that.cart = response.data.cart;
-                    that.busyAdding = false;
-                }, 2000);
-            }).catch(function (error) {
-                console.log(error);
-            });
-        },
-        showGalleryImage: function showGalleryImage(url, title) {
-            this.$modal.show({
-                template: '\n                    <div>\n                        <img :src="img" class="block w-full" />\n                        <span class="block text-center">{{ name }}</span>\n                    </div>\n                    ',
-                props: ['img', 'name']
-            }, {
-                img: url,
-                name: title
-            }, {
-                'min-width': 200,
-                'min-height': 200,
-                adaptive: true,
-                reset: true,
-                width: "60%",
-                height: "auto"
-            });
-        },
-        typeComplete: function typeComplete(typedString) {
-            this.currentTypedString = typedString;
-        },
-        focusSearchBox: function focusSearchBox() {
-            var that = this;
-            this.typer.show = !this.typer.show;
-            this.$nextTick().then(function () {
-                document.querySelector('input[name="q"]').focus();
-                document.querySelector('input[name="q"]').value = that.currentTypedString;
-            });
-        },
-        submitSearch: function submitSearch() {
-            var that = this;
-            if (!this.typer.show) {
-                document.getElementById('typerSearchForm').submit();
-            } else {
-                this.typer.show = false;
-                this.$nextTick().then(function () {
-                    console.log(that.currentTypedString);
-                    document.querySelector('input[name="q"]').value = that.currentTypedString;
-                    document.getElementById('typerSearchForm').submit();
-                });
-            }
-        },
-        validate: function validate(step, id) {
-            var el = document.getElementById(id);
-            var curStep = this.wizard.steps[step];
-            var validation = curStep.required[id];
-
-            var needsValidation = curStep.required[id];
-            if (needsValidation && el) {
-                this.wizard.steps[step].errors[id] = false;
-
-                if (el.value.trim() == '') {
-                    this.wizard.steps[step].errors[id] = true;
-                }
-                var min = validation.min ? validation.min : 1;
-                var max = validation.max ? validation.max : false;
-                if (el.value.trim().length < min) {
-                    this.wizard.steps[step].errors[id] = true;
-                }
-                if (max !== false && el.value.trim().length > max) {
-                    this.wizard.steps[step].errors[id] = true;
-                }
-                var equals = validation.equals ? validation.equals : false;
-                if (equals && el.value.trim() !== document.getElementById(equals).value.trim()) {
-                    this.wizard.steps[step].errors[id] = true;
-                }
-            }
-        },
-        checkStep: function checkStep(step) {
-            for (var required in this.wizard.steps[step].required) {
-                this.validate(step, required);
-            }
-            var noErrors = true;
-            for (var error in this.wizard.steps[step].errors) {
-                noErrors = !this.wizard.steps[step].errors[error];
-            }
-            if (noErrors) {
-                this.saveCheckout(step);
-            }
-        },
-        setSame: function setSame(event) {
-            if (event.target.checked) {
-                var that = this;
-                this.wizard.delivery = this.wizard.billing;
-            } else {
-                this.wizard.delivery = { 'building': '', 'address1': '', 'address2': '', 'city': '', 'province': '', 'postal': '' };
-            }
-        },
-        saveCheckout: function saveCheckout(step) {
-            var that = this;
-            that.busySaving = true;
-            axios.post('/api/checkout', that.wizard).then(function (response) {
-                setTimeout(function () {
-                    that.wizard.currentStep = Number(step + 1);
-                    that.busySaving = false;
-                    if (step === 3) {
-                        that.wizard.complete = true;
-                        return;
-                    }
-                }, 500);
-            }).catch(function (error) {
-                console.log(error);
-            });
-        },
-
-        next: function next() {
-            this.$refs.slick.next();
-        },
-        prev: function prev() {
-            this.$refs.slick.prev();
-        },
-        reInit: function reInit() {
-            var _this = this;
-
-            // Helpful if you have to deal with v-for to update dynamic lists
-            this.$nextTick(function () {
-                _this.$refs.slick.reSlick();
-            });
-        },
-
-
-        // Events listeners
-        handleAfterChange: function handleAfterChange(event, slick, currentSlide) {
-            console.log('handleAfterChange', event, slick, currentSlide);
-        },
-        handleBeforeChange: function handleBeforeChange(event, slick, currentSlide, nextSlide) {
-            console.log('handleBeforeChange', event, slick, currentSlide, nextSlide);
-        },
-        handleBreakpoint: function handleBreakpoint(event, slick, breakpoint) {
-            console.log('handleBreakpoint', event, slick, breakpoint);
-        },
-        handleDestroy: function handleDestroy(event, slick) {
-            console.log('handleDestroy', event, slick);
-        },
-        handleEdge: function handleEdge(event, slick, direction) {
-            console.log('handleEdge', event, slick, direction);
-        },
-        handleInit: function handleInit(event, slick) {
-            console.log('handleInit', event, slick);
-        },
-        handleReInit: function handleReInit(event, slick) {
-            console.log('handleReInit', event, slick);
-        },
-        handleSetPosition: function handleSetPosition(event, slick) {
-            console.log('handleSetPosition', event, slick);
-        },
-        handleSwipe: function handleSwipe(event, slick, direction) {
-            console.log('handleSwipe', event, slick, direction);
-        },
-        handleLazyLoaded: function handleLazyLoaded(event, slick, image, imageSource) {
-            console.log('handleLazyLoaded', event, slick, image, imageSource);
-        },
-        handleLazeLoadError: function handleLazeLoadError(event, slick, image, imageSource) {
-            console.log('handleLazeLoadError', event, slick, image, imageSource);
-        }
+    currentTypedString: 'Leaking Roof'
+  },
+  computed: {
+    mobileMenu: function mobileMenu() {
+      return document.documentElement.clientWidth <= 576;
     }
+  },
+  components: {
+    FontAwesomeIcon: __WEBPACK_IMPORTED_MODULE_19__fortawesome_vue_fontawesome__["FontAwesomeIcon"],
+    CartComponent: CartComponent,
+    ContactComponent: ContactComponent,
+    LeadComponent: LeadComponent,
+    Slick: __WEBPACK_IMPORTED_MODULE_3_vue_slick___default.a
+  },
+  methods: {
+    clearCart: function clearCart() {
+      this.cart = { items: {}, total: 0, display_total: 'R0,00' };
+    },
+    addToCart: function addToCart() {
+      var that = this;
+      that.busyAdding = true;
+      axios.post('/api/cart', that.product).then(function (response) {
+        setTimeout(function () {
+          that.cart = response.data.cart;
+          that.busyAdding = false;
+        }, 2000);
+      }).catch(function (error) {
+        console.log(error);
+      });
+    },
+    showGalleryImage: function showGalleryImage(url, title) {
+      this.$modal.show({
+        template: '\n \t\t\t\t<div>\n \t\t\t\t<img :src="img" class="block w-full" />\n \t\t\t\t<span class="block text-center">{{ name }}</span>\n \t\t\t\t</div>\n \t\t\t\t',
+        props: ['img', 'name']
+      }, {
+        img: url,
+        name: title
+      }, {
+        'min-width': 200,
+        'min-height': 200,
+        adaptive: true,
+        reset: true,
+        width: "60%",
+        height: "auto"
+      });
+    },
+    typeComplete: function typeComplete(typedString) {
+      this.currentTypedString = typedString;
+    },
+    focusSearchBox: function focusSearchBox() {
+      var that = this;
+      this.typer.show = !this.typer.show;
+      this.$nextTick().then(function () {
+        document.querySelector('input[name="q"]').focus();
+        document.querySelector('input[name="q"]').value = that.currentTypedString;
+      });
+    },
+    submitSearch: function submitSearch() {
+      var that = this;
+      if (!this.typer.show) {
+        document.getElementById('typerSearchForm').submit();
+      } else {
+        this.typer.show = false;
+        this.$nextTick().then(function () {
+          console.log(that.currentTypedString);
+          document.querySelector('input[name="q"]').value = that.currentTypedString;
+          document.getElementById('typerSearchForm').submit();
+        });
+      }
+    },
+    validate: function validate(step, id) {
+      var el = document.getElementById(id);
+      var curStep = this.wizard.steps[step];
+      var validation = curStep.required[id];
+
+      var needsValidation = curStep.required[id];
+      if (needsValidation && el) {
+        this.wizard.steps[step].errors[id] = false;
+
+        if (el.value.trim() == '') {
+          this.wizard.steps[step].errors[id] = true;
+        }
+        var min = validation.min ? validation.min : 1;
+        var max = validation.max ? validation.max : false;
+        if (el.value.trim().length < min) {
+          this.wizard.steps[step].errors[id] = true;
+        }
+        if (max !== false && el.value.trim().length > max) {
+          this.wizard.steps[step].errors[id] = true;
+        }
+        var equals = validation.equals ? validation.equals : false;
+        if (equals && el.value.trim() !== document.getElementById(equals).value.trim()) {
+          this.wizard.steps[step].errors[id] = true;
+        }
+      }
+    },
+    checkStep: function checkStep(step) {
+      for (var required in this.wizard.steps[step].required) {
+        this.validate(step, required);
+      }
+      var noErrors = true;
+      for (var error in this.wizard.steps[step].errors) {
+        noErrors = !this.wizard.steps[step].errors[error];
+      }
+      if (noErrors) {
+        this.saveCheckout(step);
+      }
+    },
+    setSame: function setSame(event) {
+      if (event.target.checked) {
+        var that = this;
+        this.wizard.delivery = this.wizard.billing;
+      } else {
+        this.wizard.delivery = { 'building': '', 'address1': '', 'address2': '', 'city': '', 'province': '', 'postal': '' };
+      }
+    },
+    saveCheckout: function saveCheckout(step) {
+      var that = this;
+      that.busySaving = true;
+      axios.post('/api/checkout', that.wizard).then(function (response) {
+        setTimeout(function () {
+          that.wizard.currentStep = Number(step + 1);
+          that.busySaving = false;
+          if (step === 3) {
+            that.wizard.complete = true;
+            return;
+          }
+        }, 500);
+      }).catch(function (error) {
+        console.log(error);
+      });
+    },
+
+    next: function next() {
+      this.$refs.slick.next();
+    },
+    prev: function prev() {
+      this.$refs.slick.prev();
+    },
+    reInit: function reInit() {
+      var _this = this;
+
+      // Helpful if you have to deal with v-for to update dynamic lists
+      this.$nextTick(function () {
+        _this.$refs.slick.reSlick();
+      });
+    },
+
+
+    // Events listeners
+    handleAfterChange: function handleAfterChange(event, slick, currentSlide) {
+      console.log('handleAfterChange', event, slick, currentSlide);
+    },
+    handleBeforeChange: function handleBeforeChange(event, slick, currentSlide, nextSlide) {
+      console.log('handleBeforeChange', event, slick, currentSlide, nextSlide);
+    },
+    handleBreakpoint: function handleBreakpoint(event, slick, breakpoint) {
+      console.log('handleBreakpoint', event, slick, breakpoint);
+    },
+    handleDestroy: function handleDestroy(event, slick) {
+      console.log('handleDestroy', event, slick);
+    },
+    handleEdge: function handleEdge(event, slick, direction) {
+      console.log('handleEdge', event, slick, direction);
+    },
+    handleInit: function handleInit(event, slick) {
+      console.log('handleInit', event, slick);
+    },
+    handleReInit: function handleReInit(event, slick) {
+      console.log('handleReInit', event, slick);
+    },
+    handleSetPosition: function handleSetPosition(event, slick) {
+      console.log('handleSetPosition', event, slick);
+    },
+    handleSwipe: function handleSwipe(event, slick, direction) {
+      console.log('handleSwipe', event, slick, direction);
+    },
+    handleLazyLoaded: function handleLazyLoaded(event, slick, image, imageSource) {
+      console.log('handleLazyLoaded', event, slick, image, imageSource);
+    },
+    handleLazeLoadError: function handleLazeLoadError(event, slick, image, imageSource) {
+      console.log('handleLazeLoadError', event, slick, image, imageSource);
+    }
+  }
 });
 
 /***/ }),

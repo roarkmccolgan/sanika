@@ -8,16 +8,17 @@
 {{-- @includeWhen($pagetype == 'content', 'patial.mainmenu') --}}
 <div class="container flex-1 mx-auto pb-8">
 	<div class="category mt-4 md:flex">
-		@if($casestudy->hasMedia('title'))
-		<div class="md:w-1/3">
-			<img src="{{ $casestudy->getFirstMediaUrl('title', 'category') }}" alt="Image of {{ $casestudy['title'] }}">
-		</div>
-		@endif
 		<div class="flex-1">
-			<span class="font-bold text-lg text-grey-darker uppercase">Case Study</span>
-			<h1 class="font-extrabold uppercase mb-2">{{ $casestudy->site }}</h1>
 			<div class="sm:flex -mx-2">
 				<div class="sm:flex-1 p-2">
+					<div>
+						<h1 class="font-extrabold uppercase mb-2">{{ $casestudy->site }}</h1>
+						@if($casestudy->hasMedia('title'))
+						<div class="my-2">
+							<img src="{{ $casestudy->getFirstMediaUrl('title', 'hero') }}" alt="Image of {{ $casestudy['title'] }}">
+						</div>
+						@endif
+					</div>
 					<div class="flex bg-grey-lighter p-4">
 						<div class="mr-4">
 							<span class="block text-grey-darker uppercase">Client</span>
@@ -57,20 +58,58 @@
 					<p class="mb-2">{!! $casestudy->background !!}</p>
 					<h2 class="font-extrabold uppercase mb-4 mt-4">Solution</h2>
 					<p class="mb-2">{!! $casestudy->solution !!}</p>
-				</div>
-				<div class="sm:w-1/3 p-2 pt-0">
-					@if($casestudy->hasMedia('gallery'))
-						@foreach($casestudy->getMedia('gallery') as $galleryImg)
-						<div class="py-2 pb-2">
-							<img src="{{ $galleryImg->getUrl('thumb') }}" alt="{{ $galleryImg->name }}">
-						</div>
-						@endforeach
-					@endif
+					<div>
+						@if($casestudy->hasMedia('gallery'))
+							<slick
+								ref="slickcasestudypreview"
+								:options="slickOptions.clients"
+								class="casestudypreview"
+							>
+							@foreach($casestudy->getMedia('gallery') as $galleryImg)
+								<div class="py-2 pb-2">
+									<img src="{{ $galleryImg->getUrl('thumb') }}" alt="{{ $galleryImg->name }}">
+								</div>
+							@endforeach
+							</slick>
+							<slick
+								ref="slickcasestudynav"
+								:options="slickOptions.clients"
+								class="casestudynav"
+							>
+							@foreach($casestudy->getMedia('gallery') as $galleryImg)
+								<div class="py-2 pb-2">
+									<img src="{{ $galleryImg->getUrl('thumb') }}" alt="{{ $galleryImg->name }}">
+								</div>
+							@endforeach
+							</slick>
+							
+						@endif
+					</div>
 					@if($casestudy->videos)
 						@foreach($casestudy->videos as $video)
 						<div class='embed-container mt-2'><iframe src='https://www.youtube.com/embed/{{ $video }}' frameborder='0' allowfullscreen></iframe></div>
 						@endforeach
 					@endif
+				</div>
+				<div class="sm:w-1/3 p-2 pt-0 mt-4">
+					<span class="font-bold text-lg text-grey-darker uppercase">Other Case Studies</span>
+					@foreach($categories as $menucategory)
+					<div class="font-bold my-2">
+						
+						<a class="inline-block no-underline font-normal text-sanika-primary hover:underline" href="/casestudies/{{ $menucategory->alias }}">
+							{{ $menucategory->name }}
+						</a>
+					</div>
+						@foreach($menucategory->casestudies as $subCaseStudy)
+						<div class="my-2 ml-2">
+							@if($subCaseStudy->alias != $casestudy->alias)
+							<a class="inline-block no-underline text-sanika-primary hover:underline" href="/casestudies/{{ $menucategory->alias }}/{{ $subCaseStudy->alias }}">
+								{{ $subCaseStudy->title }}
+							</a>
+							@endif
+						</div>
+						@endforeach
+					@endforeach
 				</div>
 			</div>
 		</div>

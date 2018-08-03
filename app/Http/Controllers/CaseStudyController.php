@@ -10,7 +10,8 @@ class CaseStudyController extends Controller
 {
     public function getCaseStudy(Request $request, $theCategory, $theCaseStudy){
         $casestudy = CaseStudy::where('alias',$theCaseStudy)->with('category')->firstOrfail();
-        return view('casestudy',compact(['casestudy']));
+        $categories = Category::has('casestudies')->orderBy('order')->get();
+        return view('casestudy',compact(['casestudy','categories']));
     }
     
     public function getCaseStudies(Request $request, $theCategory = null){
