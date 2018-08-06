@@ -177,39 +177,41 @@
 			</div>
 		</div>
 		<div class="sm:w-1/2 p-4 sm:p-2">
-			{{-- <carousel class="p-2" :per-page="1" :loop="true" :autoplay-timeout="3000" :pagination-enabled="false" :scroll-per-page="false" :autoplay="true" :autoplay-hover-pause="true" :navigation-enabled="true">
-				<slide>
+			<slick
+				ref="slickgallery"
+				:options="slickOptions.gallery"
+			>
+				<div class="py-2 pb-2">
 					<img class="rounded block" src="/images/gallery/gallery_1.png" alt="Samrand Roof">
-				</slide>
-				<slide>
+				</div>
+				<div class="py-2 pb-2">
 					<img class="rounded block" src="/images/gallery/gallery_2.png" alt="">
-				</slide>
-				<slide>
+				</div>
+				<div class="py-2 pb-2">
 					<img class="rounded block" src="/images/gallery/gallery_3.png" alt="Turbine Hall">
-				</slide>
-				<slide>
+				</div>
+				<div class="py-2 pb-2">
 					<img class="rounded block" src="/images/gallery/gallery_4.png" alt="Impala">
-				</slide>
-				<slide>
+				</div>
+				<div class="py-2 pb-2">
 					<img class="rounded block" src="/images/gallery/gallery_5.png" alt="Eastgate">
-				</slide>
-				<slide>
+				</div>
+				<div class="py-2 pb-2">
 					<img class="rounded block" src="/images/gallery/gallery_6.png" alt="Samrand">
-				</slide>
-				<slide>
+				</div>
+				<div class="py-2 pb-2">
 					<img class="rounded block" src="/images/gallery/gallery_7.png" alt="kakamaas">
-				</slide>
-				<slide>
+				</div>
+				<div class="py-2 pb-2">
 					<img class="rounded block" src="/images/gallery/gallery_8.png" alt="Sisani Studios">
-				</slide>
-				<slide>
+				</div>
+				<div class="py-2 pb-2">
 					<img class="rounded block" src="/images/gallery/gallery_9.png" alt="Shaft">
-				</slide>
-				<slide>
+				</div>
+				<div class="py-2 pb-2">
 					<img class="rounded block" src="/images/gallery/gallery_10.png" alt="Nandos">
-				</slide>
-				
-			</carousel> --}}
+				</div>
+			</slick>
 		</div>
 		
 	</div>

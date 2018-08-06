@@ -43,6 +43,28 @@
 .slick-prev:before, .slick-next:before{
 	@apply .text-grey;
 }
+.slick-current .navslick img{
+	@apply .border .border-sanika-primary .shadow;
+}
+.slickthird{
+	max-width: 350px;
+	margin: 0 auto 0 auto;
+}
+@screen md{
+	.slickthird{
+		max-width: 480px;
+	}
+}
+@screen lg{
+	.slickthird{
+		max-width: 768px;
+	}
+}
+@screen xl{
+	.slickthird{
+		max-width: 768px;
+	}
+}
 
 /*
 ***************************

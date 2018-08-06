@@ -62,6 +62,14 @@
  	el: '#app',
  	data: {
  		slickOptions: {
+            gallery:{
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                infinite: true,
+                arrows: true,
+                fade: true,
+            },
 	 		clients:{
 	 			slidesToShow: 6,
 	 			slidesToScroll: 1,
@@ -89,19 +97,28 @@
 	 			]
 	 		},
 	 		casestudypreview:{
-	 			slidesToShow: 1,
-				slidesToScroll: 1,
-				arrows: false,
-				fade: true,
-				asNavFor: '.casestudynav'
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+                asNavFor: '.casestudynav'
 	 		},
 	 		casestudynav:{
-	 			slidesToShow: 4,
-				slidesToScroll: 1,
-				asNavFor: '.casestudypreview',
-				dots: true,
-				centerMode: true,
-				focusOnSelect: true
+	 			slidesToShow: 3,
+                slidesToScroll: 1,
+                arrows: true,
+                asNavFor: '.casestudypreview',
+                dots: false,
+                centerMode: true,
+                focusOnSelect: true,
+                responsive: [
+                    {
+                        breakpoint: 576,
+                        settings: {
+                            arrows: false,
+                        }
+                    }
+                ]
 	 		},
  		},
  		showMenu: false,

@@ -9,7 +9,7 @@
 <div class="container flex-1 mx-auto pb-8">
 	<div class="category mt-4 md:flex">
 		<div class="flex-1">
-			<div class="sm:flex -mx-2">
+			<div class="sm:flex sm:-mx-2">
 				<div class="sm:flex-1 p-2">
 					<div>
 						<h1 class="font-extrabold uppercase mb-2">{{ $casestudy->site }}</h1>
@@ -58,40 +58,40 @@
 					<p class="mb-2">{!! $casestudy->background !!}</p>
 					<h2 class="font-extrabold uppercase mb-4 mt-4">Solution</h2>
 					<p class="mb-2">{!! $casestudy->solution !!}</p>
-					<div>
+					<div class="slickthird">
 						@if($casestudy->hasMedia('gallery'))
-							<slick
-								ref="slickcasestudypreview"
-								:options="slickOptions.clients"
-								class="casestudypreview"
-							>
-							@foreach($casestudy->getMedia('gallery') as $galleryImg)
-								<div class="py-2 pb-2">
-									<img src="{{ $galleryImg->getUrl('thumb') }}" alt="{{ $galleryImg->name }}">
-								</div>
-							@endforeach
-							</slick>
-							<slick
-								ref="slickcasestudynav"
-								:options="slickOptions.clients"
-								class="casestudynav"
-							>
-							@foreach($casestudy->getMedia('gallery') as $galleryImg)
-								<div class="py-2 pb-2">
-									<img src="{{ $galleryImg->getUrl('thumb') }}" alt="{{ $galleryImg->name }}">
-								</div>
-							@endforeach
-							</slick>
-							
-						@endif
+								<slick
+									ref="slickcasestudypreview"
+									:options="slickOptions.casestudypreview"
+									class="casestudypreview"
+								>
+								@foreach($casestudy->getMedia('gallery') as $galleryImg)
+									<div class="py-2 pb-2">
+										<img src="{{ $galleryImg->getUrl() }}" alt="{{ $galleryImg->name }}" class="w-full">
+									</div>
+								@endforeach
+								</slick>
+								<slick
+									ref="slickcasestudynav"
+									:options="slickOptions.casestudynav"
+									class="casestudynav"
+								>
+								@foreach($casestudy->getMedia('gallery') as $galleryImg)
+									<div class="navslick p-2 pb-6">
+										<img src="{{ $galleryImg->getUrl('thumb') }}" alt="{{ $galleryImg->name }}">
+									</div>
+								@endforeach
+								</slick>
+								
+							@endif
+							@if($casestudy->videos)
+								@foreach($casestudy->videos as $video)
+								<div class='embed-container mt-2'><iframe src='https://www.youtube.com/embed/{{ $video }}' frameborder='0' allowfullscreen></iframe></div>
+								@endforeach
+							@endif
 					</div>
-					@if($casestudy->videos)
-						@foreach($casestudy->videos as $video)
-						<div class='embed-container mt-2'><iframe src='https://www.youtube.com/embed/{{ $video }}' frameborder='0' allowfullscreen></iframe></div>
-						@endforeach
-					@endif
 				</div>
-				<div class="sm:w-1/3 p-2 pt-0 mt-4">
+				<div class="sm:w-1/3 p-2 pt-0 sm:mt-12">
 					<span class="font-bold text-lg text-grey-darker uppercase">Other Case Studies</span>
 					@foreach($categories as $menucategory)
 					<div class="font-bold my-2">
@@ -110,6 +110,7 @@
 						</div>
 						@endforeach
 					@endforeach
+
 				</div>
 			</div>
 		</div>

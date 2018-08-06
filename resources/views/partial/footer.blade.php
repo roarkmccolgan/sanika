@@ -30,6 +30,7 @@
 			</div>
 			<div class="p-2 md:w-1/4">
 				<a href="/" class="no-underline" title="Homepage"><img class="block mx-4" src="/images/sanika_logo_white.svg" alt=""></a>
+				<img class="block mx-auto w-1/2" src="/images/25years.png" alt="">
 			</div>
 		</div>
 	</div>

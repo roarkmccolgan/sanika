@@ -8,28 +8,34 @@
 		</div>
         <div class="flex mt-6 text-base flex-wrap sm:-mx-2">
             <div class="p-2 flex-1">
-                <div class="border p-4">
-                    <h3 class="font-light mb-4 text-grey-darker">Sales Enquiries</h3>
-                    <strong>Sandor Dowling</strong><br/>
-                    <a class="text-sanika-secondary" href="tel:+27829225586">+27 (0)82 922-5586</a><br/>
+                <div class="border flex-1">
+                    <h3 class="font-medium mb-4 text-white bg-grey-darker p-2">Sales Enquiries</h3>
+                    <div class="p-4">
+                        <strong>Sandor Dowling</strong><br/>
+                        <a class="text-sanika-secondary" href="tel:+27829225586">+27 (0)82 922-5586</a><br/>
+                    </div>
                 </div>
             </div>
             <div class="p-2 flex-1">
-                <div class="border p-4">
-                    <h3 class="font-light mb-4 text-grey-darker">Technical Enquiries</h3>
-                    <strong>Colte Smit</strong><br/>
-                    <a class="text-sanika-secondary" href="tel:+27829285788">+27 (0)82 928-5788</a><br/>
+                <div class="border">
+                    <h3 class="font-medium mb-4 text-white bg-grey-darker p-2">Technical Enquiries</h3>
+                    <div class="p-4">
+                        <strong>Colte Smit</strong><br/>
+                        <a class="text-sanika-secondary" href="tel:+27829285788">+27 (0)82 928-5788</a><br/>
+                    </div>
                 </div>
             </div>
             <div class="p-2 flex-1">
-                <div class="border p-4">
-                    <h3 class="font-light mb-4 text-grey-darker">Management Enquiries</h3>
-                    <strong>Tanika McColgan</strong><br/>
-                    <a class="text-sanika-secondary" href="tel:+27837934504">+27 (0)83 793-4504</a><br/>
+                <div class="border">
+                    <h3 class="font-medium mb-4 text-white bg-grey-darker p-2">Management Enquiries</h3>
+                    <div class="p-4">
+                        <strong>Tanika McColgan</strong><br/>
+                        <a class="text-sanika-secondary" href="tel:+27837934504">+27 (0)83 793-4504</a><br/>
+                    </div>
                 </div>
             </div>
         </div>
-		<div class="flex mt-2 text-base items-stretch flex-wrap sm:-mx-2">
+		<div class="flex mt-2 text-base items-stretch flex-wrap sm">
 			<div class="w-full sm:px-2 sm:w-1/2">
 				<div class="px-4 py-2 border border-red bg-red-lightest text-red-light mb-2" v-show="submitError">
 					There was an error sending the message, please try again
@@ -105,9 +111,9 @@
 				</transition>
 			</div>
 			<div class="w-full sm:px-2 sm:w-1/2">
-				<div class="bg-white p-4 border-t border-b sm:border">
-                    <h3 class="pb-2 border-b font-medium mb-2">Head Office Johannesburg Contact Details</h3>
-                    <div class="flex">
+				<div class="bg-white border-t border-b sm:border">
+                    <h3 class="p-2 border-b font-medium mb-2 text-white bg-grey-darker">Head Office Johannesburg Contact Details</h3>
+                    <div class="flex p-4">
                         <div class="w-1/2 mr-1">
                             <span class="block text-sm font-bold text-grey-darker roman mb-2">Call</span>
                             <a class="text-sanika-secondary" href="tel:+27114253061">+27 (0)11 425 3061</a><br/>
@@ -130,9 +136,9 @@
                         </div>
                     </div>                          
                 </div>
-                <div class="mt-4 bg-white p-4 border-t border-b sm:border">
-                    <h3 class="pb-2 border-b font-medium mb-2">Cape Town Contact Details</h3>
-                    <div class="flex">
+                <div class="mt-4 bg-white border-t border-b sm:border">
+                    <h3 class="p-2 border-b font-medium mb-2 text-white bg-grey-darker">Cape Town Contact Details</h3>
+                    <div class="flex p-4">
                         <div class="w-1/2 mr-1">
                             <span class="block text-sm font-bold text-grey-darker roman mb-2">Call</span>
                             <a class="text-sanika-secondary" href="tel:+27114253061">+27 (0)82 928 5788</a><br/>
@@ -154,9 +160,9 @@
                         </div>
                     </div>                          
                 </div>
-                <div class="mt-4 bg-white p-4 border-t border-b sm:border">
-					<h3 class="pb-2 border-b font-medium mb-2">Durban Contact Details</h3>
-                    <div class="flex">
+                <div class="mt-4 bg-white border-t border-b sm:border">
+					<h3 class="p-2 border-b font-medium mb-2 text-white bg-grey-darker">Durban Contact Details</h3>
+                    <div class="flex p-4">
                         <div class="w-full">
                             <span class="block text-sm font-bold text-grey-darker roman mb-2">Call</span>
                             <a class="text-sanika-secondary" href="tel:+27114253061">+27 (0)82 922 5586</a><br/>
