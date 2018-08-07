@@ -13,10 +13,10 @@
 .pagebg{
 	background: url('/images/bg.jpg?id=1') repeat-x;
 }
-.category p, .category ul, .product p, .product ul, .casestudy p, .casestudy ul{
+.category p, .category ul:not(.tabs-component-tabs), .product p, .product ul:not(.tabs-component-tabs), .casestudy p, .casestudy ul:not(.tabs-component-tabs){
 	@apply .mb-4 .text-sm;
 }
-.category li, .product li{
+.category li:not(.tabs-component-tab), .product li:not(.tabs-component-tab){
 	@apply .mb-2;
 }
 .category h1, .product h1{
@@ -48,7 +48,6 @@
 }
 .slickthird{
 	max-width: 350px;
-	margin: 0 auto 0 auto;
 }
 @screen md{
 	.slickthird{
@@ -62,6 +61,42 @@
 }
 @screen xl{
 	.slickthird{
+		max-width: 370px;
+	}
+}
+.slicktwothird{
+	max-width: 350px;
+}
+@screen md{
+	.slicktwothird{
+		max-width: 480px;
+	}
+}
+@screen lg{
+	.slicktwothird{
+		max-width: 768px;
+	}
+}
+@screen xl{
+	.slicktwothird{
+		max-width: 768px;
+	}
+}
+.slickhalf{
+	max-width: 300px;
+}
+@screen md{
+	.slickhalf{
+		max-width: 480px;
+	}
+}
+@screen lg{
+	.slickhalf{
+		max-width: 450px;
+	}
+}
+@screen xl{
+	.slickhalf{
 		max-width: 768px;
 	}
 }

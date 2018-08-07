@@ -168,7 +168,6 @@
 			<div class="sm:pr-8">
 				<h1 class="text-sanika-primary mb-4">Welcome to Sanika Waterproofing</h1>
 				<p class="mb-2">Sanika Waterproofing Specialists has been firmly entrenched in the specialist waterproofing, industrial coating and roofing industry since 1987. </p>
-				<p class="mb-2">As a family owned and run business, we feel strongly about making every client feel like a part of our family by providing an excellent service and quality product, all backed by expert guidance.</p>
 				<p class="mb-2">
 					We are the proud industry leaders in insulative boarded maintenance free waterproofing systems in Southern Africa as well as the exclusive approved distributors of Kryton Crystalline Concrete Waterproofing Products, Emseal expansion jointing systems and RiveStop tie-hole waterproofing products in Southern Africa.</p>
 				<p class="mb-2">
@@ -176,42 +175,45 @@
 				<p>We pride ourselves in preparing long term, cost effective and high quality concrete rejuvenation and waterproofing solutions, painting and waterproofing coating systems nationwide.</p>				
 			</div>
 		</div>
-		<div class="sm:w-1/2 p-4 sm:p-2">
-			<slick
-				ref="slickgallery"
-				:options="slickOptions.gallery"
-			>
-				<div class="py-2 pb-2">
-					<img class="rounded block" src="/images/gallery/gallery_1.png" alt="Samrand Roof">
-				</div>
-				<div class="py-2 pb-2">
-					<img class="rounded block" src="/images/gallery/gallery_2.png" alt="">
-				</div>
-				<div class="py-2 pb-2">
-					<img class="rounded block" src="/images/gallery/gallery_3.png" alt="Turbine Hall">
-				</div>
-				<div class="py-2 pb-2">
-					<img class="rounded block" src="/images/gallery/gallery_4.png" alt="Impala">
-				</div>
-				<div class="py-2 pb-2">
-					<img class="rounded block" src="/images/gallery/gallery_5.png" alt="Eastgate">
-				</div>
-				<div class="py-2 pb-2">
-					<img class="rounded block" src="/images/gallery/gallery_6.png" alt="Samrand">
-				</div>
-				<div class="py-2 pb-2">
-					<img class="rounded block" src="/images/gallery/gallery_7.png" alt="kakamaas">
-				</div>
-				<div class="py-2 pb-2">
-					<img class="rounded block" src="/images/gallery/gallery_8.png" alt="Sisani Studios">
-				</div>
-				<div class="py-2 pb-2">
-					<img class="rounded block" src="/images/gallery/gallery_9.png" alt="Shaft">
-				</div>
-				<div class="py-2 pb-2">
-					<img class="rounded block" src="/images/gallery/gallery_10.png" alt="Nandos">
-				</div>
-			</slick>
+		<div class="w-full p-4 sm:w-1/2 sm:p-2 ">
+			<div class="slickhalf">
+				<slick
+					ref="slickgallery"
+					:options="slickOptions.gallery"
+				>
+					<div class="py-2 pb-2">
+						<img class="block" src="/images/gallery/gallery_1.png" alt="Samrand Roof">
+					</div>
+					<div class="py-2 pb-2">
+						<img class="block" src="/images/gallery/gallery_2.png" alt="">
+					</div>
+					<div class="py-2 pb-2">
+						<img class="block" src="/images/gallery/gallery_3.png" alt="Turbine Hall">
+					</div>
+					<div class="py-2 pb-2">
+						<img class="block" src="/images/gallery/gallery_4.png" alt="Impala">
+					</div>
+					<div class="py-2 pb-2">
+						<img class="block" src="/images/gallery/gallery_5.png" alt="Eastgate">
+					</div>
+					<div class="py-2 pb-2">
+						<img class="block" src="/images/gallery/gallery_6.png" alt="Samrand">
+					</div>
+					<div class="py-2 pb-2">
+						<img class="block" src="/images/gallery/gallery_7.png" alt="kakamaas">
+					</div>
+					<div class="py-2 pb-2">
+						<img class="block" src="/images/gallery/gallery_8.png" alt="Sisani Studios">
+					</div>
+					<div class="py-2 pb-2">
+						<img class="block" src="/images/gallery/gallery_9.png" alt="Shaft">
+					</div>
+					<div class="py-2 pb-2">
+						<img class="block" src="/images/gallery/gallery_10.png" alt="Nandos">
+					</div>
+				</slick>
+			</div>
+				
 		</div>
 		
 	</div>
@@ -242,6 +244,7 @@
 		<slick
 			ref="slickclients"
 			:options="slickOptions.clients"
+			class="w-5/6 mx-auto"
 		> 
 			<div><img src="/storage/clients/SAB.png" alt="SAB"></div>
 			<div><img src="/storage/clients/Mnet.png" alt="MNET"></div>

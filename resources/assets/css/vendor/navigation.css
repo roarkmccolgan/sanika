@@ -18,6 +18,10 @@
 		max-height: 500px;
     	transition: max-height 0.4s ease-in;
 	}
+	#nav .menu > a:focus + .submenu{
+		max-height: 500px;
+    	transition: max-height 0.4s ease-in;
+	}
 }
 
 #nav .menu:hover::after {
@@ -37,5 +41,8 @@
 	@apply .text-sanika-primary;
 }
 #nav .menu:hover .submenu{
+	@apply .block;
+}
+#nav .menu > a:focus + .submenu{
 	@apply .block;
 }

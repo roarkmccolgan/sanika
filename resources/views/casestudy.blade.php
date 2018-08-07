@@ -58,8 +58,9 @@
 					<p class="mb-2">{!! $casestudy->background !!}</p>
 					<h2 class="font-extrabold uppercase mb-4 mt-4">Solution</h2>
 					<p class="mb-2">{!! $casestudy->solution !!}</p>
-					<div class="slickthird">
-						@if($casestudy->hasMedia('gallery'))
+					<div class="slicktwothird">
+						<div class="sm:w-5/6 sm:mx-auto">
+							@if($casestudy->hasMedia('gallery'))
 								<slick
 									ref="slickcasestudypreview"
 									:options="slickOptions.casestudypreview"
@@ -89,21 +90,22 @@
 								<div class='embed-container mt-2'><iframe src='https://www.youtube.com/embed/{{ $video }}' frameborder='0' allowfullscreen></iframe></div>
 								@endforeach
 							@endif
+						</div>
 					</div>
 				</div>
 				<div class="sm:w-1/3 p-2 pt-0 sm:mt-12">
-					<span class="font-bold text-lg text-grey-darker uppercase">Other Case Studies</span>
+					<span class="font-bold text-lg text-black uppercase">Other Case Studies</span>
 					@foreach($categories as $menucategory)
 					<div class="font-bold my-2">
 						
-						<a class="inline-block no-underline font-normal text-sanika-primary hover:underline" href="/casestudies/{{ $menucategory->alias }}">
+						<a class="inline-block font-bold text-grey-darker hover:text-sanika-primary" href="/casestudies/{{ $menucategory->alias }}">
 							{{ $menucategory->name }}
 						</a>
 					</div>
 						@foreach($menucategory->casestudies as $subCaseStudy)
 						<div class="my-2 ml-2">
 							@if($subCaseStudy->alias != $casestudy->alias)
-							<a class="inline-block no-underline text-sanika-primary hover:underline" href="/casestudies/{{ $menucategory->alias }}/{{ $subCaseStudy->alias }}">
+							<a class="inline-block text-grey-darker hover:text-sanika-primary" href="/casestudies/{{ $menucategory->alias }}/{{ $subCaseStudy->alias }}">
 								{{ $subCaseStudy->title }}
 							</a>
 							@endif

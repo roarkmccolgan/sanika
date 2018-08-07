@@ -2,10 +2,15 @@
 }
 
 .tabs-component-tabs {
-  @apply .flex .items-stretch .justify-start .p-0 .border-grey .-mb-px;
+  @apply .flex .flex-wrap .p-0 .border-grey .-mb-px .text-xs;
+}
+@screen sm{
+  .tabs-component-tabs {
+    @apply .items-stretch .justify-start .text-base;
+  }
 }
 
-@media (min-width: 700px) {
+@screen md{
   .tabs-component {
     @apply .mx-2
   }
@@ -51,10 +56,10 @@
 }
 
 .tabs-component-tab-a {
-  @apply .items-center .flex .px-4 .py-2 .no-underline .text-sanika-secondary .font-bold .text-lg;
+  @apply .items-center .flex .px-4 .py-2 .no-underline .text-sanika-secondary .font-bold .bg-grey-lighter;
 }
 .tabs-component-tab.is-active .tabs-component-tab-a {
-  @apply .text-sanika-primary;
+  @apply .text-sanika-primary .bg-white;
 }
 
 .tabs-component-panels {

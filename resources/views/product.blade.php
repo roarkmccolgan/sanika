@@ -36,13 +36,18 @@
 				</div>
 				@endif
 				@if($product->hasMedia('gallery'))
-				<carousel :per-page="1" :navigation-enabled="true">
+				<div class="slickthird ml-4">
+					<slick
+						ref="slickproduct"
+						:options="slickOptions.products"
+					>
 					@foreach($product->getMedia('gallery') as $galleryImg)
-					<slide>
-						<img src="{{ $galleryImg->getUrl('thumb') }}" alt="{{ $galleryImg->name }}">
-					</slide>
+						<div class="py-2 pb-2">
+							<img src="{{ $galleryImg->getUrl('thumb') }}" alt="{{ $galleryImg->name }}" class="w-full">
+						</div>
 					@endforeach
-				</carousel>
+					</slick>
+				</div>
 				@endif
 				<lead-component :product-id="{{ $product->id }}"></lead-component>
 				{{-- <div class="flex flex-col border px-4 py-6">
@@ -79,11 +84,6 @@
 				</div> --}}
 			</div>
 		</div>
-
-	</div>
-</div>
-<div class="bg-grey-lighter">
-	<div class="container flex-1 mx-auto pb-8">
 		<div class="mt-6 -mx-2">
 			<tabs class="">
 				<tab name="RECOMMENDED USES" class="-mb-px mr-1">
@@ -160,12 +160,17 @@
 				-->
 			</tabs>
 		</div>
+
+	</div>
+</div>
+<div class="bg-grey-lighter">
+	<div class="container flex-1 mx-auto pb-8">
 		@if(count($category->products)>1)
-		<div class="font-bold text-lg mt-6 mb-2">Other products</div>
+		<div class="font-bold text-lg mt-6 mb-2">Other {{ $category->name }} products</div>
 		<div class="flex flex-wrap items-stretch -mx-2 text-base">
 			@foreach($category->products as $catproduct)
 			@if($catproduct->alias !== $product->alias)
-			<div class="w-1/3 p-2">
+			<div class="w-full sm:w-1/3 p-2">
 				<div class="flex flex-wrap h-full bg-white border shadow p-4">
 					<div class="w-1/3">
 						@if($catproduct->hasMedia('title'))

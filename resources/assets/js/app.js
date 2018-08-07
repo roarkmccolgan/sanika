@@ -70,6 +70,13 @@
                 arrows: true,
                 fade: true,
             },
+            products:{
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                infinite: true,
+                arrows: true,
+            },
 	 		clients:{
 	 			slidesToShow: 6,
 	 			slidesToScroll: 1,

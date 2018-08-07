@@ -75,7 +75,7 @@ class DataBaseController extends Controller
 				$insightly['LEAD_SOURCE_ID'] = $request->input('insightly.LEAD_SOURCE_ID');
 				if($request->input('insightly.CUSTOMFIELDS')){
 					foreach ($request->input('insightly.CUSTOMFIELDS') as $key=>$value) {
-						$insightly['CUSTOMFIELDS'][$key]['CUSTOM_FIELD_ID'] = 'LEAD_FIELD_'.$value;
+						$insightly['CUSTOMFIELDS'][$key]['CUSTOM_FIELD_ID'] = 'LEAD_FIELD_'.$key;
 						$insightly['CUSTOMFIELDS'][$key]['FIELD_VALUE'] = true;
 					}
 				}
