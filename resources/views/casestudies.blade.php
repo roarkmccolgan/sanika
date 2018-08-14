@@ -6,7 +6,7 @@
 @endsection
 @section('body')
 {{-- @includeWhen($pagetype == 'content', 'patial.mainmenu') --}}
-<div class="container flex-1 mx-auto pb-8 casestudy">
+<div class="container flex-1 mx-auto pb-8">
 	<div class="mt-4 category md:flex">
 		<div class="">
 			{{-- <img src="/images/" alt="Case Study Icon"> --}}
@@ -44,9 +44,13 @@
 						<div class="flex-1">
 							<div class="mx-4">
 								<a href="{{'/casestudies/'.$casestudy->category->alias.'/'.$casestudy->alias }}" class="text-sanika-primary no-underline hover:text-max-secondary">
-									<h3 class="font-extrabold uppercase mb-2">{{ $casestudy->site }}</h3>
+									<h3 class="font-extrabold uppercase mb-2">{{ $casestudy->title }}</h3>
 								</a>
-								<p class="mb-2 text-sm font-bold">{{ $casestudy->client }}</p>
+								@if($casestudy->scope)
+								<p class="mb-1 text-sm font-bold">{{ $casestudy->scope }}</p>
+								@elseif($casestudy->where)
+								<p class="mb-2 text-sm font-bold">{{ $casestudy->where }}</p>
+								@endif
 								{!! substr ( $casestudy->background , 0, strpos ( $casestudy->background , "</p>" )+4 ) !!}
 							</div>
 						</div>

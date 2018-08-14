@@ -163,11 +163,23 @@
                 <div class="mt-4 bg-white border-t border-b sm:border">
 					<h3 class="p-2 border-b font-medium mb-2 text-white bg-grey-darker">Durban Contact Details</h3>
                     <div class="flex p-4">
-                        <div class="w-full">
+                        <div class="w-1/2 mr-1">
                             <span class="block text-sm font-bold text-grey-darker roman mb-2">Call</span>
                             <a class="text-sanika-secondary" href="tel:+27114253061">+27 (0)82 922 5586</a><br/>
                             <span class="block text-sm font-bold text-grey-darker roman mt-2">Email</span>
                             <a class="text-sanika-secondary" href="mailto:sandor@sanika.co.za" title="email sanika">sandor@sanika.co.za</a>
+                        </div>
+                        <div class="w-1/2 ml-1">
+                            <address class="leading-normal">
+                                <span class="block text-sm font-bold text-grey-darker roman mb-2">Visit Us</span>
+                                <a class="text-sanika-secondary" target="_blank" href="https://goo.gl/maps/dJzo4PyEmSF2">
+                                    Unit2, 15 Lavender Gate Crescent<br/>
+                                    Southgate Industrial Park<br/>
+                                    Amanzimtoti<br/>
+                                    Kwazulu Natal<br/>
+                                    South Africa
+                                </a>
+                            </address>
                         </div>
                     </div>        					
 				</div>

@@ -75,7 +75,7 @@ class DataBaseController extends Controller
 				$insightly['LEAD_SOURCE_ID'] = $request->input('insightly.LEAD_SOURCE_ID');
 				if($request->input('insightly.CUSTOMFIELDS')){
 					foreach ($request->input('insightly.CUSTOMFIELDS') as $key=>$value) {
-						$insightly['CUSTOMFIELDS'][$key]['CUSTOM_FIELD_ID'] = 'LEAD_FIELD_'.$key;
+						$insightly['CUSTOMFIELDS'][$key]['CUSTOM_FIELD_ID'] = 'LEAD_FIELD_'.$value;
 						$insightly['CUSTOMFIELDS'][$key]['FIELD_VALUE'] = true;
 					}
 				}
@@ -297,9 +297,9 @@ class DataBaseController extends Controller
 		Log::info('Submitted Data : '.print_r($request->all(), true));
 		$error = false;
 		$message = '';
-		if (!$request->has(['client']) || !$request->has(['site']) || !$request->has(['scope']) || !$request->has(['background']) || !$request->has(['solution']) || !$request->has(['category'])) {
+		if (!$request->has(['title']) || !$request->has(['client']) || !$request->has(['site']) || !$request->has(['scope']) || !$request->has(['background']) || !$request->has(['solution']) || !$request->has(['category'])) {
 			$error = true;
-			$message = 'ERROR!: Client, Site, Scope, background, solution and Category is required';
+			$message = 'ERROR!: Title, Client, Site, Scope, background, solution and Category is required';
 		}
 		$attachProducts = [];
 		$products = [];
@@ -324,14 +324,15 @@ class DataBaseController extends Controller
 		}
 		if(!$error){
 			$casestudy = CaseStudy::updateOrCreate(
-				['alias' => str_slug($request->input('client').' '.$request->input('place'))],
+				['alias' => str_slug($request->input('title'))],
 				[
-					'title' => $request->input('client').' '.$request->input('place'),
+					'title' => $request->input('title'),
 					'category_id' => $category->id,
-					'alias' => str_slug($request->input('client').' '.$request->input('place')),
+					'alias' => str_slug($request->input('title')),
 					'client' => $request->has('client') ? $request->input('client') : null,
 					'site' => $request->has('place') ? $request->input('place') : null,
 					'scope' => $request->has('scope') ? $request->input('scope') : null, 
+					'where' => $request->has('where') ? $request->input('where') : null, 
 					'background' => $request->has('background') ? Markdown::convertToHtml($request->input('background')) : null,
 					'solution' => $request->has('solution') ? Markdown::convertToHtml($request->input('solution')) : null,
 					'products' => count($products)? $products : null,
@@ -347,7 +348,12 @@ class DataBaseController extends Controller
 			}
 			if($request->has('image')) {
 				$image = str_replace("dl=0","raw=1",$request->input('image'));
-				$casestudy->addMediaFromUrl($image)->toMediaCollection('title');
+				$parts = parse_url($image); 
+				$slug_name = str_replace(['%20','?raw=1'],['-',''],basename($parts['path']));
+				Log::info($slug_name);
+				$file_name = str_replace(['%20','-','_','.jpg','.JPG','.JPEG','.png','.png'],[' ',' ',' ','','','','',''],basename($parts['path']));
+				Log::info($file_name);
+				$casestudy->addMediaFromUrl($image)->usingFileName($slug_name)->usingName($file_name)->toMediaCollection('title');
 			}
 			if($request->has('gallery')) {
 				$casestudy->clearMediaCollection('gallery');

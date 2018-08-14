@@ -46,6 +46,7 @@ class CaseStudy extends Model implements HasMedia
 		'client',
 		'videos',
 		'site',
+		'where',
 		'scope',
 		'background',
 		'solution',

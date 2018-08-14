@@ -12,7 +12,7 @@
 			<div class="sm:flex sm:-mx-2">
 				<div class="sm:flex-1 p-2">
 					<div>
-						<h1 class="font-extrabold uppercase mb-2">{{ $casestudy->site }}</h1>
+						<h1 class="font-extrabold uppercase mb-2">{{ $casestudy->title }}</h1>
 						@if($casestudy->hasMedia('title'))
 						<div class="my-2">
 							<img src="{{ $casestudy->getFirstMediaUrl('title', 'hero') }}" alt="Image of {{ $casestudy['title'] }}">
@@ -29,6 +29,9 @@
 
 							<span class="block text-grey-darker uppercase">Scope</span>
 							<span class="block font-bold text-lg mb-2">{{ $casestudy->scope }}</span>
+
+							<span class="block text-grey-darker uppercase">Where</span>
+							<span class="block font-bold text-lg mb-2">{{ $casestudy->where }}</span>
 						</div>
 						<div class="">
 							<span class="block text-grey-darker uppercase mb-1">Products Used</span>

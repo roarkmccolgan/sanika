@@ -231,7 +231,7 @@
 				<img class="block mb-2" src="{{ $casestudy->getFirstMediaUrl('gallery', 'thumb') }}" alt="Image of {{ $casestudy->title }}">
 				@endif
 				<h4 class="no-underline text-blackblack font-extrabold uppercase mb-2">{{ $casestudy->title }}</h4>
-				<span class="no-underline text-grey-dark">{{ $casestudy->client }}</span>
+				<span class="no-underline text-grey-dark">{{ $casestudy->scope }}</span>
 				</a>
 			</div>
 				
