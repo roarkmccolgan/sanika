@@ -44,14 +44,17 @@
 						<div class="flex-1">
 							<div class="mx-4">
 								<a href="{{'/casestudies/'.$casestudy->category->alias.'/'.$casestudy->alias }}" class="text-sanika-primary no-underline hover:text-max-secondary">
-									<h3 class="font-extrabold uppercase mb-2">{{ $casestudy->title }}</h3>
+									<h3 class="font-extrabold uppercase mb-1">{{ $casestudy->title }}</h3>
 								</a>
 								@if($casestudy->scope)
-								<p class="mb-1 text-sm font-bold">{{ $casestudy->scope }}</p>
+								<p class="mb-4 text-sm font-bold">{{ $casestudy->scope }}</p>
 								@elseif($casestudy->where)
-								<p class="mb-2 text-sm font-bold">{{ $casestudy->where }}</p>
+								<p class="mb-4 text-sm font-bold">{{ $casestudy->where }}</p>
 								@endif
 								{!! substr ( $casestudy->background , 0, strpos ( $casestudy->background , "</p>" )+4 ) !!}
+								<a href="{{'/casestudies/'.$casestudy->category->alias.'/'.$casestudy->alias }}" class="inline-block mt-4 text-sanika-primary hover:text-max-secondary">
+									Read More
+								</a>
 							</div>
 						</div>
 					</div>
