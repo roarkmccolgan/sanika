@@ -257,45 +257,34 @@
 			<div><img src="/storage/clients/Eastgate.png" alt="Eastgate"></div>
 			<div><img src="/storage/clients/Broll.png" alt="Broll"></div>
 			<div><img src="/storage/clients/Anglo%20American.png" alt="Anglo American"></div>
-</slick>
-
-		{{-- <carousel class="p-2" :per-page-custom="[[768, 3], [1024, 6]]" :loop="true" :autoplay-timeout="3000" :pagination-enabled="false" :scroll-per-page="false" :autoplay="true" :autoplay-hover-pause="true" :navigation-enabled="true">
-			<slide>
-				<img src="/storage/clients/SAB.png" alt="SAB">
-			</slide>
-			<slide>
-				<img src="/storage/clients/Mnet.png" alt="MNET">
-			</slide>
-			<slide>
-				<img src="/storage/clients/Liberty.png" alt="Liberty">
-			</slide>
-			<slide>
-				<img src="/storage/clients/Johnson%20Matthey.png" alt="Johnson Matthey">
-			</slide>
-			<slide>
-				<img src="/storage/clients/Investec.png" alt="Investec">
-			</slide>
-			<slide>
-				<img src="/storage/clients/Impala%20Platinum.png" alt="Impala Platinum">
-			</slide>
-			<slide>
-				<img src="/storage/clients/Growthpoint.png" alt="Growthpoint">
-			</slide>
-			<slide>
-				<img src="/storage/clients/Excellerate.png" alt="Excellerate">
-			</slide>
-			<slide>
-				<img src="/storage/clients/Eastgate.png" alt="Eastgate">
-			</slide>
-			<slide>
-				<img src="/storage/clients/Broll.png" alt="Broll">
-			</slide>
-			<slide>
-				<img src="/storage/clients/Anglo%20American.png" alt="Anglo American">
-			</slide>
-
-		</carousel> --}}
+		</slick>
 	</div>
 </div>
 @include('partial.footer')
 @endsection
+@push('scripts')
+    <script type="application/ld+json">
+	{
+	  "@context": "http://schema.org",
+	  "@type": "WebSite",
+	  "url": "http://sanika.co.za/",
+	  "potentialAction": {
+	    "@type": "SearchAction",
+	    "target": "http://sanika.co.za/search?q={search_term_string}",
+	    "query-input": "required name=search_term_string"
+	  }
+	}
+	{
+	  "@context": "http://schema.org",
+	  "@type": "Organization",
+	  "url": "http://sanika.co.za",
+	  "logo": "http://sanika.co.za/sanika-logo.png",
+	  "contactPoint": [
+	    { "@type": "ContactPoint",
+	      "telephone": "+27-11-425-3061",
+	      "contactType": "customer service"
+	    }
+	  ]
+	}
+	</script>
+@endpush

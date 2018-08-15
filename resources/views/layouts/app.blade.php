@@ -30,5 +30,6 @@
 @stack('scripts')
 @include('partial.jsvars')
 <script src="{{ mix('js/app.js') }}"></script>
+
 </body>
 </html>
