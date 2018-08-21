@@ -5,6 +5,13 @@
 
 @endsection
 @section('body')
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124231969-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-124231969-1');
+</script>
 {{-- @includeWhen($pagetype == 'content', 'patial.mainmenu') --}}
 <div class="container flex-1 mx-auto pb-8">
 	<div class="mt-4 category md:flex">
