@@ -13,7 +13,7 @@
 			<h4 class="text-grey-darker mb-1 whitespace-no-wrap">Other News:</h4>
 			<ul class="mb-4 text-grey-darkest">
 		        @foreach ($news as $new)
-		            <li class="mb-2 bg-grey-lightest py-4s">{{ $new->title }}</li>
+		            <li class="mb-2 bg-grey-lightest py-4s"><a href="/news/{{ $new->category->alias }}/{{ $new->alias }}" class="no-underline font-normal text-sanika-primary hover:underline">{{ $new->title }}</a></li>
 		        @endforeach
 		    </ul>
 		</div>
@@ -27,9 +27,7 @@
 			<div class="flex-1">
 				<span class="font-bold text-lg text-grey-darker uppercase">Case Study</span>
 				<h1 class="font-extrabold uppercase mb-1">{{ $newsitem->title }}</h1>
-				<h2 class="text-grey-darker font-bold mb-2">{{ $newsitem->sub_title }}</h2>
-				<p class="mb-2">{{ $newsitem->category->name }}</p>
-				
+				<h2 class="text-grey-darker font-bold mb-2">{{ $newsitem->sub_title }}</h2>				
 				<p class="mb-2">{!! $newsitem->article !!}</p>
 			</div>
 		</div>

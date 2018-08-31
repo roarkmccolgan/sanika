@@ -400,11 +400,15 @@ class DataBaseController extends Controller
 
 		Log::info('Attach : '.print_r($attachProducts, true));
 		Log::info('Unlisted Products : '.print_r($products, true));
-		$category = Category::where('alias',str_slug($request->input('category')))->first();
-		if(!$category){
+		$category = Category::firstOrCreate(
+			['alias' => str_slug($request->input('category'))],
+			['name' => $request->input('category')]
+		);
+		//$category = Category::where('alias',str_slug($request->input('category')))->first();
+		/*if(!$category){
 			$error = true;
 			$message = 'ERROR!: Category '.$request->input('category').' not found';
-		}
+		}*/
 		if(!$error){
 			$news = News::updateOrCreate(
 				['alias' => str_slug($request->input('title'))],
