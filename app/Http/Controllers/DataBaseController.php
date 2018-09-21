@@ -397,6 +397,16 @@ class DataBaseController extends Controller
 				}
 			}
 		}
+		if($request->has('event')){
+			$event = [
+				'start' => $request->has('event_start') ? Carbon::parse($request->event_start)->timestamp : null,
+				'end' => $request->has('event_end') ? Carbon::parse($request->event_end)->timestamp : null,
+				'address_1' => $request->has('address_1') ? $request->address_1 : null,
+				'address_2' => $request->has('address_2') ? $request->address_2 : null,
+				'address_3' => $request->has('address_3') ? $request->address_3 : null,
+				'link' => $request->has('event_link') ? $request->event_link : null,
+			];
+		}
 
 		Log::info('Attach : '.print_r($attachProducts, true));
 		Log::info('Unlisted Products : '.print_r($products, true));
@@ -404,11 +414,7 @@ class DataBaseController extends Controller
 			['alias' => str_slug($request->input('category'))],
 			['name' => $request->input('category')]
 		);
-		//$category = Category::where('alias',str_slug($request->input('category')))->first();
-		/*if(!$category){
-			$error = true;
-			$message = 'ERROR!: Category '.$request->input('category').' not found';
-		}*/
+		
 		if(!$error){
 			$news = News::updateOrCreate(
 				['alias' => str_slug($request->input('title'))],
@@ -424,11 +430,62 @@ class DataBaseController extends Controller
 					'seo_title' => ($request->has('seo') && $request->has('seo.title')) ? $request->input('seo.title') : null,
 					'seo_keywords' => ($request->has('seo') && $request->has('seo.keywords')) ? $request->input('seo.keywords') : null,
 					'seo_description' => ($request->has('seo') && $request->has('seo.description')) ? $request->input('seo.description') : null,
+					'event' => isset($event) ? $event : null,
 				]
 			);
 
 			if(count($attachProducts)>0){
 				$news->siteproducts()->sync($attachProducts);
+			}
+			if($request->has('image')) {
+				$image = str_replace("dl=0","raw=1",$request->input('image'));
+				$parts = parse_url($image); 
+				$slug_name = str_replace(['%20','?raw=1'],['-',''],basename($parts['path']));
+				Log::info($slug_name);
+				$file_name = str_replace(['%20','-','_','.jpg','.JPG','.JPEG','.png','.png'],[' ',' ',' ','','','','',''],basename($parts['path']));
+				Log::info($file_name);
+				$news->addMediaFromUrl($image)->usingFileName($slug_name)->usingName($file_name)->toMediaCollection('title');
+			}
+
+			if($request->has('content')) {
+				$news->clearMediaCollection('content');				
+				foreach ($request->input('content') as $content) {
+					$content = str_replace("dl=0","raw=1",$content);
+					$parts = parse_url($content); 
+					$slug_name = str_replace(['%20','?raw=1'],['-',''],basename($parts['path']));
+					Log::info($slug_name);
+					$file_name = str_replace(['%20','-','_','.jpg','.JPG','.JPEG','.png','.png'],[' ',' ',' ','','','','',''],basename($parts['path']));
+					Log::info($file_name);
+					$news->addMediaFromUrl($content)->usingFileName($slug_name)->usingName($file_name)->toMediaCollection('content');
+				}
+				$mediaItems = $news->getMedia('content');
+				$replaceImages = [];
+				$replaceURLS = [];
+				foreach ($mediaItems as $key => $item) {
+					$replaceImages[]='img_'.$key;
+					$replaceURLS[]='!['.$item->name.']('.$item->getUrl().' "'.$item->name.'")';
+
+					$replaceImages[]='img_'.$key;
+					$replaceURLS[]='!['.$item->name.']('.$item->getUrl().' "'.$item->name.'")';
+				}
+				if($request->has('article')){
+					$newDescription = str_replace($replaceImages, $replaceURLS, $request->input('article'));
+					$news->article = Markdown::convertToHtml($newDescription);
+				}	
+				$news->save();
+			}
+
+			if($request->has('attachment')) {
+				$news->clearMediaCollection('attachments');
+				foreach ($request->input('attachment') as $attachment) {
+					$attachment = str_replace("dl=0","raw=1",$attachment);
+					$parts = parse_url($attachment); 
+					$slug_name = str_replace(['%20','?raw=1'],['-',''],basename($parts['path']));
+					Log::info($slug_name);
+					$file_name = str_replace(['%20','-','_','.jpg','.JPG','.JPEG','.png','.png','.pdf'],[' ',' ',' ','','','','','',''],basename($parts['path']));
+					Log::info($file_name);
+					$news->addMediaFromUrl($attachment)->usingFileName($slug_name)->usingName($file_name)->toMediaCollection('attachments');
+				}
 			}
 
 			$message = 'Success!\n'.$request->input('title').' Successfully Saved';

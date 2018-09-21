@@ -24,10 +24,15 @@ class News extends Model implements HasMedia
             $this
                 ->addMediaConversion('category')
                 ->fit('contain', 400, 400);
+            $this
+                ->addMediaConversion('hero')
+                ->fit('crop', 1600, 500);
 
         });
 	    $this
-	        ->addMediaCollection('gallery')     
+            ->addMediaCollection('content');
+	    $this
+	        ->addMediaCollection('attachments')     
 	        ->useDisk('media');
 	}
 
@@ -43,12 +48,14 @@ class News extends Model implements HasMedia
 		'seo_title',
 		'seo_keywords',
 		'seo_description',
+		'event',
 	];
 	protected $dates = [
         'publish'
     ];
 	protected $casts = [
         'products' => 'array',
+        'event' => 'array',
     ];
 
 	public function category(){
