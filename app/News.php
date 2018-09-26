@@ -18,17 +18,16 @@ class News extends Model implements HasMedia
 	        ->useDisk('media')
 	        ->singleFile()
 	        ->registerMediaConversions(function (Media $media) {
-            $this
-                ->addMediaConversion('thumb')
-                ->fit('contain', 300, 300);
-            $this
-                ->addMediaConversion('category')
-                ->fit('contain', 400, 400);
-            $this
-                ->addMediaConversion('hero')
-                ->fit('crop', 1600, 500);
-
-        });
+	            $this
+	                ->addMediaConversion('thumb')
+	                ->fit('contain', 300, 300);
+	            $this
+	                ->addMediaConversion('category')
+	                ->fit('contain', 400, 400);
+	            $this
+	                ->addMediaConversion('hero')
+	                ->fit('crop', 1600, 500);
+        	});
 	    $this
             ->addMediaCollection('content');
 	    $this
