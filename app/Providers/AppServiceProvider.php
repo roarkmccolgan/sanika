@@ -21,7 +21,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer(['partial.mainav','home'], function($view){
-            $categories = Category::with(['products','allSubCategories.products'])->orderBy('order')->where('parent_id',null)->where('id', '!=', 11)->get();
+            $categories = Category::with(['products','allSubCategories.products'])->orderBy('order')->where('parent_id',null)->where([
+                ['id', '!=', '11'],
+                ['id', '!=', '12'],
+            ])->get();
             $casestudycategories = Category::has('casestudies')->get();
             $casestudies = CaseStudy::with(['category','siteproducts'])->take(3)->latest()->get();
             $news = News::with(['category','siteproducts'])->whereDate('publish', '<=', Carbon::now())->get();
