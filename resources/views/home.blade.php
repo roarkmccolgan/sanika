@@ -257,7 +257,7 @@
 			<div><img src="/storage/clients/Eastgate.png" alt="Eastgate"></div>
 			<div><img src="/storage/clients/Broll.png" alt="Broll"></div>
 			<div><img src="/storage/clients/Anglo%20American.png" alt="Anglo American"></div>
-			<div><img src="/storage/clients/nandos.png" alt="Nandos"></div>
+			<div><img src="/storage/clients/Nandos.png" alt="Nandos"></div>
 			<div><img src="/storage/clients/Imperial%20Toyota.png" alt="Imperial Toyota"></div>
 			<div><img src="/storage/clients/First%20Quantum.png" alt="First Quantum"></div>
 			<div><img src="/storage/clients/Petra%20Diamonds.png" alt="Petra Diamonds"></div>
