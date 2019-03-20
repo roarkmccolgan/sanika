@@ -77,6 +77,16 @@
                 infinite: true,
                 arrows: true,
             },
+            testimonials:{
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplaySpeed: 6000,
+                adaptiveHeight: true,
+                autoplay: true,
+                infinite: true,
+                arrows: true,
+                fade: true
+            },
 	 		clients:{
 	 			slidesToShow: 6,
 	 			slidesToScroll: 1,

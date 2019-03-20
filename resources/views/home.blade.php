@@ -217,6 +217,62 @@
 		</div>
 		
 	</div>
+	<div class=" mt-6 p-4 bg-grey-lighter rounded">
+		<slick
+			ref="slicktestimonials"
+			:options="slickOptions.testimonials"
+			class="w-5/6 mx-auto"
+		> 
+			<div class="">
+				<div class="relative px-6 text-center">
+					<div class="font-serif text-2xl text-grey-dark">
+						"The levels of service, and quality of products that Sanika delivers are beyond anything else on the market."
+					</div>
+					<div class="mt-4">
+						<div class="font-bold">Khaliphani Khumalo</div>
+						<div class="">Building Services Manager</div>
+						<div class="italic text-blue-light">JHI Retail (Pty) Ltd</div>
+					</div>					
+				</div>
+			</div>
+			<div>
+				<div class="relative px-6 text-center">
+					<div class="font-serif text-2xl text-grey-dark">
+						"The roof looks excellent and we have received quite a number of compliments on your quality of work, I look forward to working with your organization in the future"
+					</div>
+					<div class="mt-4">
+						<div class="font-bold">Brad O’Neill</div>
+						<div class="">Facilities Manager</div>
+						<div class="italic text-blue-light">Nando’s</div>
+					</div>					
+				</div>
+			</div>
+			<div>
+				<div class="relative px-6 text-center">
+					<div class="font-serif text-2xl text-grey-dark">
+						"Thank you for your excellent service."
+					</div>
+					<div class="mt-4">
+						<div class="font-bold">Jean van Niekerk</div>
+						<div class="">Industrial Cleaning &amp; Plant Hire Manager.</div>
+						<div class="italic text-blue-light">Rockent Industrial Services</div>
+					</div>					
+				</div>
+			</div>
+			<div>
+				<div class="relative px-6 text-center">
+					<div class="font-serif text-2xl text-grey-dark">
+						"You have a good team!"
+					</div>
+					<div class="mt-4">
+						<div class="font-bold">Ivan Lin Pr.Eng</div>
+						<div class="">Director</div>
+						<div class="italic text-blue-light">LinSpace</div>
+					</div>					
+				</div>
+			</div>
+		</slick>
+	</div>
 	@if(count($casestudies))
 	<div class="flex flex-wrap mt-6 mb-2 -mx-2">
 		<div class="w-full p-2"><h2 class="uppercase p-2">Latest Projects <a class="text-base text-sanika-primary" href="/casestudies">View all</a></h2></div>
