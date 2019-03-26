@@ -115,6 +115,12 @@
 				</div>
 			@endif
 			<div class="category">
+				@if($newsitem->title == "Sanika Waterproofing Specialists exhibit at the KZN Construction Expo 2019")
+				<span class="block text-grey-darker uppercase mb-1">Listen to the interview below:</span>
+				<audio controls>
+			        <source src="/audio/sanika_highway_radio_interview.mp3" type="audio/mpeg">
+			    </audio>
+				@endif
 				<p class="mb-2">{!! $newsitem->article !!}</p>
 			</div>
 		</div>
