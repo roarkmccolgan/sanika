@@ -18,16 +18,16 @@ class Service extends Model
 
     public function categories()
     {
-        return $this->belongsToMany('App\Category');
+        return $this->belongsToMany(\App\Category::class);
     }
 
     public function products()
     {
-        return $this->belongsToMany('App\Product', 'package_product', 'package_id', 'product_id')->withPivot('qty');
+        return $this->belongsToMany(\App\Product::class, 'package_product', 'package_id', 'product_id')->withPivot('qty');
     }
 
     public function questions()
     {
-        return $this->hasMany('App\QA');
+        return $this->hasMany(\App\QA::class);
     }
 }

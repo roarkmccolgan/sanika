@@ -10,6 +10,6 @@ class Contact extends Model
 
     public function orders()
     {
-        return $this->hasMany('App\Order', 'user_id', 'user_id');
+        return $this->hasMany(\App\Order::class, 'user_id', 'user_id');
     }
 }

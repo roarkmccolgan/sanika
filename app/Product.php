@@ -93,51 +93,51 @@ class Product extends Model implements HasMedia
 
     public function orders()
     {
-        return $this->hasMany('App\Order');
+        return $this->hasMany(\App\Order::class);
     }
 
     public function categories()
     {
-        return $this->belongsToMany('App\Category');
+        return $this->belongsToMany(\App\Category::class);
     }
 
     public function services()
     {
-        return $this->belongsToMany('App\Service');
+        return $this->belongsToMany(\App\Service::class);
     }
 
     public function promotions()
     {
-        return $this->belongsToMany('App\Promotions');
+        return $this->belongsToMany(\App\Promotions::class);
     }
 
     public function features()
     {
-        return $this->hasMany('App\Features');
+        return $this->hasMany(\App\Features::class);
     }
 
     public function specs()
     {
-        return $this->hasMany('App\Specs');
+        return $this->hasMany(\App\Specs::class);
     }
 
     public function stocks()
     {
-        return $this->hasMany('App\Stock');
+        return $this->hasMany(\App\Stock::class);
     }
 
     public function prices()
     {
-        return $this->hasMany('App\Price');
+        return $this->hasMany(\App\Price::class);
     }
 
     public function products()
     {
-        return $this->belongsToMany('App\Product', 'package_product', 'package_id', 'product_id')->withPivot('qty');
+        return $this->belongsToMany(\App\Product::class, 'package_product', 'package_id', 'product_id')->withPivot('qty');
     }
 
     public function questions()
     {
-        return $this->hasMany('App\QA');
+        return $this->hasMany(\App\QA::class);
     }
 }

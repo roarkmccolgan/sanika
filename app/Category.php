@@ -44,12 +44,12 @@ class Category extends Model implements HasMedia
 
     public function parent()
     {
-        return $this->belongsTo('App\Category', 'parent_id');
+        return $this->belongsTo(\App\Category::class, 'parent_id');
     }
 
     public function subCategories()
     {
-        return $this->hasMany('App\Category', 'parent_id');
+        return $this->hasMany(\App\Category::class, 'parent_id');
     }
 
     public function allSubCategories()
@@ -59,16 +59,16 @@ class Category extends Model implements HasMedia
 
     public function services()
     {
-        return $this->belongsToMany('App\Service');
+        return $this->belongsToMany(\App\Service::class);
     }
 
     public function products()
     {
-        return $this->belongsToMany('App\Product');
+        return $this->belongsToMany(\App\Product::class);
     }
 
     public function casestudies()
     {
-        return $this->hasMany('App\CaseStudy');
+        return $this->hasMany(\App\CaseStudy::class);
     }
 }

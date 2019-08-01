@@ -62,11 +62,11 @@ class CaseStudy extends Model implements HasMedia
 
     public function category()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo(\App\Category::class);
     }
 
     public function siteproducts()
     {
-        return $this->belongsToMany('App\Product');
+        return $this->belongsToMany(\App\Product::class);
     }
 }

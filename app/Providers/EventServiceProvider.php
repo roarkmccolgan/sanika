@@ -13,14 +13,14 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\Event' => [
-            'App\Listeners\EventListener',
+        \App\Events\Event::class => [
+            \App\Listeners\EventListener::class,
         ],
-        'App\Events\OrderCreated' => [
-            'App\Listeners\SendOrderNotification',
+        \App\Events\OrderCreated::class => [
+            \App\Listeners\SendOrderNotification::class,
         ],
-        'App\Events\LeadGenerated' => [
-            'App\Listeners\AssignLeadAtInsightly',
+        \App\Events\LeadGenerated::class => [
+            \App\Listeners\AssignLeadAtInsightly::class,
         ],
     ];
 
