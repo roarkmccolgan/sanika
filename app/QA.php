@@ -6,17 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class QA extends Model
 {
-    protected $fillable = ['comment','email','name'];
+    protected $fillable = ['comment', 'email', 'name'];
 
-    public function product(){
-    	return $this->belongsTo('\App\Product');
+    public function product()
+    {
+        return $this->belongsTo('\App\Product');
     }
 
-    public function service(){
-    	return $this->belongsTo('\App\Service');
+    public function service()
+    {
+        return $this->belongsTo('\App\Service');
     }
 
-    public function answers() {
-	    return $this->hasMany('App\QA', 'parent_id');
-	}
+    public function answers()
+    {
+        return $this->hasMany('App\QA', 'parent_id');
+    }
 }

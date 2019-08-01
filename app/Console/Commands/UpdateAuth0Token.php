@@ -3,8 +3,8 @@
 namespace App\Console\Commands;
 
 use App\Auth0Token;
-use Auth0\SDK\API\Authentication;
 use Illuminate\Console\Command;
+use Auth0\SDK\API\Authentication;
 
 class UpdateAuth0Token extends Command
 {
@@ -41,16 +41,16 @@ class UpdateAuth0Token extends Command
     {
         $api = new Authentication(env('AUTH0_MANAGEMENT_DOMAIN'), env('AUTH0_MANAGEMENT_CLIENT_ID'), env('AUTH0_MANAGEMENT_CLIENT_SECRET'));
         $token = $api->client_credentials([
-          'audience' => env('AUTH0_MANAGEMENT_AUDIENCE')
+          'audience' => env('AUTH0_MANAGEMENT_AUDIENCE'),
         ]);
         $dbToken = Auth0Token::updateOrCreate(
             ['id' => 1],
             [
                 'access_token' => $token['access_token'],
-                'token_type' => $token['token_type']
+                'token_type' => $token['token_type'],
             ]
         );
-        $this->info("New Token Generated!");
+        $this->info('New Token Generated!');
         $this->info($token['access_token']);
     }
 }

@@ -6,30 +6,33 @@ use Illuminate\Http\Request;
 
 class Auth0Controller extends Controller
 {
-	public function index()
-	{
-		$isLoggedIn = \Auth::check();
-		return view('index')
-		->with('isLoggedIn', $isLoggedIn);
-	}
+    public function index()
+    {
+        $isLoggedIn = \Auth::check();
 
-	public function login()
-	{
-		return \App::make('auth0')->login(null, null, ['scope' => 'openid profile email'], 'code');
-	}
+        return view('index')
+        ->with('isLoggedIn', $isLoggedIn);
+    }
 
-	public function logout()
-	{
-		\Auth::logout();
-		return  \Redirect::intended('/');
-	}
+    public function login()
+    {
+        return \App::make('auth0')->login(null, null, ['scope' => 'openid profile email'], 'code');
+    }
 
-	public function dump()
-	{
-		$isLoggedIn = \Auth::check();
-		return view('dump')
-		->with('isLoggedIn', $isLoggedIn)
-		->with('user',\Auth::user()->getUserInfo())
-		->with('accessToken',\Auth::user()->getAuthPassword());
-	}
+    public function logout()
+    {
+        \Auth::logout();
+
+        return  \Redirect::intended('/');
+    }
+
+    public function dump()
+    {
+        $isLoggedIn = \Auth::check();
+
+        return view('dump')
+        ->with('isLoggedIn', $isLoggedIn)
+        ->with('user', \Auth::user()->getUserInfo())
+        ->with('accessToken', \Auth::user()->getAuthPassword());
+    }
 }

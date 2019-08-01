@@ -4,22 +4,27 @@ namespace App\Events;
 
 use App\Product;
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class LeadGenerated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $product;
+
     public $first_name;
+
     public $last_name;
+
     public $email;
+
     public $telephone;
+
     /**
      * Create a new event instance.
      *

@@ -70,7 +70,7 @@ return [
         //     'model' => App\User::class,
         // ],
         'users' => [
-            'driver' => 'auth0'
+            'driver' => 'auth0',
         ],
 
         // 'users' => [

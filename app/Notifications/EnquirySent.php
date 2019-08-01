@@ -10,10 +10,15 @@ use Illuminate\Notifications\Messages\MailMessage;
 class EnquirySent extends Notification
 {
     use Queueable;
+
     public $message;
+
     public $subject;
+
     public $fullname;
+
     public $email;
+
     public $telephone;
 
     /**

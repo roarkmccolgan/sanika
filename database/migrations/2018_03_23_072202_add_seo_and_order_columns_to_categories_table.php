@@ -29,7 +29,7 @@ class AddSeoAndOrderColumnsToCategoriesTable extends Migration
     public function down()
     {
         Schema::table('categories', function ($table) {
-            $table->dropColumn(['seo_title','seo_keywords','seo_description','order']);
+            $table->dropColumn(['seo_title', 'seo_keywords', 'seo_description', 'order']);
         });
     }
 }

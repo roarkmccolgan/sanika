@@ -2,10 +2,10 @@
 
 namespace App\Listeners;
 
+use GuzzleHttp\Client;
 use App\Events\LeadGenerated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use GuzzleHttp\Client;
 
 class AssignLeadAtInsightly implements ShouldQueue
 {
@@ -39,9 +39,9 @@ class AssignLeadAtInsightly implements ShouldQueue
                 'LAST_NAME' => $event->last_name,
                 'PHONE_NUMBER' => $event->telephone,
                 'EMAIL_ADDRESS' => $event->email,
-                'CUSTOMFIELDS' => $event->product->insightly['CUSTOMFIELDS']
+                'CUSTOMFIELDS' => $event->product->insightly['CUSTOMFIELDS'],
             ],
-            'auth' => [env('INSIGHTLY_API_KEY'), '']
+            'auth' => [env('INSIGHTLY_API_KEY'), ''],
         ]);
     }
 }

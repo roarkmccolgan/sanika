@@ -2,69 +2,71 @@
 
 namespace App;
 
+use Spatie\MediaLibrary\Models\Media;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\Models\Media;
 
 class CaseStudy extends Model implements HasMedia
 {
-	use HasMediaTrait;
+    use HasMediaTrait;
 
-	public function registerMediaCollections()
-	{
-	    $this
-	        ->addMediaCollection('title')     
-	        ->useDisk('media')
-	        ->singleFile()
-	        ->registerMediaConversions(function (Media $media) {
-            $this
+    public function registerMediaCollections()
+    {
+        $this
+            ->addMediaCollection('title')
+            ->useDisk('media')
+            ->singleFile()
+            ->registerMediaConversions(function (Media $media) {
+                $this
                 ->addMediaConversion('thumb')
                 ->fit('contain', 400, 400);
-            $this
+                $this
                 ->addMediaConversion('hero')
                 ->fit('crop', 1600, 500);
-        });
-	    $this
-	        ->addMediaCollection('gallery')     
-	        ->useDisk('media')
-	        ->registerMediaConversions(function (Media $media) {
-	            $this
-	                ->addMediaConversion('thumb')
-	                ->fit('contain', 400, 400);
+            });
+        $this
+            ->addMediaCollection('gallery')
+            ->useDisk('media')
+            ->registerMediaConversions(function (Media $media) {
+                $this
+                    ->addMediaConversion('thumb')
+                    ->fit('contain', 400, 400);
+            });
+        $this
+            ->addMediaCollection('video')
+            ->useDisk('media');
+    }
 
-	        });
-	    $this
-	        ->addMediaCollection('video')     
-	        ->useDisk('media');
-	}
+    protected $fillable = [
+        'category_id',
+        'title',
+        'alias',
+        'client',
+        'videos',
+        'site',
+        'where',
+        'scope',
+        'background',
+        'solution',
+        'products',
+        'seo_title',
+        'seo_keywords',
+        'seo_description',
+    ];
 
-	protected $fillable = [
-		'category_id',
-		'title',
-		'alias',
-		'client',
-		'videos',
-		'site',
-		'where',
-		'scope',
-		'background',
-		'solution',
-		'products',
-		'seo_title',
-		'seo_keywords',
-		'seo_description',
-	];
-	protected $casts = [
+    protected $casts = [
         'products' => 'array',
         'videos' => 'array',
     ];
 
-	public function category(){
-		return $this->belongsTo('App\Category');
-	}
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
 
-	public function siteproducts(){
-		return $this->belongsToMany('App\Product');
-	}
+    public function siteproducts()
+    {
+        return $this->belongsToMany('App\Product');
+    }
 }

@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Promotions extends Model
 {
-    public function products(){
-    	return $this->belongsToMany('App\Products');
+    public function products()
+    {
+        return $this->belongsToMany('App\Products');
     }
 }

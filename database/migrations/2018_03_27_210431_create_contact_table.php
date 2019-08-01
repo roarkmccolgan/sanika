@@ -39,7 +39,7 @@ class CreateContactTable extends Migration
             $table->string('delivery_city')->nullable();
             $table->string('delivery_province')->nullable();
             $table->string('delivery_postal')->nullable();
-            
+
             $table->timestamps();
         });
     }

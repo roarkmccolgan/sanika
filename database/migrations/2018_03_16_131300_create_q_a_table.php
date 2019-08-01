@@ -25,7 +25,7 @@ class CreateQATable extends Migration
             $table->foreign('parent_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
-            
+
             $table->timestamps();
         });
     }

@@ -1,9 +1,9 @@
 <?php
 
-use App\CaseStudy;
-use App\Category;
 use App\News;
 use App\Order;
+use App\Category;
+use App\CaseStudy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -56,46 +56,47 @@ Route::post('/casestudyfrompdf', 'DataBaseController@casestudyfrompdf');
 Route::post('/newsfrompdf', 'DataBaseController@newsfrompdf');
 Route::post('/galleryfrompdf', 'DataBaseController@galleryfrompdf');
 
-Route::get('/media/category/{category}/{file}', function($category, $file){
-	$cat = \App\Category::find($category);
-	$cat->addMedia(storage_path('source_images/'.$file))->preservingOriginal()->toMediaCollection('title');
-	
-	return 'success';
+Route::get('/media/category/{category}/{file}', function ($category, $file) {
+    $cat = \App\Category::find($category);
+    $cat->addMedia(storage_path('source_images/'.$file))->preservingOriginal()->toMediaCollection('title');
+
+    return 'success';
 });
-Route::get('/media/product/{product}', function(Request $request, $product){
-	if($request->query('file')){
-		$prod = \App\Product::find($product);
-		$prod->addMediaFromUrl($request->query('file'))->toMediaCollection('title');
-		
-		return 'success';
-	}
-	abort(404);
+Route::get('/media/product/{product}', function (Request $request, $product) {
+    if ($request->query('file')) {
+        $prod = \App\Product::find($product);
+        $prod->addMediaFromUrl($request->query('file'))->toMediaCollection('title');
+
+        return 'success';
+    }
+    abort(404);
 });
 
-Route::get('/media/casestudy/{casestudy}/{file}', function($casestudy, $file){
-	$casestudy = \App\CaseStudy::find($casestudy);
-	$casestudy->addMedia(storage_path('source_images/'.$file))->preservingOriginal()->toMediaCollection('title');
-	
-	return 'success';
+Route::get('/media/casestudy/{casestudy}/{file}', function ($casestudy, $file) {
+    $casestudy = \App\CaseStudy::find($casestudy);
+    $casestudy->addMedia(storage_path('source_images/'.$file))->preservingOriginal()->toMediaCollection('title');
+
+    return 'success';
 });
 
-Route::get('/media/news/{newsitem}/{file}', function($newsitem, $file){
-	$newsitem = \App\News::find($newsitem);
-	$newsitem->addMedia(storage_path('source_images/'.$file))->preservingOriginal()->toMediaCollection('title');
-	
-	return 'success';
+Route::get('/media/news/{newsitem}/{file}', function ($newsitem, $file) {
+    $newsitem = \App\News::find($newsitem);
+    $newsitem->addMedia(storage_path('source_images/'.$file))->preservingOriginal()->toMediaCollection('title');
+
+    return 'success';
 });
 
-Route::get('/listcategories', function(){
-	$categories = Category::with(['products','allSubCategories.products'])->orderBy('order')->where('parent_id',null)->get();
-	return $categories;
+Route::get('/listcategories', function () {
+    $categories = Category::with(['products', 'allSubCategories.products'])->orderBy('order')->where('parent_id', null)->get();
+
+    return $categories;
 });
 
-Route::get('/testmail', function(){
-	$order = Order::with(['items','contact'])->find(11);
-	
-	/*Mail::to('roarkmccolgan@gmail.com')
-	->send(new App\Mail\SendOrder($order));*/
+Route::get('/testmail', function () {
+    $order = Order::with(['items', 'contact'])->find(11);
+
+    /*Mail::to('roarkmccolgan@gmail.com')
+    ->send(new App\Mail\SendOrder($order));*/
 
     return (new App\Mail\SendOrder($order))->render();
 });
@@ -105,7 +106,6 @@ Route::get('/user/{user}', 'UserController@search');
 Route::prefix('api')->group(function () {
     Route::post('cart', 'CartController@addToCart');
     Route::get('clearcart', 'CartController@clearCart');
-    
-    Route::post('checkout', 'CheckoutController@saveCheckout');
 
+    Route::post('checkout', 'CheckoutController@saveCheckout');
 });

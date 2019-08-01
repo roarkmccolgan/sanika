@@ -2,11 +2,11 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
+use Spatie\MediaLibrary\Models\Media;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\Models\Media;
 
 class Product extends Model implements HasMedia
 {
@@ -34,24 +34,23 @@ class Product extends Model implements HasMedia
     public function registerMediaCollections()
     {
         $this
-            ->addMediaCollection('title') 
+            ->addMediaCollection('title')
             ->useDisk('media')
             ->singleFile()
             ->registerMediaConversions(function (Media $media) {
-            $this
+                $this
                 ->addMediaConversion('thumb')
                 ->fit('contain', 300, 300);
-            $this
+                $this
                 ->addMediaConversion('product')
                 ->fit('contain', 400, 400);
-
-        });
+            });
         $this
             ->addMediaCollection('content');
         $this
             ->addMediaCollection('gallery')
             ->registerMediaConversions(function (Media $media) {
-            $this
+                $this
                 ->addMediaConversion('thumb')
                 ->fit('contain', 400, 400);
             });
@@ -68,67 +67,77 @@ class Product extends Model implements HasMedia
         'insightly' => 'array',
     ];
 
-	public function getPathAttribute($value)
+    public function getPathAttribute($value)
     {
-        return collect($this->categories()->get())->implode('alias','/');
+        return collect($this->categories()->get())->implode('alias', '/');
     }
 
-	protected $fillable = [
-		'sku',
-		'name',
-		'alias',
-		'strapline',
-		'description',
+    protected $fillable = [
+        'sku',
+        'name',
+        'alias',
+        'strapline',
+        'description',
         'how_it_works',
         'application',
         'uses_intro',
         'uses',
         'insightly',
-		'price',
-		'price_install',
-		'seo_title',
-		'seo_keywords',
+        'price',
+        'price_install',
+        'seo_title',
+        'seo_keywords',
         'seo_description',
-		'insightly'
-	];
+        'insightly',
+    ];
 
-    public function orders(){
-    	return $this->hasMany('App\Order');
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
     }
 
-    public function categories(){
+    public function categories()
+    {
         return $this->belongsToMany('App\Category');
     }
 
-    public function services(){
-    	return $this->belongsToMany('App\Service');
+    public function services()
+    {
+        return $this->belongsToMany('App\Service');
     }
 
-    public function promotions(){
-    	return $this->belongsToMany('App\Promotions');
+    public function promotions()
+    {
+        return $this->belongsToMany('App\Promotions');
     }
 
-    public function features(){
-    	return $this->hasMany('App\Features');
+    public function features()
+    {
+        return $this->hasMany('App\Features');
     }
 
-    public function specs(){
-    	return $this->hasMany('App\Specs');
+    public function specs()
+    {
+        return $this->hasMany('App\Specs');
     }
 
-    public function stocks(){
+    public function stocks()
+    {
         return $this->hasMany('App\Stock');
     }
 
-    public function prices(){
-    	return $this->hasMany('App\Price');
+    public function prices()
+    {
+        return $this->hasMany('App\Price');
     }
 
-    public function products(){
-    	return $this->belongsToMany('App\Product', 'package_product', 'package_id', 'product_id')->withPivot('qty');
+    public function products()
+    {
+        return $this->belongsToMany('App\Product', 'package_product', 'package_id', 'product_id')->withPivot('qty');
     }
 
-    public function questions(){
-    	return $this->hasMany('App\QA');
+    public function questions()
+    {
+        return $this->hasMany('App\QA');
     }
 }

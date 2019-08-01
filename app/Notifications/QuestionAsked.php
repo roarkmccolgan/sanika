@@ -12,8 +12,11 @@ class QuestionAsked extends Notification
     use Queueable;
 
     public $product;
+
     public $question;
+
     public $fullname;
+
     public $email;
 
     /**
@@ -21,7 +24,7 @@ class QuestionAsked extends Notification
      *
      * @return void
      */
-    public function __construct($product,$question,$fullname,$email)
+    public function __construct($product, $question, $fullname, $email)
     {
         $this->product = $product;
         $this->question = $question;
@@ -52,7 +55,7 @@ class QuestionAsked extends Notification
                     ->greeting('MaxRenew New Question')
                     ->line('A question about '.$this->product->name.' was asked by '.$this->fullname)
                     ->line('Question: '.$this->question->comment)
-                    ->action('Reply', url($this->product->path .'/'. $this->product->alias))
+                    ->action('Reply', url($this->product->path.'/'.$this->product->alias))
                     ->line('Please answer ASAP!');
     }
 

@@ -17,7 +17,7 @@ class CreateFeaturesTable extends Migration
             $table->increments('id');
             $table->integer('product_id')->unsigned();
             $table->text('name');
-            
+
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
