@@ -7,9 +7,9 @@ mix.webpackConfig({
         jquery: path.join(__dirname, 'node_modules', 'jquery', 'dist', 'jquery'),
       }
     }
-  }).js('resources/assets/js/app.js', 'public/js')
+  }).js('resources/js/app.js', 'public/js')
   .version()
-  .postCss('resources/assets/css/app.css', 'public/css')
+  .postCss('resources/css/app.css', 'public/css')
   .options({
     postCss: [
       require('postcss-import')(),
