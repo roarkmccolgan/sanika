@@ -133,7 +133,7 @@ class Product extends Model implements HasMedia
 
     public function products()
     {
-        return $this->belongsToMany(\App\Product::class, 'package_product', 'package_id', 'product_id')->withPivot('qty');
+        return $this->belongsToMany(self::class, 'package_product', 'package_id', 'product_id')->withPivot('qty');
     }
 
     public function questions()

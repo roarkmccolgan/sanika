@@ -20,6 +20,6 @@ class QA extends Model
 
     public function answers()
     {
-        return $this->hasMany(\App\QA::class, 'parent_id');
+        return $this->hasMany(self::class, 'parent_id');
     }
 }
