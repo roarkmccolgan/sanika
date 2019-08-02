@@ -100,7 +100,14 @@
 		max-width: 768px;
 	}
 }
-
+.newsItem {
+	order: 9999;
+}
+@screen sm{
+	.newsItem {
+		order: 0;
+	}
+}
 /*
 ***************************
 http://davidwalsh.name/css-flip [IE version]
