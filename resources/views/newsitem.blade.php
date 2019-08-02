@@ -8,7 +8,7 @@
 {{-- @includeWhen($pagetype == 'content', 'patial.mainmenu') --}}
 <div class="container flex-1 mx-auto pb-8 px-2 sm:px-0">
 	<div class="sm:flex">
-		@if(count($news))
+		@if($news)
 		<div class="hidden sm:w-1/5 sm:block sm:p-2 mt-4 mr-4 uppercase border-r">
 			<h4 class="text-grey-darker mb-1 whitespace-no-wrap">Other News:</h4>
 			<ul class="mb-4 text-grey-darkest">
@@ -71,14 +71,14 @@
 				<img src="{{ $newsitem->getFirstMediaUrl('title', 'hero') }}" alt="Image of {{ $newsitem['title'] }}">
 			</div>
 			@endif
-			@if(count($newsitem->siteproducts) || count($newsitem->products) || $newsitem->hasMedia('attachments'))
+			@if($newsitem->siteproducts || $newsitem->products || $newsitem->hasMedia('attachments'))
 				<div class="flex">
-					@if(count($newsitem->siteproducts) || count($newsitem->products))
+					@if($newsitem->siteproducts || $newsitem->products)
 					<div class="w-1/2">
 						<span class="block text-grey-darker uppercase mb-1">Related Products</span>
 						<div class="flex">
 						    <ul class="mb-4 text-grey-darkest">
-						    	@if(count($newsitem->siteproducts))
+						    	@if($newsitem->siteproducts)
 							    	@foreach ($newsitem->siteproducts as $product)
 								        <li class="mb-2">
 								        	<a href="{{'/categories/'.$product->path.'/products/'.$product->alias}}" class="no-underline text-sanika-primary">
@@ -126,7 +126,7 @@
 		</div>
 	</div>
 	<div class="flex flex-wrap -mx-2 mt-6 text-base">
-		@if(count($newsitem->siteproducts))
+		@if($newsitem->siteproducts)
 		<h3 class="font-extrabold uppercase w-full mb-2 px-2">Related Products</h3>
 		@foreach(collect($newsitem->siteproducts)->chunk(3) as $chunk)
 		<div class="w-full flex flex-wrap items-stretch">

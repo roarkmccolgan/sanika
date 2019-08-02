@@ -12,7 +12,7 @@
 				@foreach($categories as $category)
 				<div class="menu text-sm sm:flex sm:items-center sm:rounded-t">
 					<a href="/categories/{{ $category->alias }}" class="block text-base sm:inline-block font-bold bg-grey-light sm:bg-transparent text-black uppercase hover:text-grey-dark no-underline p-2">{{ $category->name }}</a>
-					@if(count($category->allSubCategories) && !count($category->products))
+					@if($category->allSubCategories && !$category->products)
 					<div class="submenu sm:absolute">
 						<div class="sm:flex -mx-4 p-4">
 							<div class="px-4">
@@ -26,13 +26,13 @@
 						</div>
 					</div>
 					@else
-						@if(count($category->allSubCategories))
+						@if($category->allSubCategories)
 						<div class="submenu sm:absolute sm:pin-x">
 							<div class="sm:flex -mx-4 p-4">
 								@foreach($category->allSubCategories as $subCategory)
 								<div class="px-4 sm:w-1/5">
 									<a href="/categories/{{ $category->alias }}/{{ $subCategory->alias }}" class="block w-full font-bold uppercase text-grey-darker sm:text-white sm:pb-4 sm:border-b hover:text-sanika-primary mt-2 mb-2 sm:mt-0 sm:mb-4">{{$subCategory->name}}</a>
-									@if(count($subCategory->products))
+									@if($subCategory->products)
 										@foreach($subCategory->products as $catProd)
 											<a href="/categories/{{ $catProd->path }}/products/{{ $catProd->alias }}" class="flex items-center py-2 px-2 text-black sm:text-grey-light hover:text-sanika-primary no-underline border-b border-dotted border-grey-darker">
 												{{ $catProd->name }}
@@ -48,7 +48,7 @@
 				</div>
 				@endforeach
 				{{-- CaseStudies --}}
-				@if(count($casestudycategories))
+				@if($casestudycategories)
 				<div class="menu text-sm sm:flex sm:items-center sm:rounded-t">
 					<a href="/casestudies" class="block text-base sm:inline-block font-bold bg-grey-light sm:bg-transparent text-black uppercase hover:text-grey-dark no-underline p-2">Case Studies</a>
 					<div class="submenu sm:absolute">
@@ -63,7 +63,7 @@
 				</div>
 				@endif
 				{{-- News --}}
-				@if(count($news))
+				@if($news)
 				<div class="menu text-sm sm:flex sm:items-center sm:rounded-t">
 					<a href="/news" class="block text-base sm:inline-block font-bold bg-grey-light sm:bg-transparent text-black uppercase hover:text-grey-dark no-underline p-2">News</a>
 					<div class="submenu sm:absolute">

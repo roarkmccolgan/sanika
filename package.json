@@ -12,10 +12,9 @@
     "devDependencies": {
         "axios": "^0.17",
         "cross-env": "^5.1",
-        "jquery": "^3.3.1",
         "laravel-mix": "^2.1.11",
+        "laravel-mix-bundle-analyzer": "^1.0.2",
         "laravel-mix-purgecss": "^1.0",
-        "lodash": "^4.17.10",
         "postcss-cssnext": "^3.1",
         "tailwindcss": "^0.6.4",
         "vue": "^2.5.16"
@@ -26,6 +25,7 @@
         "@fortawesome/pro-regular-svg-icons": "^5.2.0",
         "@fortawesome/vue-fontawesome": "^0.1.1",
         "ajv": "^6.5.2",
+        "jquery": "^3.4.1",
         "npm": "^5.10.0",
         "postcss-import": "^11.1.0",
         "vue-instantsearch": "^1.5.1",

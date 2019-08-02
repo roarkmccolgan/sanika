@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
             $categories = Category::with(['products', 'allSubCategories.products'])->orderBy('order')->where('parent_id', null)->whereNotIn('id', [11, 12, 13, 14, 15])->get();
             $casestudycategories = Category::has('casestudies')->get();
             $casestudies = CaseStudy::with(['category', 'siteproducts'])->take(3)->latest()->get();
-            $news = News::with(['category', 'siteproducts'])->whereDate('publish', '<=', Carbon::now())->get();
+            $news = News::with(['category', 'siteproducts'])->orderBy('publish','desc')->whereDate('publish', '<=', Carbon::now())->get();
             $data = [
                 'categories'=>$categories,
                 'casestudycategories'=>$casestudycategories,

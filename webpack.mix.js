@@ -1,13 +1,15 @@
 let mix = require('laravel-mix')
+require('laravel-mix-bundle-analyzer');
 require('laravel-mix-purgecss')
+// mix.webpackConfig({
+//     resolve: {
+//       alias: {
+//         jquery: path.join(__dirname, 'node_modules', 'jquery', 'dist', 'jquery'),
+//       }
+//     }
+//   })
 
-mix.webpackConfig({
-    resolve: {
-      alias: {
-        jquery: path.join(__dirname, 'node_modules', 'jquery', 'dist', 'jquery'),
-      }
-    }
-  }).js('resources/js/app.js', 'public/js')
+mix.js('resources/js/app.js', 'public/js')
   .version()
   .postCss('resources/css/app.css', 'public/css')
   .options({
@@ -24,4 +26,8 @@ mix.webpackConfig({
       globs: [
             path.join(__dirname, 'node_modules/vue-tabs-component/**/*.vue'),
         ],
-  })
+  });
+
+if (!mix.inProduction()) {
+    mix.bundleAnalyzer();
+}

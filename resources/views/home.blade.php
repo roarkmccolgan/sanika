@@ -149,7 +149,7 @@
 	</div>
 </div>
 <div class="container flex-1 mx-auto pb-8">
-	<div class="flex flex-wrap -mx-2 mt-6">
+	<div class="flex flex-wrap items-center -mx-2 mt-6">
 		<form id="typerSearchForm" class="w-full p-4 sm:p-2 mb-6 sm:flex sm:items-center justify-center border-b" action="/search" method="GET">
 			
 			<div class="font-bold text-2xl"> I have a problem with </div>
@@ -182,34 +182,34 @@
 					:options="slickOptions.gallery"
 				>
 					<div class="py-2 pb-2">
-						<img class="block" src="/images/gallery/gallery_1.png" alt="Samrand Roof">
+						<img class="block" src="/images/gallery/gallery_1.jpeg" alt="Samrand Roof">
 					</div>
 					<div class="py-2 pb-2">
-						<img class="block" src="/images/gallery/gallery_2.png" alt="">
+						<img class="block" src="/images/gallery/gallery_2.jpeg" alt="">
 					</div>
 					<div class="py-2 pb-2">
-						<img class="block" src="/images/gallery/gallery_3.png" alt="Turbine Hall">
+						<img class="block" src="/images/gallery/gallery_3.jpeg" alt="Turbine Hall">
 					</div>
 					<div class="py-2 pb-2">
-						<img class="block" src="/images/gallery/gallery_4.png" alt="Impala">
+						<img class="block" src="/images/gallery/gallery_4.jpeg" alt="Impala">
 					</div>
 					<div class="py-2 pb-2">
-						<img class="block" src="/images/gallery/gallery_5.png" alt="Eastgate">
+						<img class="block" src="/images/gallery/gallery_5.jpeg" alt="Eastgate">
 					</div>
 					<div class="py-2 pb-2">
-						<img class="block" src="/images/gallery/gallery_6.png" alt="Samrand">
+						<img class="block" src="/images/gallery/gallery_6.jpeg" alt="Samrand">
 					</div>
 					<div class="py-2 pb-2">
-						<img class="block" src="/images/gallery/gallery_7.png" alt="kakamaas">
+						<img class="block" src="/images/gallery/gallery_7.jpeg" alt="kakamaas">
 					</div>
 					<div class="py-2 pb-2">
-						<img class="block" src="/images/gallery/gallery_8.png" alt="Sisani Studios">
+						<img class="block" src="/images/gallery/gallery_8.jpeg" alt="Sisani Studios">
 					</div>
 					<div class="py-2 pb-2">
-						<img class="block" src="/images/gallery/gallery_9.png" alt="Shaft">
+						<img class="block" src="/images/gallery/gallery_9.jpeg" alt="Shaft">
 					</div>
 					<div class="py-2 pb-2">
-						<img class="block" src="/images/gallery/gallery_10.png" alt="Nandos">
+						<img class="block" src="/images/gallery/gallery_10.jpeg" alt="Nandos">
 					</div>
 				</slick>
 			</div>
@@ -273,12 +273,12 @@
 			</div>
 		</slick>
 	</div>
-	@if(count($casestudies))
+	@if($casestudies)
 	<div class="flex flex-wrap mt-6 mb-2 -mx-2">
 		<div class="w-full p-2"><h2 class="uppercase p-2">Latest Projects <a class="text-base text-sanika-primary" href="/casestudies">View all</a></h2></div>
 		@foreach($casestudies->chunk(3) as $chunk)
 		@foreach($chunk as $casestudy)
-		<div class="sm:w-1/{{ count($chunk)==1 ? 'full' : '3' }} p-2">
+		<div class="sm:w-1/{{ $chunk->count()==1 ? 'full' : '3' }} p-2">
 			<div class="w-full bg-white border shadow mx-2 p-4">
 				<a class="no-underline text-black" href="{{'/casestudies/'.$casestudy->category->alias.'/'.$casestudy->alias }}">
 				@if($casestudy->hasMedia('title'))

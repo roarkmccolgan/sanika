@@ -37,7 +37,7 @@
 							<span class="block text-grey-darker uppercase mb-1">Products Used</span>
 							<div class="flex">
 							    <ul class="mb-4 text-grey-darkest">
-							    	@if(count($casestudy->siteproducts))
+							    	@if($casestudy->siteproducts)
 								    	@foreach ($casestudy->siteproducts as $product)
 									        <li class="mb-2">
 									        	<a href="{{'/categories/'.$product->path.'/products/'.$product->alias}}" class="no-underline text-sanika-primary">
@@ -121,7 +121,7 @@
 		</div>
 	</div>
 	<div class="flex flex-wrap -mx-2 mt-6 text-base">
-		@if(count($casestudy->siteproducts))
+		@if($casestudy->siteproducts)
 		<h3 class="font-extrabold uppercase w-full mb-2 px-2">Products used</h3>
 		@foreach(collect($casestudy->siteproducts)->chunk(3) as $chunk)
 		<div class="w-full flex flex-wrap items-stretch">

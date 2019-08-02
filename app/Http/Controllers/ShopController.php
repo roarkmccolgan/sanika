@@ -19,7 +19,7 @@ class ShopController extends Controller
             'cart' => session('cart'),
         ]);
 
-        return view('home', compact(['cart', 'casestudies']));
+        return view('home', compact(['casestudies']));
     }
 
     public function getCategories($cat)

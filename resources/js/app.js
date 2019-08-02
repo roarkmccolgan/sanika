@@ -61,6 +61,7 @@
  const home = new Vue({
  	el: '#app',
  	data: {
+        showNews: false,
  		slickOptions: {
             gallery:{
                 slidesToShow: 1,
@@ -497,5 +498,16 @@
         handleLazeLoadError(event, slick, image, imageSource) {
         	console.log('handleLazeLoadError', event, slick, image, imageSource);
         },
+        showLatestNews: function(){
+            this.showNews = true
+        }
+    },
+    mounted: function(){
+        var that = this;
+        if(this.$refs.newsItem){
+            this.$refs.newsItem.classList.remove('hidden');
+            
+        }
+        setTimeout(this.showLatestNews, 2000);
     }
 });
