@@ -63,14 +63,14 @@
 				</div>
 				@endif
 				{{-- News --}}
-				@if($news)
+				@if($newscategories)
 				<div class="menu text-sm sm:flex sm:items-center sm:rounded-t">
 					<a href="/news" class="block text-base sm:inline-block font-bold bg-grey-light sm:bg-transparent text-black uppercase hover:text-grey-dark no-underline p-2">News</a>
 					<div class="submenu sm:absolute">
 						<div class="p-4">
-							@foreach($news as $newsitem)
+							@foreach($newscategories as $newscategory)
 							<div class="">
-								<span class="text-grey-dark">{{$newsitem->category->name }}</span> <a href="/news/{{ $newsitem->category->alias }}/{{ $newsitem->alias }}" class="block w-full py-2 px-2 text-black sm:text-grey-light hover:text-sanika-primary no-underline border-b border-dotted border-grey-darker">{{$newsitem->title }}</a>
+								<span class="text-grey-dark"></span> <a href="/news/{{ $newscategory->alias }}/" class="block w-full py-2 px-2 text-black sm:text-grey-light hover:text-sanika-primary no-underline border-b border-dotted border-grey-darker">{{$newscategory->name }}</a>
 							</div>
 							@endforeach
 						</div>

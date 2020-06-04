@@ -217,61 +217,73 @@
 		</div>
 		
 	</div>
-	<div class=" mt-6 p-4 bg-grey-lighter rounded">
-		<slick
-			ref="slicktestimonials"
-			:options="slickOptions.testimonials"
-			class="w-5/6 mx-auto"
-		> 
-			<div class="">
-				<div class="relative px-6 text-center">
-					<div class="font-serif text-2xl text-grey-dark">
-						"The levels of service, and quality of products that Sanika delivers are beyond anything else on the market."
-					</div>
-					<div class="mt-4">
-						<div class="font-bold">Khaliphani Khumalo</div>
-						<div class="">Building Services Manager</div>
-						<div class="italic text-blue-light">JHI Retail (Pty) Ltd</div>
-					</div>					
-				</div>
+	<div class=" mt-6 p-4 flex flex-wrap items-center">
+		<div class="w-full sm:w-1/3">
+			<div class="border border-red-dark rounded p-4 mr-4">
+				<img src="/images/covid_19.png" class="w-full" alt="">
+				<p class="mb-4">
+					For information on the Sanika Waterproofing Covid-19 precedures please download our policy document
+				</p>
+				<a href="https://www.dropbox.com/s/fy7bp6w4nuis4jg/Sanika%20COVID%20Letter%202020-05-28.pdf?raw=1" target="_blank" class="no-underline text-sanika-primary border border-sanika-primary px-2 py-1 hover:text-white hover:bg-black rounded ">Sanika Covid 19 Policy</a>				
 			</div>
-			<div>
-				<div class="relative px-6 text-center">
-					<div class="font-serif text-2xl text-grey-dark">
-						"The roof looks excellent and we have received quite a number of compliments on your quality of work, I look forward to working with your organization in the future"
+		</div>
+		<div class="w-full sm:w-2/3 bg-grey-lighter rounded p-4">
+			<slick
+				ref="slicktestimonials"
+				:options="slickOptions.testimonials"
+				class="w-5/6 mx-auto"
+			> 
+				<div class="">
+					<div class="relative px-6 text-center">
+						<div class="font-serif text-2xl text-grey-dark">
+							"The levels of service, and quality of products that Sanika delivers are beyond anything else on the market."
+						</div>
+						<div class="mt-4">
+							<div class="font-bold">Khaliphani Khumalo</div>
+							<div class="">Building Services Manager</div>
+							<div class="italic text-blue-light">JHI Retail (Pty) Ltd</div>
+						</div>					
 					</div>
-					<div class="mt-4">
-						<div class="font-bold">Brad O’Neill</div>
-						<div class="">Facilities Manager</div>
-						<div class="italic text-blue-light">Nando’s</div>
-					</div>					
 				</div>
-			</div>
-			<div>
-				<div class="relative px-6 text-center">
-					<div class="font-serif text-2xl text-grey-dark">
-						"Thank you for your excellent service."
+				<div>
+					<div class="relative px-6 text-center">
+						<div class="font-serif text-2xl text-grey-dark">
+							"The roof looks excellent and we have received quite a number of compliments on your quality of work, I look forward to working with your organization in the future"
+						</div>
+						<div class="mt-4">
+							<div class="font-bold">Brad O’Neill</div>
+							<div class="">Facilities Manager</div>
+							<div class="italic text-blue-light">Nando’s</div>
+						</div>					
 					</div>
-					<div class="mt-4">
-						<div class="font-bold">Jean van Niekerk</div>
-						<div class="">Industrial Cleaning &amp; Plant Hire Manager.</div>
-						<div class="italic text-blue-light">Rockent Industrial Services</div>
-					</div>					
 				</div>
-			</div>
-			<div>
-				<div class="relative px-6 text-center">
-					<div class="font-serif text-2xl text-grey-dark">
-						"You have a good team!"
+				<div>
+					<div class="relative px-6 text-center">
+						<div class="font-serif text-2xl text-grey-dark">
+							"Thank you for your excellent service."
+						</div>
+						<div class="mt-4">
+							<div class="font-bold">Jean van Niekerk</div>
+							<div class="">Industrial Cleaning &amp; Plant Hire Manager.</div>
+							<div class="italic text-blue-light">Rockent Industrial Services</div>
+						</div>					
 					</div>
-					<div class="mt-4">
-						<div class="font-bold">Ivan Lin Pr.Eng</div>
-						<div class="">Director</div>
-						<div class="italic text-blue-light">LinSpace</div>
-					</div>					
 				</div>
-			</div>
-		</slick>
+				<div>
+					<div class="relative px-6 text-center">
+						<div class="font-serif text-2xl text-grey-dark">
+							"You have a good team!"
+						</div>
+						<div class="mt-4">
+							<div class="font-bold">Ivan Lin Pr.Eng</div>
+							<div class="">Director</div>
+							<div class="italic text-blue-light">LinSpace</div>
+						</div>					
+					</div>
+				</div>
+			</slick>
+		</div>
+
 	</div>
 	@if($casestudies)
 	<div class="flex flex-wrap mt-6 mb-2 -mx-2">
@@ -319,6 +331,34 @@
 			<div><img src="/storage/clients/Petra%20Diamonds.png" alt="Petra Diamonds"></div>
 		</slick>
 	</div>
+	<div class="border-t" style="width: 100%; background-color: white; padding: 30px 0px 10px 0px; text-align: center; box-sizing: border-box;">
+	<a style="display: flex; justify-content: center; flex-wrap: wrap; width:100%; text-decoration:none; text-align:center;" href="https://sacoronavirus.co.za/">
+		<div class="main-corona-banner" style="display: inline-block; background-color: white; flex-grow: 2;">
+			<img style="width: 294px !important;" src="https://embracecloud.s3.eu-west-2.amazonaws.com/main.png" alt="South African Government COVID-19 Portal" />
+		</div>
+		<div style="display: flex; flex-grow: 4; justify-content: center; flex-wrap: wrap;">
+			<div style="display: flex; flex-grow: 1; justify-content: space-around; flex-wrap: wrap;">
+				<div class="corona-icon" style="display: inline-block; flex-grow: 0; background-color: white;">
+					<img style="width: 179px !important;" src="https://embracecloud.s3.eu-west-2.amazonaws.com/tested.png" alt="South Africa COVID-19 Tested Numbers" />
+				</div>
+				<div class="corona-icon" style="display: inline-block; flex-grow: 0; background-color: white;">
+					<img style="width: 179px !important;" src="https://embracecloud.s3.eu-west-2.amazonaws.com/positive.png" alt="South Africa COVID-19 Positive Cases" />
+				</div>
+			</div>
+			<div style="display: flex; flex-grow: 1; justify-content: space-around; flex-wrap: wrap;">
+				<div class="corona-icon" style="display: inline-block; flex-grow: 0; background-color: white;">
+					<img style="width: 179px !important;" src="https://embracecloud.s3.eu-west-2.amazonaws.com/cured.png" alt="South Africa COVID-19 Recovered Numbers" />
+				</div>
+				<div class="corona-icon" style="display: inline-block; flex-grow: 0; background-color: white;">
+					<img style="width: 179px !important;" src="https://embracecloud.s3.eu-west-2.amazonaws.com/deaths.png" alt="South Africa COVID-19 Death Numbers" />
+				</div>
+			</div>
+		</div>
+	</a>
+	<div style="text-align: center; background-color: white;">
+		<a style="font-family: arial; text-decoration: none; font-size: 11px; color: #878787;" href="https://embrace.co.za/sacoronavirus-link">Linking to sacoronavirus.co.za is now required. Find out more and get the banner.</a>
+	</div>
+</div>
 </div>
 @include('partial.footer')
 @endsection

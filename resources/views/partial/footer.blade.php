@@ -26,6 +26,7 @@
 					<a href="https://www.dropbox.com/s/y9de0flpc3imnq4/Sanika%20Tax%20Clearance%202018-2019.pdf?raw=1" target="_blank" class="no-underline text-white hover:text-sanika-primary">Tax Clearance Certificate</a>
 					<a href="https://www.dropbox.com/s/9h6zsb18c82q0w4/Sanika%20Letter%20of%20Good%20Standing%202018-2019.pdf?raw=1" target="_blank" class="no-underline text-white hover:text-sanika-primary">Letter of good standing</a>
 					<a href="https://www.dropbox.com/s/sys1roaqukgcnwo/Sanika%20Credit%20Application.pdf?raw=1" target="_blank" class="no-underline text-white hover:text-sanika-primary">Credit application</a>
+					<a href="https://www.dropbox.com/s/fy7bp6w4nuis4jg/Sanika%20COVID%20Letter%202020-05-28.pdf?raw=1" target="_blank" class="no-underline text-white hover:text-sanika-primary">Covid 19 Policy</a>
 				</div>
 			</div>
 			<div class="p-2 md:w-1/4">

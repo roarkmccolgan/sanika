@@ -71,4 +71,9 @@ class Category extends Model implements HasMedia
     {
         return $this->hasMany(\App\CaseStudy::class);
     }
+
+    public function news()
+    {
+        return $this->hasMany(\App\News::class);
+    }
 }

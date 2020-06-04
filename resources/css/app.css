@@ -108,6 +108,18 @@
 		order: 0;
 	}
 }
+ul.pagination{
+	@apply list-reset flex items-center justify-center my-10 text-lg
+}
+ul.pagination li span, ul.pagination li a {
+	@apply block p-1 rounded border border-grey-light mx-1 w-8 text-center
+}
+ul.pagination li a{
+	@apply text-sanika-primary
+}
+ul.pagination li a:hover{
+	@apply p-1 bg-sanika-primary text-white border-sanika-primary 
+}
 /*
 ***************************
 http://davidwalsh.name/css-flip [IE version]

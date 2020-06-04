@@ -12,13 +12,19 @@ class NewsController extends Controller
     {
         if ($tree) {
             $path = explode('/', $tree);
-            $last = last($path);
-            $newsitem = News::with('category')->where('alias', $last)->firstOrFail();
-            $news = News::with('category')->where('id', '!=', $newsitem->id)->whereDate('publish', '<=', Carbon::now())->latest()->get();
-
-            return view('newsitem', compact(['newsitem', 'news']));
+            if(count($path) > 1){
+                $last = last($path);
+                $newsitem = News::with('category')->where('alias', $last)->firstOrFail();
+                $news = News::with('category')->where('id', '!=', $newsitem->id)->whereDate('publish', '<=', Carbon::now())->latest()->limit(5)->get();
+                return view('newsitem', compact(['newsitem', 'news']));
+            }
+            $newsitems = News::whereHas('category', function($query) use($path){
+                $query->where('alias', last($path));
+            })->whereDate('publish', '<=', Carbon::now())->latest()->paginate(6);
+            return view('news', ['newsitems' => $newsitems, 'category' => $newsitems->first()->category->name]);
         }
-        $newsitems = News::with('category')->whereDate('publish', '<=', Carbon::now())->latest()->get();
+        
+        $newsitems = News::with('category')->whereDate('publish', '<=', Carbon::now())->latest()->paginate(6);
 
         return view('news', compact(['newsitems']));
     }
