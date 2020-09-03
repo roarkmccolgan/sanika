@@ -2,7 +2,7 @@
 	<div class="">
 		<div class="p-2">
             <slot>
-                <h2>Have a representative contact you to discuss your requrements</h2>
+                <h2>Have a representative contact you to discuss your requirements.</h2>
             </slot>
 		</div>
 		<div class="mt-2 text-base items-stretch">

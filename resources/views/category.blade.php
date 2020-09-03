@@ -73,7 +73,7 @@
 		</div>
 	</div>
 	<div class="flex flex-wrap -mx-2 mt-6 text-base">
-		@if($category['products'])
+		@if($category['products']->count())
 		<h3 class="font-extrabold uppercase w-full mb-2 px-2">@if($category->parent_id!=null) {{ $category->name }} Product Range @else Products @endif</h3>
 		@endif
 		@foreach(collect($category['products'])->chunk(3) as $chunk)
