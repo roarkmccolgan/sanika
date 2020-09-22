@@ -17,6 +17,7 @@
 					<a href="/contact" class="no-underline text-white hover:text-sanika-primary">Contact Us</a>
 					<!--a href="#" class="no-underline text-white hover:text-sanika-primary">Terms and Conditions</a-->
 					<a href="/categories/about/affiliations-and-partners" class="no-underline text-white hover:text-sanika-primary">Affiliations and Partners</a>
+					<a href="https://www.dropbox.com/s/yskrtt2c3hlipju/Sanika_Company_Profile_Web.pdf?raw=1" class="no-underline text-white hover:text-sanika-primary">Company Profile</a>
 				</div>
 			</div>
 			<div class="p-2 md:w-1/4">
