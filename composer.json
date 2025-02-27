@@ -12,6 +12,7 @@
         "akaunting/money": "^1.0",
         "algolia/algoliasearch-client-php": "^1.25",
         "auth0/login": "~5.0",
+        "coconutcraig/laravel-postmark": "^2.11",
         "fideloper/proxy": "^4.0",
         "graham-campbell/markdown": "^10.0",
         "guzzlehttp/guzzle": "^6.3",
@@ -29,7 +30,6 @@
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
         "phpunit/phpunit": "^7.0",
-        "symfony/thanks": "^1.0",
         "adamwathan/laravel-preset": "dev-master",
         "nunomaduro/collision": "^2.0",
         "beyondcode/laravel-dump-server": "^1.0"
@@ -74,7 +74,10 @@
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
-        "optimize-autoloader": true
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
