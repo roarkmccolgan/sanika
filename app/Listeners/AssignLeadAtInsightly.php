@@ -39,7 +39,7 @@ class AssignLeadAtInsightly implements ShouldQueue
                 'LAST_NAME' => $event->last_name,
                 'PHONE' => $event->telephone,
                 'MOBILE' => $event->telephone,
-                'EMAIL_ADDRESS' => $event->email,
+                'EMAIL' => $event->email,
             ],
             'auth' => [env('INSIGHTLY_API_KEY'), ''],
         ]);
