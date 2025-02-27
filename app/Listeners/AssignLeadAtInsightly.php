@@ -39,7 +39,6 @@ class AssignLeadAtInsightly implements ShouldQueue
                 'LAST_NAME' => $event->last_name,
                 'PHONE_NUMBER' => $event->telephone,
                 'EMAIL_ADDRESS' => $event->email,
-                'CUSTOMFIELDS' => $event->product->insightly['CUSTOMFIELDS'],
             ],
             'auth' => [env('INSIGHTLY_API_KEY'), ''],
         ]);
