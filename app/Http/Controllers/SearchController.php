@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Product;
+use Illuminate\Http\Response;
 
 class SearchController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -19,11 +20,13 @@ class SearchController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
+     * @param  Order  $order
+     * @return Response
      */
     public function show($query)
     {
-        return view('search', compact('query'));
+        $products = $query ? Product::search($query)->take(30)->get() : collect();
+
+        return view('search', compact('products', 'query'));
     }
 }

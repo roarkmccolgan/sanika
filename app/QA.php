@@ -10,12 +10,12 @@ class QA extends Model
 
     public function product()
     {
-        return $this->belongsTo(\App\Product::class);
+        return $this->belongsTo(Product::class);
     }
 
     public function service()
     {
-        return $this->belongsTo(\App\Service::class);
+        return $this->belongsTo(Service::class);
     }
 
     public function answers()

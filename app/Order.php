@@ -10,16 +10,16 @@ class Order extends Model
 
     public function products()
     {
-        return $this->hasManyThrough(\App\Product::class, \App\OrderItem::class);
+        return $this->hasManyThrough(Product::class, OrderItem::class);
     }
 
     public function items()
     {
-        return $this->hasMany(\App\OrderItem::class);
+        return $this->hasMany(OrderItem::class);
     }
 
     public function contact()
     {
-        return $this->hasOne(\App\Contact::class, 'user_id', 'user_id');
+        return $this->hasOne(Contact::class, 'user_id', 'user_id');
     }
 }

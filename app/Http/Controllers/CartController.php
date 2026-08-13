@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Product;
-use Akaunting\Money\Money;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -17,9 +16,9 @@ class CartController extends Controller
         $item['qty'] = empty($item) ? $request->input('qty', 1) : $item['qty'] + $request->input('qty', 1);
         $item['installation'] = $request->input('install');
         $item['price_install'] = $request->input('install') ? $product->price_install : 0;
-        $item['display_price_install'] = money($item['price_install'], 'ZAR')->render();
+        $item['display_price_install'] = zar($item['price_install']);
         $item['price'] = $product->price;
-        $item['display_price'] = money(($product->price + $item['price_install']) * $item['qty'], 'ZAR')->render();
+        $item['display_price'] = zar(($product->price + $item['price_install']) * $item['qty']);
         $item['sku'] = $product->sku;
         $item['id'] = $product->id;
         $item['name'] = $product->name;
@@ -30,7 +29,7 @@ class CartController extends Controller
         $request->session()->put('cart.items.'.$product->sku, $item);
 
         $request->session()->put('cart.total', $this->cartTotal());
-        $request->session()->put('cart.display_total', money(session('cart.total'), 'ZAR')->render());
+        $request->session()->put('cart.display_total', zar(session('cart.total')));
         $data = [
             'cart' => session('cart'),
         ];
@@ -49,16 +48,13 @@ class CartController extends Controller
             $message = 'Item/s removed';
         }
         $data = [
-            'message' => $mesage,
+            'message' => $message,
         ];
         if ($request->wantsJson()) {
             return collect($data);
         }
         $request->session()->flash('message', $message);
         $cart = session('cart');
-        \JavaScript::put([
-            'cart' => session('cart'),
-        ]);
 
         return view('cart', compact('cart'));
     }

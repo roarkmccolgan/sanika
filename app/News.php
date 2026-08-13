@@ -2,16 +2,17 @@
 
 namespace App;
 
-use Spatie\MediaLibrary\Models\Media;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\Image\Enums\Fit;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class News extends Model implements HasMedia
 {
-    use HasMediaTrait;
+    use InteractsWithMedia;
 
-    public function registerMediaCollections()
+    public function registerMediaCollections(): void
     {
         $this
             ->addMediaCollection('title')
@@ -20,13 +21,13 @@ class News extends Model implements HasMedia
             ->registerMediaConversions(function (Media $media) {
                 $this
                     ->addMediaConversion('thumb')
-                    ->fit('contain', 300, 300);
+                    ->fit(Fit::Contain, 300, 300);
                 $this
                     ->addMediaConversion('category')
-                    ->fit('contain', 400, 400);
+                    ->fit(Fit::Contain, 400, 400);
                 $this
                     ->addMediaConversion('hero')
-                    ->fit('crop', 1600, 500);
+                    ->fit(Fit::Crop, 1600, 500);
             });
         $this
             ->addMediaCollection('content');
@@ -61,11 +62,11 @@ class News extends Model implements HasMedia
 
     public function category()
     {
-        return $this->belongsTo(\App\Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function siteproducts()
     {
-        return $this->belongsToMany(\App\Product::class);
+        return $this->belongsToMany(Product::class);
     }
 }

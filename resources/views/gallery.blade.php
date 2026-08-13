@@ -37,7 +37,5 @@
 		@endforeach
 	</div>
 </div>
-<modals-container/>
-
 @include('partial.footer')
 @endsection

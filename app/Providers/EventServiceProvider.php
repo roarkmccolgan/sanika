@@ -2,8 +2,13 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Event;
+use App\Events\LeadGenerated;
+use App\Events\OrderCreated;
+use App\Listeners\AssignLeadAtInsightly;
+use App\Listeners\EventListener;
+use App\Listeners\SendOrderNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -14,13 +19,13 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         \App\Events\Event::class => [
-            \App\Listeners\EventListener::class,
+            EventListener::class,
         ],
-        \App\Events\OrderCreated::class => [
-            \App\Listeners\SendOrderNotification::class,
+        OrderCreated::class => [
+            SendOrderNotification::class,
         ],
-        \App\Events\LeadGenerated::class => [
-            \App\Listeners\AssignLeadAtInsightly::class,
+        LeadGenerated::class => [
+            AssignLeadAtInsightly::class,
         ],
     ];
 

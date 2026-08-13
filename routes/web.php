@@ -1,12 +1,15 @@
 <?php
 
-use App\News;
-use App\Order;
-use App\Category;
-use App\CaseStudy;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CaseStudyController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\GalleriesController;
+use App\Http\Controllers\LeadController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ShopController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,93 +22,33 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
-//Auth::routes();
-
-//Auth0
-Route::get('/login', 'Auth0Controller@login');
-Route::get('/logout', 'Auth0Controller@logout');
-Route::get('/auth0/callback', '\Auth0\Login\Auth0Controller@callback');
-
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::post('/contact', 'ContactController@SendMessage');
+Route::post('/contact', [ContactController::class, 'SendMessage']);
 
-Route::get('/gallery', 'GalleriesController@index');
-Route::get('/gallery/{gallery}', 'GalleriesController@show');
+Route::get('/gallery', [GalleriesController::class, 'index']);
+Route::get('/gallery/{gallery}', [GalleriesController::class, 'show']);
 
-Route::get('/search', 'SearchController@index');
+Route::get('/search', [SearchController::class, 'index'])->name('search');
 
-Route::post('/lead', 'LeadController@NewLead');
+Route::post('/lead', [LeadController::class, 'NewLead']);
 
-Route::get('/', 'ShopController@getHome');
-Route::get('/categories/{tree?}/products/{product}', 'ShopController@getProduct')->where('tree', '(.*)');
-Route::get('/categories/{tree?}', 'ShopController@getCategory')->where('tree', '(.*)');
-Route::get('/casestudies/{category?}', 'CaseStudyController@getCaseStudies');
-Route::get('/casestudies/{category}/{casestudy}', 'CaseStudyController@getCaseStudy');
-Route::get('/news/{tree?}', 'NewsController@getNewsItem')->where('tree', '(.*)');
+Route::get('/', [ShopController::class, 'getHome']);
+Route::get('/categories/{tree?}/products/{product}', [ShopController::class, 'getProduct'])->where('tree', '(.*)');
+Route::get('/categories/{tree?}', [ShopController::class, 'getCategory'])->where('tree', '(.*)');
+Route::get('/casestudies/{category?}', [CaseStudyController::class, 'getCaseStudies']);
+Route::get('/casestudies/{category}/{casestudy}', [CaseStudyController::class, 'getCaseStudy']);
+Route::get('/news/{tree?}', [NewsController::class, 'getNewsItem'])->where('tree', '(.*)');
 
-Route::get('/checkout', 'CheckoutController@showCheckout');
-Route::post('/checkout', 'CheckoutController@Checkout');
+Route::get('/checkout', [CheckoutController::class, 'showCheckout']);
+Route::post('/checkout', [CheckoutController::class, 'checkout']);
 
-Route::get('/productlist', 'ShopController@jsonList');
-
-Route::post('/productfrompdf', 'DataBaseController@productfrompdf');
-Route::post('/categoryfrompdf', 'DataBaseController@categoryfrompdf');
-Route::post('/casestudyfrompdf', 'DataBaseController@casestudyfrompdf');
-Route::post('/newsfrompdf', 'DataBaseController@newsfrompdf');
-Route::post('/galleryfrompdf', 'DataBaseController@galleryfrompdf');
-
-Route::get('/media/category/{category}/{file}', function ($category, $file) {
-    $cat = \App\Category::find($category);
-    $cat->addMedia(storage_path('source_images/'.$file))->preservingOriginal()->toMediaCollection('title');
-
-    return 'success';
-});
-Route::get('/media/product/{product}', function (Request $request, $product) {
-    if ($request->query('file')) {
-        $prod = \App\Product::find($product);
-        $prod->addMediaFromUrl($request->query('file'))->toMediaCollection('title');
-
-        return 'success';
-    }
-    abort(404);
-});
-
-Route::get('/media/casestudy/{casestudy}/{file}', function ($casestudy, $file) {
-    $casestudy = \App\CaseStudy::find($casestudy);
-    $casestudy->addMedia(storage_path('source_images/'.$file))->preservingOriginal()->toMediaCollection('title');
-
-    return 'success';
-});
-
-Route::get('/media/news/{newsitem}/{file}', function ($newsitem, $file) {
-    $newsitem = \App\News::find($newsitem);
-    $newsitem->addMedia(storage_path('source_images/'.$file))->preservingOriginal()->toMediaCollection('title');
-
-    return 'success';
-});
-
-Route::get('/listcategories', function () {
-    $categories = Category::with(['products', 'allSubCategories.products'])->orderBy('order')->where('parent_id', null)->get();
-
-    return $categories;
-});
-
-Route::get('/testmail', function () {
-    $order = Order::with(['items', 'contact'])->find(11);
-
-    /*Mail::to('roarkmccolgan@gmail.com')
-    ->send(new App\Mail\SendOrder($order));*/
-
-    return (new App\Mail\SendOrder($order))->render();
-});
-
-Route::get('/user/{user}', 'UserController@search');
+Route::get('/productlist', [ShopController::class, 'jsonList']);
 
 Route::prefix('api')->group(function () {
-    Route::post('cart', 'CartController@addToCart');
-    Route::get('clearcart', 'CartController@clearCart');
+    Route::post('cart', [CartController::class, 'addToCart']);
+    Route::get('clearcart', [CartController::class, 'clearCart']);
 
-    Route::post('checkout', 'CheckoutController@saveCheckout');
+    Route::post('checkout', [CheckoutController::class, 'saveCheckout']);
 });

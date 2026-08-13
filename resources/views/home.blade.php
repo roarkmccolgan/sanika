@@ -365,7 +365,7 @@
 @push('scripts')
     <script type="application/ld+json">
 	{
-	  "@context": "http://schema.org",
+	  "@@context": "http://schema.org",
 	  "@type": "WebSite",
 	  "url": "http://sanika.co.za/",
 	  "potentialAction": {
@@ -375,7 +375,7 @@
 	  }
 	}
 	{
-	  "@context": "http://schema.org",
+	  "@@context": "http://schema.org",
 	  "@type": "Organization",
 	  "url": "http://sanika.co.za",
 	  "logo": "http://sanika.co.za/sanika-logo.png",

@@ -408,7 +408,7 @@ p.center {
 												<td class="attribute-list-container">
 													<table width="100%" cellpadding="0" cellspacing="0">
 														<tr>
-															<td class="attribute-list-item"><strong>Amount:</strong> @money($order->value,'ZAR')</td>
+													<td class="attribute-list-item"><strong>Amount:</strong> {{ zar($order->value) }}</td>
 														</tr>
 													</table>
 												</td>
@@ -505,7 +505,7 @@ p.center {
             						@foreach($order->items as $item)
             						<tr>
             							<td width="80%" class="purchase_item">{{ $item->product->strapline }}</td>
-            							<td class="align-right" width="20%" class="purchase_item">@money($item->product->price,'ZAR')</td>
+												<td class="align-right" width="20%" class="purchase_item">{{ zar($item->product->price) }}</td>
             						</tr>
             						@endforeach
             						<tr>
@@ -513,7 +513,7 @@ p.center {
             								<p class="purchase_total purchase_total--label">Total</p>
             							</td>
             							<td width="20%" class="purchase_footer" valign="middle">
-            								<p class="purchase_total">@money($order->value,'ZAR')</p>
+													<p class="purchase_total">{{ zar($order->value) }}</p>
             							</td>
             						</tr>
             					</table>

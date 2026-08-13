@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Order;
 use App\Contact;
-use App\Auth0Token;
 use App\Events\OrderCreated;
+use App\Order;
+use App\Services\Auth0Management;
 use Illuminate\Http\Request;
-use Auth0\SDK\API\Management;
 use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
+    public function __construct(private Auth0Management $auth0) {}
+
     public function showCheckout(Request $request)
     {
         $cart = session('cart', false);
@@ -19,19 +20,19 @@ class CheckoutController extends Controller
             return redirect('/');
         }
 
-        //Check if user logged in
+        // Check if user logged in
         $isLoggedIn = Auth::check();
-        $user = $isLoggedIn ? Auth::user()->getUserInfo() : false;
+        $user = $isLoggedIn ? Auth::user() : false;
 
         $contact = [];
         if ($user) {
             $contact['basic'] = [
-                'email' => $user['email'],
-                'user_id' => $user['sub'],
+                'email' => $user->email,
+                'user_id' => Auth::id(),
             ];
-            $existingContact = Contact::where('user_id', $user['sub'])->first();
+            $existingContact = Contact::where('user_id', Auth::id())->first();
 
-            if ($existingContact->exists()) {
+            if ($existingContact) {
                 $contact['basic']['fname'] = $existingContact->fname;
                 $contact['basic']['lname'] = $existingContact->lname;
                 $contact['basic']['telephone'] = $existingContact->telephone;
@@ -61,13 +62,10 @@ class CheckoutController extends Controller
                     'postal' => $existingContact->delivery_postal,
                 ];
             }
-            session(['checkout'=>$contact]);
+            session(['checkout' => $contact]);
         }
 
-        \JavaScript::put([
-            'cart' => session('cart'),
-            'checkout' => session('checkout', false),
-        ]);
+        $checkout = session('checkout', false);
 
         return view('cart', compact(['cart', 'checkout']));
     }
@@ -78,24 +76,19 @@ class CheckoutController extends Controller
         $checkout = session('checkout');
 
         $isLoggedIn = Auth::check();
-        $user = $isLoggedIn ? Auth::user()->getUserInfo() : false;
+        $user = $isLoggedIn ? ['user_id' => Auth::id()] : false;
 
         if (! $user) {
-            $token = Auth0Token::findOrFail(1);
-            $domain = env('AUTH0_MANAGEMENT_DOMAIN');
-            $auth0Api = new Management($token->access_token, $domain);
-
-            $usersList = false;
+            $usersList = [];
 
             try {
-                $usersList = $auth0Api->usersByEmail->get(['email' => $checkout['basic']['email']]);
+                $usersList = $this->auth0->usersByEmail($checkout['basic']['email']);
             } catch (\Exception $e) {
                 report($e);
             }
             if (! $usersList) {
-                //create New User
+                // create New User
                 $newUser = [
-                    'connection' => 'Username-Password-Authentication',
                     'password' => $checkout['basic']['password'],
                     'email' => $checkout['basic']['email'],
                     'user_metadata' => [
@@ -106,7 +99,7 @@ class CheckoutController extends Controller
                 ];
 
                 try {
-                    $user = $auth0Api->users->create($newUser);
+                    $user = $this->auth0->createUser($newUser);
                 } catch (\Exception $e) {
                     report($e);
                 }
@@ -160,7 +153,7 @@ class CheckoutController extends Controller
 
             event(new OrderCreated($order));
 
-            //clear cart and checkout info
+            // clear cart and checkout info
             $request->session()->forget('cart');
             $request->session()->forget('checkout');
 
@@ -172,9 +165,9 @@ class CheckoutController extends Controller
 
     public function saveCheckout(Request $request)
     {
-        //basic
-        //billing
-        //delivery
+        // basic
+        // billing
+        // delivery
         $request->session()->put('checkout.basic', $request->input('basic'));
         $request->session()->put('checkout.billing', $request->input('billing'));
         $request->session()->put('checkout.delivery', $request->input('delivery'));

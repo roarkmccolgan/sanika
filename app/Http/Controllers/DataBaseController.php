@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\News;
-use App\Specs;
-use App\Gallery;
-use App\Product;
+use App\CaseStudy;
 use App\Category;
 use App\Features;
-use App\CaseStudy;
+use App\Gallery;
+use App\News;
+use App\Product;
+use App\Specs;
 use Carbon\Carbon;
+use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use GrahamCampbell\Markdown\Facades\Markdown;
 
 class DataBaseController extends Controller
 {
@@ -54,13 +54,13 @@ class DataBaseController extends Controller
                     $categories[] = $category->id;
                     if (isset($cat['sub-category'])) {
                         $subCategory = Category::firstOrCreate(
-                            ['alias' => str_slug($cat['sub-category']), 'parent_id'=>$category->id],
+                            ['alias' => str_slug($cat['sub-category']), 'parent_id' => $category->id],
                             ['name' => $cat['sub-category']]
                         );
                         $categories[] = $subCategory->id;
                         if (isset($cat['sub-sub-category'])) {
                             $subSubCategory = Category::firstOrCreate(
-                                ['alias' => str_slug($cat['sub-sub-category']), 'parent_id'=>$subCategory->id],
+                                ['alias' => str_slug($cat['sub-sub-category']), 'parent_id' => $subCategory->id],
                                 ['name' => $cat['sub-sub-category']]
                             );
                             $categories[] = $subSubCategory->id;
@@ -71,11 +71,11 @@ class DataBaseController extends Controller
             $insightly = false;
             if ($request->has('insightly')) {
                 $insightly = [];
-                //{"CUSTOMFIELDS": [{"FIELD_VALUE": "false", "CUSTOM_FIELD_ID": "LEAD_FIELD_6"}], "OWNER_USER_ID": 913412, "LEAD_SOURCE_ID": 294699}'
+                // {"CUSTOMFIELDS": [{"FIELD_VALUE": "false", "CUSTOM_FIELD_ID": "LEAD_FIELD_6"}], "OWNER_USER_ID": 913412, "LEAD_SOURCE_ID": 294699}'
                 $insightly['OWNER_USER_ID'] = $request->input('insightly.OWNER_USER_ID');
                 $insightly['LEAD_SOURCE_ID'] = $request->input('insightly.LEAD_SOURCE_ID');
                 if ($request->input('insightly.CUSTOMFIELDS')) {
-                    foreach ($request->input('insightly.CUSTOMFIELDS') as $key=>$value) {
+                    foreach ($request->input('insightly.CUSTOMFIELDS') as $key => $value) {
                         $insightly['CUSTOMFIELDS'][$key]['CUSTOM_FIELD_ID'] = 'LEAD_FIELD_'.$value;
                         $insightly['CUSTOMFIELDS'][$key]['FIELD_VALUE'] = true;
                     }
@@ -106,7 +106,7 @@ class DataBaseController extends Controller
             if (count($attachProducts) > 0) {
                 $product->products()->sync($attachProducts);
             }
-            //start media stuff
+            // start media stuff
             if ($request->has('image')) {
                 $image = str_replace('dl=0', 'raw=1', $request->input('image'));
                 $parts = parse_url($image);
@@ -195,17 +195,17 @@ class DataBaseController extends Controller
                     $product->addMediaFromUrl($specifications)->usingFileName($slug_name)->usingName($file_name)->toMediaCollection('specifications');
                 }
             }
-            //end media stuff
+            // end media stuff
             if ($request->has('features')) {
                 $product->features()->delete();
                 foreach ($request->input('features') as $feature) {
-                    Features::create(['name'=>$feature, 'product_id'=>$product->id]);
+                    Features::create(['name' => $feature, 'product_id' => $product->id]);
                 }
             }
             if ($request->has('spec') && count($request->input('spec')) > 0) {
                 $product->specs()->delete();
                 foreach ($request->input('spec') as $spec) {
-                    Specs::create(['spec'=>$spec['spec'], 'value'=>$spec['value'], 'product_id'=>$product->id]);
+                    Specs::create(['spec' => $spec['spec'], 'value' => $spec['value'], 'product_id' => $product->id]);
                 }
             }
             $message = 'Success!\n'.$product->name.' Successfully Saved';
@@ -240,14 +240,14 @@ class DataBaseController extends Controller
                 $categories[] = $category->id;
                 if (isset($cat['sub-category'])) {
                     $subCategory = Category::firstOrCreate(
-                        ['alias' => str_slug($cat['sub-category']), 'parent_id'=>$category->id],
+                        ['alias' => str_slug($cat['sub-category']), 'parent_id' => $category->id],
                         ['name' => $cat['sub-category']]
                     );
                     $categoryToEdit = $subCategory;
                     $categories[] = $subCategory->id;
                     if (isset($cat['sub-sub-category'])) {
                         $subSubCategory = Category::firstOrCreate(
-                            ['alias' => str_slug($cat['sub-sub-category']), 'parent_id'=>$subCategory->id],
+                            ['alias' => str_slug($cat['sub-sub-category']), 'parent_id' => $subCategory->id],
                             ['name' => $cat['sub-sub-category']]
                         );
                         $categoryToEdit = $subSubCategory;

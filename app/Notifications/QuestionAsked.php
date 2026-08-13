@@ -3,9 +3,8 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Notification;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
 
 class QuestionAsked extends Notification
 {
@@ -47,16 +46,16 @@ class QuestionAsked extends Notification
      * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
+     * @return MailMessage
      */
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->greeting('MaxRenew New Question')
-                    ->line('A question about '.$this->product->name.' was asked by '.$this->fullname)
-                    ->line('Question: '.$this->question->comment)
-                    ->action('Reply', url($this->product->path.'/'.$this->product->alias))
-                    ->line('Please answer ASAP!');
+            ->greeting('MaxRenew New Question')
+            ->line('A question about '.$this->product->name.' was asked by '.$this->fullname)
+            ->line('Question: '.$this->question->comment)
+            ->action('Reply', url($this->product->path.'/'.$this->product->alias))
+            ->line('Please answer ASAP!');
     }
 
     /**

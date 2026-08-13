@@ -5,22 +5,16 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
- require('./bootstrap');
+ import './bootstrap';
+ import { configureCompat, createApp } from 'vue';
+ import Swal from 'sweetalert2';
+ import ExampleComponent from './components/ExampleComponent.vue';
+ import CartComponent from './components/CartComponent.vue';
+ import ContactComponent from './components/ContactComponent.vue';
+ import LeadComponent from './components/LeadComponent.vue';
 
- window.Vue = require('vue');
+ import { Slick, Tab, Tabs, VueTyper } from './legacy-components';
 
- import InstantSearch from 'vue-instantsearch'
- import { createFromAlgoliaCredentials } from 'vue-instantsearch';
- import VueSweetalert2 from 'vue-sweetalert2';
- import VueTyperPlugin from 'vue-typer';
- Vue.use(VueTyperPlugin);
-
- import Slick from 'vue-slick';
-
- import VModal from 'vue-js-modal'
- Vue.use(VModal, { dynamic: true })
-
- import { library } from '@fortawesome/fontawesome-svg-core'
  import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch'
  import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes'
  import { faSync } from '@fortawesome/free-solid-svg-icons/faSync'
@@ -38,29 +32,17 @@
 
  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
- import {Tabs, Tab} from 'vue-tabs-component';
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
- Vue.use(InstantSearch);
- Vue.use(VueSweetalert2);
+ configureCompat({ MODE: 2 });
 
- const searchStore = createFromAlgoliaCredentials('9PJ4YRKD8R', '70da05b28f4fcec86d4d4197851214af');
- searchStore.indexName = 'sanika_products';
-
- Vue.component('example-component', require('./components/ExampleComponent.vue'));
- var CartComponent = require('./components/CartComponent.vue');
- var ContactComponent = require('./components/ContactComponent.vue');
- var LeadComponent = require('./components/LeadComponent.vue');
- Vue.component('tabs', Tabs);
- Vue.component('tab', Tab);
-
- const home = new Vue({
- 	el: '#app',
- 	data: {
+ const root = {
+    data() {
+        return {
         showNews: false,
  		slickOptions: {
             gallery:{
@@ -140,7 +122,6 @@
 	 		},
  		},
  		showMenu: false,
- 		searchStore,
  		icons:{
  			search: faSearch,
  			times: faTimes,
@@ -302,6 +283,7 @@
  			complete: false,
  		},
  		currentTypedString: 'Leaking Roof',
+        };
  	},
  	computed: {
  		mobileMenu: function(){
@@ -333,30 +315,8 @@
  				console.log(error);
  			});
  		},
- 		showGalleryImage: function(url, title){
- 			this.$modal.show(
- 			{
- 				template: `
- 				<div>
- 				<img :src="img" class="block w-full" />
- 				<span class="block text-center">{{ name }}</span>
- 				</div>
- 				`,
- 				props: ['img','name']
- 			},
- 			{
- 				img: url,
- 				name: title,
- 			},
- 			{
- 				'min-width':200,
- 				'min-height':200,
- 				adaptive:true,
- 				reset:true,
- 				width:"60%",
- 				height:"auto"
- 			}
- 			);
+		showGalleryImage: function(url, title){
+			Swal.fire({ title, imageUrl: url, imageAlt: title, width: '70%' });
  		},
  		typeComplete: function(typedString){
  			this.currentTypedString = typedString;
@@ -510,4 +470,17 @@
         }
         setTimeout(this.showLatestNews, 2000);
     }
-});
+};
+
+const app = createApp(root);
+app.component('example-component', ExampleComponent);
+app.component('cart-component', CartComponent);
+app.component('contact-component', ContactComponent);
+app.component('lead-component', LeadComponent);
+app.component('font-awesome-icon', FontAwesomeIcon);
+app.component('slick', Slick);
+app.component('tabs', Tabs);
+app.component('tab', Tab);
+app.component('vue-typer', VueTyper);
+app.config.globalProperties.$swal = (...args) => Swal.fire(...args);
+app.mount('#app');

@@ -14,7 +14,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
     {{-- <link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:700" rel="stylesheet"> --}}
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"> --}}
     
@@ -28,8 +28,12 @@
     @yield('body')
 </div>
 @stack('scripts')
-@include('partial.jsvars')
-<script src="{{ mix('js/app.js') }}"></script>
+<script>
+    window.cart = @json(session('cart'));
+    window.checkout = @json(session('checkout', false));
+    window.product = @json($product ?? null);
+</script>
+@vite('resources/js/app.js')
 
 </body>
 </html>

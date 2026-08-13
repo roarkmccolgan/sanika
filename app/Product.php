@@ -2,15 +2,16 @@
 
 namespace App;
 
-use Laravel\Scout\Searchable;
-use Spatie\MediaLibrary\Models\Media;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Laravel\Scout\Searchable;
+use Spatie\Image\Enums\Fit;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Product extends Model implements HasMedia
 {
-    use HasMediaTrait;
+    use InteractsWithMedia;
     use Searchable;
 
     /**
@@ -31,7 +32,7 @@ class Product extends Model implements HasMedia
         return $array;
     }
 
-    public function registerMediaCollections()
+    public function registerMediaCollections(): void
     {
         $this
             ->addMediaCollection('title')
@@ -39,11 +40,11 @@ class Product extends Model implements HasMedia
             ->singleFile()
             ->registerMediaConversions(function (Media $media) {
                 $this
-                ->addMediaConversion('thumb')
-                ->fit('contain', 300, 300);
+                    ->addMediaConversion('thumb')
+                    ->fit(Fit::Contain, 300, 300);
                 $this
-                ->addMediaConversion('product')
-                ->fit('contain', 400, 400);
+                    ->addMediaConversion('product')
+                    ->fit(Fit::Contain, 400, 400);
             });
         $this
             ->addMediaCollection('content');
@@ -51,8 +52,8 @@ class Product extends Model implements HasMedia
             ->addMediaCollection('gallery')
             ->registerMediaConversions(function (Media $media) {
                 $this
-                ->addMediaConversion('thumb')
-                ->fit('contain', 400, 400);
+                    ->addMediaConversion('thumb')
+                    ->fit(Fit::Contain, 400, 400);
             });
         $this
             ->addMediaCollection('application');
@@ -93,42 +94,42 @@ class Product extends Model implements HasMedia
 
     public function orders()
     {
-        return $this->hasMany(\App\Order::class);
+        return $this->hasMany(Order::class);
     }
 
     public function categories()
     {
-        return $this->belongsToMany(\App\Category::class);
+        return $this->belongsToMany(Category::class);
     }
 
     public function services()
     {
-        return $this->belongsToMany(\App\Service::class);
+        return $this->belongsToMany(Service::class);
     }
 
     public function promotions()
     {
-        return $this->belongsToMany(\App\Promotions::class);
+        return $this->belongsToMany(Promotions::class);
     }
 
     public function features()
     {
-        return $this->hasMany(\App\Features::class);
+        return $this->hasMany(Features::class);
     }
 
     public function specs()
     {
-        return $this->hasMany(\App\Specs::class);
+        return $this->hasMany(Specs::class);
     }
 
     public function stocks()
     {
-        return $this->hasMany(\App\Stock::class);
+        return $this->hasMany(Stock::class);
     }
 
     public function prices()
     {
-        return $this->hasMany(\App\Price::class);
+        return $this->hasMany(Price::class);
     }
 
     public function products()
@@ -138,6 +139,6 @@ class Product extends Model implements HasMedia
 
     public function questions()
     {
-        return $this->hasMany(\App\QA::class);
+        return $this->hasMany(QA::class);
     }
 }

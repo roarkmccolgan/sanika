@@ -29,7 +29,7 @@
 							<td class="font-semibold p-4 pl-0 border-b border-grey-light">{{ $item['strapline'] }}</td>
 							<td class="font-semibold p-4 pl-0 border-b border-grey-light">{{ $item['qty'] }}</td>
 							<td class="font-semibold p-4 pl-0 border-b border-grey-light">{{ $item['installation'] }}</td>
-							<td class="font-semibold p-4 pl-0 border-b border-grey-light">{{ money($item['price'],'ZAR') }}</td>
+							<td class="font-semibold p-4 pl-0 border-b border-grey-light">{{ zar($item['price']) }}</td>
 							<td class="font-semibold p-4 pl-0 border-b border-grey-light">{{ $item['display_price'] }}</td>
 						</tr>
 						@endforeach

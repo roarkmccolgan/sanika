@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
-use App\Category;
 use App\CaseStudy;
+use App\Category;
+use App\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Config;
 
 class ShopController extends Controller
@@ -14,10 +13,6 @@ class ShopController extends Controller
     public function getHome(Request $request)
     {
         $casestudies = CaseStudy::latest()->take(3)->get();
-
-        \JavaScript::put([
-            'cart' => session('cart'),
-        ]);
 
         return view('home', compact(['casestudies']));
     }
@@ -35,7 +30,7 @@ class ShopController extends Controller
     }*/
     public function getCategory(Request $request, $tree = null)
     {
-        //return session('cart');
+        // return session('cart');
         if ($tree) {
             $path = explode('/', $tree);
             $last = last($path);
@@ -50,18 +45,14 @@ class ShopController extends Controller
 
     public function getProduct(Request $request, $tree, $product)
     {
-        //return session('cart');
+        // return session('cart');
         if ($tree) {
             $path = explode('/', $tree);
             $last = last($path);
             $product = Product::with('products')->where('alias', $product)->firstOrFail();
             $category = Category::with('products')->where('alias', $last)->firstOrFail();
-            //return $product;
-            \JavaScript::put([
-                'product' => $product,
-                'cart' => session('cart'),
-            ]);
 
+            // return $product;
             return view('product', compact(['product', 'category']));
         }
         abort(404);

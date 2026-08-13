@@ -2,25 +2,26 @@
 
 namespace App;
 
-use Spatie\MediaLibrary\Models\Media;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\Image\Enums\Fit;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Gallery extends Model implements HasMedia
 {
-    use HasMediaTrait;
+    use InteractsWithMedia;
 
-    public function registerMediaCollections()
+    public function registerMediaCollections(): void
     {
         $this
             ->addMediaCollection('gallery')
             ->useDisk('media')
             ->registerMediaConversions(function (Media $media) {
                 $this
-                ->addMediaConversion('thumb')
-                ->fit('contain', 400, 400)
-                ->withResponsiveImages();
+                    ->addMediaConversion('thumb')
+                    ->fit(Fit::Contain, 400, 400)
+                    ->withResponsiveImages();
             });
     }
 

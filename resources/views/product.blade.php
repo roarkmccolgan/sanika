@@ -60,7 +60,7 @@
 								System Price
 							</div>
 							@endif
-							@money(548300,'ZAR')
+							{{ zar(548300) }}
 							<span class="text-sm font-medium text-grey-dark">
 								inc.Vat
 							</span>

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
 use App\CaseStudy;
+use App\Category;
 use Illuminate\Http\Request;
 
 class CaseStudyController extends Controller

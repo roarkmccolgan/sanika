@@ -2,18 +2,15 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use PHPUnit\Framework\TestCase;
 
 class ExampleTest extends TestCase
 {
     /**
      * A basic test example.
-     *
-     * @return void
      */
-    public function testBasicTest()
+    public function test_currency_values_are_stored_as_cents(): void
     {
-        $this->assertTrue(true);
+        $this->assertSame('R 5 483,00', zar(548300));
     }
 }

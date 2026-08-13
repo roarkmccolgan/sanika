@@ -2,16 +2,17 @@
 
 namespace App;
 
-use Spatie\MediaLibrary\Models\Media;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\Image\Enums\Fit;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Category extends Model implements HasMedia
 {
-    use HasMediaTrait;
+    use InteractsWithMedia;
 
-    public function registerMediaCollections()
+    public function registerMediaCollections(): void
     {
         $this
             ->addMediaCollection('title')
@@ -19,23 +20,20 @@ class Category extends Model implements HasMedia
             ->singleFile()
             ->registerMediaConversions(function (Media $media) {
                 $this
-                ->addMediaConversion('thumb')
-                ->fit('contain', 300, 300);
+                    ->addMediaConversion('thumb')
+                    ->fit(Fit::Contain, 300, 300);
                 $this
-                ->addMediaConversion('category')
-                ->fit('contain', 400, 400);
+                    ->addMediaConversion('category')
+                    ->fit(Fit::Contain, 400, 400);
             });
         $this
-            ->addMediaCollection('property') //affiliations or other
+            ->addMediaCollection('property') // affiliations or other
             ->useDisk('media')
             ->registerMediaConversions(function (Media $media) {
                 $this
-                ->addMediaConversion('thumb')
-                ->fit('contain', 400, 400);
+                    ->addMediaConversion('thumb')
+                    ->fit(Fit::Contain, 400, 400);
             });
-        $this
-            ->addMediaCollection('property') //affiliations or other
-            ->useDisk('media');
     }
 
     public $timestamps = false;
@@ -59,21 +57,21 @@ class Category extends Model implements HasMedia
 
     public function services()
     {
-        return $this->belongsToMany(\App\Service::class);
+        return $this->belongsToMany(Service::class);
     }
 
     public function products()
     {
-        return $this->belongsToMany(\App\Product::class);
+        return $this->belongsToMany(Product::class);
     }
 
     public function casestudies()
     {
-        return $this->hasMany(\App\CaseStudy::class);
+        return $this->hasMany(CaseStudy::class);
     }
 
     public function news()
     {
-        return $this->hasMany(\App\News::class);
+        return $this->hasMany(News::class);
     }
 }

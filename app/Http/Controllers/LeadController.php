@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\LeadGenerated;
 use App\Product;
 use Illuminate\Http\Request;
-use App\Events\LeadGenerated;
 
 class LeadController extends Controller
 {
@@ -21,7 +21,7 @@ class LeadController extends Controller
         event(new LeadGenerated($product, $first_name, $last_name, $email, $telephone));
 
         if ($request->wantsJson()) {
-            return ['message'=>'success'];
+            return ['message' => 'success'];
         }
     }
 }

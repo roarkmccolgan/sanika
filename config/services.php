@@ -1,6 +1,19 @@
 <?php
 
+use App\User;
+
 return [
+
+    'postmark' => [
+        'token' => env('POSTMARK_TOKEN'),
+    ],
+
+    'auth0_management' => [
+        'domain' => env('AUTH0_MANAGEMENT_DOMAIN', env('AUTH0_DOMAIN')),
+        'client_id' => env('AUTH0_MANAGEMENT_CLIENT_ID'),
+        'client_secret' => env('AUTH0_MANAGEMENT_CLIENT_SECRET'),
+        'audience' => env('AUTH0_MANAGEMENT_AUDIENCE'),
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -31,7 +44,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => App\User::class,
+        'model' => User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
         'webhook' => [

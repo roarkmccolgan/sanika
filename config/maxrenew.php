@@ -14,7 +14,7 @@ return [
                 'keywords' => [],
             ],
             'images' => [
-                'tile'=>[
+                'tile' => [
                     'name' => 'greywater-100.jpg',
                     'title' => '',
                 ],
@@ -80,7 +80,7 @@ return [
                 'keywords' => [],
             ],
             'images' => [
-                'tile'=>[
+                'tile' => [
                     'name' => 'rainwater-100.jpg',
                     'title' => '',
                 ],
@@ -239,7 +239,7 @@ return [
                 'keywords' => [],
             ],
             'images' => [
-                'tile'=>[
+                'tile' => [
                     'name' => 'backup-100.jpg',
                     'title' => '',
                 ],
@@ -421,7 +421,7 @@ return [
                 'keywords' => [],
             ],
             'images' => [
-                'tile'=>[
+                'tile' => [
                     'name' => 'solargeyser-100.jpg',
                     'title' => '',
                 ],
@@ -648,7 +648,7 @@ return [
                 'keywords' => [],
             ],
             'images' => [
-                'tile'=>[
+                'tile' => [
                     'name' => 'streetlighting-100.jpg',
                     'title' => '',
                 ],
@@ -715,7 +715,7 @@ return [
                 'keywords' => [],
             ],
             'images' => [
-                'tile'=>[
+                'tile' => [
                     'name' => 'solar-100.jpg',
                     'title' => '',
                 ],
@@ -825,7 +825,7 @@ return [
                 'keywords' => [],
             ],
             'images' => [
-                'tile'=>[
+                'tile' => [
                     'name' => '',
                     'title' => '',
                 ],

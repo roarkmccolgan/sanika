@@ -8,6 +8,6 @@ class Stock extends Model
 {
     public function product()
     {
-        return $this->hasOne(\App\Product::class);
+        return $this->hasOne(Product::class);
     }
 }
