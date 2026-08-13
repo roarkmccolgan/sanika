@@ -52,8 +52,8 @@
 import Qs from 'qs'
 window.Qs = Qs;
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSync } from '@fortawesome/pro-regular-svg-icons/faSync'
-import { faEnvelope } from '@fortawesome/pro-regular-svg-icons/faEnvelope'
+import { faSync } from '@fortawesome/free-solid-svg-icons/faSync'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 export default {

@@ -6,35 +6,6 @@
 				Please feel free to contact us using the details below for any information you require.
 			</p>
 		</div>
-        <div class="flex mt-6 text-base flex-wrap sm:-mx-2">
-            <div class="p-2 flex-1">
-                <div class="border flex-1">
-                    <h3 class="font-medium mb-4 text-white bg-grey-darker p-2">Sales Enquiries</h3>
-                    <div class="p-4">
-                        <strong>Sandor Dowling</strong><br/>
-                        <a class="text-sanika-secondary" href="tel:+27829225586">+27 (0)82 922-5586</a><br/>
-                    </div>
-                </div>
-            </div>
-            <div class="p-2 flex-1">
-                <div class="border">
-                    <h3 class="font-medium mb-4 text-white bg-grey-darker p-2">Technical Enquiries</h3>
-                    <div class="p-4">
-                        <strong>Colte Smit</strong><br/>
-                        <a class="text-sanika-secondary" href="tel:+27829285788">+27 (0)82 928-5788</a><br/>
-                    </div>
-                </div>
-            </div>
-            <div class="p-2 flex-1">
-                <div class="border">
-                    <h3 class="font-medium mb-4 text-white bg-grey-darker p-2">Management Enquiries</h3>
-                    <div class="p-4">
-                        <strong>Tanika McColgan</strong><br/>
-                        <a class="text-sanika-secondary" href="tel:+27837934504">+27 (0)83 793-4504</a><br/>
-                    </div>
-                </div>
-            </div>
-        </div>
 		<div class="flex mt-2 text-base items-stretch flex-wrap sm">
 			<div class="w-full sm:px-2 sm:w-1/2">
 				<div class="px-4 py-2 border border-red bg-red-lightest text-red-light mb-2" v-show="submitError">
@@ -191,8 +162,8 @@
 import Qs from 'qs'
 window.Qs = Qs;
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSync } from '@fortawesome/pro-regular-svg-icons/faSync'
-import { faEnvelope } from '@fortawesome/pro-regular-svg-icons/faEnvelope'
+import { faSync } from '@fortawesome/free-solid-svg-icons/faSync'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 export default {
