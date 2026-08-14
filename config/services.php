@@ -15,6 +15,11 @@ return [
         'audience' => env('AUTH0_MANAGEMENT_AUDIENCE'),
     ],
 
+    'insightly' => [
+        'endpoint' => env('INSIGHTLY_API_ENDPOINT'),
+        'key' => env('INSIGHTLY_API_KEY'),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Third Party Services
