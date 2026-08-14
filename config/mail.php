@@ -32,4 +32,8 @@ return [
         'address' => env('MAIL_FROM_ADDRESS', 'notifications@sanika.co.za'),
         'name' => env('MAIL_FROM_NAME', 'Sanika'),
     ],
+
+    'contact' => [
+        'to' => env('MAIL_TO_CONTACT', 'info@sanika.co.za'),
+    ],
 ];
